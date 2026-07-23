@@ -97,7 +97,7 @@ const CrearCita = ({ visible, onClose, onCreate, infoCreacion }) => {
       setLoadingHoras(true);
 
       const token = await AsyncStorage.getItem('token');
-      const response = await axios.get(`https://vianney-server.onrender.com/citas/disponibilidad`, {
+      const response = await axios.get(`https://peluqueria-server-gw54.onrender.com/citas/disponibilidad`, {
         params: {
           servicioID: getId(servicioSel),
           barberoID: getId(barberoSel),
@@ -160,7 +160,7 @@ const CrearCita = ({ visible, onClose, onCreate, infoCreacion }) => {
       const token = await AsyncStorage.getItem('token');
       if (!token) throw new Error('Token no encontrado');
 
-      const response = await axios.post(`https://vianney-server.onrender.com/citas`, payload, {
+      const response = await axios.post(`https://peluqueria-server-gw54.onrender.com/citas`, payload, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -253,12 +253,12 @@ const CrearCita = ({ visible, onClose, onCreate, infoCreacion }) => {
 
   const Paso2 = () => (
     <View style={styles.pasoContainer}>
-      <Text style={styles.subtitulo}>Selecciona el barbero</Text>
+      <Text style={styles.subtitulo}>Selecciona la estilista</Text>
       <View style={styles.buscadorContainer}>
         <MaterialIcons name="search" size={20} color="#666" />
         <TextInput
           style={styles.buscadorInput}
-          placeholder="Buscar barbero"
+          placeholder="Buscar estilista"
           value={busBarbero}
           onChangeText={setBusBarbero}
         />
@@ -531,7 +531,7 @@ const CrearCita = ({ visible, onClose, onCreate, infoCreacion }) => {
       <View style={styles.infoConfirmacion}>
         {[
           ['Servicio:', servicioSel?.nombre],
-          ['Barbero:',  barberoSel?.nombre],
+          ['Estilista:',  barberoSel?.nombre],
           !isClient && ['Cliente:', clienteSel?.nombre || (isTempClient ? tempNombre : '')],
           [
             'Fecha:',
@@ -590,7 +590,7 @@ const CrearCita = ({ visible, onClose, onCreate, infoCreacion }) => {
           <View style={styles.modalHeader}>
             <Text style={styles.modalTitle}>
               {
-                ['Servicio', 'Barbero', isClient ? 'Fecha & Hora' : 'Cliente', 'Fecha & Hora', 'Revisión'][
+                ['Servicio', 'Estilista', isClient ? 'Fecha & Hora' : 'Cliente', 'Fecha & Hora', 'Revisión'][
                   paso - 1
                 ]
               }

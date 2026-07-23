@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, useWindowDimensions, Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-// ✅ Agregamos prop "dark" para cambiar el tema
 const Footer = ({ dark = false }) => {
   const { width } = useWindowDimensions();
   const isMobile = width < 768;
@@ -11,14 +10,14 @@ const Footer = ({ dark = false }) => {
     <View style={[
       styles.container, 
       isMobile && styles.mobileContainer,
-      dark && styles.darkContainer // ✅ Aplicar tema oscuro si dark=true
+      dark && styles.darkContainer
     ]}>
       <View style={styles.content}>
-        <Text style={[styles.text, dark && styles.darkText]}>© 2025 - 2026.</Text>
+        <Text style={[styles.text, dark && styles.darkText]}>© 2025 - 2026. Salón Alba Quiceno</Text>
 
         <View style={[styles.authors, isMobile && styles.authorsMobile]}>
           <TouchableOpacity style={styles.authorLink}>
-            <Ionicons name="person" size={14} color={dark ? "#D4AF37" : "#6c757d"} />
+            <Ionicons name="person" size={14} color={dark ? "#7FFFD4" : "#1E90FF"} />
             <Text style={[styles.text, styles.highlight, dark && styles.darkHighlight]}>
               {' '}Nicoll Andrea Giraldo Franco.
             </Text>
@@ -27,7 +26,7 @@ const Footer = ({ dark = false }) => {
           {!isMobile && <Text style={[styles.text, dark && styles.darkText]}> | </Text>}
 
           <TouchableOpacity style={styles.authorLink}>
-            <Ionicons name="person" size={14} color={dark ? "#D4AF37" : "#6c757d"} />
+            <Ionicons name="person" size={14} color={dark ? "#7FFFD4" : "#1E90FF"} />
             <Text style={[styles.text, styles.highlight, dark && styles.darkHighlight]}>
               {' '}Luis Miguel Chica Ruíz.
             </Text>
@@ -40,20 +39,19 @@ const Footer = ({ dark = false }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#FFFFFF',
     paddingVertical: 8,
     borderTopWidth: 1,
-    borderTopColor: '#e0e0e0',
-    shadowColor: '#000',
+    borderTopColor: '#7FFFD4',
+    shadowColor: '#1A1A1A',
     shadowOffset: { width: 0, height: -2 },
     shadowOpacity: 0.05,
     shadowRadius: 4,
     elevation: 2,
   },
-  // ✅ TEMA OSCURO
   darkContainer: {
-    backgroundColor: '#000',
-    borderTopColor: '#D4AF37',
+    backgroundColor: '#1A1A1A',
+    borderTopColor: '#7FFFD4',
   },
   mobileContainer: {
     position: 'fixed',
@@ -87,19 +85,17 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 13,
-    color: '#6c757d',
+    color: '#1A1A1A',
   },
-  // ✅ TEXTO BLANCO EN TEMA OSCURO
   darkText: {
-    color: '#fff',
+    color: '#FFFFFF',
   },
   highlight: {
-    color: '#424242',
+    color: '#1E90FF',
     fontWeight: '500',
   },
-  // ✅ HIGHLIGHT DORADO EN TEMA OSCURO
   darkHighlight: {
-    color: '#D4AF37',
+    color: '#7FFFD4',
   },
 });
 

@@ -210,7 +210,7 @@ const fetchBarberos = async () => {
   try {
     if (!refreshing) setLoading(true);
     const token = await AsyncStorage.getItem('token');
-    const { data } = await axios.get('https://vianney-server.onrender.com/barberos', {
+    const { data } = await axios.get('https://peluqueria-server-gw54.onrender.com/barberos', {
       headers: { Authorization: `Bearer ${token}` },
       params: { 
         all: true,
@@ -249,7 +249,7 @@ const fetchBarberos = async () => {
 
     setBarberos(list);
   } catch (err) {
-    const msg = err.response?.data?.mensaje || 'No se pudieron cargar los barberos';
+    const msg = err.response?.data?.mensaje || 'No se pudieron cargar las estilistas';
     showInfo('Error', msg, 'error');
   } finally {
     setLoading(false);
@@ -310,7 +310,7 @@ const fetchBarberos = async () => {
     try {
       const token = await AsyncStorage.getItem('token');
       await axios.post(
-        'https://vianney-server.onrender.com/barberos',
+        'https://peluqueria-server-gw54.onrender.com/barberos',
         {
           nombre: nuevo.nombre,
           cedula: nuevo.cedula,
@@ -328,9 +328,9 @@ const fetchBarberos = async () => {
       setModalCrearVisible(false);
       setPaginaActual(1);
       await fetchBarberos();
-      showInfo('🎉 ¡Barbero creado!', 'Email de verificación enviado', 'success');
+      showInfo('🎉 ¡Estilista creada!', 'Email de verificación enviado', 'success');
     } catch (e) {
-      const msg = e.response?.data?.mensaje || 'Error al crear barbero';
+      const msg = e.response?.data?.mensaje || 'Error al crear estilista';
       showInfo('Error', msg, 'error');
     }
   };
@@ -340,7 +340,7 @@ const fetchBarberos = async () => {
     try {
       const token = await AsyncStorage.getItem('token');
       const { data } = await axios.get(
-        `https://vianney-server.onrender.com/barberos/by-id/${id}`,
+        `https://peluqueria-server-gw54.onrender.com/barberos/by-id/${id}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       const b = data.barbero;
@@ -355,12 +355,12 @@ const fetchBarberos = async () => {
         estaVerificado: b.usuario?.estaVerificado || false,
         email: b.usuario?.email || '',
         usuarioID: b.usuario?.id || null,
-        rol: b.usuario?.rol?.nombre || 'BARBERO',
+        rol: b.usuario?.rol?.nombre || 'ESTILISTA',
         rolID: b.usuario?.rol?.id || 2,
       });
       setModalDetalleVisible(true);
     } catch {
-      showInfo('Error', 'No se pudo cargar el barbero', 'error');
+      showInfo('Error', 'No se pudo cargar el estilista', 'error');
     }
   };
 
@@ -369,7 +369,7 @@ const fetchBarberos = async () => {
     try {
       const token = await AsyncStorage.getItem('token');
       const { data } = await axios.get(
-        `https://vianney-server.onrender.com/barberos/by-id/${id}`,
+        `https://peluqueria-server-gw54.onrender.com/barberos/by-id/${id}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       const b = data.barbero;
@@ -384,12 +384,12 @@ const fetchBarberos = async () => {
         estaVerificado: b.usuario?.estaVerificado || false,
         email: b.usuario?.email || '',
         usuarioID: b.usuario?.id || null,
-        rol: b.usuario?.rol?.nombre || 'BARBERO',
+        rol: b.usuario?.rol?.nombre || 'ESTILISTA',
         rolID: b.usuario?.rol?.id || 2,
       });
       setModalEditarVisible(true);
     } catch {
-      showInfo('Error', 'No se pudo cargar el barbero', 'error');
+      showInfo('Error', 'No se pudo cargar la estilista', 'error');
     }
   };
 
@@ -417,14 +417,14 @@ const handleUpdateBarbero = async (u) => {
     }
 
     await axios.put(
-      `https://vianney-server.onrender.com/barberos/${u.id}`,
+      `https://peluqueria-server-gw54.onrender.com/barberos/${u.id}`,
       datosActualizacion,
       { headers: { Authorization: `Bearer ${token}` } }
     );
 
     setModalEditarVisible(false);
     await fetchBarberos();
-    showInfo('✅ Barbero actualizado', 'Datos modificados correctamente', 'success');
+    showInfo('✅ Estilista actualizada', 'Datos modificados correctamente', 'success');
   } catch (e) {
     const msg = e.response?.data?.mensaje || 'Error al actualizar';
     showInfo('Error', msg, 'error');
@@ -437,7 +437,7 @@ const handleUpdateBarbero = async (u) => {
       setSendingEmail(true);
       const token = await AsyncStorage.getItem('token');
       await axios.post(
-        `https://vianney-server.onrender.com/barberos/${id}/reenviar-verificacion`,
+        `https://peluqueria-server-gw54.onrender.com/barberos/${id}/reenviar-verificacion`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -461,16 +461,16 @@ const handleUpdateBarbero = async (u) => {
     setDeleting(true);
     try {
       const token = await AsyncStorage.getItem('token');
-      await axios.delete(`https://vianney-server.onrender.com/barberos/${idAEliminar}`, {
+      await axios.delete(`https://peluqueria-server-gw54.onrender.com/barberos/${idAEliminar}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       await fetchBarberos();
       setPaginaActual(1);
-      showInfo('🗑️ Eliminado', 'Barbero eliminado correctamente', 'success');
+      showInfo('🗑️ Eliminado', 'Estilista eliminada correctamente', 'success');
     } catch (e) {
       const msg = e.response?.data?.mensaje || '';
       if (msg.toLowerCase().includes('citas')) {
-        showInfo('⚠️ No puedes eliminar', 'Este barbero tiene citas asociadas', 'warning');
+        showInfo('⚠️ No puedes eliminar', 'Esta estilista tiene citas asociadas', 'warning');
       } else {
         showInfo('Error', msg || 'No se pudo eliminar', 'error');
       }
@@ -494,7 +494,7 @@ const handleUpdateBarbero = async (u) => {
           {/* — header + buscador — */}
           <View style={styles.header}>
             <View style={styles.headerLeft}>
-              <Text style={styles.title}>Barberos</Text>
+              <Text style={styles.title}>Estilistas</Text>
               <View style={styles.counter}>
                 <Text style={styles.counterText}>{barberosFiltrados.length}</Text>
               </View>
@@ -506,7 +506,7 @@ const handleUpdateBarbero = async (u) => {
           </View>
 
           <Buscador
-            placeholder="Buscar barberos"
+            placeholder="Buscar estilistas"
             value={busqueda}
             onChangeText={handleSearchChange}
           />
@@ -515,7 +515,7 @@ const handleUpdateBarbero = async (u) => {
           {loading ? (
             <View style={styles.loadingContainer}>
               <ActivityIndicator size="large" color="#424242" />
-              <Text style={styles.loadingText}>Cargando barberos...</Text>
+              <Text style={styles.loadingText}>Cargando estilistas...</Text>
             </View>
           ) : !isMobile ? (
             <>
@@ -656,7 +656,7 @@ const handleUpdateBarbero = async (u) => {
         onCancel={cancelarEliminacion} // CORRECCIÓN: Usar la función correcta
         onConfirm={confirmarEliminacion}
         title="Eliminar barbero"
-        message="¿Estás seguro de eliminar este barbero?"
+        message="¿Estás seguro de eliminar esta estilista?"
       />
       <InfoModal
         visible={infoVisible}

@@ -27,7 +27,7 @@ const LoginScreen = () => {
             <View style={styles.mobileContent}>
               {/* Título para móvil */}
               <View style={styles.titleContainerMobile}>
-                <Text style={styles.title}>NEW YORK BARBER</Text>
+                <Text style={styles.title}>SALÓN DE BELLEZA ALBA</Text>
               </View>
               <Image 
                 source={require('../../assets/images/newYorkBarber.jpeg')} 
@@ -48,7 +48,7 @@ const LoginScreen = () => {
             <View style={styles.logoContainer}>
               {/* Título para desktop */}
               <View style={styles.titleContainerDesktop}>
-                <Text style={styles.title}>NEW YORK BARBER</Text>
+                <Text style={styles.title}>SALÓN DE BELLEZA ALBA</Text>
               </View>
               <Image 
                 source={require('../../assets/images/newYorkBarber.jpeg')} 
@@ -70,7 +70,7 @@ const LoginScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFFFFF',
   },
   mobileContainer: {
     flex: 1,
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   scrollContainer: {
     flexGrow: 1,
     justifyContent: 'center',
-    paddingBottom: 80, // Espacio para el footer
+    paddingBottom: 80,
   },
   mobileContent: {
     width: '100%',
@@ -107,15 +107,15 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   logoContainer: {
-    marginRight: isDesktop ? 120 : 80,
-    marginLeft: isDesktop ? 80 : 40,
-    width: isDesktop ? 300 : 200,
+    marginRight: 120,
+    marginLeft: 80,
+    width: 300,
     alignItems: 'center',
   },
   logo: {
     width: '100%',
-    height: isDesktop ? 300 : 200,
-    marginBottom: isMobile ? 20 : 0,
+    height: 300,
+    marginBottom: 0,
   },
   desktopFooter: {
     width: '100%',
@@ -123,7 +123,6 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
     alignSelf: 'center',
   },
-  // Nuevos estilos para el título
   titleContainerMobile: {
     marginBottom: 20,
     alignItems: 'center',
@@ -133,10 +132,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontSize: isDesktop ? 28 : isMobile ? 22 : 24,
+    fontSize: 28,
     fontWeight: 'bold',
     letterSpacing: 2,
-    color: '#000',
+    color: '#1A1A1A',
     textAlign: 'center',
     fontFamily: Platform.OS === 'ios' ? 'Helvetica Neue' : 'sans-serif',
     textTransform: 'uppercase',

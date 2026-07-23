@@ -111,7 +111,7 @@ const GaleriaScreen = ({ navigation }) => {
       setLoading(true);
       const token = await AsyncStorage.getItem('token');
       const { data } = await axios.get(
-        'https://vianney-server.onrender.com/galeria/destacados',
+        'https://peluqueria-server-gw54.onrender.com/galeria/destacados',
         {
           headers: { Authorization: `Bearer ${token}` }
         }
@@ -132,7 +132,7 @@ const GaleriaScreen = ({ navigation }) => {
     try {
       const token = await AsyncStorage.getItem('token');
       const { data } = await axios.get(
-        `https://vianney-server.onrender.com/galeria/barbero/${barberoId}`,
+        `https://peluqueria-server-gw54.onrender.com/galeria/barbero/${barberoId}`,
         {
           headers: { Authorization: `Bearer ${token}` }
         }

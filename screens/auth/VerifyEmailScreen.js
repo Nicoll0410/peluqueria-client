@@ -16,8 +16,8 @@ import axios from 'axios';
 import InfoModal from '../../components/InfoModal';
 
 const BASE_URL = Platform.OS === 'android'
-  ? 'https://vianney-server.onrender.com'
-  : 'https://vianney-server.onrender.com';
+  ? 'https://peluqueria-server-gw54.onrender.com'
+  : 'https://peluqueria-server-gw54.onrender.com';
 
 const VerifyEmailScreen = () => {
   const navigation = useNavigation();

@@ -62,7 +62,7 @@ const HorarioBarbero = ({ barberoId, visible, onClose }) => {
       console.log('🔄 Fetching horario para barberoId:', barberoId); // ⭐ LOG
       
       const token = await AsyncStorage.getItem('token');
-      const response = await axios.get(`https://vianney-server.onrender.com/barberos/${barberoId}/horario`, {
+      const response = await axios.get(`https://peluqueria-server-gw54.onrender.com/barberos/${barberoId}/horario`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       
@@ -250,7 +250,7 @@ const HorarioBarbero = ({ barberoId, visible, onClose }) => {
       };
 
       const response = await axios.put(
-        `https://vianney-server.onrender.com/barberos/${barberoId}/horario`, 
+        `https://peluqueria-server-gw54.onrender.com/barberos/${barberoId}/horario`, 
         datosEnviar, 
         { headers: { Authorization: `Bearer ${token}` } }
       );

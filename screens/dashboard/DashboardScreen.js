@@ -23,8 +23,7 @@ const DashboardScreen = () => {
     topServicios: [],
     tiposDeUsuarios: [
       { name: 'Clientes', population: 0, color: '#3498db', legendFontColor: '#7F7F7F', legendFontSize: 15 },  // Azul
-      { name: 'Barberos', population: 0, color: '#e74c3c', legendFontColor: '#7F7F7F', legendFontSize: 15 },  // Rojo
-      { name: 'Admin', population: 0, color: '#044c68ff', legendFontColor: '#7F7F7F', legendFontSize: 15 }  // Verde
+      { name: 'Estilistas', population: 0, color: '#7FFFD4', legendFontColor: '#7F7F7F', legendFontSize: 15 },      { name: 'Admin', population: 0, color: '#044c68ff', legendFontColor: '#7F7F7F', legendFontSize: 15 }  // Verde
     ],
     totalUsuarios: 0,
     topBarberos: [],
@@ -38,7 +37,7 @@ const DashboardScreen = () => {
     try {
       setLoading(true);
       const token = await AsyncStorage.getItem('token');
-      const response = await axios.get('https://vianney-server.onrender.com/dashboard', {
+      const response = await axios.get('https://peluqueria-server-gw54.onrender.com/dashboard', {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -48,8 +47,7 @@ const DashboardScreen = () => {
       const tiposUsuarios = response.data.tiposDeUsuarios || [];
       const tiposProcesados = [
         { name: 'Clientes', population: 0, color: '#3498db', legendFontColor: '#7F7F7F', legendFontSize: 15 },
-        { name: 'Barberos', population: 0, color: '#e74c3c', legendFontColor: '#7F7F7F', legendFontSize: 15 },
-        { name: 'Admin', population: 0, color: '#044c68ff', legendFontColor: '#7F7F7F', legendFontSize: 15 }
+        { name: 'Estilistas', population: 0, color: '#7FFFD4', legendFontColor: '#7F7F7F', legendFontSize: 15 },        { name: 'Admin', population: 0, color: '#044c68ff', legendFontColor: '#7F7F7F', legendFontSize: 15 }
       ];
 
       tiposUsuarios.forEach(item => {
@@ -80,8 +78,7 @@ const DashboardScreen = () => {
         topServicios: [],
         tiposDeUsuarios: [
           { name: 'Clientes', population: 0, color: '#3498db', legendFontColor: '#7F7F7F', legendFontSize: 15 },
-          { name: 'Barberos', population: 0, color: '#e74c3c', legendFontColor: '#7F7F7F', legendFontSize: 15 },
-          { name: 'Administradores', population: 0, color: '#044c68ff', legendFontColor: '#7F7F7F', legendFontSize: 15 }
+          { name: 'Estilistas', population: 0, color: '#7FFFD4', legendFontColor: '#7F7F7F', legendFontSize: 15 },          { name: 'Administradores', population: 0, color: '#044c68ff', legendFontColor: '#7F7F7F', legendFontSize: 15 }
         ],
         totalUsuarios: 0,
         topBarberos: [],
@@ -203,7 +200,7 @@ const DashboardScreen = () => {
         <View style={[styles.summaryContainer, isMobile && styles.summaryContainerMobile]}>
           <TouchableOpacity style={[styles.summaryCard, styles.summaryCardPrimary]}>
             <LinearGradient
-              colors={['#e74c3c', '#c0392b']}
+              colors={['#7FFFD4', '#1E90FF']}  // Tarjeta 1
               style={styles.gradient}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
@@ -219,7 +216,7 @@ const DashboardScreen = () => {
 
           <TouchableOpacity style={[styles.summaryCard, styles.summaryCardSecondary]}>
             <LinearGradient
-              colors={['#3498db', '#2980b9']}
+              colors={['#1E90FF', '#0050B3']}  // Tarjeta 2
               style={styles.gradient}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
@@ -359,7 +356,7 @@ const DashboardScreen = () => {
           <View style={[styles.chartContainer, isMobile && styles.chartContainerMobile]}>
             <View style={styles.chartHeader}>
               <Icon name="star" size={20} color="#e74c3c" />
-              <Text style={styles.chartTitle}>Top barberos</Text>
+              <Text style={styles.chartTitle}>Top estilistas</Text>
               <Text style={styles.chartSubtitle}>Por citas atendidas</Text>
             </View>
             <ScrollView

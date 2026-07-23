@@ -38,7 +38,7 @@ import MiPerfilScreen from "../screens/perfil/MiPerfilScreen";
 
 const Stack = createStackNavigator();
 
-/* Logo */
+/* Logo - MANTENER MISMO NOMBRE DE ARCHIVO */
 import LogoImg from "../assets/images/barberApp 1.png";
 import LogoGaleriaImg from "../assets/images/nmbarber.png";
 
@@ -62,7 +62,7 @@ const NotificationBell = ({ navigation, isDark = false }) => {
             position: "absolute",
             right: 5,
             top: -2,
-            backgroundColor: "red",
+            backgroundColor: "#7FFFD4",
             borderRadius: 10,
             width: 18,
             height: 18,
@@ -70,7 +70,7 @@ const NotificationBell = ({ navigation, isDark = false }) => {
             alignItems: "center",
           }}
         >
-          <Text style={{ color: "white", fontSize: 11, fontWeight: "bold" }}>
+          <Text style={{ color: "#1A1A1A", fontSize: 11, fontWeight: "bold" }}>
             {unreadCount > 9 ? "9+" : unreadCount}
           </Text>
         </View>
@@ -82,16 +82,15 @@ const NotificationBell = ({ navigation, isDark = false }) => {
 /* Logo a la derecha - con soporte para logo alternativo */
 const HeaderLogo = ({ useGaleriaLogo = false }) => {
   const { width } = useWindowDimensions();
-  const isLargeScreen = width >= 1024;
   
   let logoWidth, logoHeight;
   
   if (useGaleriaLogo) {
-    logoWidth = isLargeScreen ? 250 : 180;
-    logoHeight = isLargeScreen ? 60 : 45;
+    logoWidth = 180;
+    logoHeight = 45;
   } else {
-    logoWidth = isLargeScreen ? 180 : 120;
-    logoHeight = isLargeScreen ? 40 : 30;
+    logoWidth = 120;
+    logoHeight = 30;
   }
 
   const logoSource = useGaleriaLogo ? LogoGaleriaImg : LogoImg;
@@ -114,11 +113,11 @@ const getHeaderStyle = (screenName) => {
   if (screenName === 'Galeria') {
     return {
       headerStyle: {
-        backgroundColor: '#000',
+        backgroundColor: '#1A1A1A',
       },
-      headerTintColor: '#fff',
+      headerTintColor: '#7FFFD4',
       headerTitleStyle: {
-        color: '#fff',
+        color: '#7FFFD4',
         fontWeight: 'bold',
       },
     };
@@ -126,9 +125,9 @@ const getHeaderStyle = (screenName) => {
   
   return {
     headerStyle: {
-      backgroundColor: '#fff',
+      backgroundColor: '#FFFFFF',
     },
-    headerTintColor: '#000',
+    headerTintColor: '#1A1A1A',
   };
 };
 
@@ -184,7 +183,7 @@ const CustomDrawerNavigator = ({ navigation: mainNavigation }) => {
           <Ionicons 
             name="menu" 
             size={24} 
-            color={isDark ? "#fff" : "black"}
+            color={isDark ? "#7FFFD4" : "#1A1A1A"}
           />
         </TouchableOpacity>
       );
@@ -237,7 +236,6 @@ const CustomDrawerNavigator = ({ navigation: mainNavigation }) => {
       case "Barbero":
         return (
           <>
-            {/* ✅ MI PERFIL COMO PRIMERA PANTALLA PARA BARBEROS */}
             <Stack.Screen
               name="MiPerfil"
               component={MiPerfilScreen}
@@ -289,7 +287,6 @@ const CustomDrawerNavigator = ({ navigation: mainNavigation }) => {
       default: // ADMINISTRADOR
         return (
           <>
-            {/* ✅ MI PERFIL COMO PRIMERA PANTALLA PARA ADMINISTRADORES */}
             <Stack.Screen
               name="MiPerfil"
               component={MiPerfilScreen}
@@ -319,7 +316,7 @@ const CustomDrawerNavigator = ({ navigation: mainNavigation }) => {
               component={BarberosScreen}
               options={({ navigation }) => ({
                 ...commonOptions({ navigation }),
-                headerTitle: "Barberos"
+                headerTitle: "Estilistas"
               })}
             />
             <Stack.Screen
@@ -431,7 +428,7 @@ const CustomDrawerNavigator = ({ navigation: mainNavigation }) => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFFFFF',
   },
   container: {
     flex: 1,
@@ -449,7 +446,7 @@ const styles = StyleSheet.create({
   drawer: {
     width: 300,
     height: '100%',
-    backgroundColor: '#000',
+    backgroundColor: '#1A1A1A',
     zIndex: 1000,
     elevation: 1000,
     ...(Platform.OS === 'web' ? {

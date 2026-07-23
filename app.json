@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "barberia-client",
-    "slug": "barberia-client",
+    "name": "Salón Alba Quiceno",
+    "slug": "salon-alba-quiceno",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/apple-touch-icon.png",
@@ -15,7 +15,7 @@
     "splash": {
       "image": "./assets/Splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#7FFFD4"
     },
     "ios": {
       "supportsTablet": true
@@ -23,15 +23,15 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/android.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#7FFFD4"
       },
       "ios": {
         "adaptiveIcon": {
           "foregroundImage": "./assets/ios.png",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#7FFFD4"
         }
       },
-      "package": "com.anonymous.barberiaclient"
+      "package": "com.albaquiceno.salon"
     },
     "web": {
       "output": "web-build",

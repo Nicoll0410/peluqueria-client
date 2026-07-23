@@ -7,7 +7,7 @@ export const initializeSocket = (token, userId) => {
     socket.disconnect();
   }
 
-  socket = io('https://vianney-server.onrender.com', {
+  socket = io('https://peluqueria-server-gw54.onrender.com', {
     auth: {
       token: token
     }

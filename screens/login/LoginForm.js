@@ -22,7 +22,7 @@ const isDesktop = width >= 1024;
 const isMobile = width < 768;
 
 const BASE_URL =
-  Platform.OS === "android" ? "https://vianney-server.onrender.com" : "https://vianney-server.onrender.com";
+  Platform.OS === "android" ? "https://peluqueria-server-gw54.onrender.com" : "https://peluqueria-server-gw54.onrender.com";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -270,7 +270,7 @@ const styles = StyleSheet.create({
   },
   button: {
     height: 50,
-    backgroundColor: "#424242",
+    backgroundColor: "#7FFFD4",
     borderRadius: 8,
     justifyContent: "center",
     alignItems: "center",

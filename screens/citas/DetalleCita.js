@@ -88,7 +88,7 @@ const DetalleCita = ({
           <View style={[styles.rowBetween, { marginTop: 16 }]}>
             <View style={styles.personBox}>
               <Text style={styles.person}>{cita.barbero?.nombre}</Text>
-              <Text style={styles.personRole}>Barbero</Text>
+              <Text style={styles.personRole}>Estilista</Text>
             </View>
             <View style={styles.personBox}>
               <Text style={styles.person}>

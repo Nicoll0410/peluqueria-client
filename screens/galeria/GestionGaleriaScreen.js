@@ -93,7 +93,7 @@ const GestionGaleriaScreen = () => {
         }
 
         const { data: respuestaBarberos } = await axios.get(
-          'https://vianney-server.onrender.com/barberos',
+          'https://peluqueria-server-gw54.onrender.com/barberos',
           { 
             headers: { Authorization: `Bearer ${token}` },
             params: { all: true }
@@ -128,7 +128,7 @@ const GestionGaleriaScreen = () => {
       }
 
       const { data } = await axios.get(
-        `https://vianney-server.onrender.com/galeria/barbero/${barberoID}`,
+        `https://peluqueria-server-gw54.onrender.com/galeria/barbero/${barberoID}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -252,7 +252,7 @@ const GestionGaleriaScreen = () => {
         }
 
         const { data: respuestaBarberos } = await axios.get(
-          'https://vianney-server.onrender.com/barberos',
+          'https://peluqueria-server-gw54.onrender.com/barberos',
           { 
             headers: { Authorization: `Bearer ${token}` },
             params: { all: true }
@@ -317,8 +317,8 @@ const GestionGaleriaScreen = () => {
 
       // ✅ Seleccionar endpoint según el tipo
       const endpoint = tipoContenido === 'imagen' 
-        ? 'https://vianney-server.onrender.com/galeria/upload/image'
-        : 'https://vianney-server.onrender.com/galeria/upload/video';
+        ? 'https://peluqueria-server-gw54.onrender.com/galeria/upload/image'
+        : 'https://peluqueria-server-gw54.onrender.com/galeria/upload/video';
 
       // ✅ Subir con progreso
       await axios.post(endpoint, formData, {
@@ -359,7 +359,7 @@ const GestionGaleriaScreen = () => {
     try {
       const token = await AsyncStorage.getItem('token');
       await axios.patch(
-        `https://vianney-server.onrender.com/galeria/${id}/destacado`,
+        `https://peluqueria-server-gw54.onrender.com/galeria/${id}/destacado`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -385,7 +385,7 @@ const GestionGaleriaScreen = () => {
     try {
       const token = await AsyncStorage.getItem('token');
       await axios.delete(
-        `https://vianney-server.onrender.com/galeria/${idAEliminar}`,
+        `https://peluqueria-server-gw54.onrender.com/galeria/${idAEliminar}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
 

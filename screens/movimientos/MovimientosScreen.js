@@ -30,9 +30,9 @@ const isMobile = width < 768;
 
 /*  Soluciona localhost en emulador Android  */
 const API_BASE = Platform.select({
-  android : "https://vianney-server.onrender.com",
-  ios     : "https://vianney-server.onrender.com",
-  default : "https://vianney-server.onrender.com",
+  android : "https://peluqueria-server-gw54.onrender.com",
+  ios     : "https://peluqueria-server-gw54.onrender.com",
+  default : "https://peluqueria-server-gw54.onrender.com",
 });
 
 /* ───────── CARD (modo móvil) ───────── */

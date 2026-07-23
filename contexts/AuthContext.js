@@ -8,7 +8,7 @@ import * as Notifications from "expo-notifications";
 import { Audio } from "expo-av";
 import io from "socket.io-client";
 
-const BASE_URL = "https://vianney-server.onrender.com";
+const BASE_URL = "https://peluqueria-server-gw54.onrender.com";
 
 export const AuthContext = createContext();
 

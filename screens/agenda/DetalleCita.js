@@ -87,9 +87,9 @@ const DetalleCita = ({ visible, onClose, cita }) => {
           <View style={styles.peopleContainer}>
             {/* Barbero */}
             <View style={styles.personCard}>
-              <Text style={styles.personName}>{cita.barbero?.nombre || 'Barbero no asignado'}</Text>
+              <Text style={styles.personName}>{cita.barbero?.nombre || 'Estilista no asignada'}</Text>
               <View style={styles.roleBadge}>
-                <Text style={styles.roleText}>Barbero</Text>
+                <Text style={styles.roleText}>Estilista</Text>
               </View>
             </View>
 

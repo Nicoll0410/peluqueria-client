@@ -146,7 +146,7 @@ const CrearCita = ({
   const obtenerUsuarioIdDelBarbero = async (token, barberoId) => {
     try {
       const response = await axios.get(
-        `https://vianney-server.onrender.com/barberos/${barberoId}/usuario`,
+        `https://peluqueria-server-gw54.onrender.com/barberos/${barberoId}/usuario`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -168,7 +168,7 @@ const CrearCita = ({
   const obtenerUsuarioActual = async (token) => {
     try {
       const response = await axios.get(
-        'https://vianney-server.onrender.com/auth/user-info',
+        'https://peluqueria-server-gw54.onrender.com/auth/user-info',
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -190,7 +190,7 @@ const CrearCita = ({
   const crearNotificacion = async (token, notificacionData) => {
     try {
       const response = await axios.post(
-        'https://vianney-server.onrender.com/notifications',
+        'https://peluqueria-server-gw54.onrender.com/notifications',
         notificacionData,
         {
           headers: {
@@ -212,7 +212,7 @@ const CrearCita = ({
       setIsLoading(true);
 
       if (!servicioSel || !barbero) {
-        throw new Error("Falta información del servicio o barbero");
+        throw new Error("Falta información del servicio o estilista");
       }
 
       if (!isTemporal && !clienteSel) {
@@ -244,7 +244,7 @@ const CrearCita = ({
         fecha: fechaFormateada,
         hora: horaInicio24,
         horaFin: `${horaFin24}:00`,
-        direccion: "En barbería",
+        direccion: "En el salón",
         estado: "Pendiente",
         duracionReal: servicioSel.duracionMaxima || "00:30:00",
         duracionRedondeada: `${Math.floor(duracionMinutos / 60)}:${(
@@ -269,7 +269,7 @@ const CrearCita = ({
       }
 
       const response = await axios.post(
-        "https://vianney-server.onrender.com/citas",
+        "https://peluqueria-server-gw54.onrender.com/citas",
         citaData,
         {
           headers: {
@@ -625,7 +625,7 @@ const CrearCita = ({
             <Text style={styles.infoLabel}>Servicio</Text>
             <Text style={styles.infoText}>{servicioSel.nombre}</Text>
 
-            <Text style={styles.infoLabel}>Barbero</Text>
+            <Text style={styles.infoLabel}>Estilista</Text>
             <Text style={styles.infoText}>{barbero.nombre}</Text>
 
             <Text style={styles.infoLabel}>Cliente</Text>

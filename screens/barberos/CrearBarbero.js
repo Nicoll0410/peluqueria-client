@@ -90,7 +90,7 @@ const CrearBarbero = ({ visible, onClose, onCreate }) => {
       try {
         const token = await AsyncStorage.getItem("token");
         const { data } = await axios.get(
-          "https://vianney-server.onrender.com/roles/workers",
+          "https://peluqueria-server-gw54.onrender.com/roles/workers",
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setRoles(data.roles || []);
@@ -284,7 +284,7 @@ const CrearBarbero = ({ visible, onClose, onCreate }) => {
             contentContainerStyle={styles.scrollContent}
             keyboardShouldPersistTaps="handled"
           >
-            <Text style={styles.title}>Crear nuevo barbero</Text>
+            <Text style={styles.title}>Crear nueva estilista</Text>
 
             {/* rol */}
             {loadingRoles ? (
@@ -395,7 +395,7 @@ const CrearBarbero = ({ visible, onClose, onCreate }) => {
                     styles.input,
                     errors.email && styles.errorBorder,
                   ]}
-                  placeholder="barbero@email.com"
+                  placeholder="estilista@email.com"
                   placeholderTextColor="#929292"
                   keyboardType="email-address"
                   autoCapitalize="none"
@@ -736,9 +736,9 @@ const CrearBarbero = ({ visible, onClose, onCreate }) => {
             <View style={styles.successModalIcon}>
               <MaterialIcons name="check-circle" size={60} color="#4CAF50" />
             </View>
-            <Text style={styles.successModalTitle}>¡Barbero creado exitosamente!</Text>
+            <Text style={styles.successModalTitle}>¡Estilista creada exitosamente!</Text>
             <Text style={styles.successModalText}>
-              El barbero ha sido registrado correctamente en el sistema.
+              La estilista ha sido registrada correctamente en el sistema.
             </Text>
             <TouchableOpacity
               style={styles.successModalButton}

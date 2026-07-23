@@ -13,6 +13,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { configurePushNotifications, playNotificationSound } from './utils/notifications';
 import io from 'socket.io-client';
 
+// 🎨 PALETA DE COLORES ALBA QUICENO
+// Aguamarina: #7FFFD4 | Azul: #1E90FF | Blanco: #FFFFFF | Negro: #1A1A1A
+
 // Configuración completa de notificaciones
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -26,10 +29,10 @@ Notifications.setNotificationHandler({
 async function setupNotificationChannel() {
   if (Platform.OS === 'android') {
     await Notifications.setNotificationChannelAsync('default', {
-      name: 'Notificaciones de Barbería',
+      name: 'Notificaciones Salón Alba Quiceno',
       importance: Notifications.AndroidImportance.HIGH,
       vibrationPattern: [0, 250, 250, 250],
-      lightColor: '#FF231F7C',
+      lightColor: '#7FFFD4',
       sound: 'default',
       showBadge: true,
       enableLights: true,
@@ -84,23 +87,19 @@ function MainApp() {
     try {
       if (!user || !token) return;
 
-      // Cerrar socket existente si hay uno
       if (socketRef.current) {
         socketRef.current.disconnect();
         socketRef.current = null;
       }
 
-      // Crear nueva conexión socket
-      socketRef.current = io('https://vianney-server.onrender.com', {
+      socketRef.current = io('https://peluqueria-server-gw54.onrender.com', {
         transports: ['websocket', 'polling'],
         auth: {
           token: token
         }
       });
 
-      // Eventos del socket
       socketRef.current.on('connect', () => {
-        // Unirse a la sala del usuario
         socketRef.current.emit('unir_usuario', user.userId || user.id);
       });
 
@@ -108,11 +107,8 @@ function MainApp() {
       });
 
       socketRef.current.on('nueva_notificacion', async (data) => {
-        
-        // Reproducir sonido
         await playNotificationSound();
         
-        // Mostrar alerta
         Alert.alert(
           data.titulo, 
           data.cuerpo, 
@@ -168,7 +164,6 @@ function MainApp() {
         projectId: Constants.expoConfig.extra.eas.projectId,
       })).data;
 
-
     } catch (error) {
     }
   };
@@ -176,7 +171,6 @@ function MainApp() {
   // Manejar cambios en el estado de la app
   const handleAppStateChange = async (nextAppState) => {
     if (appState.current.match(/inactive|background/) && nextAppState === 'active') {
-      // Reconectar socket cuando la app vuelve al frente
       if (user && token) {
         await setupSocket();
       }
@@ -185,37 +179,30 @@ function MainApp() {
   };
 
   useEffect(() => {
-    // Configurar notificaciones
     setupNotificationChannel();
     configurePushNotifications();
     registerForPushNotifications();
 
-    // Configurar listeners de notificaciones
     notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
     });
 
     responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
     });
 
-    // Configurar listener para deep links
     const linkingSubscription = Linking.addEventListener('url', handleDeepLink);
 
-    // Manejar el deep link inicial
     Linking.getInitialURL().then(url => {
       if (url) handleDeepLink({ url });
     }).catch(err => console.error('Error obteniendo URL inicial:', err));
 
-    // Escuchar cambios en el estado de la app
     const appStateSubscription = AppState.addEventListener('change', handleAppStateChange);
 
     return () => {
-      // Limpiar listeners
       if (notificationListener.current) notificationListener.current.remove();
       if (responseListener.current) responseListener.current.remove();
       linkingSubscription.remove();
       appStateSubscription.remove();
       
-      // Desconectar socket
       if (socketRef.current) {
         socketRef.current.disconnect();
         socketRef.current = null;
@@ -223,7 +210,6 @@ function MainApp() {
     };
   }, []);
 
-  // Efecto para configurar socket cuando el usuario cambia
   useEffect(() => {
     if (user && token) {
       setupSocket();
@@ -235,9 +221,9 @@ function MainApp() {
       ref={navigationRef}
       linking={{
         prefixes: [
-          'mybarberapp://',
-          'https://mybarberapp.com',
-          'https://*.mybarberapp.com'
+          'salonalbaquiceno://',
+          'https://salonalbaquiceno.com',
+          'https://*.salonalbaquiceno.com'
         ],
         config: {
           screens: {

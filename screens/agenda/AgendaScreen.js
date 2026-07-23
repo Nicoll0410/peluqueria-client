@@ -67,7 +67,7 @@ const AgendaScreen = () => {
       const token = await AsyncStorage.getItem('token');
       // Cambiar la URL para usar el nuevo endpoint
       const { data } = await axios.get(
-        'https://vianney-server.onrender.com/barberos/para-agenda',
+        'https://peluqueria-server-gw54.onrender.com/barberos/para-agenda',
         {
           params: { page: 1, limit: 100, all: 'true' },
           headers: { Authorization: `Bearer ${token}` }
@@ -77,7 +77,7 @@ const AgendaScreen = () => {
       const barberosConHorario = await Promise.all(data.barberos.map(async b => {
         try {
           const horarioResponse = await axios.get(
-            `https://vianney-server.onrender.com/barberos/${b.id}/horario`,
+            `https://peluqueria-server-gw54.onrender.com/barberos/${b.id}/horario`,
             { headers: { Authorization: `Bearer ${token}` } }
           );
 
@@ -87,7 +87,7 @@ const AgendaScreen = () => {
             avatar: b.avatar
               ? { uri: b.avatar }
               : require('../../assets/avatar.png'),
-            subItems: ['Barbero'],
+            subItems: ['Estilista'],
             disponibilidad: horarioResponse.data?.horario || {
               diasLaborales: {
                 lunes: { activo: true, horas: [] },
@@ -107,14 +107,14 @@ const AgendaScreen = () => {
             }
           };
         } catch (error) {
-          console.error(`Error al obtener horario para barbero ${b.id}:`, error);
+          console.error(`Error al obtener horario para estilista ${b.id}:`, error);
           return {
             id: b.id,
             nombre: b.nombre,
             avatar: b.avatar
               ? { uri: b.avatar }
               : require('../../assets/avatar.png'),
-            subItems: ['Barbero'],
+            subItems: ['Estilista'],
             disponibilidad: {
               diasLaborales: {
                 lunes: { activo: true, horas: [] },
@@ -138,8 +138,8 @@ const AgendaScreen = () => {
 
       setBarberos(barberosConHorario);
     } catch (err) {
-      console.error('Error al obtener barberos:', err);
-      Alert.alert('Error', 'No se pudieron cargar los barberos');
+      console.error('Error al obtener estilistas:', err);
+      Alert.alert('Error', 'No se pudieron cargar los estilistas');
     }
   };
 
@@ -150,7 +150,7 @@ const AgendaScreen = () => {
       const fecha = formatDateString(selectedDate);
 
       const { data } = await axios.get(
-        `https://vianney-server.onrender.com/citas/diary?fecha=${fecha}`,
+        `https://peluqueria-server-gw54.onrender.com/citas/diary?fecha=${fecha}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -207,7 +207,7 @@ const AgendaScreen = () => {
     try {
       const token = await AsyncStorage.getItem('token');
       const { data } = await axios.get(
-        'https://vianney-server.onrender.com/citas/get-information-to-create',
+        'https://peluqueria-server-gw54.onrender.com/citas/get-information-to-create',
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -509,7 +509,7 @@ const AgendaScreen = () => {
       setShowDetalleCita(true);
     } else {
       if (!isBarberoDisponible(barbero, selectedDate, slot.startTime)) {
-        Alert.alert('No disponible', 'El barbero no está disponible en este horario');
+        Alert.alert('No disponible', 'La estilista no está disponible en este horario');
         return;
       }
       setSelectedSlot({ ...slot, barbero, fecha: selectedDate });
@@ -564,7 +564,7 @@ const AgendaScreen = () => {
       <View key={b.id} style={[styles.barberoHeader, isMobile && styles.barberoHeaderMobile]}>
         <Image source={b.avatar} style={styles.avatar} />
         <Text style={styles.barberoNombre}>{b.nombre}</Text>
-        <Text style={styles.subItem}>Barbero</Text>
+        <Text style={styles.subItem}>Estilista</Text>
         <View style={styles.disponibilidadContainer}>
           <View style={[
             styles.disponibilidadPunto,

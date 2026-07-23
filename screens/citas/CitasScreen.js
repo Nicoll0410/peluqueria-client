@@ -25,7 +25,7 @@ import ConfirmarModal from '../../components/ConfirmarModal'; // Importar el mod
 import { AuthContext } from '../../contexts/AuthContext';
 
 /* ------------------------ Constantes ------------------------ */
-const API = 'https://vianney-server.onrender.com';
+const API = 'https://peluqueria-server-gw54.onrender.com';
 const { width } = Dimensions.get('window');
 const isMobile  = width <= 768;
 
@@ -272,7 +272,7 @@ const cancelarCita = async () => {
       )}
 
       <Buscador
-        placeholder="Buscar cita por barbero, servicio, estado…"
+        placeholder="Buscar cita por estilista, servicio, estado…"
         value={search}
         onChangeText={setSearch}
       />
@@ -303,7 +303,7 @@ const cancelarCita = async () => {
           <View style={styles.tabla}>
             <View style={styles.filaEncabezado}>
               {[
-                ['Barbero', 2], ['Estado', 1.5], ['Servicio', 2],
+                ['Estilista', 2], ['Estado', 1.5], ['Servicio', 2],
                 ['Fecha', 1.5], ['Hora', 1], ['Acciones', 1.5],
               ].map(([txt, flex], i) => (
                 <View

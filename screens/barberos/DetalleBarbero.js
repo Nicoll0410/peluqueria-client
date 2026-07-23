@@ -59,7 +59,7 @@ const DetalleBarbero = ({ visible, onClose, barbero }) => {
       ]}
     >
       <Text style={styles.rolBadgeText}>
-        {rol === 'ADMIN' ? 'Administrador' : 'Barbero'}
+        {rol === 'ADMIN' ? 'Administrador' : 'Estiilista'}
       </Text>
     </View>
   );
@@ -86,7 +86,7 @@ const DetalleBarbero = ({ visible, onClose, barbero }) => {
         <View style={styles.overlay}>
           <View style={[styles.modal, isMobile && styles.modalMobile]}>
             <Text style={[styles.titulo, isMobile && styles.tituloMobile]}>
-              Información del Barbero
+              Información de la Estilista
             </Text>
 
             <ScrollView

@@ -22,16 +22,12 @@ const ROLE_MENU = {
   },
   Barbero: {
     topItems: [
-      { label: "Mi Perfil", screen: "MiPerfil", icon: Ionicons, name: "person-circle-outline" }, // ✅ NUEVO
+      { label: "Mi Perfil", screen: "MiPerfil", icon: Ionicons, name: "person-circle-outline" },
     ],
     sections: {
       Usuarios: [
         { label: "Clientes", screen: "Clientes", icon: Feather, name: "user" },
       ],
-      // Compras: [
-      //   // { label: "Insumos", screen: "Insumos", icon: MaterialCommunityIcons, name: "spray" },
-      //   { label: "Movimientos", screen: "Movimientos", icon: FontAwesome5, name: "exchange-alt" },
-      // ],
       Ventas: [
         { label: "Mi Galería", screen: "MiGaleria", icon: MaterialCommunityIcons, name: "view-gallery" },
         { label: "Agenda", screen: "Agenda", icon: MaterialIcons, name: "event" },
@@ -41,23 +37,15 @@ const ROLE_MENU = {
   },
   Administrador: {
     topItems: [
-      { label: "Mi Perfil", screen: "MiPerfil", icon: Ionicons, name: "person-circle-outline" }, // ✅ NUEVO
+      { label: "Mi Perfil", screen: "MiPerfil", icon: Ionicons, name: "person-circle-outline" },
       { label: "Dashboard", screen: "Dashboard", icon: MaterialCommunityIcons, name: "view-dashboard-outline" },
     ],
     sections: {
       Usuarios: [
         { label: "Clientes", screen: "Clientes", icon: Feather, name: "user" },
-        { label: "Barberos", screen: "Barberos", icon: Ionicons, name: "cut-outline" },
-        // { label: "Roles", screen: "Roles", icon: Ionicons, name: "key-outline" },
+        { label: "Estilistas", screen: "Barberos", icon: Ionicons, name: "cut-outline" },
       ],
-      // Compras: [
-      //   { label: "Categoría de Insumos", screen: "CategoriaInsumos", icon: MaterialCommunityIcons, name: "database-arrow-left-outline" },
-      //   { label: "Insumos", screen: "Insumos", icon: MaterialCommunityIcons, name: "spray" },
-      //   { label: "Proveedores", screen: "Proveedores", icon: MaterialCommunityIcons, name: "toolbox-outline" },
-      //   { label: "Compras", screen: "Compras", icon: AntDesign, name: "shoppingcart" },
-      // ],
       Ventas: [
-        // { label: "Movimientos", screen: "Movimientos", icon: FontAwesome5, name: "exchange-alt" },
         { label: "Mi Galería", screen: "MiGaleria", icon: MaterialCommunityIcons, name: "view-gallery" },
         { label: "Servicios", screen: "Servicios", icon: MaterialCommunityIcons, name: "toolbox-outline" },
         { label: "Agenda", screen: "Agenda", icon: MaterialIcons, name: "event" },
@@ -75,7 +63,6 @@ const CustomDrawer = (props) => {
   const roleKey = userRole || "Administrador";
   const config  = ROLE_MENU[roleKey];
 
-  /* Estado para secciones colapsables */
   const [expanded, setExpanded] = useState({
     Usuarios: false,
     Compras: false,
@@ -83,7 +70,6 @@ const CustomDrawer = (props) => {
   });
   const toggle = (sec) => setExpanded((p) => ({ ...p, [sec]: !p[sec] }));
 
-  /* Renderiza un ítem normal */
 const Item = ({ label, screen, icon: IconComp, name, indent = 0 }) => (
   <TouchableOpacity
     style={[styles.menuItem, indent && { paddingLeft: 20 + indent }]}
@@ -94,7 +80,7 @@ const Item = ({ label, screen, icon: IconComp, name, indent = 0 }) => (
       }
     }}
   >
-    <IconComp name={name} size={indent ? 16 : 22} color="#fff" />
+    <IconComp name={name} size={indent ? 16 : 22} color="#7FFFD4" />
     <Text style={[styles.menuText, indent && { fontSize: 14, marginLeft: 10 }]}>{label}</Text>
   </TouchableOpacity>
 );
@@ -104,8 +90,7 @@ const Item = ({ label, screen, icon: IconComp, name, indent = 0 }) => (
       {/* ----------- Logo superior ------------ */}
       <View style={styles.logoContainer}>
         <Image source={require("../assets/images/newYorkBarber.jpeg")} style={styles.logo} />
-        {/* Título agregado debajo del logo */}
-        <Text style={styles.logoTitle}>New York Barber</Text>
+        <Text style={styles.logoTitle}>Salón de belleza Alba</Text>
       </View>
 
       <ScrollView
@@ -120,12 +105,12 @@ const Item = ({ label, screen, icon: IconComp, name, indent = 0 }) => (
           <View key={section}>
             <TouchableOpacity style={styles.expandableItem} onPress={() => toggle(section)}>
               <View style={styles.menuRow}>
-                {section === "Usuarios" && <Feather name="users" size={24} color="#fff" />}
-                {section === "Compras" && <AntDesign name="shoppingcart" size={24} color="#fff" />}
-                {section === "Ventas"   && <MaterialCommunityIcons name="account-cash-outline" size={24} color="#fff" />}
+                {section === "Usuarios" && <Feather name="users" size={24} color="#7FFFD4" />}
+                {section === "Compras" && <AntDesign name="shoppingcart" size={24} color="#7FFFD4" />}
+                {section === "Ventas"   && <MaterialCommunityIcons name="account-cash-outline" size={24} color="#7FFFD4" />}
                 <Text style={styles.menuText}>{section}</Text>
               </View>
-              <Feather name={expanded[section] ? "chevron-up" : "chevron-down"} size={20} color="#fff" />
+              <Feather name={expanded[section] ? "chevron-up" : "chevron-down"} size={20} color="#7FFFD4" />
             </TouchableOpacity>
 
             {expanded[section] && items.map((sub) => <Item key={sub.label} {...sub} indent={20} />)}
@@ -160,7 +145,7 @@ const Item = ({ label, screen, icon: IconComp, name, indent = 0 }) => (
       {/* ------------- Logout ------------- */}
       <View style={styles.profileContainer}>
         <TouchableOpacity style={styles.logoutButton} onPress={logout}>
-          <Feather name="log-out" size={18} color="black" />
+          <Feather name="log-out" size={18} color="#1A1A1A" />
           <Text style={styles.logoutText}>Cerrar sesión</Text>
         </TouchableOpacity>
       </View>
@@ -170,29 +155,29 @@ const Item = ({ label, screen, icon: IconComp, name, indent = 0 }) => (
 
 /* ─────────────────── Estilos ────────────────────── */
 const styles = StyleSheet.create({
-  container:          { flex: 1, backgroundColor: "#000" },
+  container:          { flex: 1, backgroundColor: "#1A1A1A" },
   scrollContainer:    { flexGrow: 1 },
-  logoContainer:      { alignItems: "center", paddingVertical: 16, borderBottomWidth: 1, borderColor: "#222" },
+  logoContainer:      { alignItems: "center", paddingVertical: 16, borderBottomWidth: 1, borderColor: "#7FFFD4" },
   logo:               { width: 120, height: 120, resizeMode: "contain" },
-  sectionTitle:       { fontSize: 14, fontWeight: "bold", color: "#fff", paddingHorizontal: 20, paddingTop: 10, paddingBottom: 5 },
+  sectionTitle:       { fontSize: 14, fontWeight: "bold", color: "#7FFFD4", paddingHorizontal: 20, paddingTop: 10, paddingBottom: 5 },
   menuItem:           { flexDirection: "row", alignItems: "center", paddingVertical: 14, paddingLeft: 20 },
-  menuText:           { marginLeft: 15, fontSize: 16, color: "#fff" },
+  menuText:           { marginLeft: 15, fontSize: 16, color: "#FFFFFF" },
   expandableItem:     { flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingVertical: 14, paddingHorizontal: 20 },
   menuRow:            { flexDirection: "row", alignItems: "center" },
-  profileSection:     { padding: 20, borderTopWidth: 1, borderBottomWidth: 1, borderColor: "#222" },
-  profileTitle:       { fontSize: 14, fontWeight: "bold", color: "#fff", marginBottom: 10 },
+  profileSection:     { padding: 20, borderTopWidth: 1, borderBottomWidth: 1, borderColor: "#7FFFD4" },
+  profileTitle:       { fontSize: 14, fontWeight: "bold", color: "#7FFFD4", marginBottom: 10 },
   userContainer:      { flexDirection: "row", alignItems: "center" },
   avatar:             { width: 50, height: 50, borderRadius: 25, marginRight: 10 },
   avatarPlaceholder:  { width: 50, height: 50, borderRadius: 25, backgroundColor: "#333", justifyContent: "center", alignItems: "center", marginRight: 10 },
   userInfoContainer:  { flex: 1 },
-  userName:           { color: "#fff", fontSize: 16, fontWeight: "600", marginBottom: 4 },
-  userEmail:          { color: "#aaa", fontSize: 14, marginBottom: 4 },
-  userRole:           { color: "#aaa", fontSize: 12, fontStyle: "italic" },
-  profileContainer:   { padding: 16, borderTopWidth: 1, borderColor: "#222" },
-  logoutButton:       { flexDirection: "row", backgroundColor: "#D9D9D9", paddingVertical: 10, paddingHorizontal: 12, borderRadius: 10, alignItems: "center", justifyContent: "center" },
-  logoutText:         { color: "black", marginLeft: 8, fontSize: 16, fontWeight: "700" },
-    logoTitle: {
-    color: "#fff",
+  userName:           { color: "#FFFFFF", fontSize: 16, fontWeight: "600", marginBottom: 4 },
+  userEmail:          { color: "#AAAAAA", fontSize: 14, marginBottom: 4 },
+  userRole:           { color: "#7FFFD4", fontSize: 12, fontStyle: "italic" },
+  profileContainer:   { padding: 16, borderTopWidth: 1, borderColor: "#7FFFD4" },
+  logoutButton:       { flexDirection: "row", backgroundColor: "#7FFFD4", paddingVertical: 10, paddingHorizontal: 12, borderRadius: 10, alignItems: "center", justifyContent: "center" },
+  logoutText:         { color: "#1A1A1A", marginLeft: 8, fontSize: 16, fontWeight: "700" },
+  logoTitle: {
+    color: "#FFFFFF",
     fontSize: 20,
     fontWeight: "bold",
     marginTop: 8,

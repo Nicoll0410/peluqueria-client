@@ -80,7 +80,7 @@ const EditarBarbero = ({ visible, onClose, barbero, onUpdate }) => {
     (async () => {
       try {
         const token = await AsyncStorage.getItem("token");
-        const { data } = await axios.get("https://vianney-server.onrender.com/roles/workers", {
+        const { data } = await axios.get("https://peluqueria-server-gw54.onrender.com/roles/workers", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setRoles(data.roles || []);
@@ -224,7 +224,7 @@ const EditarBarbero = ({ visible, onClose, barbero, onUpdate }) => {
             contentContainerStyle={styles.scrollContent}
             keyboardShouldPersistTaps="handled"
           >
-            <Text style={styles.title}>Editar barbero</Text>
+            <Text style={styles.title}>Editar estilista</Text>
 
             {/* rol */}
             {loadingRoles ? (

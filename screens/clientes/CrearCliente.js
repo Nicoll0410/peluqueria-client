@@ -68,7 +68,7 @@ LocaleConfig.defaultLocale = "es";
 const { width } = Dimensions.get("window");
 
 const BASE_URL =
-  Platform.OS === "android" ? "https://vianney-server.onrender.com" : "https://vianney-server.onrender.com";
+  Platform.OS === "android" ? "https://peluqueria-server-gw54.onrender.com" : "https://peluqueria-server-gw54.onrender.com";
 
 const CrearCliente = ({ visible, onClose, onCreate }) => {
   const [formData, setFormData] = useState({

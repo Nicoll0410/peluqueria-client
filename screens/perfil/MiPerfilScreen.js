@@ -19,7 +19,7 @@ import Footer from '../../components/Footer';
 import InfoModal from '../../components/InfoModal';
 import HorarioBarbero from '../../components/HorarioBarbero';
 
-const BASE_URL = 'https://vianney-server.onrender.com';
+const BASE_URL = 'https://peluqueria-server-gw54.onrender.com';
 
 const MiPerfilScreen = () => {
   const { user, userRole, barberData } = useContext(AuthContext);
