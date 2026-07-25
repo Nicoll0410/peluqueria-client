@@ -915,14 +915,14 @@ const AgendaScreen = () => {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#FDF8FC' },
   loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center' },
-  loadingText: { marginTop: 10, fontSize: 16, color: '#B088C8' },
+  loadingText: { marginTop: 10, fontSize: 16, color: '#6B4F80' },
   
   header: { 
     flexDirection: 'row', alignItems: 'center', padding: 16, 
     borderBottomWidth: 1, borderBottomColor: '#E8D5F0', backgroundColor: '#FFFFFF' 
   },
   dateContainer: { flexDirection: 'row', alignItems: 'center', flex: 1, marginLeft: 15 },
-  dateText: { fontSize: 18, fontWeight: 'bold', marginHorizontal: 10, color: '#2D2D2D' },
+  dateText: { fontSize: 18, fontWeight: 'bold', marginHorizontal: 10, color: '#1A1A1A' },
   calendarButton: { marginRight: 10 },
 
   // Estilos para web (escritorio)
@@ -945,7 +945,7 @@ const styles = StyleSheet.create({
     width: 80, justifyContent: 'center', alignItems: 'center', 
     borderRightWidth: 1, borderRightColor: '#E8D5F0' 
   },
-  timeColumnText: { fontWeight: 'bold', fontSize: 16, color: '#B088C8' },
+  timeColumnText: { fontWeight: 'bold', fontSize: 16, color: '#6B4F80' },
   barberosScrollContent: { flexDirection: 'row', paddingRight: 10 },
   barberoHeaderMobile: { 
     width: 120, alignItems: 'center', paddingHorizontal: 8, 
@@ -954,7 +954,7 @@ const styles = StyleSheet.create({
   
   avatar: { width: 40, height: 40, borderRadius: 20, marginBottom: 5 },
   barberoNombre: { fontWeight: 'bold', fontSize: 14, textAlign: 'center', color: '#2D2D2D' },
-  subItem: { fontSize: 10, color: '#B088C8', textAlign: 'center', fontWeight: '500' },
+  subItem: { fontSize: 10, color: '#6B4F80', textAlign: 'center', fontWeight: '600' },
   
   mainContent: { flex: 1, marginBottom: 60 },
   
@@ -971,7 +971,7 @@ const styles = StyleSheet.create({
     width: 80, justifyContent: 'center', alignItems: 'center', 
     borderRightWidth: 1, borderRightColor: '#E8D5F0' 
   },
-  horaText: { fontSize: 14, color: '#6B6B6B' },
+  horaText: { fontSize: 14, color: '#2D2D2D', fontWeight: '500' },
   barberosSlotsContainer: { flexDirection: 'row' },
   
   // Slots para web
@@ -988,27 +988,27 @@ const styles = StyleSheet.create({
   
   slot: { flex: 1, padding: 4, justifyContent: 'center', alignItems: 'center', minHeight: 58 },
   
-  // COLORES DE SLOTS - NUEVA PALETA
-  'slot-no-laboral': { backgroundColor: '#FDF0F5' },
-  'slot-almuerzo': { backgroundColor: '#FFF5F8' },
-  'slot-fuera-horario': { backgroundColor: '#FAFAFA', opacity: 0.6 },
-  'slot-ocupado': { backgroundColor: '#F3E8FA', borderBottomWidth: 0 },
-  slotOcupadoSecundario: { backgroundColor: '#F3E8FA', borderBottomWidth: 0, borderTopWidth: 0 },
-  lastSlotOfCita: { borderBottomWidth: 1, borderBottomColor: '#E8D5F0' },
-  'slot-disponible': { backgroundColor: '#E8F8F5' },
-  selectedSlot: { backgroundColor: '#D9F0E8' },
+  // COLORES DE SLOTS - CON MEJOR CONTRASTE
+  'slot-no-laboral': { backgroundColor: '#F8E0E8' },
+  'slot-almuerzo': { backgroundColor: '#FFF0F5' },
+  'slot-fuera-horario': { backgroundColor: '#F5F5F5', opacity: 0.7 },
+  'slot-ocupado': { backgroundColor: '#EDE7F6', borderBottomWidth: 0 },
+  slotOcupadoSecundario: { backgroundColor: '#EDE7F6', borderBottomWidth: 0, borderTopWidth: 0 },
+  lastSlotOfCita: { borderBottomWidth: 1, borderBottomColor: '#D1C4E9' },
+  'slot-disponible': { backgroundColor: '#E0F2F1' },
+  selectedSlot: { backgroundColor: '#B2DFDB' },
   multiSlotFirst: { borderBottomWidth: 0 },
   
-  // TEXTOS DE SLOTS
-  slotNoLaboralText: { fontSize: 10, color: '#E8C4D8', fontWeight: 'bold', textAlign: 'center' },
-  slotAlmuerzoText: { fontSize: 10, color: '#B088C8', fontWeight: 'bold', textAlign: 'center' },
-  slotFueraHorarioText: { fontSize: 10, color: '#C8B8D0', textAlign: 'center', textDecorationLine: 'line-through' },
-  slotDisponibleText: { fontSize: 10, color: '#5FE0C8', textAlign: 'center', fontWeight: 'bold' },
+  // TEXTOS DE SLOTS - MÁS OSCUROS
+  slotNoLaboralText: { fontSize: 10, color: '#AD1457', fontWeight: 'bold', textAlign: 'center' },
+  slotAlmuerzoText: { fontSize: 10, color: '#6B4F80', fontWeight: 'bold', textAlign: 'center' },
+  slotFueraHorarioText: { fontSize: 10, color: '#9E9E9E', textAlign: 'center', textDecorationLine: 'line-through' },
+  slotDisponibleText: { fontSize: 10, color: '#00695C', textAlign: 'center', fontWeight: 'bold' },
   
   citaContent: { flex: 1, justifyContent: 'center', padding: 2, width: '100%' },
   citaCliente: { fontSize: 11, fontWeight: 'bold', marginBottom: 1, textAlign: 'center', color: '#2D2D2D' },
   citaServicio: { fontSize: 9, color: '#6B6B6B', textAlign: 'center' },
-  citaHora: { fontSize: 8, color: '#B088C8', fontStyle: 'italic', marginTop: 1, textAlign: 'center' },
+  citaHora: { fontSize: 8, color: '#6B4F80', fontStyle: 'italic', marginTop: 1, textAlign: 'center' },
   
   scrollContent: { paddingBottom: 20 },
   
@@ -1022,12 +1022,12 @@ const styles = StyleSheet.create({
   },
   datePickerHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 },
   monthYearSelector: { flex: 1, alignItems: 'center' },
-  monthYearText: { fontSize: 18, fontWeight: 'bold', color: '#B088C8' },
+  monthYearText: { fontSize: 18, fontWeight: 'bold', color: '#6B4F80' },
   calendarContainer: { height: 300, overflow: 'hidden' },
   calendar: { marginBottom: 10 },
   datePickerActions: { flexDirection: 'row', justifyContent: 'space-between', marginTop: 8 },
   datePickerButton: { padding: 10, borderRadius: 20 },
-  datePickerButtonText: { color: '#B088C8', fontWeight: 'bold', fontSize: 14 },
+  datePickerButtonText: { color: '#6B4F80', fontWeight: 'bold', fontSize: 14 },
   closeButton: { 
     padding: 10, borderRadius: 20, backgroundColor: '#B088C8', 
     paddingHorizontal: 20, shadowColor: '#B088C8', shadowOffset: { width: 0, height: 2 }, 
@@ -1043,8 +1043,8 @@ const styles = StyleSheet.create({
   disponible: { backgroundColor: '#7FFFD4', borderRadius: 7 },
   noDisponible: { backgroundColor: '#E8C4D8', borderRadius: 7 },
   disponibilidadTexto: { fontSize: 10, fontWeight: 'bold' },
-  disponibleTexto: { color: '#5FE0C8' },
-  noDisponibleTexto: { color: '#E8C4D8' },
+  disponibleTexto: { color: '#00695C' },
+  noDisponibleTexto: { color: '#AD1457' },
   
   // Móvil
   mobileMainContainer: { flex: 1, marginBottom: 60 },

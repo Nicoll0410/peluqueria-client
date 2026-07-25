@@ -679,19 +679,19 @@ const styles = StyleSheet.create({
 
   /* Loading */
   loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center' },
-  loadingText: { marginTop: 10, color: '#B088C8', fontSize: 16 },
+  loadingText: { marginTop: 10, color: '#6B4F80', fontSize: 16 },
 
   /* Header */
   header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   headerLeft: { flexDirection: 'row', alignItems: 'center' },
-  title: { fontSize: 24, fontWeight: 'bold', color: '#B088C8', marginRight: 12 },
-  counter: { backgroundColor: '#F3E8FA', width: 30, height: 30, borderRadius: 15, justifyContent: 'center', alignItems: 'center' },
-  counterText: { fontWeight: 'bold', fontSize: 14, color: '#9B6FB0' },
-  addButton: {
-    flexDirection: 'row', alignItems: 'center', backgroundColor: '#B088C8',
-    paddingVertical: 10, paddingHorizontal: 18, borderRadius: 25,
-    shadowColor: '#B088C8', shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3, shadowRadius: 8, elevation: 5
+  title: { fontSize: 24, fontWeight: 'bold', color: '#6B4F80', marginRight: 12 },
+  counter: { backgroundColor: '#E8D5F0', width: 30, height: 30, borderRadius: 15, justifyContent: 'center', alignItems: 'center' },
+  counterText: { fontWeight: 'bold', fontSize: 14, color: '#6B4F80' },
+  addButton: { 
+    flexDirection: 'row', alignItems: 'center', backgroundColor: '#B088C8', 
+    paddingVertical: 10, paddingHorizontal: 18, borderRadius: 25, 
+    shadowColor: '#B088C8', shadowOffset: { width: 0, height: 4 }, 
+    shadowOpacity: 0.3, shadowRadius: 8, elevation: 5 
   },
   addButtonText: { marginLeft: 8, color: '#FFFFFF', fontWeight: '600', fontSize: 14 },
 
@@ -700,9 +700,9 @@ const styles = StyleSheet.create({
   tableHeader: { flexDirection: 'row', backgroundColor: '#B088C8', paddingVertical: 14 },
   headerCell: { justifyContent: 'center', paddingHorizontal: 8 },
   headerText: { fontWeight: 'bold', color: '#FFFFFF', fontSize: 13 },
-  tableRow: {
-    flexDirection: 'row', paddingVertical: 12, borderBottomWidth: 1,
-    borderBottomColor: '#F3E8FA', backgroundColor: '#FFFFFF'
+  tableRow: { 
+    flexDirection: 'row', paddingVertical: 12, borderBottomWidth: 1, 
+    borderBottomColor: '#F3E8FA', backgroundColor: '#FFFFFF' 
   },
   cell: { justifyContent: 'center', paddingHorizontal: 8 },
   nameColumn: { flex: 3, alignItems: 'flex-start' },
@@ -721,11 +721,11 @@ const styles = StyleSheet.create({
   /* Cards (móvil) */
   scrollContainer: { flex: 1 },
   cardsContainer: { paddingBottom: 16 },
-  card: {
-    backgroundColor: '#FFFFFF', borderRadius: 16, padding: 16, marginBottom: 12,
-    borderWidth: 1, borderColor: '#E8D5F0',
-    shadowColor: '#B088C8', shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1, shadowRadius: 8, elevation: 3
+  card: { 
+    backgroundColor: '#FFFFFF', borderRadius: 16, padding: 16, marginBottom: 12, 
+    borderWidth: 1, borderColor: '#E8D5F0', 
+    shadowColor: '#B088C8', shadowOffset: { width: 0, height: 2 }, 
+    shadowOpacity: 0.1, shadowRadius: 8, elevation: 3 
   },
   cardHeader: { flexDirection: 'row', alignItems: 'center', marginBottom: 12 },
   cardHeaderText: { marginLeft: 12, flex: 1 },
@@ -736,36 +736,36 @@ const styles = StyleSheet.create({
   detailIcon: { marginRight: 8 },
   detailText: { fontSize: 14, color: '#6B6B6B' },
   cardActions: { flexDirection: 'row', justifyContent: 'flex-end', marginTop: 8 },
-  actionButton: {
-    marginLeft: 12, padding: 10, borderRadius: 20,
-    backgroundColor: '#FDF8FC', borderWidth: 1, borderColor: '#E8D5F0'
+  actionButton: { 
+    marginLeft: 12, padding: 10, borderRadius: 20, 
+    backgroundColor: '#FDF8FC', borderWidth: 1, borderColor: '#E8D5F0' 
   },
 
   /* Avatar */
-  avatarContainer: {
-    width: 40, height: 40, borderRadius: 20,
-    justifyContent: 'center', alignItems: 'center', overflow: 'hidden'
+  avatarContainer: { 
+    width: 40, height: 40, borderRadius: 20, 
+    justifyContent: 'center', alignItems: 'center', overflow: 'hidden' 
   },
   avatarText: { color: '#FFFFFF', fontWeight: 'bold', fontSize: 16 },
   avatarImage: { width: 40, height: 40, borderRadius: 20, resizeMode: 'cover' },
 
   /* Estado */
-  estadoContainer: {
-    flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
-    paddingVertical: 6, paddingHorizontal: 10, borderRadius: 12, alignSelf: 'center'
+  estadoContainer: { 
+    flexDirection: 'row', alignItems: 'center', justifyContent: 'center', 
+    paddingVertical: 6, paddingHorizontal: 10, borderRadius: 12, alignSelf: 'center' 
   },
-  verificado: { backgroundColor: '#E8F8F5' },
-  noVerificado: { backgroundColor: '#FDF0F5' },
+  verificado: { backgroundColor: '#E8F5E9' },
+  noVerificado: { backgroundColor: '#FFEBEE' },
   estadoTexto: { marginLeft: 6, fontSize: 13, fontWeight: '500' },
-  textoVerificado: { color: '#5FE0C8' },
-  textoNoVerificado: { color: '#E8C4D8' },
+  textoVerificado: { color: '#2E7D32' },
+  textoNoVerificado: { color: '#C62828' },
 
   /* Rol */
   rolContainer: { paddingVertical: 6, paddingHorizontal: 10, borderRadius: 12 },
-  rolAdmin: { backgroundColor: '#E8F8F5' },
-  rolBarbero: { backgroundColor: '#F3E8FA' },
+  rolAdmin: { backgroundColor: '#E0F2F1' },
+  rolBarbero: { backgroundColor: '#EDE7F6' },
   rolTexto: { fontSize: 13, fontWeight: '500' },
-  textoAdmin: { color: '#5FE0C8' },
-  textoBarbero: { color: '#B088C8' },
+  textoAdmin: { color: '#00695C' },
+  textoBarbero: { color: '#6B4F80' },
 });
 export default BarberosScreen;
