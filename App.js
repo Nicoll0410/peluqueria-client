@@ -7,16 +7,26 @@ import { Platform, Alert, LogBox, AppState, Linking } from "react-native";
 import * as Notifications from "expo-notifications";
 import * as Device from 'expo-device';
 import Constants from "expo-constants";
+import * as Font from 'expo-font';
 import AppNavigator from "./navigation/AppNavigator";
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import { NavigationContainer } from "@react-navigation/native";
 import { configurePushNotifications, playNotificationSound } from './utils/notifications';
 import io from 'socket.io-client';
 
-// 🎨 PALETA DE COLORES ALBA QUICENO
-// Aguamarina: #7FFFD4 | Azul: #1E90FF | Blanco: #FFFFFF | Negro: #1A1A1A
+// 🎨 PALETA ALBA QUICENO
+// Morado principal: #B088C8 | Rosado: #E8C4D8 | Aguamarina: #7FFFD4
+// Blanco: #FFFFFF | Negro suave: #2D2D2D | Lila fondo: #F3E8FA
 
-// Configuración completa de notificaciones
+// Cargar fuentes para web
+if (Platform.OS === 'web') {
+  const style = document.createElement('style');
+  style.textContent = `
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Raleway:wght@300;400;500;600&family=Montserrat:wght@400;500;600&display=swap');
+  `;
+  document.head.appendChild(style);
+}
+
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
     shouldShowAlert: true,
@@ -25,14 +35,13 @@ Notifications.setNotificationHandler({
   }),
 });
 
-// Configurar el canal de notificaciones para Android
 async function setupNotificationChannel() {
   if (Platform.OS === 'android') {
     await Notifications.setNotificationChannelAsync('default', {
       name: 'Notificaciones Salón Alba Quiceno',
       importance: Notifications.AndroidImportance.HIGH,
       vibrationPattern: [0, 250, 250, 250],
-      lightColor: '#7FFFD4',
+      lightColor: '#B088C8',
       sound: 'default',
       showBadge: true,
       enableLights: true,
@@ -41,7 +50,6 @@ async function setupNotificationChannel() {
   }
 }
 
-// Ignorar advertencias específicas
 LogBox.ignoreLogs([
   "AsyncStorage has been extracted",
   "Setting a timer",
@@ -57,11 +65,9 @@ function MainApp() {
   const socketRef = useRef(null);
   const { user, token } = useAuth();
 
-  // Función para manejar deep links
   const handleDeepLink = (event) => {
     try {
       let url = event.url;
-      
       const urlObj = new URL(url);
       const path = urlObj.pathname;
       const params = Object.fromEntries(urlObj.searchParams.entries());
@@ -82,11 +88,9 @@ function MainApp() {
     }
   };
 
-  // Configurar Socket.io
   const setupSocket = async () => {
     try {
       if (!user || !token) return;
-
       if (socketRef.current) {
         socketRef.current.disconnect();
         socketRef.current = null;
@@ -94,41 +98,28 @@ function MainApp() {
 
       socketRef.current = io('https://peluqueria-server-gw54.onrender.com', {
         transports: ['websocket', 'polling'],
-        auth: {
-          token: token
-        }
+        auth: { token: token }
       });
 
       socketRef.current.on('connect', () => {
         socketRef.current.emit('unir_usuario', user.userId || user.id);
       });
 
-      socketRef.current.on('disconnect', () => {
-      });
-
       socketRef.current.on('nueva_notificacion', async (data) => {
         await playNotificationSound();
-        
-        Alert.alert(
-          data.titulo, 
-          data.cuerpo, 
-          [
-            {
-              text: 'Ver',
-              onPress: () => {
-                if (data.cita && data.cita.id) {
-                  navigationRef.current?.navigate('DetalleCita', { id: data.cita.id });
-                } else {
-                  navigationRef.current?.navigate('Notificaciones');
-                }
+        Alert.alert(data.titulo, data.cuerpo, [
+          {
+            text: 'Ver',
+            onPress: () => {
+              if (data.cita && data.cita.id) {
+                navigationRef.current?.navigate('DetalleCita', { id: data.cita.id });
+              } else {
+                navigationRef.current?.navigate('Notificaciones');
               }
-            },
-            { 
-              text: 'OK', 
-              onPress: () => {} 
             }
-          ]
-        );
+          },
+          { text: 'OK', onPress: () => {} }
+        ]);
       });
 
     } catch (error) {
@@ -136,44 +127,28 @@ function MainApp() {
     }
   };
 
-  // Registrar el token push
   const registerForPushNotifications = async () => {
     try {
-      if (!Device.isDevice) {
-        console.warn('Debes usar un dispositivo físico para recibir notificaciones push');
-        return;
-      }
-
+      if (!Device.isDevice) return;
       const { status: existingStatus } = await Notifications.getPermissionsAsync();
       let finalStatus = existingStatus;
-      
       if (existingStatus !== 'granted') {
         const { status } = await Notifications.requestPermissionsAsync();
         finalStatus = status;
       }
-
       if (finalStatus !== 'granted') {
-        Alert.alert(
-          'Permisos requeridos',
-          'Las notificaciones no funcionarán sin los permisos necesarios'
-        );
+        Alert.alert('Permisos requeridos', 'Las notificaciones no funcionarán sin los permisos necesarios');
         return;
       }
-
-      const pushToken = (await Notifications.getExpoPushTokenAsync({
+      await Notifications.getExpoPushTokenAsync({
         projectId: Constants.expoConfig.extra.eas.projectId,
-      })).data;
-
-    } catch (error) {
-    }
+      });
+    } catch (error) {}
   };
 
-  // Manejar cambios en el estado de la app
   const handleAppStateChange = async (nextAppState) => {
     if (appState.current.match(/inactive|background/) && nextAppState === 'active') {
-      if (user && token) {
-        await setupSocket();
-      }
+      if (user && token) await setupSocket();
     }
     appState.current = nextAppState;
   };
@@ -183,14 +158,10 @@ function MainApp() {
     configurePushNotifications();
     registerForPushNotifications();
 
-    notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
-    });
-
-    responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
-    });
+    notificationListener.current = Notifications.addNotificationReceivedListener(notification => {});
+    responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {});
 
     const linkingSubscription = Linking.addEventListener('url', handleDeepLink);
-
     Linking.getInitialURL().then(url => {
       if (url) handleDeepLink({ url });
     }).catch(err => console.error('Error obteniendo URL inicial:', err));
@@ -202,7 +173,6 @@ function MainApp() {
       if (responseListener.current) responseListener.current.remove();
       linkingSubscription.remove();
       appStateSubscription.remove();
-      
       if (socketRef.current) {
         socketRef.current.disconnect();
         socketRef.current = null;
@@ -211,25 +181,15 @@ function MainApp() {
   }, []);
 
   useEffect(() => {
-    if (user && token) {
-      setupSocket();
-    }
+    if (user && token) setupSocket();
   }, [user, token]);
 
   return (
     <NavigationContainer
       ref={navigationRef}
       linking={{
-        prefixes: [
-          'salonalbaquiceno://',
-          'https://salonalbaquiceno.com',
-          'https://*.salonalbaquiceno.com'
-        ],
-        config: {
-          screens: {
-            VerifyEmail: 'verify-email',
-          },
-        },
+        prefixes: ['salonalbaquiceno://', 'https://salonalbaquiceno.com', 'https://*.salonalbaquiceno.com'],
+        config: { screens: { VerifyEmail: 'verify-email' } },
       }}
     >
       <AppNavigator />

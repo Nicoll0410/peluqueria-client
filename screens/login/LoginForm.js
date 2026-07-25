@@ -1,16 +1,8 @@
 import React, { useState, useContext } from "react";
 import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  StyleSheet,
-  Modal,
-  Dimensions,
-  KeyboardAvoidingView,
-  Platform,
-  ActivityIndicator,
-  Alert,
+  View, Text, TextInput, TouchableOpacity, StyleSheet,
+  Modal, Dimensions, KeyboardAvoidingView, Platform,
+  ActivityIndicator, Alert,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -19,10 +11,23 @@ import { AuthContext } from "../../contexts/AuthContext";
 
 const { width } = Dimensions.get("window");
 const isDesktop = width >= 1024;
-const isMobile = width < 768;
 
-const BASE_URL =
-  Platform.OS === "android" ? "https://peluqueria-server-gw54.onrender.com" : "https://peluqueria-server-gw54.onrender.com";
+const BASE_URL = "https://peluqueria-server-gw54.onrender.com";
+
+// 🎨 COLORES
+const COLORS = {
+  morado: '#B088C8',
+  moradoOscuro: '#9B6FB0',
+  rosado: '#E8C4D8',
+  rosadoClaro: '#FDF0F5',
+  aguamarina: '#7FFFD4',
+  blanco: '#FFFFFF',
+  negro: '#2D2D2D',
+  gris: '#6B6B6B',
+  lilaFondo: '#FDF8FC',
+  bordeLila: '#E8D5F0',
+  sombraMorada: 'rgba(176, 136, 200, 0.3)',
+};
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -39,153 +44,107 @@ const LoginForm = () => {
       setLoginError("Por favor, ingresa correo y contraseña.");
       return;
     }
-
     setIsLoading(true);
     setLoginError("");
 
     try {
-      // Intenta primero el login estándar
-      const { data } = await axios.post(`${BASE_URL}/auth/login`, {
-        email,
-        password,
-      });
-
+      const { data } = await axios.post(`${BASE_URL}/auth/login`, { email, password });
       if (data.success && data.token) {
         const loginSuccess = await login(data.token);
-        if (!loginSuccess) {
-          setLoginError("Error al iniciar sesión");
-        }
+        if (!loginSuccess) setLoginError("Error al iniciar sesión");
         return;
       }
-
-      // Si el rol no está autorizado, intenta como cliente
       if (data.reason === "UNAUTHORIZED_ROLE") {
-        const resClient = await axios.post(`${BASE_URL}/auth/login-client`, {
-          email,
-          password,
-        });
-
+        const resClient = await axios.post(`${BASE_URL}/auth/login-client`, { email, password });
         if (resClient.data.token) {
-          const loginSuccess = await login(resClient.data.token, {
-            clientData: resClient.data.cliente,
-          });
-
-          if (!loginSuccess) {
-            setLoginError("Error al iniciar sesión");
-          }
+          const loginSuccess = await login(resClient.data.token, { clientData: resClient.data.cliente });
+          if (!loginSuccess) setLoginError("Error al iniciar sesión");
         } else {
           setLoginError("Credenciales incorrectas");
         }
         return;
       }
-
-      // Manejo de otros errores
       switch (data.reason) {
-        case "USER_NOT_FOUND":
-          setLoginError("Usuario no registrado.");
-          break;
-        case "INVALID_PASSWORD":
-          setLoginError("Contraseña incorrecta.");
-          break;
-        case "NOT_VERIFIED":
-          setLoginError("Tu cuenta no ha sido verificada. Revisa tu correo.");
-          break;
-        default:
-          setLoginError("Error desconocido. Intenta nuevamente.");
+        case "USER_NOT_FOUND": setLoginError("Usuario no registrado."); break;
+        case "INVALID_PASSWORD": setLoginError("Contraseña incorrecta."); break;
+        case "NOT_VERIFIED": setLoginError("Tu cuenta no ha sido verificada. Revisa tu correo."); break;
+        default: setLoginError("Error desconocido. Intenta nuevamente.");
       }
     } catch (error) {
-      console.error("Login error:", error);
-      setLoginError(
-        error.response?.data?.message || "Error al conectar con el servidor"
-      );
+      setLoginError(error.response?.data?.message || "Error al conectar con el servidor");
     } finally {
       setIsLoading(false);
     }
   };
 
-  const togglePassword = () => setShowPassword(!showPassword);
-
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={styles.keyboardAvoidingView}
+      style={styles.keyboardView}
       keyboardVerticalOffset={Platform.OS === "ios" ? 40 : 0}
     >
       <View style={styles.formContainer}>
-        <Text style={styles.title}>Accede a tu cuenta</Text>
-        <Text style={styles.subtitle}>
-          Inicia sesión para gestionar tus citas y servicios
-        </Text>
-
-        <Text style={styles.inputLabel}>Email *</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="nombre@dominio.com"
-          placeholderTextColor="#808280"
-          value={email}
-          onChangeText={setEmail}
-          keyboardType="email-address"
-          autoCapitalize="none"
-        />
-
-        <Text style={styles.inputLabel}>Contraseña *</Text>
-        <View style={styles.passwordInputContainer}>
+        
+        {/* EMAIL */}
+        <Text style={styles.inputLabel}>CORREO ELECTRÓNICO</Text>
+        <View style={styles.inputWrapper}>
+          <Text style={styles.inputIcon}>✉️</Text>
           <TextInput
-            style={styles.passwordInput}
-            placeholder="●●●●●●●●"
-            placeholderTextColor="#808280"
+            style={styles.input}
+            placeholder="nombre@correo.com"
+            placeholderTextColor="#C8B8D0"
+            value={email}
+            onChangeText={setEmail}
+            keyboardType="email-address"
+            autoCapitalize="none"
+          />
+        </View>
+
+        {/* CONTRASEÑA */}
+        <Text style={styles.inputLabel}>CONTRASEÑA</Text>
+        <View style={styles.inputWrapper}>
+          <Text style={styles.inputIcon}>🔒</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="••••••••"
+            placeholderTextColor="#C8B8D0"
             secureTextEntry={!showPassword}
             value={password}
             onChangeText={setPassword}
             returnKeyType="go"
             onSubmitEditing={handleLogin}
           />
-          <TouchableOpacity style={styles.eyeIcon} onPress={togglePassword}>
-            <Ionicons
-              name={showPassword ? "eye-off" : "eye"}
-              size={24}
-              color="#808280"
-            />
+          <TouchableOpacity style={styles.eyeIcon} onPress={() => setShowPassword(!showPassword)}>
+            <Ionicons name={showPassword ? "eye-off" : "eye"} size={20} color="#C8B8D0" />
           </TouchableOpacity>
         </View>
 
         {loginError ? <Text style={styles.errorText}>{loginError}</Text> : null}
 
-        <TouchableOpacity
-          style={styles.button}
-          onPress={handleLogin}
-          disabled={isLoading}
-        >
+        {/* BOTÓN */}
+        <TouchableOpacity style={styles.button} onPress={handleLogin} disabled={isLoading}>
           {isLoading ? (
-            <ActivityIndicator color="#fff" />
+            <ActivityIndicator color="#FFF" />
           ) : (
-            <Text style={styles.buttonText}>Iniciar sesión</Text>
+            <Text style={styles.buttonText}>🌸  INICIAR SESIÓN</Text>
           )}
         </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.forgotPasswordButton}
-          onPress={() => navigation.navigate("ForgotPassword")}
-        >
-          <Text style={styles.forgotPassword}>¿Olvidaste tu contraseña?</Text>
+        {/* LINKS */}
+        <TouchableOpacity style={styles.linkButton} onPress={() => navigation.navigate("ForgotPassword")}>
+          <Text style={styles.link}>¿Olvidaste tu contraseña?</Text>
         </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.registerButton}
-          onPress={() => navigation.navigate("Register")}
-        >
-          <Text style={styles.registerText}>
-            ¿No tienes cuenta?{" "}
-            <Text style={styles.registerLink}>Regístrate</Text>
+        <TouchableOpacity style={styles.linkButton} onPress={() => navigation.navigate("Register")}>
+          <Text style={styles.link}>
+            ¿No tienes cuenta? <Text style={styles.linkHighlight}>Regístrate</Text>
           </Text>
         </TouchableOpacity>
       </View>
 
-      {/* Loading Modal */}
       <Modal transparent visible={isLoading} animationType="fade">
         <View style={styles.loadingOverlay}>
           <View style={styles.loadingBox}>
-            <ActivityIndicator size="large" color="#000" />
+            <ActivityIndicator size="large" color={COLORS.morado} />
             <Text style={styles.loadingText}>Iniciando sesión...</Text>
           </View>
         </View>
@@ -195,139 +154,58 @@ const LoginForm = () => {
 };
 
 const styles = StyleSheet.create({
-  keyboardAvoidingView: {
-    flex: 1,
-    justifyContent: "center",
-    backgroundColor: "#f8f9fa",
-  },
-  formContainer: {
-    width: isDesktop ? 400 : "90%",
-    maxWidth: 400,
-    alignSelf: "center",
-    padding: 20,
-    backgroundColor: "#fff",
-    borderRadius: 10,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 6,
-    elevation: 3,
-  },
-  title: {
-    fontSize: isDesktop ? 24 : 20,
-    fontWeight: "bold",
-    color: "#333",
-    textAlign: "center",
-    marginBottom: 8,
-  },
-  subtitle: {
-    fontSize: isDesktop ? 14 : 13,
-    color: "#666",
-    textAlign: "center",
-    marginBottom: 24,
-    lineHeight: 20,
-  },
+  keyboardView: { flex: 1, justifyContent: "center" },
+  formContainer: { width: '100%', maxWidth: 400, alignSelf: 'center' },
+  
   inputLabel: {
-    fontSize: 14,
-    color: "#444",
-    marginBottom: 8,
-    fontWeight: "600",
+    fontSize: 11, fontWeight: '600', color: '#6B6B6B',
+    letterSpacing: 1.5, marginBottom: 8, marginTop: 5,
+    fontFamily: Platform.OS === 'web' ? 'Montserrat, sans-serif' : 'sans-serif',
   },
+  inputWrapper: {
+    flexDirection: 'row', alignItems: 'center',
+    borderWidth: 2, borderColor: '#E8D5F0', borderRadius: 12,
+    backgroundColor: '#FDF8FC', marginBottom: 16, overflow: 'hidden',
+  },
+  inputIcon: { fontSize: 18, paddingLeft: 15 },
   input: {
-    height: 50,
-    borderWidth: 1,
-    borderColor: "#ddd",
-    borderRadius: 8,
-    paddingHorizontal: 15,
-    marginBottom: 16,
-    backgroundColor: "#fff",
-    fontSize: 15,
+    flex: 1, height: 50, paddingHorizontal: 12,
+    fontSize: 14, color: '#2D2D2D',
+    fontFamily: Platform.OS === 'web' ? 'Raleway, sans-serif' : 'sans-serif',
   },
-  passwordInputContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    borderWidth: 1,
-    borderColor: "#ddd",
-    borderRadius: 8,
-    marginBottom: 16,
-    backgroundColor: "#fff",
-    overflow: "hidden", // Añadido para contener el icono dentro del borde
-  },
-  passwordInput: {
-    flex: 1,
-    height: 50,
-    paddingHorizontal: 15,
-    fontSize: 15,
-    paddingRight: 45, // Espacio para el icono del ojo
-  },
-  eyeIcon: {
-    position: "absolute", // Cambiado a posición absoluta
-    right: 0,
-    height: "100%",
-    width: 45, // Ancho fijo para el área táctil
-    justifyContent: "center",
-    alignItems: "center",
-  },
+  eyeIcon: { paddingRight: 15, paddingLeft: 5 },
+  
   button: {
-    height: 50,
-    backgroundColor: "#7FFFD4",
-    borderRadius: 8,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 8,
+    height: 52, backgroundColor: '#B088C8', borderRadius: 25,
+    justifyContent: 'center', alignItems: 'center', marginTop: 10,
+    shadowColor: '#B088C8', shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.3, shadowRadius: 15, elevation: 8,
   },
   buttonText: {
-    color: "#fff",
-    fontSize: 16,
-    fontWeight: "600",
+    color: '#FFFFFF', fontSize: 14, fontWeight: '600', letterSpacing: 3,
+    fontFamily: Platform.OS === 'web' ? 'Montserrat, sans-serif' : 'sans-serif',
   },
-  forgotPasswordButton: {
-    marginTop: 16,
-    alignItems: "center",
+  
+  linkButton: { marginTop: 18, alignItems: 'center' },
+  link: {
+    fontSize: 13, color: '#6B6B6B',
+    fontFamily: Platform.OS === 'web' ? 'Raleway, sans-serif' : 'sans-serif',
   },
-  forgotPassword: {
-    fontSize: 14,
-    color: "#424242",
-    textDecorationLine: "underline",
-  },
-  registerButton: {
-    marginTop: 8,
-    alignItems: "center",
-  },
-  registerText: {
-    fontSize: 14,
-    color: "#666",
-  },
-  registerLink: {
-    color: "#424242",
-    textDecorationLine: "underline",
-  },
+  linkHighlight: { color: '#B088C8', fontWeight: '600' },
   errorText: {
-    color: "#e74c3c",
-    fontSize: 13,
-    textAlign: "center",
-    marginVertical: 8,
+    color: '#E74C3C', fontSize: 13, textAlign: 'center',
+    marginVertical: 8, backgroundColor: '#FDF0F0', padding: 10, borderRadius: 8,
   },
+  
   loadingOverlay: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "rgba(0,0,0,0.4)",
+    flex: 1, justifyContent: 'center', alignItems: 'center',
+    backgroundColor: 'rgba(0,0,0,0.4)',
   },
   loadingBox: {
-    backgroundColor: "#fff",
-    padding: 24,
-    borderRadius: 8,
-    alignItems: "center",
-    justifyContent: "center",
-    width: "80%",
-    maxWidth: 300,
+    backgroundColor: '#FFFFFF', padding: 30, borderRadius: 16,
+    alignItems: 'center', width: '80%', maxWidth: 300,
   },
-  loadingText: {
-    marginTop: 12,
-    fontSize: 14,
-    color: "#333",
-  },
+  loadingText: { marginTop: 15, fontSize: 14, color: '#2D2D2D' },
 });
 
 export default LoginForm;
