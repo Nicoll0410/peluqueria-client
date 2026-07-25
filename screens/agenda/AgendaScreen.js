@@ -913,346 +913,142 @@ const AgendaScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff'
+  container: { flex: 1, backgroundColor: '#FDF8FC' },
+  loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  loadingText: { marginTop: 10, fontSize: 16, color: '#B088C8' },
+  
+  header: { 
+    flexDirection: 'row', alignItems: 'center', padding: 16, 
+    borderBottomWidth: 1, borderBottomColor: '#E8D5F0', backgroundColor: '#FFFFFF' 
   },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#eee'
-  },
-  dateContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
-    marginLeft: 15
-  },
-  dateText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginHorizontal: 10
-  },
-  calendarButton: {
-    marginRight: 10
-  },
+  dateContainer: { flexDirection: 'row', alignItems: 'center', flex: 1, marginLeft: 15 },
+  dateText: { fontSize: 18, fontWeight: 'bold', marginHorizontal: 10, color: '#2D2D2D' },
+  calendarButton: { marginRight: 10 },
+
   // Estilos para web (escritorio)
-  barberosHeader: {
-    flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderBottomColor: '#000',
-    paddingVertical: 10
+  barberosHeader: { 
+    flexDirection: 'row', borderBottomWidth: 2, 
+    borderBottomColor: '#E8D5F0', paddingVertical: 10, backgroundColor: '#FFFFFF' 
   },
-  timeColumn: {
-    width: 80
+  timeColumn: { width: 80 },
+  barberoHeader: { 
+    flex: 1, alignItems: 'center', paddingHorizontal: 5, 
+    borderRightWidth: 1, borderRightColor: '#E8D5F0' 
   },
-  barberoHeader: {
-    flex: 1,
-    alignItems: 'center',
-    paddingHorizontal: 5,
-    borderRightWidth: 1,
-    borderRightColor: '#000'
-  },
+  
   // Estilos para móvil
-  barberosContainerMobile: {
-    flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderBottomColor: '#000',
-    paddingVertical: 10,
-    minHeight: 120
+  barberosContainerMobile: { 
+    flexDirection: 'row', borderBottomWidth: 2, 
+    borderBottomColor: '#E8D5F0', paddingVertical: 10, minHeight: 120 
   },
-  timeColumnMobile: {
-    width: 80,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRightWidth: 1,
-    borderRightColor: '#000'
+  timeColumnMobile: { 
+    width: 80, justifyContent: 'center', alignItems: 'center', 
+    borderRightWidth: 1, borderRightColor: '#E8D5F0' 
   },
-  timeColumnText: {
-    fontWeight: 'bold',
-    fontSize: 16
+  timeColumnText: { fontWeight: 'bold', fontSize: 16, color: '#B088C8' },
+  barberosScrollContent: { flexDirection: 'row', paddingRight: 10 },
+  barberoHeaderMobile: { 
+    width: 120, alignItems: 'center', paddingHorizontal: 8, 
+    borderRightWidth: 1, borderRightColor: '#E8D5F0', justifyContent: 'center' 
   },
-  barberosScrollContent: {
-    flexDirection: 'row',
-    paddingRight: 10
-  },
-  barberoHeaderMobile: {
-    width: 120, // Aumentado para mejor visualización
-    alignItems: 'center',
-    paddingHorizontal: 8,
-    borderRightWidth: 1,
-    borderRightColor: '#000',
-    justifyContent: 'center'
-  },
-  avatar: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    marginBottom: 5
-  },
-  barberoNombre: {
-    fontWeight: 'bold',
-    fontSize: 14,
-    textAlign: 'center'
-  },
-  subItem: {
-    fontSize: 10,
-    color: '#666',
-    textAlign: 'center'
-  },
-  mainContent: {
-    flex: 1,
-    marginBottom: 60
-  },
+  
+  avatar: { width: 40, height: 40, borderRadius: 20, marginBottom: 5 },
+  barberoNombre: { fontWeight: 'bold', fontSize: 14, textAlign: 'center', color: '#2D2D2D' },
+  subItem: { fontSize: 10, color: '#B088C8', textAlign: 'center', fontWeight: '500' },
+  
+  mainContent: { flex: 1, marginBottom: 60 },
+  
   // Filas para web
-  row: {
-    flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderBottomColor: '#000',
-    minHeight: 60
+  row: { flexDirection: 'row', borderBottomWidth: 1, borderBottomColor: '#E8D5F0', minHeight: 60 },
+  timeCell: { 
+    width: 80, justifyContent: 'center', alignItems: 'center', 
+    borderRightWidth: 1, borderRightColor: '#E8D5F0' 
   },
-  timeCell: {
-    width: 80,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRightWidth: 1,
-    borderRightColor: '#000'
-  },
+  
   // Filas para móvil
-  rowMobile: {
-    flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderBottomColor: '#000',
-    minHeight: 60
+  rowMobile: { flexDirection: 'row', borderBottomWidth: 1, borderBottomColor: '#E8D5F0', minHeight: 60 },
+  timeCellMobile: { 
+    width: 80, justifyContent: 'center', alignItems: 'center', 
+    borderRightWidth: 1, borderRightColor: '#E8D5F0' 
   },
-  timeCellMobile: {
-    width: 80,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRightWidth: 1,
-    borderRightColor: '#000'
-  },
-  horaText: {
-    fontSize: 14
-  },
-  barberosSlotsContainer: {
-    flexDirection: 'row'
-  },
+  horaText: { fontSize: 14, color: '#6B6B6B' },
+  barberosSlotsContainer: { flexDirection: 'row' },
+  
   // Slots para web
-  slotContainer: {
-    flex: 1,
-    borderRightWidth: 1,
-    borderRightColor: '#000',
-    justifyContent: 'center',
-    minHeight: 60,
+  slotContainer: { 
+    flex: 1, borderRightWidth: 1, borderRightColor: '#E8D5F0', 
+    justifyContent: 'center', minHeight: 60 
   },
-  // Slots para móvil - MODIFICADO
-  slotContainerMobile: {
-    width: 120, // Aumentado para mejor visualización
-    borderRightWidth: 1,
-    borderRightColor: '#000',
-    justifyContent: 'center',
-    minHeight: 60,
+  
+  // Slots para móvil
+  slotContainerMobile: { 
+    width: 120, borderRightWidth: 1, borderRightColor: '#E8D5F0', 
+    justifyContent: 'center', minHeight: 60 
   },
-  slot: {
-    flex: 1,
-    padding: 4,
-    justifyContent: 'center',
-    alignItems: 'center',
-    minHeight: 58,
+  
+  slot: { flex: 1, padding: 4, justifyContent: 'center', alignItems: 'center', minHeight: 58 },
+  
+  // COLORES DE SLOTS - NUEVA PALETA
+  'slot-no-laboral': { backgroundColor: '#FDF0F5' },
+  'slot-almuerzo': { backgroundColor: '#FFF5F8' },
+  'slot-fuera-horario': { backgroundColor: '#FAFAFA', opacity: 0.6 },
+  'slot-ocupado': { backgroundColor: '#F3E8FA', borderBottomWidth: 0 },
+  slotOcupadoSecundario: { backgroundColor: '#F3E8FA', borderBottomWidth: 0, borderTopWidth: 0 },
+  lastSlotOfCita: { borderBottomWidth: 1, borderBottomColor: '#E8D5F0' },
+  'slot-disponible': { backgroundColor: '#E8F8F5' },
+  selectedSlot: { backgroundColor: '#D9F0E8' },
+  multiSlotFirst: { borderBottomWidth: 0 },
+  
+  // TEXTOS DE SLOTS
+  slotNoLaboralText: { fontSize: 10, color: '#E8C4D8', fontWeight: 'bold', textAlign: 'center' },
+  slotAlmuerzoText: { fontSize: 10, color: '#B088C8', fontWeight: 'bold', textAlign: 'center' },
+  slotFueraHorarioText: { fontSize: 10, color: '#C8B8D0', textAlign: 'center', textDecorationLine: 'line-through' },
+  slotDisponibleText: { fontSize: 10, color: '#5FE0C8', textAlign: 'center', fontWeight: 'bold' },
+  
+  citaContent: { flex: 1, justifyContent: 'center', padding: 2, width: '100%' },
+  citaCliente: { fontSize: 11, fontWeight: 'bold', marginBottom: 1, textAlign: 'center', color: '#2D2D2D' },
+  citaServicio: { fontSize: 9, color: '#6B6B6B', textAlign: 'center' },
+  citaHora: { fontSize: 8, color: '#B088C8', fontStyle: 'italic', marginTop: 1, textAlign: 'center' },
+  
+  scrollContent: { paddingBottom: 20 },
+  
+  // Calendario modal
+  calendarModal: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.5)' },
+  customDatePicker: { 
+    width: width * 0.85, maxWidth: 350, backgroundColor: '#FFFFFF', 
+    borderRadius: 16, padding: 16, elevation: 10,
+    shadowColor: '#B088C8', shadowOffset: { width: 0, height: 5 }, 
+    shadowOpacity: 0.3, shadowRadius: 15 
   },
-  'slot-no-laboral': {
-    backgroundColor: '#FFEBEE'
+  datePickerHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 },
+  monthYearSelector: { flex: 1, alignItems: 'center' },
+  monthYearText: { fontSize: 18, fontWeight: 'bold', color: '#B088C8' },
+  calendarContainer: { height: 300, overflow: 'hidden' },
+  calendar: { marginBottom: 10 },
+  datePickerActions: { flexDirection: 'row', justifyContent: 'space-between', marginTop: 8 },
+  datePickerButton: { padding: 10, borderRadius: 20 },
+  datePickerButtonText: { color: '#B088C8', fontWeight: 'bold', fontSize: 14 },
+  closeButton: { 
+    padding: 10, borderRadius: 20, backgroundColor: '#B088C8', 
+    paddingHorizontal: 20, shadowColor: '#B088C8', shadowOffset: { width: 0, height: 2 }, 
+    shadowOpacity: 0.3, shadowRadius: 5, elevation: 3 
   },
-  'slot-almuerzo': {
-    backgroundColor: '#FFF8E1'
-  },
-  'slot-fuera-horario': {
-    backgroundColor: '#F5F5F5',
-    opacity: 0.6
-  },
-  'slot-ocupado': {
-    backgroundColor: '#E0E0E0',
-    borderBottomWidth: 0
-  },
-  slotOcupadoSecundario: {
-    backgroundColor: '#E0E0E0',
-    borderBottomWidth: 0,
-    borderTopWidth: 0
-  },
-  lastSlotOfCita: {
-    borderBottomWidth: 1
-  },
-  'slot-disponible': {
-    backgroundColor: '#E8F5E9'
-  },
-  selectedSlot: {
-    backgroundColor: '#D9D9D9'
-  },
-  multiSlotFirst: {
-    borderBottomWidth: 0,
-  },
-  slotNoLaboralText: {
-    fontSize: 10,
-    color: '#F44336',
-    fontWeight: 'bold',
-    textAlign: 'center'
-  },
-  slotAlmuerzoText: {
-    fontSize: 10,
-    color: '#FF8F00',
-    fontWeight: 'bold',
-    textAlign: 'center'
-  },
-  slotFueraHorarioText: {
-    fontSize: 10,
-    color: '#9E9E9E',
-    textAlign: 'center',
-    textDecorationLine: 'line-through'
-  },
-  slotDisponibleText: {
-    fontSize: 10,
-    color: '#2E7D32',
-    textAlign: 'center',
-    fontWeight: 'bold'
-  },
-  citaContent: {
-    flex: 1,
-    justifyContent: 'center',
-    padding: 2,
-    width: '100%',
-  },
-  citaCliente: {
-    fontSize: 11,
-    fontWeight: 'bold',
-    marginBottom: 1,
-    textAlign: 'center',
-    numberOfLines: 1,
-    ellipsizeMode: 'tail'
-  },
-  citaServicio: {
-    fontSize: 9,
-    color: '#555',
-    textAlign: 'center',
-    numberOfLines: 1,
-    ellipsizeMode: 'tail'
-  },
-  citaHora: {
-    fontSize: 8,
-    color: '#555',
-    fontStyle: 'italic',
-    marginTop: 1,
-    textAlign: 'center',
-    numberOfLines: 1,
-    ellipsizeMode: 'tail'
-  },
-  scrollContent: {
-    paddingBottom: 20
-  },
-  calendarModal: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0,0,0,0.5)'
-  },
-  customDatePicker: {
-    width: width * 0.85,
-    maxWidth: 350,
-    backgroundColor: '#fff',
-    borderRadius: 10,
-    padding: 12,
-    elevation: 5
-  },
-  datePickerHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 10
-  },
-  monthYearSelector: {
-    flex: 1,
-    alignItems: 'center'
-  },
-  monthYearText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#333'
-  },
-  calendarContainer: {
-    height: 300,
-    overflow: 'hidden'
-  },
-  calendar: {
-    marginBottom: 10
-  },
-  datePickerActions: {
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-  datePickerButton: {
-    padding: 10,
-    borderRadius: 5
-  },
-  datePickerButtonText: {
-    color: '#424242',
-    fontWeight: 'bold'
-  },
-  closeButton: {
-    padding: 10,
-    borderRadius: 5,
-    backgroundColor: '#424242'
-  },
-  closeButtonText: {
-    color: '#fff',
-    fontWeight: 'bold'
-  },
-  footerContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    height: 60
-  },
-  disponibilidadContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 4
-  },
-  disponibilidadPunto: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    marginRight: 4
-  },
-  disponible: {
-    color: '#000000ff',
-    backgroundColor: '#4CAF50',
-    borderRadius: 7
-  },
-  noDisponible: {
-    color: '#000000ff',
-    backgroundColor: '#F44336',
-    borderRadius: 7
-  },
-  disponibilidadTexto: {
-    fontSize: 10,
-    fontWeight: 'bold'
-  },
-  // Nuevos estilos para el scroll horizontal unificado
-  mobileMainContainer: {
-    flex: 1,
-    marginBottom: 60
-  },
-  mobileHorizontalScroll: {
-    flexDirection: 'row'
-  }
+  closeButtonText: { color: '#FFFFFF', fontWeight: 'bold', fontSize: 14 },
+  
+  footerContainer: { position: 'absolute', bottom: 0, left: 0, right: 0, height: 60 },
+  
+  // Disponibilidad
+  disponibilidadContainer: { flexDirection: 'row', alignItems: 'center', marginTop: 4 },
+  disponibilidadPunto: { width: 8, height: 8, borderRadius: 4, marginRight: 4 },
+  disponible: { backgroundColor: '#7FFFD4', borderRadius: 7 },
+  noDisponible: { backgroundColor: '#E8C4D8', borderRadius: 7 },
+  disponibilidadTexto: { fontSize: 10, fontWeight: 'bold' },
+  disponibleTexto: { color: '#5FE0C8' },
+  noDisponibleTexto: { color: '#E8C4D8' },
+  
+  // Móvil
+  mobileMainContainer: { flex: 1, marginBottom: 60 },
+  mobileHorizontalScroll: { flexDirection: 'row' },
 });
 
 export default AgendaScreen;

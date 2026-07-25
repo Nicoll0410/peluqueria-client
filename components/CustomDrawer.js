@@ -70,27 +70,27 @@ const CustomDrawer = (props) => {
   });
   const toggle = (sec) => setExpanded((p) => ({ ...p, [sec]: !p[sec] }));
 
-const Item = ({ label, screen, icon: IconComp, name, indent = 0 }) => (
-  <TouchableOpacity
-    style={[styles.menuItem, indent && { paddingLeft: 20 + indent }]}
-    onPress={() => {
-      props.navigation.navigate(screen);
-      if (props.navigation.closeDrawer) {
-        props.navigation.closeDrawer();
-      }
-    }}
-  >
-    <IconComp name={name} size={indent ? 16 : 22} color="#7FFFD4" />
-    <Text style={[styles.menuText, indent && { fontSize: 14, marginLeft: 10 }]}>{label}</Text>
-  </TouchableOpacity>
-);
+  const Item = ({ label, screen, icon: IconComp, name, indent = 0 }) => (
+    <TouchableOpacity
+      style={[styles.menuItem, indent && { paddingLeft: 20 + indent }]}
+      onPress={() => {
+        props.navigation.navigate(screen);
+        if (props.navigation.closeDrawer) {
+          props.navigation.closeDrawer();
+        }
+      }}
+    >
+      <IconComp name={name} size={indent ? 16 : 22} color="#E8C4D8" />
+      <Text style={[styles.menuText, indent && { fontSize: 14, marginLeft: 10 }]}>{label}</Text>
+    </TouchableOpacity>
+  );
 
   return (
     <View style={styles.container}>
       {/* ----------- Logo superior ------------ */}
       <View style={styles.logoContainer}>
         <Image source={require("../assets/images/newYorkBarber.jpeg")} style={styles.logo} />
-        <Text style={styles.logoTitle}>Salón de belleza Alba</Text>
+        <Text style={styles.logoTitle}>Salón Alba Quiceno</Text>
       </View>
 
       <ScrollView
@@ -105,12 +105,12 @@ const Item = ({ label, screen, icon: IconComp, name, indent = 0 }) => (
           <View key={section}>
             <TouchableOpacity style={styles.expandableItem} onPress={() => toggle(section)}>
               <View style={styles.menuRow}>
-                {section === "Usuarios" && <Feather name="users" size={24} color="#7FFFD4" />}
-                {section === "Compras" && <AntDesign name="shoppingcart" size={24} color="#7FFFD4" />}
-                {section === "Ventas"   && <MaterialCommunityIcons name="account-cash-outline" size={24} color="#7FFFD4" />}
+                {section === "Usuarios" && <Feather name="users" size={24} color="#E8C4D8" />}
+                {section === "Compras" && <AntDesign name="shoppingcart" size={24} color="#E8C4D8" />}
+                {section === "Ventas"   && <MaterialCommunityIcons name="account-cash-outline" size={24} color="#E8C4D8" />}
                 <Text style={styles.menuText}>{section}</Text>
               </View>
-              <Feather name={expanded[section] ? "chevron-up" : "chevron-down"} size={20} color="#7FFFD4" />
+              <Feather name={expanded[section] ? "chevron-up" : "chevron-down"} size={20} color="#E8C4D8" />
             </TouchableOpacity>
 
             {expanded[section] && items.map((sub) => <Item key={sub.label} {...sub} indent={20} />)}
@@ -155,27 +155,27 @@ const Item = ({ label, screen, icon: IconComp, name, indent = 0 }) => (
 
 /* ─────────────────── Estilos ────────────────────── */
 const styles = StyleSheet.create({
-  container:          { flex: 1, backgroundColor: "#1A1A1A" },
+  container:          { flex: 1, backgroundColor: "#6B4F80" },
   scrollContainer:    { flexGrow: 1 },
-  logoContainer:      { alignItems: "center", paddingVertical: 16, borderBottomWidth: 1, borderColor: "#7FFFD4" },
+  logoContainer:      { alignItems: "center", paddingVertical: 16, borderBottomWidth: 1, borderColor: "#E8C4D8" },
   logo:               { width: 120, height: 120, resizeMode: "contain" },
-  sectionTitle:       { fontSize: 14, fontWeight: "bold", color: "#7FFFD4", paddingHorizontal: 20, paddingTop: 10, paddingBottom: 5 },
+  sectionTitle:       { fontSize: 14, fontWeight: "bold", color: "#E8C4D8", paddingHorizontal: 20, paddingTop: 10, paddingBottom: 5 },
   menuItem:           { flexDirection: "row", alignItems: "center", paddingVertical: 14, paddingLeft: 20 },
   menuText:           { marginLeft: 15, fontSize: 16, color: "#FFFFFF" },
   expandableItem:     { flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingVertical: 14, paddingHorizontal: 20 },
   menuRow:            { flexDirection: "row", alignItems: "center" },
-  profileSection:     { padding: 20, borderTopWidth: 1, borderBottomWidth: 1, borderColor: "#7FFFD4" },
-  profileTitle:       { fontSize: 14, fontWeight: "bold", color: "#7FFFD4", marginBottom: 10 },
+  profileSection:     { padding: 20, borderTopWidth: 1, borderBottomWidth: 1, borderColor: "#E8C4D8" },
+  profileTitle:       { fontSize: 14, fontWeight: "bold", color: "#E8C4D8", marginBottom: 10 },
   userContainer:      { flexDirection: "row", alignItems: "center" },
   avatar:             { width: 50, height: 50, borderRadius: 25, marginRight: 10 },
-  avatarPlaceholder:  { width: 50, height: 50, borderRadius: 25, backgroundColor: "#333", justifyContent: "center", alignItems: "center", marginRight: 10 },
+  avatarPlaceholder:  { width: 50, height: 50, borderRadius: 25, backgroundColor: "#9B6FB0", justifyContent: "center", alignItems: "center", marginRight: 10 },
   userInfoContainer:  { flex: 1 },
   userName:           { color: "#FFFFFF", fontSize: 16, fontWeight: "600", marginBottom: 4 },
-  userEmail:          { color: "#AAAAAA", fontSize: 14, marginBottom: 4 },
+  userEmail:          { color: "#E8C4D8", fontSize: 14, marginBottom: 4 },
   userRole:           { color: "#7FFFD4", fontSize: 12, fontStyle: "italic" },
-  profileContainer:   { padding: 16, borderTopWidth: 1, borderColor: "#7FFFD4" },
-  logoutButton:       { flexDirection: "row", backgroundColor: "#7FFFD4", paddingVertical: 10, paddingHorizontal: 12, borderRadius: 10, alignItems: "center", justifyContent: "center" },
-  logoutText:         { color: "#1A1A1A", marginLeft: 8, fontSize: 16, fontWeight: "700" },
+  profileContainer:   { padding: 16, borderTopWidth: 1, borderColor: "#E8C4D8" },
+  logoutButton:       { flexDirection: "row", backgroundColor: "#E8C4D8", paddingVertical: 10, paddingHorizontal: 12, borderRadius: 10, alignItems: "center", justifyContent: "center" },
+  logoutText:         { color: "#2D2D2D", marginLeft: 8, fontSize: 16, fontWeight: "700" },
   logoTitle: {
     color: "#FFFFFF",
     fontSize: 20,

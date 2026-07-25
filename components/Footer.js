@@ -14,7 +14,7 @@ const Footer = ({ dark = false }) => {
     ]}>
       <View style={styles.content}>
         <Text style={[styles.text, dark && styles.darkText]}>
-          © 2025 - 2026  •  Salón Alba Quiceno
+          © 2026  •  
         </Text>
 
         <View style={styles.dividerDot}>

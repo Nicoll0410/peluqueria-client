@@ -50,12 +50,12 @@ const Avatar = ({ nombre, avatar }) => {
   const color = colors[nombre?.length % colors.length] || '#9BA6AE';
 
   // Mejor detección de avatares truncados (igual que en clientes)
-  const isAvatarValid = avatar && 
-                       typeof avatar === 'string' && 
-                       avatar.length > 500 && // Mínimo razonable para una imagen
-                       avatar.startsWith('data:image/') &&
-                       !avatar.includes('undefined') &&
-                       !avatar.endsWith('//CABEIAgACUQMBIgACEQEDEQH/');
+  const isAvatarValid = avatar &&
+    typeof avatar === 'string' &&
+    avatar.length > 500 && // Mínimo razonable para una imagen
+    avatar.startsWith('data:image/') &&
+    !avatar.includes('undefined') &&
+    !avatar.endsWith('//CABEIAgACUQMBIgACEQEDEQH/');
 
   if (isAvatarValid) {
     return (
@@ -206,56 +206,56 @@ const BarberosScreen = () => {
 
   /* —— fetch desde backend —— */
 
-const fetchBarberos = async () => {
-  try {
-    if (!refreshing) setLoading(true);
-    const token = await AsyncStorage.getItem('token');
-    const { data } = await axios.get('https://peluqueria-server-gw54.onrender.com/barberos', {
-      headers: { Authorization: `Bearer ${token}` },
-      params: { 
-        all: true,
-        search: busqueda 
-      },
-    });
+  const fetchBarberos = async () => {
+    try {
+      if (!refreshing) setLoading(true);
+      const token = await AsyncStorage.getItem('token');
+      const { data } = await axios.get('https://peluqueria-server-gw54.onrender.com/barberos', {
+        headers: { Authorization: `Bearer ${token}` },
+        params: {
+          all: true,
+          search: busqueda
+        },
+      });
 
-    const listaBarberos = data.barberos || data;
-    const barberosFinales = Array.isArray(listaBarberos) ? 
-      listaBarberos : 
-      listaBarberos.barberos || [];
+      const listaBarberos = data.barberos || data;
+      const barberosFinales = Array.isArray(listaBarberos) ?
+        listaBarberos :
+        listaBarberos.barberos || [];
 
-    // Procesar avatares como en clientes
-    const list = barberosFinales.map((b) => {
-      // Limpiar avatar si es inválido
-      let avatar = b.avatar;
-      if (avatar && (typeof avatar !== 'string' || avatar.includes('undefined'))) {
-        avatar = null;
-      }
-      
-      return {
-        id: b.id,
-        nombre: b.nombre,
-        cedula: b.cedula,
-        telefono: b.telefono,
-        fecha_nacimiento: b.fecha_nacimiento,
-        fecha_de_contratacion: b.fecha_de_contratacion,
-        avatar: avatar, // Usar el avatar procesado
-        usuarioID: b.usuarioID,
-        estaVerificado: b.usuario?.estaVerificado || false,
-        email: b.usuario?.email || '',
-        rol: b.usuario?.rol?.nombre || 'BARBERO',
-        rolID: b.usuario?.rol?.id || 2,
-      };
-    });
+      // Procesar avatares como en clientes
+      const list = barberosFinales.map((b) => {
+        // Limpiar avatar si es inválido
+        let avatar = b.avatar;
+        if (avatar && (typeof avatar !== 'string' || avatar.includes('undefined'))) {
+          avatar = null;
+        }
 
-    setBarberos(list);
-  } catch (err) {
-    const msg = err.response?.data?.mensaje || 'No se pudieron cargar las estilistas';
-    showInfo('Error', msg, 'error');
-  } finally {
-    setLoading(false);
-    setRefreshing(false);
-  }
-};
+        return {
+          id: b.id,
+          nombre: b.nombre,
+          cedula: b.cedula,
+          telefono: b.telefono,
+          fecha_nacimiento: b.fecha_nacimiento,
+          fecha_de_contratacion: b.fecha_de_contratacion,
+          avatar: avatar, // Usar el avatar procesado
+          usuarioID: b.usuarioID,
+          estaVerificado: b.usuario?.estaVerificado || false,
+          email: b.usuario?.email || '',
+          rol: b.usuario?.rol?.nombre || 'BARBERO',
+          rolID: b.usuario?.rol?.id || 2,
+        };
+      });
+
+      setBarberos(list);
+    } catch (err) {
+      const msg = err.response?.data?.mensaje || 'No se pudieron cargar las estilistas';
+      showInfo('Error', msg, 'error');
+    } finally {
+      setLoading(false);
+      setRefreshing(false);
+    }
+  };
 
   /* —— efectos de carga —— */
   useEffect(() => {
@@ -394,42 +394,42 @@ const fetchBarberos = async () => {
   };
 
   /* actualizar */
-const handleUpdateBarbero = async (u) => {
-  try {
-    const token = await AsyncStorage.getItem('token');
-    
-    // Preparar datos para actualización (incluyendo avatar si existe)
-    const datosActualizacion = {
-      nombre: u.nombre,
-      cedula: u.cedula,
-      telefono: u.telefono,
-      fecha_nacimiento: toYMD(u.fechaNacimiento),
-      fecha_de_contratacion: toYMD(u.fechaContratacion),
-      email: u.email,
-      rolID: u.rolID || (u.rol === 'ADMIN' ? 1 : 2),
-    };
+  const handleUpdateBarbero = async (u) => {
+    try {
+      const token = await AsyncStorage.getItem('token');
 
-    // Solo agregar avatar si existe y es válido
-    if (u.avatar && 
-        typeof u.avatar === 'string' && 
+      // Preparar datos para actualización (incluyendo avatar si existe)
+      const datosActualizacion = {
+        nombre: u.nombre,
+        cedula: u.cedula,
+        telefono: u.telefono,
+        fecha_nacimiento: toYMD(u.fechaNacimiento),
+        fecha_de_contratacion: toYMD(u.fechaContratacion),
+        email: u.email,
+        rolID: u.rolID || (u.rol === 'ADMIN' ? 1 : 2),
+      };
+
+      // Solo agregar avatar si existe y es válido
+      if (u.avatar &&
+        typeof u.avatar === 'string' &&
         u.avatar.startsWith('data:image/')) {
-      datosActualizacion.avatar = u.avatar;
+        datosActualizacion.avatar = u.avatar;
+      }
+
+      await axios.put(
+        `https://peluqueria-server-gw54.onrender.com/barberos/${u.id}`,
+        datosActualizacion,
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+
+      setModalEditarVisible(false);
+      await fetchBarberos();
+      showInfo('✅ Estilista actualizada', 'Datos modificados correctamente', 'success');
+    } catch (e) {
+      const msg = e.response?.data?.mensaje || 'Error al actualizar';
+      showInfo('Error', msg, 'error');
     }
-
-    await axios.put(
-      `https://peluqueria-server-gw54.onrender.com/barberos/${u.id}`,
-      datosActualizacion,
-      { headers: { Authorization: `Bearer ${token}` } }
-    );
-
-    setModalEditarVisible(false);
-    await fetchBarberos();
-    showInfo('✅ Estilista actualizada', 'Datos modificados correctamente', 'success');
-  } catch (e) {
-    const msg = e.response?.data?.mensaje || 'Error al actualizar';
-    showInfo('Error', msg, 'error');
-  }
-};
+  };
 
   /* reenviar verificación */
   const reenviarEmailVerificacion = async (id) => {
@@ -669,10 +669,9 @@ const handleUpdateBarbero = async (u) => {
   );
 };
 
-/* —— estilos —— */
 const styles = StyleSheet.create({
   /* Layout */
-  mainContainer: { flex: 1, backgroundColor: '#fff' },
+  mainContainer: { flex: 1, backgroundColor: '#FDF8FC' },
   contentWrapper: { flex: 1, justifyContent: 'space-between' },
   contentContainer: { flex: 1, padding: 16 },
   footerContainer: { paddingHorizontal: 16, paddingBottom: 16 },
@@ -680,23 +679,31 @@ const styles = StyleSheet.create({
 
   /* Loading */
   loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center' },
-  loadingText: { marginTop: 10, color: '#424242' },
+  loadingText: { marginTop: 10, color: '#B088C8', fontSize: 16 },
 
   /* Header */
   header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   headerLeft: { flexDirection: 'row', alignItems: 'center' },
-  title: { fontSize: 22, fontWeight: 'bold', color: '#424242', marginRight: 12 },
-  counter: { backgroundColor: '#EEEEEE', width: 28, height: 28, borderRadius: 14, justifyContent: 'center', alignItems: 'center' },
-  counterText: { fontWeight: 'bold', fontSize: 14, color: '#424242' },
-  addButton: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#424242', paddingVertical: 8, paddingHorizontal: 12, borderRadius: 20 },
-  addButtonText: { marginLeft: 8, color: '#fff', fontWeight: '500', fontSize: 14 },
+  title: { fontSize: 24, fontWeight: 'bold', color: '#B088C8', marginRight: 12 },
+  counter: { backgroundColor: '#F3E8FA', width: 30, height: 30, borderRadius: 15, justifyContent: 'center', alignItems: 'center' },
+  counterText: { fontWeight: 'bold', fontSize: 14, color: '#9B6FB0' },
+  addButton: {
+    flexDirection: 'row', alignItems: 'center', backgroundColor: '#B088C8',
+    paddingVertical: 10, paddingHorizontal: 18, borderRadius: 25,
+    shadowColor: '#B088C8', shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3, shadowRadius: 8, elevation: 5
+  },
+  addButtonText: { marginLeft: 8, color: '#FFFFFF', fontWeight: '600', fontSize: 14 },
 
   /* Tabla */
-  table: { borderWidth: 1, borderColor: '#e0e0e0', borderRadius: 8, overflow: 'hidden' },
-  tableHeader: { flexDirection: 'row', backgroundColor: '#424242', paddingVertical: 12 },
+  table: { borderWidth: 1, borderColor: '#E8D5F0', borderRadius: 12, overflow: 'hidden' },
+  tableHeader: { flexDirection: 'row', backgroundColor: '#B088C8', paddingVertical: 14 },
   headerCell: { justifyContent: 'center', paddingHorizontal: 8 },
-  headerText: { fontWeight: 'bold', color: '#fff', fontSize: 14 },
-  tableRow: { flexDirection: 'row', paddingVertical: 12, borderBottomWidth: 1, borderBottomColor: '#e0e0e0', backgroundColor: '#fff' },
+  headerText: { fontWeight: 'bold', color: '#FFFFFF', fontSize: 13 },
+  tableRow: {
+    flexDirection: 'row', paddingVertical: 12, borderBottomWidth: 1,
+    borderBottomColor: '#F3E8FA', backgroundColor: '#FFFFFF'
+  },
   cell: { justifyContent: 'center', paddingHorizontal: 8 },
   nameColumn: { flex: 3, alignItems: 'flex-start' },
   telColumn: { flex: 2, alignItems: 'center' },
@@ -705,52 +712,60 @@ const styles = StyleSheet.create({
   roleColumn: { flex: 2, alignItems: 'center' },
   actionsColumn: { flex: 2, alignItems: 'flex-end' },
   nameContainer: { flexDirection: 'row', alignItems: 'center' },
-  nameText: { marginLeft: 10, fontWeight: '500', fontSize: 14, color: '#424242' },
-  telText: { fontSize: 14, color: '#424242' },
-  emailText: { fontSize: 14, color: '#424242' },
+  nameText: { marginLeft: 10, fontWeight: '500', fontSize: 14, color: '#2D2D2D' },
+  telText: { fontSize: 14, color: '#2D2D2D' },
+  emailText: { fontSize: 14, color: '#2D2D2D' },
   actionsContainer: { flexDirection: 'row' },
   actionIcon: { marginHorizontal: 6, padding: 4 },
 
-  /* Cards */
+  /* Cards (móvil) */
   scrollContainer: { flex: 1 },
   cardsContainer: { paddingBottom: 16 },
-  card: { backgroundColor: '#fff', borderRadius: 12, padding: 16, marginBottom: 12, borderWidth: 1, borderColor: '#e0e0e0', shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.05, shadowRadius: 4, elevation: 2 },
+  card: {
+    backgroundColor: '#FFFFFF', borderRadius: 16, padding: 16, marginBottom: 12,
+    borderWidth: 1, borderColor: '#E8D5F0',
+    shadowColor: '#B088C8', shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1, shadowRadius: 8, elevation: 3
+  },
   cardHeader: { flexDirection: 'row', alignItems: 'center', marginBottom: 12 },
   cardHeaderText: { marginLeft: 12, flex: 1 },
-  cardNombre: { fontSize: 16, fontWeight: '600', color: '#212121', marginBottom: 2 },
-  cardTelefono: { fontSize: 14, color: '#757575' },
+  cardNombre: { fontSize: 16, fontWeight: '600', color: '#2D2D2D', marginBottom: 2 },
+  cardTelefono: { fontSize: 14, color: '#6B6B6B' },
   cardDetails: { marginLeft: 52, marginBottom: 8 },
   detailRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 6 },
   detailIcon: { marginRight: 8 },
-  detailText: { fontSize: 14, color: '#616161' },
+  detailText: { fontSize: 14, color: '#6B6B6B' },
   cardActions: { flexDirection: 'row', justifyContent: 'flex-end', marginTop: 8 },
-  actionButton: { marginLeft: 12, padding: 8, borderRadius: 20, backgroundColor: '#f5f5f5' },
-
-  /* Avatar */
-  avatarContainer: { width: 40, height: 40, borderRadius: 20, justifyContent: 'center', alignItems: 'center', overflow: 'hidden' },
-  avatarText: { color: '#fff', fontWeight: 'bold', fontSize: 16 },
-  avatarImage: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    resizeMode: 'cover'
+  actionButton: {
+    marginLeft: 12, padding: 10, borderRadius: 20,
+    backgroundColor: '#FDF8FC', borderWidth: 1, borderColor: '#E8D5F0'
   },
 
+  /* Avatar */
+  avatarContainer: {
+    width: 40, height: 40, borderRadius: 20,
+    justifyContent: 'center', alignItems: 'center', overflow: 'hidden'
+  },
+  avatarText: { color: '#FFFFFF', fontWeight: 'bold', fontSize: 16 },
+  avatarImage: { width: 40, height: 40, borderRadius: 20, resizeMode: 'cover' },
+
   /* Estado */
-  estadoContainer: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingVertical: 4, paddingHorizontal: 8, borderRadius: 12, alignSelf: 'center' },
-  verificado: { backgroundColor: '#E8F5E9' },
-  noVerificado: { backgroundColor: '#FFEBEE' },
+  estadoContainer: {
+    flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
+    paddingVertical: 6, paddingHorizontal: 10, borderRadius: 12, alignSelf: 'center'
+  },
+  verificado: { backgroundColor: '#E8F8F5' },
+  noVerificado: { backgroundColor: '#FDF0F5' },
   estadoTexto: { marginLeft: 6, fontSize: 13, fontWeight: '500' },
-  textoVerificado: { color: '#2e7d32' },
-  textoNoVerificado: { color: '#d32f2f' },
+  textoVerificado: { color: '#5FE0C8' },
+  textoNoVerificado: { color: '#E8C4D8' },
 
   /* Rol */
-  rolContainer: { paddingVertical: 4, paddingHorizontal: 8, borderRadius: 12 },
-  rolAdmin: { backgroundColor: '#E3F2FD' },
-  rolBarbero: { backgroundColor: '#E8F5E9' },
+  rolContainer: { paddingVertical: 6, paddingHorizontal: 10, borderRadius: 12 },
+  rolAdmin: { backgroundColor: '#E8F8F5' },
+  rolBarbero: { backgroundColor: '#F3E8FA' },
   rolTexto: { fontSize: 13, fontWeight: '500' },
-  textoAdmin: { color: '#0D47A1' },
-  textoBarbero: { color: '#2e7d32' },
+  textoAdmin: { color: '#5FE0C8' },
+  textoBarbero: { color: '#B088C8' },
 });
-
 export default BarberosScreen;
