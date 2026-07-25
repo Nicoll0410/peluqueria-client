@@ -153,18 +153,18 @@ const styles = StyleSheet.create({
   decorativeContent: { alignItems: 'center' },
   decorativeIcon: { fontSize: 60, marginBottom: 20 },
   decorativeTitle: {
-    fontSize: 32, fontWeight: 'bold', color: '#FFFFFF',
+    fontSize: 32, fontWeight: 'bold', color: '#2D2D2D',
     letterSpacing: 6, marginBottom: 5,
     fontFamily: Platform.OS === 'web' ? 'Playfair Display, serif' : 'serif',
   },
   decorativeSubtitle: {
-    fontSize: 14, color: 'rgba(255,255,255,0.9)',
+    fontSize: 14, color: '#4A4A4A',
     letterSpacing: 6, marginBottom: 20,
     fontFamily: Platform.OS === 'web' ? 'Raleway, sans-serif' : 'sans-serif',
   },
   decorativeLine: { width: 60, height: 2, backgroundColor: '#FFFFFF', marginBottom: 15 },
   decorativeQuote: {
-    fontSize: 14, color: 'rgba(255,255,255,0.8)', fontStyle: 'italic',
+    fontSize: 14, color: '#B088C8', fontStyle: 'italic',
     fontFamily: Platform.OS === 'web' ? 'Playfair Display, serif' : 'serif',
   },
   
