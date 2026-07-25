@@ -375,222 +375,58 @@ const ServiciosScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
+  container: { flex: 1, backgroundColor: '#FDF8FC' },
+  content: { flex: 1, padding: 16, paddingBottom: 0 },
+  loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  mobileList: { flex: 1, marginBottom: 16 },
+  header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 },
+  tituloContainer: { flexDirection: 'row', alignItems: 'center' },
+  titulo: { fontSize: 24, fontWeight: 'bold', color: '#6B4F80', marginRight: 10 },
+  contadorContainer: { backgroundColor: '#E8D5F0', width: 30, height: 30, borderRadius: 15, justifyContent: 'center', alignItems: 'center' },
+  contadorTexto: { fontWeight: 'bold', fontSize: 14, color: '#6B4F80' },
+  botonHeader: { 
+    flexDirection: 'row', alignItems: 'center', backgroundColor: '#B088C8', 
+    paddingVertical: 10, paddingHorizontal: 18, borderRadius: 25, marginLeft: 10,
+    shadowColor: '#B088C8', shadowOffset: { width: 0, height: 4 }, 
+    shadowOpacity: 0.3, shadowRadius: 8, elevation: 5 
   },
-  content: {
-    flex: 1,
-    padding: 16,
-    paddingBottom: 0, // Eliminamos el padding inferior para que el footer quede pegado
+  textoBoton: { marginLeft: 8, color: '#FFFFFF', fontWeight: '600', fontSize: 14 },
+  listContainer: { paddingBottom: 16 },
+  
+  card: { 
+    backgroundColor: '#FFFFFF', borderRadius: 16, padding: 16, marginBottom: 16, 
+    shadowColor: '#B088C8', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.1, 
+    shadowRadius: 8, elevation: 3, borderWidth: 1, borderColor: '#E8D5F0' 
   },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  mobileList: {
-    flex: 1,
-    marginBottom: 16,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 16,
-  },
-  tituloContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  titulo: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    marginRight: 10,
-  },
-  contadorContainer: {
-    backgroundColor: '#D9D9D9',
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  contadorTexto: {
-    fontWeight: 'bold',
-    fontSize: 14,
-  },
-  botonHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#424242',
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    borderRadius: 15,
-    marginLeft: 10,
-    borderWidth: 1,
-    borderColor: '#424242',
-  },
-  textoBoton: {
-    marginLeft: 8,
-    color: 'white',
-    fontWeight: '500',
-    fontSize: 14,
-  },
-  listContainer: {
-    paddingBottom: 16,
-  },
-  card: {
-    backgroundColor: 'white',
-    borderRadius: 10,
-    padding: 16,
-    marginBottom: 16,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 6,
-    elevation: 3,
-    borderWidth: 1,
-    borderColor: '#eee',
-  },
-  cardHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 12,
-  },
-  cardHeaderText: {
-    flex: 1,
-  },
-  cardTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 4,
-  },
-  cardSubtitle: {
-    fontSize: 14,
-    color: '#666',
-  },
-  cardDescription: {
-    fontSize: 14,
-    color: '#555',
-    marginBottom: 12,
-  },
-  cardActions: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    borderTopWidth: 1,
-    borderTopColor: '#eee',
-    paddingTop: 12,
-    marginTop: 8,
-  },
-  actionButton: {
-    marginLeft: 16,
-  },
-  precioContainer: {
-    backgroundColor: 'rgba(76, 175, 80, 0.2)',
-    borderRadius: 15,
-    paddingVertical: 4,
-    paddingHorizontal: 8,
-  },
-  textoPrecio: {
-    color: '#4CAF50',
-    fontWeight: 'bold',
-    fontSize: 14,
-  },
-  tabla: {
-    borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 4,
-    marginBottom: 16,
-    overflow: 'hidden',
-    flex: 1,
-  },
-  filaEncabezado: {
-    flexDirection: 'row',
-    backgroundColor: '#424242',
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
-  },
-  celdaEncabezado: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 8,
-  },
-  encabezado: {
-    fontWeight: 'bold',
-    textAlign: 'center',
-    color: 'white',
-  },
-  fila: {
-    flexDirection: 'row',
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: 'black',
-    alignItems: 'center',
-    backgroundColor: 'white',
-  },
-  celda: {
-    justifyContent: 'center',
-    paddingHorizontal: 8,
-  },
-  columnaNombre: {
-    flex: 2,
-    alignItems: 'flex-start',
-  },
-  columnaDescripcion: {
-    flex: 3,
-    alignItems: 'flex-start',
-  },
-  columnaDuracion: {
-    flex: 1.5,
-    alignItems: 'center',
-  },
-  columnaPrecio: {
-    flex: 2,
-    alignItems: 'center',
-  },
-  columnaAcciones: {
-    flex: 1.5,
-    alignItems: 'flex-end',
-  },
-  textoNombre: {
-    fontWeight: '500',
-  },
-  textoDescripcion: {
-    color: '#666',
-  },
-  duracionContainer: {
-    backgroundColor: '#D9D9D9',
-    borderRadius: 15,
-    paddingVertical: 4,
-    paddingHorizontal: 6,
-    minWidth: 70,
-    alignItems: 'center',
-  },
-  textoDuracion: {
-    textAlign: 'center',
-    fontSize: 14,
-  },
-  contenedorAcciones: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    width: '100%',
-  },
-  botonAccion: {
-    marginHorizontal: 6,
-  },
-  emptyState: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 40,
-  },
-  emptyText: {
-    fontSize: 16,
-    color: '#666',
-  },
+  cardHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 },
+  cardHeaderText: { flex: 1 },
+  cardTitle: { fontSize: 18, fontWeight: 'bold', color: '#2D2D2D', marginBottom: 4 },
+  cardSubtitle: { fontSize: 14, color: '#6B6B6B' },
+  cardDescription: { fontSize: 14, color: '#6B6B6B', marginBottom: 12 },
+  cardActions: { flexDirection: 'row', justifyContent: 'flex-end', borderTopWidth: 1, borderTopColor: '#E8D5F0', paddingTop: 12, marginTop: 8 },
+  actionButton: { marginLeft: 16, padding: 8, borderRadius: 20, backgroundColor: '#FDF8FC', borderWidth: 1, borderColor: '#E8D5F0' },
+  precioContainer: { backgroundColor: '#E8F8F5', borderRadius: 15, paddingVertical: 6, paddingHorizontal: 12 },
+  textoPrecio: { color: '#00695C', fontWeight: 'bold', fontSize: 14 },
+  
+  tabla: { borderWidth: 1, borderColor: '#E8D5F0', borderRadius: 12, marginBottom: 16, overflow: 'hidden', flex: 1 },
+  filaEncabezado: { flexDirection: 'row', backgroundColor: '#B088C8', paddingVertical: 14, borderBottomWidth: 1, borderBottomColor: '#D1C4E9' },
+  celdaEncabezado: { justifyContent: 'center', alignItems: 'center', paddingHorizontal: 8 },
+  encabezado: { fontWeight: 'bold', textAlign: 'center', color: '#FFFFFF', fontSize: 13 },
+  fila: { flexDirection: 'row', paddingVertical: 12, borderBottomWidth: 1, borderBottomColor: '#F3E8FA', alignItems: 'center', backgroundColor: '#FFFFFF' },
+  celda: { justifyContent: 'center', paddingHorizontal: 8 },
+  columnaNombre: { flex: 2, alignItems: 'flex-start' },
+  columnaDescripcion: { flex: 3, alignItems: 'flex-start' },
+  columnaDuracion: { flex: 1.5, alignItems: 'center' },
+  columnaPrecio: { flex: 2, alignItems: 'center' },
+  columnaAcciones: { flex: 1.5, alignItems: 'flex-end' },
+  textoNombre: { fontWeight: '500', color: '#2D2D2D' },
+  textoDescripcion: { color: '#6B6B6B' },
+  duracionContainer: { backgroundColor: '#F3E8FA', borderRadius: 15, paddingVertical: 6, paddingHorizontal: 10, minWidth: 70, alignItems: 'center' },
+  textoDuracion: { textAlign: 'center', fontSize: 14, color: '#6B4F80' },
+  contenedorAcciones: { flexDirection: 'row', justifyContent: 'flex-end', width: '100%' },
+  botonAccion: { marginHorizontal: 6 },
+  emptyState: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 40 },
+  emptyText: { fontSize: 16, color: '#6B6B6B' },
 });
 
 export default ServiciosScreen;

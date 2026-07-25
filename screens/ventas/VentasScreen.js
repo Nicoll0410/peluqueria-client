@@ -319,210 +319,53 @@ const VentasScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    padding: 16,
+  container: { flex: 1, backgroundColor: '#FDF8FC', padding: 16 },
+  contentContainer: { flex: 1 },
+  mobileList: { flex: 1, marginBottom: 16 },
+  header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 },
+  tituloContainer: { flexDirection: 'row', alignItems: 'center' },
+  titulo: { fontSize: 24, fontWeight: 'bold', color: '#6B4F80', marginRight: 10 },
+  contadorContainer: { backgroundColor: '#E8D5F0', width: 30, height: 30, borderRadius: 15, justifyContent: 'center', alignItems: 'center' },
+  contadorTexto: { fontWeight: 'bold', fontSize: 14, color: '#6B4F80' },
+  listContainer: { paddingBottom: 16 },
+  
+  card: { 
+    backgroundColor: '#FFFFFF', borderRadius: 16, padding: 16, marginBottom: 16, 
+    shadowColor: '#B088C8', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.1, 
+    shadowRadius: 8, elevation: 3, borderWidth: 1, borderColor: '#E8D5F0' 
   },
-  contentContainer: {
-    flex: 1, // Esto hace que el contenido ocupe todo el espacio disponible
-  },
-  mobileList: {
-    flex: 1,
-    marginBottom: 16,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 16,
-  },
-  tituloContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  titulo: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    marginRight: 10,
-  },
-  contadorContainer: {
-    backgroundColor: '#D9D9D9',
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  contadorTexto: {
-    fontWeight: 'bold',
-    fontSize: 14,
-  },
-  listContainer: {
-    paddingBottom: 16,
-  },
-  card: {
-    backgroundColor: 'white',
-    borderRadius: 10,
-    padding: 16,
-    marginBottom: 16,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
-    borderWidth: 1,
-    borderColor: '#eee',
-  },
-  cardHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 12,
-  },
-  cardHeaderText: {
-    flex: 1,
-  },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  cardTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 4,
-  },
-  cardSubtitle: {
-    fontSize: 14,
-    color: '#666',
-  },
-  cardInfoRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 8,
-  },
-  cardLabel: {
-    fontSize: 14,
-    color: '#424242',
-  },
-  cardValue: {
-    fontSize: 15,
-    fontWeight: '500',
-  },
-  cardActions: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    borderTopWidth: 1,
-    borderTopColor: '#eee',
-    paddingTop: 12,
-    marginTop: 8,
-  },
-  actionButton: {
-    marginLeft: 16,
-  },
-  precioContainer: {
-    backgroundColor: 'rgba(76, 175, 80, 0.2)',
-    borderRadius: 15,
-    paddingVertical: 4,
-    paddingHorizontal: 8,
-  },
-  textoPrecio: {
-    color: '#4CAF50',
-    fontWeight: 'bold',
-    fontSize: 14,
-  },
-  tabla: {
-    borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 4,
-    marginBottom: 16,
-    overflow: 'hidden',
-    flex: 1,
-  },
-  filaEncabezado: {
-    flexDirection: 'row',
-    backgroundColor: '#424242',
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
-  },
-  celdaEncabezado: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 8,
-  },
-  fila: {
-    flexDirection: 'row',
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: '#eee',
-    alignItems: 'center',
-    backgroundColor: 'white',
-  },
-  celda: {
-    justifyContent: 'center',
-    paddingHorizontal: 8,
-  },
-  columnaFecha: {
-    flex: 1.2,
-    alignItems: 'flex-start',
-  },
-  columnaHora: {
-    flex: 0.8,
-    alignItems: 'center',
-  },
-  columnaCliente: {
-    flex: 1.5,
-    alignItems: 'flex-start',
-  },
-  columnaServicio: {
-    flex: 1.5,
-    alignItems: 'flex-start',
-  },
-  columnaBarbero: {
-    flex: 1.2,
-    alignItems: 'flex-start',
-  },
-  columnaPrecio: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  columnaAcciones: {
-    flex: 0.6,
-    alignItems: 'flex-end',
-  },
-  textoNombre: {
-    fontWeight: '500',
-  },
-  textoServicio: {
-    color: '#000',
-    fontWeight: '500',
-  },
-  emptyState: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 40,
-  },
-  emptyText: {
-    fontSize: 16,
-    color: '#666',
-    marginBottom: 8,
-  },
-  emptySubText: {
-    fontSize: 14,
-    color: '#999',
-  },
-  encabezado: {
-    fontWeight: 'bold',
-    textAlign: 'center',
-    color: 'white',
-  },
-  paginacionContainer: {
-    marginBottom: 16,
-  },
+  cardHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 },
+  cardHeaderText: { flex: 1 },
+  loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  cardTitle: { fontSize: 18, fontWeight: 'bold', color: '#2D2D2D', marginBottom: 4 },
+  cardSubtitle: { fontSize: 14, color: '#6B6B6B' },
+  cardInfoRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 },
+  cardLabel: { fontSize: 14, color: '#6B6B6B' },
+  cardValue: { fontSize: 15, fontWeight: '500', color: '#2D2D2D' },
+  cardActions: { flexDirection: 'row', justifyContent: 'flex-end', borderTopWidth: 1, borderTopColor: '#E8D5F0', paddingTop: 12, marginTop: 8 },
+  actionButton: { marginLeft: 16, padding: 8, borderRadius: 20, backgroundColor: '#FDF8FC', borderWidth: 1, borderColor: '#E8D5F0' },
+  precioContainer: { backgroundColor: '#E8F8F5', borderRadius: 15, paddingVertical: 6, paddingHorizontal: 12 },
+  textoPrecio: { color: '#00695C', fontWeight: 'bold', fontSize: 14 },
+  
+  tabla: { borderWidth: 1, borderColor: '#E8D5F0', borderRadius: 12, marginBottom: 16, overflow: 'hidden', flex: 1 },
+  filaEncabezado: { flexDirection: 'row', backgroundColor: '#B088C8', paddingVertical: 14, borderBottomWidth: 1, borderBottomColor: '#D1C4E9' },
+  celdaEncabezado: { justifyContent: 'center', alignItems: 'center', paddingHorizontal: 8 },
+  fila: { flexDirection: 'row', paddingVertical: 12, borderBottomWidth: 1, borderBottomColor: '#F3E8FA', alignItems: 'center', backgroundColor: '#FFFFFF' },
+  celda: { justifyContent: 'center', paddingHorizontal: 8 },
+  columnaFecha: { flex: 1.2, alignItems: 'flex-start' },
+  columnaHora: { flex: 0.8, alignItems: 'center' },
+  columnaCliente: { flex: 1.5, alignItems: 'flex-start' },
+  columnaServicio: { flex: 1.5, alignItems: 'flex-start' },
+  columnaBarbero: { flex: 1.2, alignItems: 'flex-start' },
+  columnaPrecio: { flex: 1, alignItems: 'center' },
+  columnaAcciones: { flex: 0.6, alignItems: 'flex-end' },
+  textoNombre: { fontWeight: '500', color: '#2D2D2D' },
+  textoServicio: { color: '#2D2D2D', fontWeight: '500' },
+  emptyState: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 40 },
+  emptyText: { fontSize: 16, color: '#6B6B6B', marginBottom: 8 },
+  emptySubText: { fontSize: 14, color: '#9E9E9E' },
+  encabezado: { fontWeight: 'bold', textAlign: 'center', color: '#FFFFFF', fontSize: 13 },
+  paginacionContainer: { marginBottom: 16 },
 });
 
 export default VentasScreen;
