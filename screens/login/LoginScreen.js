@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
   },
   decorativeLine: { width: 60, height: 2, backgroundColor: '#FFFFFF', marginBottom: 15 },
   decorativeQuote: {
-    fontSize: 14, color: '#B088C8', fontStyle: 'italic',
+    fontSize: 14, color: '#9B6FB0', fontStyle: 'italic',
     fontFamily: Platform.OS === 'web' ? 'Playfair Display, serif' : 'serif',
   },
   
