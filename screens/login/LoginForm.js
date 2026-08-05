@@ -164,8 +164,8 @@ const styles = StyleSheet.create({
   },
   inputWrapper: {
     flexDirection: 'row', alignItems: 'center',
-    borderWidth: 2, borderColor: '#E8D5F0', borderRadius: 12,
-    backgroundColor: '#FDF8FC', marginBottom: 16, overflow: 'hidden',
+    borderWidth: 2, borderColor: '#B2F0E8', borderRadius: 12,
+    backgroundColor: '#F0FAF8', marginBottom: 16, overflow: 'hidden',
   },
   inputIcon: { fontSize: 18, paddingLeft: 15 },
   input: {
@@ -176,13 +176,13 @@ const styles = StyleSheet.create({
   eyeIcon: { paddingRight: 15, paddingLeft: 5 },
   
   button: {
-    height: 52, backgroundColor: '#B088C8', borderRadius: 25,
+    height: 52, backgroundColor: '#7FFFD4', borderRadius: 25,
     justifyContent: 'center', alignItems: 'center', marginTop: 10,
-    shadowColor: '#B088C8', shadowOffset: { width: 0, height: 8 },
+    shadowColor: '#7FFFD4', shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.3, shadowRadius: 15, elevation: 8,
   },
   buttonText: {
-    color: '#FFFFFF', fontSize: 14, fontWeight: '600', letterSpacing: 3,
+    color: '#2D2D2D', fontSize: 14, fontWeight: '600', letterSpacing: 3,
     fontFamily: Platform.OS === 'web' ? 'Montserrat, sans-serif' : 'sans-serif',
   },
   
@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
     fontSize: 13, color: '#6B6B6B',
     fontFamily: Platform.OS === 'web' ? 'Raleway, sans-serif' : 'sans-serif',
   },
-  linkHighlight: { color: '#B088C8', fontWeight: '600' },
+  linkHighlight: { color: '#5FE0C8', fontWeight: '600' },
   errorText: {
     color: '#E74C3C', fontSize: 13, textAlign: 'center',
     marginVertical: 8, backgroundColor: '#FDF0F0', padding: 10, borderRadius: 8,

@@ -375,22 +375,22 @@ const ServiciosScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#FDF8FC' },
+  container: { flex: 1, backgroundColor: '#F0FAF8' },
   content: { flex: 1, padding: 16, paddingBottom: 0 },
   loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center' },
   mobileList: { flex: 1, marginBottom: 16 },
   header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 },
   tituloContainer: { flexDirection: 'row', alignItems: 'center' },
-  titulo: { fontSize: 24, fontWeight: 'bold', color: '#6B4F80', marginRight: 10 },
-  contadorContainer: { backgroundColor: '#E8D5F0', width: 30, height: 30, borderRadius: 15, justifyContent: 'center', alignItems: 'center' },
-  contadorTexto: { fontWeight: 'bold', fontSize: 14, color: '#6B4F80' },
+  titulo: { fontSize: 24, fontWeight: 'bold', color: '#00695C', marginRight: 10 },
+  contadorContainer: { backgroundColor: '#E8F8F5', width: 30, height: 30, borderRadius: 15, justifyContent: 'center', alignItems: 'center' },
+  contadorTexto: { fontWeight: 'bold', fontSize: 14, color: '#00695C' },
   botonHeader: { 
-    flexDirection: 'row', alignItems: 'center', backgroundColor: '#B088C8', 
+    flexDirection: 'row', alignItems: 'center', backgroundColor: '#7FFFD4', 
     paddingVertical: 10, paddingHorizontal: 18, borderRadius: 25, marginLeft: 10,
-    shadowColor: '#B088C8', shadowOffset: { width: 0, height: 4 }, 
+    shadowColor: '#7FFFD4', shadowOffset: { width: 0, height: 4 }, 
     shadowOpacity: 0.3, shadowRadius: 8, elevation: 5 
   },
-  textoBoton: { marginLeft: 8, color: '#FFFFFF', fontWeight: '600', fontSize: 14 },
+  textoBoton: { marginLeft: 8, color: '#2D2D2D', fontWeight: '600', fontSize: 14 },
   listContainer: { paddingBottom: 16 },
   
   card: { 
@@ -409,9 +409,9 @@ const styles = StyleSheet.create({
   textoPrecio: { color: '#00695C', fontWeight: 'bold', fontSize: 14 },
   
   tabla: { borderWidth: 1, borderColor: '#E8D5F0', borderRadius: 12, marginBottom: 16, overflow: 'hidden', flex: 1 },
-  filaEncabezado: { flexDirection: 'row', backgroundColor: '#B088C8', paddingVertical: 14, borderBottomWidth: 1, borderBottomColor: '#D1C4E9' },
+  filaEncabezado: { flexDirection: 'row', backgroundColor: '#7FFFD4', paddingVertical: 14, borderBottomWidth: 1, borderBottomColor: '#D1C4E9' },
   celdaEncabezado: { justifyContent: 'center', alignItems: 'center', paddingHorizontal: 8 },
-  encabezado: { fontWeight: 'bold', textAlign: 'center', color: '#FFFFFF', fontSize: 13 },
+  encabezado: { fontWeight: 'bold', textAlign: 'center', color: '#2D2D2D', fontSize: 13 },
   fila: { flexDirection: 'row', paddingVertical: 12, borderBottomWidth: 1, borderBottomColor: '#F3E8FA', alignItems: 'center', backgroundColor: '#FFFFFF' },
   celda: { justifyContent: 'center', paddingHorizontal: 8 },
   columnaNombre: { flex: 2, alignItems: 'flex-start' },
@@ -421,8 +421,8 @@ const styles = StyleSheet.create({
   columnaAcciones: { flex: 1.5, alignItems: 'flex-end' },
   textoNombre: { fontWeight: '500', color: '#2D2D2D' },
   textoDescripcion: { color: '#6B6B6B' },
-  duracionContainer: { backgroundColor: '#F3E8FA', borderRadius: 15, paddingVertical: 6, paddingHorizontal: 10, minWidth: 70, alignItems: 'center' },
-  textoDuracion: { textAlign: 'center', fontSize: 14, color: '#6B4F80' },
+  duracionContainer: { backgroundColor: '#E8F8F5', borderRadius: 15, paddingVertical: 6, paddingHorizontal: 10, minWidth: 70, alignItems: 'center' },
+  textoDuracion: { textAlign: 'center', fontSize: 14, color: '#00695C' },
   contenedorAcciones: { flexDirection: 'row', justifyContent: 'flex-end', width: '100%' },
   botonAccion: { marginHorizontal: 6 },
   emptyState: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 40 },

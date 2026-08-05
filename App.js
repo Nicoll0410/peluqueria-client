@@ -14,10 +14,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { configurePushNotifications, playNotificationSound } from './utils/notifications';
 import io from 'socket.io-client';
 
+// ✅ AHORA:
 // 🎨 PALETA ALBA QUICENO
-// Morado principal: #B088C8 | Rosado: #E8C4D8 | Aguamarina: #7FFFD4
-// Blanco: #FFFFFF | Negro suave: #2D2D2D | Lila fondo: #F3E8FA
-
+// Verde menta: #7FFFD4 | Menta oscuro: #5FE0C8 | Morado acento: #B088C8
 // Cargar fuentes para web
 if (Platform.OS === 'web') {
   const style = document.createElement('style');
@@ -41,7 +40,7 @@ async function setupNotificationChannel() {
       name: 'Notificaciones Salón Alba Quiceno',
       importance: Notifications.AndroidImportance.HIGH,
       vibrationPattern: [0, 250, 250, 250],
-      lightColor: '#B088C8',
+      lightColor: '#7FFFD4',
       sound: 'default',
       showBadge: true,
       enableLights: true,

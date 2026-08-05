@@ -21,7 +21,7 @@ const LoginScreen = () => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <LinearGradient
-        colors={['#F3E8FA', '#FFFFFF', '#E8F8F5']}
+        colors={['#E8F8F5', '#FFFFFF', '#F3E8FA']}
         style={styles.gradient}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
@@ -62,7 +62,7 @@ const LoginScreen = () => {
               {/* Panel izquierdo - Decorativo */}
               <View style={styles.leftPanel}>
                 <LinearGradient
-                  colors={['#B088C8', '#E8C4D8', '#7FFFD4']}
+                  colors={['#7FFFD4', '#B2F0E8', '#E8C4D8']}
                   style={styles.decorativePanel}
                   start={{ x: 0, y: 0 }}
                   end={{ x: 1, y: 1 }}
@@ -153,18 +153,18 @@ const styles = StyleSheet.create({
   decorativeContent: { alignItems: 'center' },
   decorativeIcon: { fontSize: 60, marginBottom: 20 },
   decorativeTitle: {
-    fontSize: 32, fontWeight: 'bold', color: '#2D2D2D',
+    fontSize: 32, fontWeight: 'bold', color: '#1A1A1A',
     letterSpacing: 6, marginBottom: 5,
     fontFamily: Platform.OS === 'web' ? 'Playfair Display, serif' : 'serif',
   },
   decorativeSubtitle: {
-    fontSize: 14, color: '#4A4A4A',
+    fontSize: 14, color: '#00695C',
     letterSpacing: 6, marginBottom: 20,
     fontFamily: Platform.OS === 'web' ? 'Raleway, sans-serif' : 'sans-serif',
   },
   decorativeLine: { width: 60, height: 2, backgroundColor: '#FFFFFF', marginBottom: 15 },
   decorativeQuote: {
-    fontSize: 14, color: '#9B6FB0', fontStyle: 'italic',
+    fontSize: 14, color: '#2D2D2D', fontStyle: 'italic',
     fontFamily: Platform.OS === 'web' ? 'Playfair Display, serif' : 'serif',
   },
   

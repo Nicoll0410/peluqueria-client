@@ -728,7 +728,7 @@ const AgendaScreen = () => {
         <TouchableOpacity
           onPress={() => setShowCalendar(true)}
           style={styles.calendarButton}>
-          <MaterialIcons name="calendar-today" size={24} color="#000" />
+          <MaterialIcons name="calendar-today" size={24} color="#7FFFD4" />
         </TouchableOpacity>
 
         <View style={styles.dateContainer}>
@@ -852,8 +852,8 @@ const AgendaScreen = () => {
                   textSectionTitleColor: '#666',
                   dayTextColor: '#333',
                   todayTextColor: '#424242',
-                  selectedDayTextColor: '#fff',
-                  selectedDayBackgroundColor: '#424242',
+                  selectedDayTextColor: '#2D2D2D',
+                  selectedDayBackgroundColor: '#7FFFD4',
                   monthTextColor: '#333',
                   textDayFontWeight: '400',
                   textMonthFontWeight: 'bold',
@@ -913,7 +913,7 @@ const AgendaScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#FDF8FC' },
+  container: { flex: 1, backgroundColor: '#F0FAF8' },
   loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center' },
   loadingText: { marginTop: 10, fontSize: 16, color: '#6B4F80' },
   
@@ -954,7 +954,7 @@ const styles = StyleSheet.create({
   
   avatar: { width: 40, height: 40, borderRadius: 20, marginBottom: 5 },
   barberoNombre: { fontWeight: 'bold', fontSize: 14, textAlign: 'center', color: '#2D2D2D' },
-  subItem: { fontSize: 10, color: '#6B4F80', textAlign: 'center', fontWeight: '600' },
+  subItem: { fontSize: 10, color: '#00695C', textAlign: 'center', fontWeight: '600' },
   
   mainContent: { flex: 1, marginBottom: 60 },
   
@@ -989,18 +989,18 @@ const styles = StyleSheet.create({
   slot: { flex: 1, padding: 4, justifyContent: 'center', alignItems: 'center', minHeight: 58 },
   
   // COLORES DE SLOTS - CON MEJOR CONTRASTE
-  'slot-no-laboral': { backgroundColor: '#F8E0E8' },
+  'slot-no-laboral': { backgroundColor: '#FDF0F5' },
   'slot-almuerzo': { backgroundColor: '#FFF0F5' },
   'slot-fuera-horario': { backgroundColor: '#F5F5F5', opacity: 0.7 },
-  'slot-ocupado': { backgroundColor: '#EDE7F6', borderBottomWidth: 0 },
+  'slot-ocupado': { backgroundColor: '#F5F5F5', borderBottomWidth: 0 },
   slotOcupadoSecundario: { backgroundColor: '#EDE7F6', borderBottomWidth: 0, borderTopWidth: 0 },
   lastSlotOfCita: { borderBottomWidth: 1, borderBottomColor: '#D1C4E9' },
-  'slot-disponible': { backgroundColor: '#E0F2F1' },
+  'slot-disponible': { backgroundColor: '#E8F8F5' },
   selectedSlot: { backgroundColor: '#B2DFDB' },
   multiSlotFirst: { borderBottomWidth: 0 },
   
   // TEXTOS DE SLOTS - MÁS OSCUROS
-  slotNoLaboralText: { fontSize: 10, color: '#AD1457', fontWeight: 'bold', textAlign: 'center' },
+  slotNoLaboralText: { fontSize: 10, color: '#C62828', fontWeight: 'bold', textAlign: 'center' },
   slotAlmuerzoText: { fontSize: 10, color: '#6B4F80', fontWeight: 'bold', textAlign: 'center' },
   slotFueraHorarioText: { fontSize: 10, color: '#9E9E9E', textAlign: 'center', textDecorationLine: 'line-through' },
   slotDisponibleText: { fontSize: 10, color: '#00695C', textAlign: 'center', fontWeight: 'bold' },
@@ -1029,11 +1029,11 @@ const styles = StyleSheet.create({
   datePickerButton: { padding: 10, borderRadius: 20 },
   datePickerButtonText: { color: '#6B4F80', fontWeight: 'bold', fontSize: 14 },
   closeButton: { 
-    padding: 10, borderRadius: 20, backgroundColor: '#B088C8', 
+    padding: 10, borderRadius: 20, backgroundColor: '#7FFFD4', 
     paddingHorizontal: 20, shadowColor: '#B088C8', shadowOffset: { width: 0, height: 2 }, 
     shadowOpacity: 0.3, shadowRadius: 5, elevation: 3 
   },
-  closeButtonText: { color: '#FFFFFF', fontWeight: 'bold', fontSize: 14 },
+  closeButtonText: { color: '#2D2D2D', fontWeight: 'bold', fontSize: 14 },
   
   footerContainer: { position: 'absolute', bottom: 0, left: 0, right: 0, height: 60 },
   

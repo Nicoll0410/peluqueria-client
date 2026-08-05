@@ -744,7 +744,7 @@ const ClientesScreen = () => {
    ╚═════════╝ */
 const styles = StyleSheet.create({
   /* Layout general */
-  mainContainer: { flex: 1, backgroundColor: '#FDF8FC' },
+  mainContainer: { flex: 1, backgroundColor: '#F0FAF8' },
   contentWrapper: { flex: 1, justifyContent: 'space-between' },
   contentContainer: { flex: 1, padding: 16 },
   footerContainer: { paddingHorizontal: 16, paddingBottom: 16 },
@@ -757,22 +757,22 @@ const styles = StyleSheet.create({
   /* Header */
   header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   headerLeft: { flexDirection: 'row', alignItems: 'center' },
-  title: { fontSize: 24, fontWeight: 'bold', color: '#6B4F80', marginRight: 12 },
-  counter: { backgroundColor: '#E8D5F0', width: 30, height: 30, borderRadius: 15, justifyContent: 'center', alignItems: 'center' },
-  counterText: { fontWeight: 'bold', fontSize: 14, color: '#6B4F80' },
+  title: { fontSize: 24, fontWeight: 'bold', color: '#00695C', marginRight: 12 },
+  counter: { backgroundColor: '#E8F8F5', width: 30, height: 30, borderRadius: 15, justifyContent: 'center', alignItems: 'center' },
+  counterText: { fontWeight: 'bold', fontSize: 14, color: '#00695C' },
   addButton: { 
-    flexDirection: 'row', alignItems: 'center', backgroundColor: '#B088C8', 
+    flexDirection: 'row', alignItems: 'center', backgroundColor: '#7FFFD4', 
     paddingVertical: 10, paddingHorizontal: 18, borderRadius: 25, 
-    shadowColor: '#B088C8', shadowOffset: { width: 0, height: 4 }, 
+    shadowColor: '#7FFFD4', shadowOffset: { width: 0, height: 4 }, 
     shadowOpacity: 0.3, shadowRadius: 8, elevation: 5 
   },
-  addButtonText: { marginLeft: 8, color: '#FFFFFF', fontWeight: '600', fontSize: 14 },
+  addButtonText: { marginLeft: 8, color: '#2D2D2D', fontWeight: '600', fontSize: 14 },
 
   /* Tabla desktop */
   table: { borderWidth: 1, borderColor: '#E8D5F0', borderRadius: 12, overflow: 'hidden' },
-  tableHeader: { flexDirection: 'row', backgroundColor: '#B088C8', paddingVertical: 14 },
+  tableHeader: { flexDirection: 'row', backgroundColor: '#7FFFD4', paddingVertical: 14 },
   headerCell: { justifyContent: 'center', paddingHorizontal: 8 },
-  headerText: { fontWeight: 'bold', color: '#FFFFFF', fontSize: 13 },
+  headerText: { fontWeight: 'bold', color: '#2D2D2D', fontSize: 13 },
   tableRow: { 
     flexDirection: 'row', paddingVertical: 12, borderBottomWidth: 1, 
     borderBottomColor: '#F3E8FA', backgroundColor: '#FFFFFF' 
@@ -795,8 +795,8 @@ const styles = StyleSheet.create({
   cardsContainer: { paddingBottom: 16 },
   card: { 
     backgroundColor: '#FFFFFF', borderRadius: 16, padding: 16, marginBottom: 12, 
-    borderWidth: 1, borderColor: '#E8D5F0', 
-    shadowColor: '#B088C8', shadowOffset: { width: 0, height: 2 }, 
+    borderWidth: 1, borderColor: '#B2F0E8', 
+    shadowColor: '#7FFFD4', shadowOffset: { width: 0, height: 2 }, 
     shadowOpacity: 0.1, shadowRadius: 8, elevation: 3 
   },
   cardHeader: { flexDirection: 'row', alignItems: 'center', marginBottom: 12 },
@@ -810,7 +810,7 @@ const styles = StyleSheet.create({
   cardActions: { flexDirection: 'row', justifyContent: 'flex-end', marginTop: 8 },
   actionButton: { 
     marginLeft: 12, padding: 10, borderRadius: 20, 
-    backgroundColor: '#FDF8FC', borderWidth: 1, borderColor: '#E8D5F0' 
+    backgroundColor: '#F0FAF8', borderWidth: 1, borderColor: '#B2F0E8' 
   },
 
   /* Avatar */

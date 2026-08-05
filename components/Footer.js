@@ -45,10 +45,10 @@ const Footer = ({ dark = false }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#FDF8FC',
+    backgroundColor: '#F0FAF8',
     paddingVertical: 12,
     borderTopWidth: 1,
-    borderTopColor: '#E8D5F0',
+    borderTopColor: '#7FFFD4',
   },
   darkContainer: {
     backgroundColor: '#2D2D2D',
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     color: '#CCCCCC',
   },
   highlight: {
-    color: '#B088C8',
+    color: '#00695C',
     fontWeight: '500',
   },
   darkHighlight: {

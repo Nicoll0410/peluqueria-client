@@ -27,9 +27,9 @@ const DashboardScreen = () => {
     topHoras: [],
     topServicios: [],
     tiposDeUsuarios: [
-      { name: 'Clientes', population: 0, color: '#B088C8', legendFontColor: '#7F7F7F', legendFontSize: 15 },
-      { name: 'Estilistas', population: 0, color: '#E8C4D8', legendFontColor: '#7F7F7F', legendFontSize: 15 },
-      { name: 'Admin', population: 0, color: '#7FFFD4', legendFontColor: '#7F7F7F', legendFontSize: 15 }
+      { name: 'Clientes', population: 0, color: '#7FFFD4', legendFontColor: '#7F7F7F', legendFontSize: 15 },
+      { name: 'Estilistas', population: 0, color: '#B088C8', legendFontColor: '#7F7F7F', legendFontSize: 15 },
+      { name: 'Admin', population: 0, color: '#E8C4D8', legendFontColor: '#7F7F7F', legendFontSize: 15 }
     ],
     totalUsuarios: 0,
     topBarberos: [],
@@ -109,7 +109,7 @@ const DashboardScreen = () => {
     labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
     barPercentage: 0.6,
     propsForLabels: { fontSize: isMobile ? 10 : 12, fontWeight: 'bold' },
-    fillShadowGradient: '#B088C8',
+    fillShadowGradient: '#7FFFD4',
     fillShadowGradientOpacity: 1,
     propsForBackgroundLines: { strokeDasharray: '', stroke: '#E8D5F0' },
     formatYLabel: (value) => formatNumber(value),
@@ -165,7 +165,7 @@ const DashboardScreen = () => {
         <View style={[styles.summaryContainer, isMobile && styles.summaryContainerMobile]}>
           <TouchableOpacity style={[styles.summaryCard, styles.summaryCardPrimary]}>
             <LinearGradient
-              colors={['#B088C8', '#E8C4D8']}
+              colors={['#7FFFD4', '#5FE0C8']}
               style={styles.gradient}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
@@ -181,7 +181,7 @@ const DashboardScreen = () => {
 
           <TouchableOpacity style={[styles.summaryCard, styles.summaryCardSecondary]}>
             <LinearGradient
-              colors={['#7FFFD4', '#5FE0C8']}
+              colors={['#B088C8', '#9B6FB0']}
               style={styles.gradient}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
@@ -210,7 +210,7 @@ const DashboardScreen = () => {
                   labels: dashboardData.topHoras.map(item => item.label),
                   datasets: [{
                     data: dashboardData.topHoras.map(item => item.value),
-                    color: (opacity = 1) => `rgba(176, 136, 200, ${opacity})`,
+                    color: (opacity = 1) => `rgba(127, 255, 212, ${opacity})`,
                     colors: dashboardData.topHoras.map((_, index) =>
                       (opacity = 1) => `rgba(176, 136, 200, ${0.7 + (index * 0.05)})`
                     )
@@ -242,7 +242,7 @@ const DashboardScreen = () => {
                   labels: dashboardData.topServicios.map(item => truncateServiceName(item.label)),
                   datasets: [{
                     data: dashboardData.topServicios.map(item => item.value),
-                    color: (opacity = 1) => `rgba(127, 255, 212, ${opacity})`,
+                    color: (opacity = 1) => `rgba(176, 136, 200, ${opacity})`,
                     colors: dashboardData.topServicios.map((_, index) =>
                       (opacity = 1) => `rgba(127, 255, 212, ${0.7 + (index * 0.05)})`
                     )
@@ -340,7 +340,7 @@ const styles = StyleSheet.create({
   errorText: { color: '#E74C3C', fontSize: 16, textAlign: 'center', marginTop: 10, fontWeight: 'bold' },
   retryButton: { marginTop: 20, backgroundColor: '#B088C8', paddingHorizontal: 20, paddingVertical: 10, borderRadius: 25 },
   retryText: { color: '#fff', fontWeight: 'bold' },
-  title: { fontSize: 28, fontWeight: 'bold', marginBottom: 20, color: '#B088C8', textAlign: 'center' },
+  title: { fontSize: 28, fontWeight: 'bold', marginBottom: 20, color: '#00695C', textAlign: 'center' },
   titleMobile: { textAlign: 'center', marginLeft: 8, marginBottom: 16 },
   summaryContainer: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 20 },
   summaryContainerMobile: { flexDirection: 'column', alignItems: 'center', gap: 16 },
@@ -366,13 +366,13 @@ const styles = StyleSheet.create({
   barberoItem: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingVertical: 12, borderBottomWidth: 1, borderBottomColor: '#E8D5F0' },
   barberoInfo: { flexDirection: 'row', alignItems: 'center', flex: 1 },
   barberoRank: { width: 24, height: 24, borderRadius: 12, backgroundColor: '#F3E8FA', justifyContent: 'center', alignItems: 'center', marginRight: 10 },
-  barberoRankText: { fontWeight: 'bold', color: '#B088C8' },
+  barberoRankText: { fontWeight: 'bold', color: '#00695C' },
   avatar: { width: 40, height: 40, borderRadius: 20, marginRight: 10 },
-  avatarPlaceholder: { backgroundColor: '#B088C8', justifyContent: 'center', alignItems: 'center' },
+  avatarPlaceholder: { backgroundColor: '#5FE0C8', justifyContent: 'center', alignItems: 'center' },
   avatarText: { color: '#fff', fontWeight: 'bold', fontSize: 18 },
   barberoName: { fontSize: 14, color: '#2D2D2D', fontWeight: '500', flex: 1 },
   barberoStats: { flexDirection: 'row', alignItems: 'center' },
-  barberoCitas: { fontSize: 14, fontWeight: 'bold', color: '#B088C8', marginRight: 5 },
+  barberoCitas: { fontSize: 14, fontWeight: 'bold', color: '#00695C', marginRight: 5 },
 });
 
 export default DashboardScreen;

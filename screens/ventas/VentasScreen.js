@@ -319,20 +319,20 @@ const VentasScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#FDF8FC', padding: 16 },
+  container: { flex: 1, backgroundColor: '#F0FAF8', padding: 16 },
   contentContainer: { flex: 1 },
   mobileList: { flex: 1, marginBottom: 16 },
   header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 },
   tituloContainer: { flexDirection: 'row', alignItems: 'center' },
-  titulo: { fontSize: 24, fontWeight: 'bold', color: '#6B4F80', marginRight: 10 },
-  contadorContainer: { backgroundColor: '#E8D5F0', width: 30, height: 30, borderRadius: 15, justifyContent: 'center', alignItems: 'center' },
-  contadorTexto: { fontWeight: 'bold', fontSize: 14, color: '#6B4F80' },
+  titulo: { fontSize: 24, fontWeight: 'bold', color: '#00695C', marginRight: 10 },
+  contadorContainer: { backgroundColor: '#E8F8F5', width: 30, height: 30, borderRadius: 15, justifyContent: 'center', alignItems: 'center' },
+  contadorTexto: { fontWeight: 'bold', fontSize: 14, color: '#00695C' },
   listContainer: { paddingBottom: 16 },
   
   card: { 
     backgroundColor: '#FFFFFF', borderRadius: 16, padding: 16, marginBottom: 16, 
-    shadowColor: '#B088C8', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.1, 
-    shadowRadius: 8, elevation: 3, borderWidth: 1, borderColor: '#E8D5F0' 
+    shadowColor: '#7FFFD4', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.1, 
+    shadowRadius: 8, elevation: 3, borderWidth: 1, borderColor: '#B2F0E8' 
   },
   cardHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 },
   cardHeaderText: { flex: 1 },
@@ -348,7 +348,7 @@ const styles = StyleSheet.create({
   textoPrecio: { color: '#00695C', fontWeight: 'bold', fontSize: 14 },
   
   tabla: { borderWidth: 1, borderColor: '#E8D5F0', borderRadius: 12, marginBottom: 16, overflow: 'hidden', flex: 1 },
-  filaEncabezado: { flexDirection: 'row', backgroundColor: '#B088C8', paddingVertical: 14, borderBottomWidth: 1, borderBottomColor: '#D1C4E9' },
+  filaEncabezado: { flexDirection: 'row', backgroundColor: '#7FFFD4', paddingVertical: 14, borderBottomWidth: 1, borderBottomColor: '#D1C4E9' },
   celdaEncabezado: { justifyContent: 'center', alignItems: 'center', paddingHorizontal: 8 },
   fila: { flexDirection: 'row', paddingVertical: 12, borderBottomWidth: 1, borderBottomColor: '#F3E8FA', alignItems: 'center', backgroundColor: '#FFFFFF' },
   celda: { justifyContent: 'center', paddingHorizontal: 8 },
@@ -364,7 +364,7 @@ const styles = StyleSheet.create({
   emptyState: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 40 },
   emptyText: { fontSize: 16, color: '#6B6B6B', marginBottom: 8 },
   emptySubText: { fontSize: 14, color: '#9E9E9E' },
-  encabezado: { fontWeight: 'bold', textAlign: 'center', color: '#FFFFFF', fontSize: 13 },
+  encabezado: { fontWeight: 'bold', textAlign: 'center', color: '#2D2D2D', fontSize: 13 },
   paginacionContainer: { marginBottom: 16 },
 });
 
