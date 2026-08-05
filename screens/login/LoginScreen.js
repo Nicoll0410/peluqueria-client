@@ -40,7 +40,7 @@ const LoginScreen = () => {
                   </View>
                 </View>
                 
-                <Text style={styles.brandName}>SALÓN DE BELLEZA</Text>
+                <Text style={styles.brandName}>SALA DE BELLEZA</Text>
                 <Text style={styles.brandNameMain}>ALBA QUICENO</Text>
                 <View style={styles.divider}>
                   <View style={styles.dividerLine} />
@@ -70,7 +70,7 @@ const LoginScreen = () => {
                   <View style={styles.decorativeContent}>
                     <Text style={styles.decorativeIcon}>💎</Text>
                     <Text style={styles.decorativeTitle}>ALBA QUICENO</Text>
-                    <Text style={styles.decorativeSubtitle}>Salón de Belleza</Text>
+                    <Text style={styles.decorativeSubtitle}>Sala de Belleza</Text>
                     <View style={styles.decorativeLine} />
                     <Text style={styles.decorativeQuote}>"Realza tu belleza natural"</Text>
                   </View>
