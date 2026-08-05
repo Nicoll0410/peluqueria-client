@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   ScrollView,
   Dimensions,
-  RefreshControl,
+  RefreshConAtrol,
   ActivityIndicator,
 } from 'react-native';
 import {
@@ -61,10 +61,10 @@ const CategoriaCard = ({ item, onVer, onEditar, onEliminar }) => (
 
     <View style={styles.cardActions}>
       <TouchableOpacity style={styles.actionButton} onPress={() => onVer(item.id)}>
-        <FontAwesome name="eye" size={18} color="#424242" />
+        <FontAwesome name="eye" size={18} color="#00695C" />
       </TouchableOpacity>
       <TouchableOpacity style={styles.actionButton} onPress={() => onEditar(item.id)}>
-        <Feather name="edit" size={18} color="#424242" />
+        <Feather name="edit" size={18} color="#00695C" />
       </TouchableOpacity>
       <TouchableOpacity style={styles.actionButton} onPress={() => onEliminar(item.id)}>
         <Feather name="trash-2" size={18} color="#d32f2f" />
@@ -252,7 +252,7 @@ const CategoriaInsumosScreen = () => {
   if (loading && !categorias.length) {
     return (
       <View style={[styles.container, styles.loadingContainer]}>
-        <ActivityIndicator size="large" color="#424242" />
+        <ActivityIndicator size="large" color="#7FFFD4" />
         <Text style={styles.loadingText}>Cargando categorías...</Text>
       </View>
     );
@@ -402,7 +402,7 @@ const CategoriaInsumosScreen = () => {
 /* ───────────────────────────────────── estilos ───────────────────────────────────── */
 const styles = StyleSheet.create({
   /* general */
-  mainContainer: { flex: 1, backgroundColor: '#fff' },
+  mainContainer: { flex: 1, backgroundColor: '#F0FAF8' },
   contentWrapper: { flex: 1, justifyContent: 'space-between' },
   contentContainer: { flex: 1, padding: 16 },
   loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center' },
@@ -411,11 +411,11 @@ const styles = StyleSheet.create({
   /* header */
   header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 },
   headerLeft: { flexDirection: 'row', alignItems: 'center' },
-  title: { fontSize: 22, fontWeight: 'bold', color: '#424242', marginRight: 12 },
-  counter: { backgroundColor: '#EEEEEE', width: 28, height: 28, borderRadius: 14, justifyContent: 'center', alignItems: 'center' },
-  counterText: { fontWeight: 'bold', fontSize: 14, color: '#424242' },
-  addButton: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#424242', paddingVertical: 8, paddingHorizontal: 12, borderRadius: 20 },
-  addButtonText: { marginLeft: 8, color: 'white', fontWeight: '500', fontSize: 14 },
+  title: { fontSize: 22, fontWeight: 'bold', color: '#00695C', marginRight: 12 },
+  counter: { backgroundColor: '#E8F8F5', width: 28, height: 28, borderRadius: 14, justifyContent: 'center', alignItems: 'center' },
+  counterText: { fontWeight: 'bold', fontSize: 14, color: '#00695C' },
+  addButton: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#7FFFD4', paddingVertical: 8, paddingHorizontal: 12, borderRadius: 20 },
+  addButtonText: { marginLeft: 8, color: '#2D2D2D', fontWeight: '500', fontSize: 14 },
   mobileTitleContainer: {
     flexDirection: 'column',
   },
@@ -428,17 +428,17 @@ const styles = StyleSheet.create({
   tableWrapper: { flex: 1, marginBottom: 16 },
   tableContainer: { flex: 1, marginBottom: 8 },
   table: { flex: 1, borderWidth: 1, borderColor: '#e0e0e0', borderRadius: 8, overflow: 'hidden' },
-  tableHeader: { flexDirection: 'row', backgroundColor: '#424242', paddingVertical: 12 },
+  tableHeader: { flexDirection: 'row', backgroundColor: '#7FFFD4', paddingVertical: 12 },
   headerCell: { justifyContent: 'center', paddingHorizontal: 8 },
-  headerText: { fontWeight: 'bold', color: 'white', fontSize: 14 },
+  headerText: { fontWeight: 'bold', color: '#2D2D2D', fontSize: 14 },
   tableBody: { flex: 1 },
   tableRow: { flexDirection: 'row', paddingVertical: 12, borderBottomWidth: 1, borderBottomColor: '#e0e0e0', backgroundColor: 'white' },
   cell: { justifyContent: 'center', paddingHorizontal: 8 },
   nameColumn: { flex: 2 }, descColumn: { flex: 3 }, itemsColumn: { flex: 1, alignItems: 'center' }, actionsColumn: { flex: 2, alignItems: 'flex-end' },
   nameText: { fontWeight: '500', fontSize: 14, color: '#424242' },
   descText: { fontSize: 14, color: '#616161' },
-  itemsBadge: { backgroundColor: '#E0E0E0', borderRadius: 12, paddingVertical: 4, paddingHorizontal: 8, minWidth: 30, alignItems: 'center' },
-  itemsText: { fontWeight: 'bold', fontSize: 14, color: '#424242' },
+  itemsBadge: { backgroundColor: '#E8F8F5', borderRadius: 12, paddingVertical: 4, paddingHorizontal: 8, minWidth: 30, alignItems: 'center' },
+  itemsText: { fontWeight: 'bold', fontSize: 14, color: '#00695C' },
   actionsContainer: { flexDirection: 'row' },
   actionIcon: { marginHorizontal: 6 },
 
@@ -446,7 +446,7 @@ const styles = StyleSheet.create({
   scrollContainer: { flex: 1 },
   mobileContentContainer: { flexGrow: 1, paddingBottom: 16 },
   cardsContainer: { paddingBottom: 16 },
-  card: { backgroundColor: 'white', borderRadius: 12, padding: 16, marginBottom: 12, borderWidth: 1, borderColor: '#e0e0e0', elevation: 2 },
+  card: { backgroundColor: 'white', borderRadius: 12, padding: 16, marginBottom: 12, borderWidth: 1, borderColor: '#B2F0E8', elevation: 2 },
   cardHeader: { flexDirection: 'row', alignItems: 'center', marginBottom: 12 },
   cardHeaderText: { flex: 1 },
   cardNombre: { fontSize: 16, fontWeight: '600', color: '#212121', marginBottom: 4 },
@@ -456,7 +456,7 @@ const styles = StyleSheet.create({
   detailIcon: { marginRight: 8 },
   detailText: { fontSize: 14, color: '#616161' },
   cardActions: { flexDirection: 'row', justifyContent: 'flex-end', marginTop: 8 },
-  actionButton: { marginLeft: 12, padding: 8, borderRadius: 20, backgroundColor: '#f5f5f5' },
+  actionButton: { marginLeft: 12, padding: 8, borderRadius: 20, backgroundColor: '#F0FAF8', borderWidth: 1, borderColor: '#B2F0E8' },
 
   /* varias */
   emptyContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 },

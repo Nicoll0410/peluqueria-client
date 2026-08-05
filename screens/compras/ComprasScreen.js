@@ -191,7 +191,7 @@ const ComprasScreen = () => {
 
       <View style={styles.cardActions}>
         <TouchableOpacity onPress={() => abrirDetalle(item)}>
-          <FontAwesome name="eye" size={20} color="#424242" />
+          <FontAwesome name="eye" size={20} color="#00695C" />
         </TouchableOpacity>
         {item.estado === "confirmado" && (
           <TouchableOpacity
@@ -246,7 +246,7 @@ const ComprasScreen = () => {
       <View style={[styles.cell, styles.colAcciones]}>
         <View style={styles.accionesFila}>
           <TouchableOpacity onPress={() => abrirDetalle(item)}>
-            <FontAwesome name="eye" size={20} color="#000" />
+            <FontAwesome name="eye" size={20} color="#00695C" />
           </TouchableOpacity>
           {item.estado === "confirmado" && (
             <TouchableOpacity
@@ -366,24 +366,24 @@ const ComprasScreen = () => {
 const styles = StyleSheet.create({
   /* (los mismos estilos que ya tenías, sin cambios) */
   /* ---  solo quité el color '#000' del borderBottom en .row para evitar línea gruesa --- */
-  main: { flex: 1, backgroundColor: "#fff" },
+  main: { flex: 1, backgroundColor: "#F0FAF8" },
   content: { flex: 1, padding: 16 },
   center: { flex: 1, alignItems: "center", justifyContent: "center" },
   header: { flexDirection: "row", justifyContent: "space-between", marginBottom: 16, alignItems: "center" },
   titleWrap: { flexDirection: "row", alignItems: "center" },
-  title: { fontSize: 22, fontWeight: "bold", marginRight: 10 },
-  counter: { width: 28, height: 28, borderRadius: 14, backgroundColor: "#D9D9D9", alignItems: "center", justifyContent: "center" },
-  counterTxt: { fontWeight: "bold" },
-  btnAdd: { flexDirection: "row", alignItems: "center", backgroundColor: "#424242", borderRadius: 15, paddingVertical: 8, paddingHorizontal: 12 },
-  btnAddTxt: { color: "#fff", marginLeft: 6, fontWeight: "500" },
-  card: { backgroundColor: "#fff", borderWidth: 1, borderColor: "#eee", borderRadius: 10, padding: 16, marginBottom: 16 },
+  title: { fontSize: 22, fontWeight: "bold", marginRight: 10, color: '#00695C' },
+  counter: { width: 28, height: 28, borderRadius: 14, backgroundColor: "#E8F8F5", alignItems: "center", justifyContent: "center" },
+  counterTxt: { fontWeight: "bold", color: '#00695C' },
+  btnAdd: { flexDirection: "row", alignItems: "center", backgroundColor: "#7FFFD4", borderRadius: 15, paddingVertical: 8, paddingHorizontal: 12 },
+  btnAddTxt: { color: "#2D2D2D", marginLeft: 6, fontWeight: "500" },
+  card: { backgroundColor: "#fff", borderWidth: 1, borderColor: "#B2F0E8", borderRadius: 10, padding: 16, marginBottom: 16 },
   cardHeader: { flexDirection: "row", justifyContent: "space-between", marginBottom: 12 },
   cardTitle: { fontSize: 18, fontWeight: "bold" },
   cardSubtitle: { fontSize: 14, color: "#666" },
   cardInfoRow: { flexDirection: "row", justifyContent: "space-between", marginBottom: 8 },
   cardLabel: { color: "#424242" },
   cardValue: { fontWeight: "500" },
-  totalTxt: { color: "#2e7d32", fontWeight: "bold" },
+  totalTxt: { color: "#00695C", fontWeight: "bold" },
   cardActions: { flexDirection: "row", justifyContent: "flex-end", borderTopWidth: 1, borderTopColor: "#eee", paddingTop: 12 },
   tableWrap: { borderWidth: 1, borderColor: "#ddd", borderRadius: 4, overflow: "hidden" },
   tableHeader: { flexDirection: "row", backgroundColor: "#424242" },
@@ -398,12 +398,12 @@ const styles = StyleSheet.create({
   row: { flexDirection: "row", paddingVertical: 12, borderBottomWidth: 1, borderBottomColor: "#ddd" },
   cell: { justifyContent: "center", paddingHorizontal: 8 },
   bold: { fontWeight: "bold", textAlign: "center" },
-  totalBox: { alignSelf: "center", paddingVertical: 4, paddingHorizontal: 6, backgroundColor: "#D9D9D9", borderRadius: 4 },
+  totalBox: { alignSelf: "center", paddingVertical: 4, paddingHorizontal: 6, backgroundColor: "#E8F8F5", borderRadius: 4 },
   badge: { flexDirection: "row", alignItems: "center", alignSelf: "center", paddingHorizontal: 8, paddingVertical: 4, borderRadius: 12 },
-  badgeOk: { backgroundColor: "#e8f5e9" },
+  badgeOk: { backgroundColor: "#E8F8F5" },
   badgeErr: { backgroundColor: "#ffebee" },
   badgeTxt: { marginLeft: 4, fontSize: 12, fontWeight: "bold" },
-  ok: { color: "#2e7d32" },
+  ok: { color: "#00695C" },
   err: { color: "#d32f2f" },
   accionesFila: { flexDirection: "row", alignItems: "center" },
 });

@@ -312,13 +312,13 @@ useFocusEffect(
           onPress={() => verInsumo(item.id)}
           style={styles.actionButton}
         >
-          <FontAwesome name="eye" size={20} color="#424242" />
+          <FontAwesome name="eye" size={20} color="#00695C" />
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => editarInsumo(item.id)}
           style={styles.actionButton}
         >
-          <Feather name="edit" size={20} color="#424242" />
+          <Feather name="edit" size={20} color="#00695C" />
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => solicitarEliminacion(item)}
@@ -526,7 +526,7 @@ useFocusEffect(
 /* ======================= Estilos ======================= */
 const styles = StyleSheet.create({
   /* contenedores */
-  container: { flex: 1, backgroundColor: '#fff' },
+  container: { flex: 1, backgroundColor: '#F0FAF8' },
   content: { flex: 1, padding: 16, paddingBottom: 40 },
   /* header */
   header: {
@@ -536,34 +536,35 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   tituloContainer: { flexDirection: 'row', alignItems: 'center' },
-  titulo: { fontSize: 22, fontWeight: 'bold', marginRight: 10 },
+  titulo: { fontSize: 22, fontWeight: 'bold', marginRight: 10, color: '#00695C' },
   contadorContainer: {
-    backgroundColor: '#D9D9D9',
+    backgroundColor: '#E8F8F5',
     width: 28,
     height: 28,
     borderRadius: 14,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  contadorTexto: { fontWeight: 'bold', fontSize: 14 },
+  contadorTexto: { fontWeight: 'bold', fontSize: 14, color: '#00695C' },
   botonesHeader: { flexDirection: 'row', alignItems: 'center' },
   botonHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     paddingVertical: 8,
     paddingHorizontal: 12,
     borderRadius: 15,
     marginLeft: 10,
     borderWidth: 1,
-    borderColor: '#424242',
+    borderColor: '#7FFFD4',
   },
-  botonControl: { backgroundColor: '#424242' },
+  botonControl: { backgroundColor: '#5FE0C8' },
   textoBoton: {
     marginLeft: 8,
     color: 'white',
     fontWeight: '500',
     fontSize: 14,
+    color: '#2D2D2D',
   },
   /* list & estados vacíos */
   listContainer: { paddingBottom: 16 },
@@ -584,7 +585,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     ...Platform.select({
       ios: {
-        shadowColor: '#000',
+        shadowColor: '#7FFFD4',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.1,
         shadowRadius: 4,
@@ -594,7 +595,7 @@ const styles = StyleSheet.create({
       },
     }),
     borderWidth: 1,
-    borderColor: '#eee',
+    borderColor: '#B2F0E8',
   },
   cardHeader: {
     flexDirection: 'row',
@@ -623,7 +624,7 @@ const styles = StyleSheet.create({
   },
   actionButton: { marginLeft: 16 },
   unidadContainer: {
-    backgroundColor: '#D9D9D9',
+    backgroundColor: '#E8F8F5',
     borderRadius: 15,
     paddingVertical: 4,
     paddingHorizontal: 8,
@@ -632,7 +633,7 @@ const styles = StyleSheet.create({
   },
   textoUnidad: { color: '#000', fontSize: 12, fontWeight: 'bold' },
   cantidadContainer: {
-    backgroundColor: '#D9D9D9',
+    backgroundColor: '#E8F8F5',
     borderRadius: 15,
     paddingVertical: 4,
     paddingHorizontal: 8,
@@ -651,7 +652,7 @@ const styles = StyleSheet.create({
   },
   filaEncabezado: {
     flexDirection: 'row',
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     paddingVertical: 12,
     borderBottomWidth: 1,
     borderBottomColor: '#ddd',
@@ -664,7 +665,7 @@ const styles = StyleSheet.create({
   encabezado: {
     fontWeight: 'bold',
     textAlign: 'center',
-    color: 'white',
+    color: '#2D2D2D',
   },
   fila: {
     flexDirection: 'row',

@@ -175,7 +175,7 @@ const MovimientosScreen = () => {
       {/* Tabla (desktop) o Cards (mobile) */}
       {loading && !refreshing ? (
         <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color="#424242" />
+          <ActivityIndicator size="large" color="#7FFFD4" />
           <Text style={styles.loadingText}>Cargando movimientos...</Text>
         </View>
       ) : !isMobile ? (
@@ -265,7 +265,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: isMobile ? 16 : 20,
-    backgroundColor: "#fff",
+    backgroundColor: "#F0FAF8",
   },
   /* Loading */
   loadingContainer: { flex: 1, justifyContent: "center", alignItems: "center" },
@@ -280,18 +280,18 @@ const styles = StyleSheet.create({
   title: {
     fontSize: isMobile ? 22 : 24,
     fontWeight: "bold",
-    color: "#424242",
+    color: "#00695C",
     marginRight: 12,
   },
   counter: {
-    backgroundColor: "#EEEEEE",
+    backgroundColor: "#E8F8F5",
     width: 28,
     height: 28,
     borderRadius: 14,
     justifyContent: "center",
     alignItems: "center",
   },
-  counterText: { fontWeight: "bold", fontSize: 14, color: "#424242" },
+  counterText: { fontWeight: "bold", fontSize: 14, color: "#00695C" },
 
   /* Desktop table */
   tableContainer: {
@@ -304,11 +304,11 @@ const styles = StyleSheet.create({
   },
   tableHeader: {
     flexDirection: "row",
-    backgroundColor: "#424242",
+    backgroundColor: "#7FFFD4",
     paddingVertical: 12,
   },
   headerCell: { justifyContent: "center", paddingHorizontal: 8 },
-  headerText: { fontWeight: "bold", color: "white", fontSize: 14 },
+  headerText: { fontWeight: "bold", color: "#2D2D2D", fontSize: 14 },
 
   tableRow: {
     flexDirection: "row",
@@ -336,7 +336,7 @@ const styles = StyleSheet.create({
     padding: 16,
     marginBottom: 12,
     borderWidth: 1,
-    borderColor: "#e0e0e0",
+    borderColor: "#B2F0E8",
     elevation: 2,
   },
   cardNombre: { fontSize: 16, fontWeight: "600", color: "#212121" },

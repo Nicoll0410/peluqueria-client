@@ -37,7 +37,7 @@ const isMobile = width < 768;
 
 /* ────────────────────────────── utilidades visuales ────────────────────────────── */
 const Avatar = ({ nombre }) => {
-  const colors = ['#FF5733', '#33FF57', '#3357FF', '#F333FF', '#33FFF5'];
+  const colors = ['#7FFFD4', '#5FE0C8', '#B088C8', '#E8C4D8', '#B2F0E8'];
   const color = colors[nombre?.length % colors.length] || '#FF5733';
 
   return (
@@ -126,14 +126,14 @@ const ProveedorCard = ({ item, onVer, onEditar, onEliminar }) => (
         style={styles.actionButton}
         onPress={() => onVer(item)}
       >
-        <FontAwesome name="eye" size={18} color="#424242" />
+        <FontAwesome name="eye" size={18} color="#00695C" />
       </TouchableOpacity>
 
       <TouchableOpacity
         style={styles.actionButton}
         onPress={() => onEditar(item)}
       >
-        <Feather name="edit" size={18} color="#424242" />
+        <Feather name="edit" size={18} color="#00695C" />
       </TouchableOpacity>
 
       <TouchableOpacity
@@ -372,7 +372,7 @@ const ProveedoresScreen = () => {
           {/* ─── contenido ─── */}
           {loading ? (
             <View style={styles.loadingContainer}>
-              <ActivityIndicator size="large" color="#424242" />
+              <ActivityIndicator size="large" color="#7FFFD4" />
               <Text style={styles.loadingText}>Cargando proveedores...</Text>
             </View>
           ) : !isMobile ? (
@@ -540,7 +540,7 @@ const styles = StyleSheet.create({
   /* layout principal */                                           
   mainContainer: { 
     flex: 1, 
-    backgroundColor: '#fff' 
+    backgroundColor: '#F0FAF8' 
   },            
   contentWrapper: { 
     flex: 1, 
@@ -565,17 +565,17 @@ const styles = StyleSheet.create({
   /* header */
   header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   headerLeft: { flexDirection: 'row', alignItems: 'center' },
-  title: { fontSize: 22, fontWeight: 'bold', color: '#424242', marginRight: 12 },
-  counter: { backgroundColor: '#EEEEEE', width: 28, height: 28, borderRadius: 14, justifyContent: 'center', alignItems: 'center' },
-  counterText: { fontWeight: 'bold', fontSize: 14, color: '#424242' },
-  addButton: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#424242', paddingVertical: 8, paddingHorizontal: 12, borderRadius: 20 },
-  addButtonText: { marginLeft: 8, color: 'white', fontWeight: '500', fontSize: 14 },
+  title: { fontSize: 22, fontWeight: 'bold', color: '#00695C', marginRight: 12 },
+  counter: { backgroundColor: '#E8F8F5', width: 28, height: 28, borderRadius: 14, justifyContent: 'center', alignItems: 'center' },
+  counterText: { fontWeight: 'bold', fontSize: 14, color: '#00695C' },
+  addButton: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#7FFFD4', paddingVertical: 8, paddingHorizontal: 12, borderRadius: 20 },
+  addButtonText: { marginLeft: 8, color: '#2D2D2D', fontWeight: '500', fontSize: 14 },
 
   /* tabla desktop */
   table: { borderWidth: 1, borderColor: '#e0e0e0', borderRadius: 8, overflow: 'hidden' },
-  tableHeader: { flexDirection: 'row', backgroundColor: '#424242', paddingVertical: 12 },
+  tableHeader: { flexDirection: 'row', backgroundColor: '#7FFFD4', paddingVertical: 12 },
   headerCell: { justifyContent: 'center', paddingHorizontal: 8 },
-  headerText: { fontWeight: 'bold', color: 'white', fontSize: 14 },
+  headerText: { fontWeight: 'bold', color: '#2D2D2D', fontSize: 14 },
   tableRow: { flexDirection: 'row', paddingVertical: 12, borderBottomWidth: 1, borderBottomColor: '#e0e0e0', backgroundColor: 'white' },
   cell: { justifyContent: 'center', paddingHorizontal: 8 },
   typeColumn: { flex: 1, alignItems: 'center' },
@@ -594,7 +594,7 @@ const styles = StyleSheet.create({
   /* mobile cards */
   scrollContainer: { flex: 1 },
   cardsContainer: { paddingBottom: 16 },
-  card: { backgroundColor: 'white', borderRadius: 12, padding: 16, marginBottom: 12, borderWidth: 1, borderColor: '#e0e0e0', shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.05, shadowRadius: 4, elevation: 2 },
+  card: { backgroundColor: 'white', borderRadius: 12, padding: 16, marginBottom: 12, borderWidth: 1, borderColor: '#B2F0E8', shadowColor: '#7FFFD4', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.05, shadowRadius: 4, elevation: 2 },
   cardHeader: { flexDirection: 'row', alignItems: 'center', marginBottom: 12 },
   cardHeaderText: { marginLeft: 12, flex: 1 },
   cardNombre: { fontSize: 16, fontWeight: '600', color: '#212121', marginBottom: 2 },
@@ -604,7 +604,7 @@ const styles = StyleSheet.create({
   detailIcon: { marginRight: 8 },
   detailText: { fontSize: 14, color: '#616161' },
   cardActions: { flexDirection: 'row', justifyContent: 'flex-end', marginTop: 8 },
-  actionButton: { marginLeft: 12, padding: 8, borderRadius: 20, backgroundColor: '#f5f5f5' },
+  actionButton: { marginLeft: 12, padding: 8, borderRadius: 20, backgroundColor: '#F0FAF8', borderWidth: 1, borderColor: '#B2F0E8' },
 
   /* avatar */
   avatarContainer: { width: 40, height: 40, borderRadius: 20, justifyContent: 'center', alignItems: 'center' },
