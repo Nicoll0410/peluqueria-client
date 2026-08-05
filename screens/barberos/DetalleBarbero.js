@@ -196,24 +196,24 @@ const DetalleBarbero = ({ visible, onClose, barbero }) => {
 /* ---- estilos ---- */
 const styles = StyleSheet.create({
   overlay: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: isMobile ? 20 : 0 },
-  modal: { width: isMobile ? '100%' : '30%', backgroundColor: '#fff', borderRadius: 12, padding: isMobile ? 24 : 20, elevation: 10, borderWidth: 1, borderColor: 'black', maxHeight: isMobile ? height * 0.8 : '80%' },
+  modal: { width: isMobile ? '100%' : '30%', backgroundColor: '#fff', borderRadius: 12, padding: isMobile ? 24 : 20, elevation: 10, borderWidth: 1, borderColor: '#B2F0E8', maxHeight: isMobile ? height * 0.8 : '80%' },
   modalMobile: { shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.2, shadowRadius: 6 },
   avatarContainer: { alignItems: 'center', marginBottom: 20 },
-  avatarImage: { width: 100, height: 100, borderRadius: 50, borderWidth: 2, borderColor: '#424242' },
+  avatarImage: { width: 100, height: 100, borderRadius: 50, borderWidth: 2, borderColor: '#7FFFD4' },
   scrollContainer: { flexGrow: 1 },
   scrollContent: { paddingBottom: 10 },
   scrollContentMobile: { paddingBottom: 20 },
-  titulo: { fontSize: isMobile ? 20 : 22, fontWeight: 'bold', marginBottom: isMobile ? 16 : 20, textAlign: 'center', color: '#424242' },
+  titulo: { fontSize: isMobile ? 20 : 22, fontWeight: 'bold', marginBottom: isMobile ? 16 : 20, textAlign: 'center', color: '#00695C' },
   tituloMobile: { fontSize: 22 },
   item: { marginBottom: isMobile ? 16 : 14 },
   itemMobile: { marginBottom: 18 },
-  label: { fontSize: isMobile ? 15 : 14, fontWeight: '600', color: '#555', marginBottom: isMobile ? 6 : 4 },
+  label: { fontSize: isMobile ? 15 : 14, fontWeight: '600', color: '#00695C', marginBottom: isMobile ? 6 : 4 },
   labelMobile: { fontSize: 16 },
   value: { fontSize: isMobile ? 16 : 16, color: '#222', fontWeight: isMobile ? '500' : '400', paddingLeft: isMobile ? 8 : 0 },
   valueMobile: { fontSize: 17, paddingVertical: 4, borderBottomWidth: 1, borderBottomColor: '#f0f0f0' },
-  cerrar: { marginTop: isMobile ? 24 : 20, alignSelf: 'center', paddingHorizontal: isMobile ? 40 : 30, paddingVertical: isMobile ? 12 : 10, backgroundColor: '#424242', borderRadius: 15, width: isMobile ? '60%' : undefined, alignItems: 'center' },
+  cerrar: { marginTop: isMobile ? 24 : 20, alignSelf: 'center', paddingHorizontal: isMobile ? 40 : 30, paddingVertical: isMobile ? 12 : 10, backgroundColor: '#7FFFD4', borderRadius: 15, width: isMobile ? '60%' : undefined, alignItems: 'center' },
   cerrarMobile: { marginTop: 20 },
-  textoCerrar: { fontWeight: 'bold', color: 'white', fontSize: isMobile ? 16 : 14 },
+  textoCerrar: { fontWeight: 'bold', color: '#2D2D2D', fontSize: isMobile ? 16 : 14 },
   /* badges */
   estadoContainer: { flexDirection: 'row', alignItems: 'center', paddingVertical: isMobile ? 6 : 4, paddingHorizontal: isMobile ? 10 : 8, borderRadius: 12, alignSelf: 'flex-start', marginTop: isMobile ? 6 : 4 },
   verificado: { backgroundColor: '#e8f5e9' },
@@ -222,8 +222,8 @@ const styles = StyleSheet.create({
   textoVerificado: { color: '#2e7d32' },
   textoNoVerificado: { color: '#d32f2f' },
   rolBadge: { paddingVertical: 4, paddingHorizontal: 8, borderRadius: 12, alignSelf: 'flex-start', marginTop: isMobile ? 6 : 4 },
-  rolAdmin: { backgroundColor: '#E3F2FD' },
-  rolBarbero: { backgroundColor: '#E8F5E9' },
+  rolAdmin: { backgroundColor: '#E0F2F1' },
+  rolBarbero: { backgroundColor: '#E8F8F5' },
   rolBadgeText: { fontWeight: '500', fontSize: isMobile ? 15 : 14 }
 });
 

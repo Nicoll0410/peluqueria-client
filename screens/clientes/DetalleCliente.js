@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     padding: isMobile ? 24 : 20,
     elevation: 10,
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: '#B2F0E8',
     maxHeight: isMobile ? height * 0.8 : undefined,
   },
   modalMobile: {
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: isMobile ? 16 : 20,
     textAlign: 'center',
-    color: '#424242',
+    color: '#00695C',
   },
   tituloMobile: {
     fontSize: 22,
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
   label: {
     fontSize: isMobile ? 15 : 14,
     fontWeight: '600',
-    color: '#555',
+    color: '#00695C',
     marginBottom: isMobile ? 6 : 4,
   },
   labelMobile: {
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     paddingHorizontal: isMobile ? 40 : 30,
     paddingVertical: isMobile ? 12 : 10,
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     borderRadius: 15,
     width: isMobile ? '60%' : undefined,
     alignItems: 'center',
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
   },
   textoCerrar: {
     fontWeight: 'bold',
-    color: 'white',
+    color: '#2D2D2D',
     fontSize: isMobile ? 16 : 14,
   },
   // Estilos para el estado de verificación
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
     marginTop: isMobile ? 6 : 4,
   },
   verificado: {
-    backgroundColor: '#e8f5e9',
+    backgroundColor: '#E8F8F5',
   },
   noVerificado: {
     backgroundColor: '#ffebee',
@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
     fontSize: isMobile ? 15 : 14,
   },
   textoVerificado: {
-    color: '#2e7d32',
+    color: '#00695C',
   },
   textoNoVerificado: {
     color: '#d32f2f',

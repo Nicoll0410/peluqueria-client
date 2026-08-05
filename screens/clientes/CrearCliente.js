@@ -584,8 +584,8 @@ const pickImage = async () => {
           textSectionTitleColor: '#666',
           dayTextColor: '#333',
           todayTextColor: '#424242',
-          selectedDayTextColor: '#fff',
-          selectedDayBackgroundColor: '#424242',
+          selectedDayTextColor: '#2D2D2D',
+          selectedDayBackgroundColor: '#7FFFD4',
           monthTextColor: '#333',
           textDayFontSize: 14,
           textMonthFontSize: 16,
@@ -760,7 +760,7 @@ const pickImage = async () => {
         <View style={styles.successModalOverlay}>
           <View style={styles.successModalContent}>
             <View style={styles.successModalIcon}>
-              <MaterialIcons name="check-circle" size={60} color="#4CAF50" />
+              <MaterialIcons name="check-circle" size={60} color="#7FFFD4" />
             </View>
             <Text style={styles.successModalTitle}>
               ¡Cliente creado exitosamente!
@@ -798,7 +798,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     overflow: "hidden",
     borderWidth: 3,
-    borderColor: "black",
+    borderColor: "#7FFFD4",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -818,7 +818,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "#333",
+    color: "#00695C",
   },
   subtitle: {
     fontSize: 13,
@@ -843,7 +843,7 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 2,
-    borderColor: "#424242",
+    borderColor: "#B2F0E8",
     borderRadius: 8,
     paddingHorizontal: 12,
     paddingVertical: 10,
@@ -861,7 +861,7 @@ const styles = StyleSheet.create({
   },
   dateInput: {
     borderWidth: 2,
-    borderColor: "#424242",
+    borderColor: "#7FFFD4",
     borderRadius: 8,
     paddingHorizontal: 12,
     paddingVertical: 10,
@@ -883,7 +883,7 @@ const styles = StyleSheet.create({
   },
   passwordInput: {
     borderWidth: 2,
-    borderColor: "#424242",
+    borderColor: "#7FFFD4",
     borderRadius: 8,
     paddingHorizontal: 12,
     paddingVertical: 10,
@@ -899,7 +899,7 @@ const styles = StyleSheet.create({
   },
   avatarSelector: {
     borderWidth: 2,
-    borderColor: "#424242",
+    borderColor: "#7FFFD4",
     borderRadius: 8,
     height: 100,
     justifyContent: "center",
@@ -936,22 +936,22 @@ const styles = StyleSheet.create({
   cancelButton: {
     backgroundColor: "white",
     borderWidth: 1,
-    borderColor: "#929292",
+    borderColor: "#B2F0E8",
     marginLeft: 10,
   },
   createButton: {
-    backgroundColor: "#424242",
+    backgroundColor: "#7FFFD4",
     marginRight: 10,
   },
   buttonText: {
     fontWeight: "500",
     fontSize: 15,
-    color: "white",
+    color: "#2D2D2D",
   },
   cancelButtonText: {
     fontWeight: "500",
     fontSize: 15,
-    color: "black",
+    color: "#00695C",
   },
   customDatePickerContainer: {
     position: "absolute",
@@ -1022,9 +1022,10 @@ const styles = StyleSheet.create({
   datePickerButton: {
     padding: 10,
     borderRadius: 5,
+    backgroundColor: '#7FFFD4',
   },
   datePickerButtonText: {
-    color: "#424242",
+    color: "#2D2D2D",
     fontWeight: "bold",
   },
   closeButton: {
@@ -1058,7 +1059,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     marginBottom: 15,
-    color: "#424242",
+    color: "#00695C",
     textAlign: "center",
   },
   successModalText: {
@@ -1069,7 +1070,7 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
   successModalButton: {
-    backgroundColor: "#424242",
+    backgroundColor: "#7FFFD4",
     borderRadius: 10,
     paddingVertical: 12,
     paddingHorizontal: 30,
@@ -1082,7 +1083,7 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   successModalButtonText: {
-    color: "#fff",
+    color: "#2D2D2D",
     fontWeight: "bold",
     fontSize: 16,
   },
@@ -1116,24 +1117,24 @@ yearBtn: {
   minWidth: 70,
 },
 yearBtnSel: { 
-  backgroundColor: '#424242' 
+  backgroundColor: '#7FFFD4' 
 },
 yearText: { 
   color: '#666',
   fontSize: 14,
 },
 yearTextSel: { 
-  color: '#fff' 
+  color: '#2D2D2D' 
 },
 closeButton: {
   paddingVertical: 10,
-  backgroundColor: '#f0f0f0',
+  backgroundColor: '#7FFFD4',
   borderRadius: 8,
   alignItems: 'center',
   marginTop: 10,
 },
 closeButtonText: {
-  color: '#424242',
+  color: '#2D2D2D',
   fontWeight: 'bold',
   fontSize: 16,
 },
