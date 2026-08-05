@@ -54,7 +54,7 @@ const NotificacionesScreen = ({ navigation }) => {
   if (loading && !refreshing) {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#424242" />
+        <ActivityIndicator size="large" color="#7FFFD4" />
         <Text style={styles.loadingText}>Cargando notificaciones...</Text>
       </View>
     );
@@ -92,8 +92,8 @@ const NotificacionesScreen = ({ navigation }) => {
           <RefreshControl 
             refreshing={refreshing} 
             onRefresh={onRefresh} 
-            colors={["#424242"]} 
-            tintColor="#424242"
+            colors={["#7FFFD4"]} 
+            tintColor="#7FFFD4"
           />
         }
       />
@@ -104,7 +104,7 @@ const NotificacionesScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: { 
     flex: 1, 
-    backgroundColor: "#f8f9fa" 
+    backgroundColor: "#F0FAF8" 
   },
   header: {
     padding: 16,
@@ -118,11 +118,11 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "#333"
+    color: "#00695C"
   },
   unreadCount: {
     fontSize: 14,
-    color: "#dc3545",
+    color: "#00695C",
     fontWeight: "600"
   },
   notificationItem: { 
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     marginVertical: 8,
     borderRadius: 12, 
-    shadowColor: "#000",
+    shadowColor: "#7FFFD4",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
   },
   unreadNotification: { 
     borderLeftWidth: 4, 
-    borderLeftColor: "#007bff" 
+    borderLeftColor: "#7FFFD4" 
   },
   title: { 
     fontSize: 16, 
@@ -180,25 +180,25 @@ const styles = StyleSheet.create({
     marginTop: 16 
   },
   errorContainer: { 
-    backgroundColor: '#ffe6e6', 
+    backgroundColor: '#FDF0F5', 
     padding: 16, 
     margin: 16,
     borderRadius: 8,
     alignItems: "center"
   },
   errorText: { 
-    color: '#dc3545', 
+    color: '#C62828', 
     textAlign: 'center',
     marginBottom: 12
   },
   retryButton: {
-    backgroundColor: "#dc3545",
+    backgroundColor: "#7FFFD4",
     paddingHorizontal: 20,
     paddingVertical: 8,
     borderRadius: 6
   },
   retryText: {
-    color: "white",
+    color: "#2D2D2D",
     fontWeight: "600"
   }
 });

@@ -268,7 +268,7 @@ const RegisterScreen = () => {
             resizeMode="contain"
           />
           <View style={styles.headerText}>
-            <Text style={styles.title}>Únete a New York Barber</Text>
+            <Text style={styles.title}>Únete a Sala de Belleza Alba</Text>
             <Text style={styles.subtitle}>
               Crea tu cuenta para reservar citas y disfrutar de nuestros servicios
             </Text>
@@ -549,8 +549,8 @@ const RegisterScreen = () => {
                   textSectionTitleColor: '#666',
                   dayTextColor: '#333',
                   todayTextColor: '#424242',
-                  selectedDayTextColor: '#fff',
-                  selectedDayBackgroundColor: '#424242',
+                  selectedDayTextColor: '#2D2D2D',
+                  selectedDayBackgroundColor: '#7FFFD4',
                   monthTextColor: '#333',
                   textDayFontSize: 14,
                   textMonthFontSize: 16,
@@ -583,7 +583,7 @@ const RegisterScreen = () => {
           <View style={styles.successModalOverlay}>
             <View style={styles.successModalContent}>
               <View style={styles.successModalIcon}>
-                <MaterialIcons name="check-circle" size={60} color="#4CAF50" />
+                <MaterialIcons name="check-circle" size={60} color="#7FFFD4" />
               </View>
               <Text style={styles.successModalTitle}>¡Registro exitoso!</Text>
               <Text style={styles.successModalText}>
@@ -613,7 +613,7 @@ const RegisterScreen = () => {
 const styles = StyleSheet.create({
   container: { 
     flexGrow: 1, 
-    backgroundColor: '#f8f9fa',
+    backgroundColor: '#F0FAF8',
     paddingBottom: 40,
     alignItems: 'center',
   },
@@ -637,7 +637,7 @@ const styles = StyleSheet.create({
   title: { 
     fontSize: 22, 
     fontWeight: 'bold', 
-    color: '#333',
+    color: '#00695C',
     marginBottom: 4,
   },
   subtitle: { 
@@ -748,7 +748,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   btnPrimary: {
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     borderRadius: 8,
     paddingVertical: 14,
     paddingHorizontal: 40,
@@ -756,7 +756,7 @@ const styles = StyleSheet.create({
     width: '70%',
     minWidth: 180,
     maxWidth: 220,
-    shadowColor: '#424242',
+    shadowColor: '#7FFFD4',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
     shadowRadius: 4,
@@ -766,7 +766,7 @@ const styles = StyleSheet.create({
     opacity: 0.6,
   },
   btnTxt: { 
-    color: '#fff', 
+    color: '#2D2D2D', 
     fontWeight: '600', 
     fontSize: 16 
   },
@@ -781,7 +781,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   loginLink: {
-    color: '#000',
+    color: '#00695C',
     fontWeight: '600',
     fontSize: 14,
     textDecorationLine: 'underline',
@@ -829,14 +829,14 @@ const styles = StyleSheet.create({
     minWidth: 70,
   },
   yearBtnSel: { 
-    backgroundColor: '#424242' 
+    backgroundColor: '#7FFFD4' 
   },
   yearText: { 
     color: '#666',
     fontSize: 14,
   },
   yearTextSel: { 
-    color: '#fff' 
+    color: '#2D2D2D' 
   },
   closeButton: {
     paddingVertical: 10,
@@ -875,7 +875,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 15,
-    color: '#424242',
+    color: '#00695C',
     textAlign: 'center',
   },
   successModalText: {
@@ -893,7 +893,7 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   successModalButton: {
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     borderRadius: 10,
     paddingVertical: 12,
     paddingHorizontal: 30,
@@ -906,7 +906,7 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   successModalButtonText: {
-    color: '#fff',
+    color: '#2D2D2D',
     fontWeight: 'bold',
     fontSize: 16,
   },

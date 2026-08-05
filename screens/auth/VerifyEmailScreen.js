@@ -212,7 +212,7 @@ const VerifyEmailScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F0FAF8',
   },
   scrollContainer: {
     flexGrow: 1,
@@ -232,7 +232,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 10,
-    color: '#424242',
+    color: '#00695C',
   },
   subtitle: {
     fontSize: 16,
@@ -246,23 +246,23 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
     marginBottom: 30,
-    color: '#424242',
+    color: '#00695C',
   },
   input: {
     width: '100%',
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: '#B2F0E8',
     borderRadius: 10,
     padding: 15,
     marginBottom: 20,
     fontSize: 18,
     textAlign: 'center',
-    backgroundColor: '#f8f9fa',
+    backgroundColor: '#F0FAF8',
     color: '#333',
   },
   button: {
     width: '100%',
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     borderRadius: 10,
     padding: 16,
     alignItems: 'center',
@@ -272,7 +272,7 @@ const styles = StyleSheet.create({
     opacity: 0.6,
   },
   buttonText: {
-    color: '#fff',
+    color: '#2D2D2D',
     fontWeight: 'bold',
     fontSize: 16,
   },
@@ -280,7 +280,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   resendText: {
-    color: '#424242',
+    color: '#00695C',
     textDecorationLine: 'underline',
   },
 });

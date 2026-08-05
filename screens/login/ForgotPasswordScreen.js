@@ -364,7 +364,7 @@ const ForgotPasswordScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8f9fa',
+    backgroundColor: '#F0FAF8',
   },
   keyboardAvoidingView: {
     flex: 1,
@@ -377,8 +377,10 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   pasoContainer: {
-    backgroundColor: '#fff',
+    backgroundColor: '#FFFFFF',
     padding: 24,
+    borderWidth: 1, 
+    borderColor: '#B2F0E8',
     borderRadius: 12,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -395,7 +397,7 @@ const styles = StyleSheet.create({
   titulo: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#333',
+    color: '#00695C',
     textAlign: 'center',
     marginBottom: 8,
   },
@@ -416,18 +418,18 @@ const styles = StyleSheet.create({
   input: {
     height: 50,
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: '#B2F0E8',
     borderRadius: 8,
     paddingHorizontal: 15,
     marginBottom: 16,
-    backgroundColor: '#fff',
+    backgroundColor: '#F0FAF8',
     fontSize: 15,
     color: '#333',
     alignSelf: 'stretch',
   },
   botonPrincipal: {
     height: 50,
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     borderRadius: 8,
     justifyContent: 'center',
     alignItems: 'center',
@@ -436,7 +438,7 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
   },
   botonTexto: {
-    color: '#fff',
+    color: '#2D2D2D',
     fontSize: 16,
     fontWeight: '600',
   },
@@ -447,7 +449,7 @@ const styles = StyleSheet.create({
   },
   botonSecundarioTexto: {
     fontSize: 14,
-    color: '#424242',
+    color: '#00695C',
     textDecorationLine: 'underline',
   },
   botonTerciario: {

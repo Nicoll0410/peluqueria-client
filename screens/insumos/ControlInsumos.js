@@ -294,7 +294,7 @@ const reducirInsumo = async (id) => {
 
             {loading ? (
               <View style={styles.loadingContainer}>
-                <ActivityIndicator size="large" color="#424242" />
+                <ActivityIndicator size="large" color="#7FFFD4" />
                 <Text style={styles.loadingText}>Cargando insumos...</Text>
               </View>
             ) : insumosMostrar.length === 0 ? (
@@ -382,7 +382,7 @@ const styles = StyleSheet.create({
   /* Layout principal */
   mainContainer: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F0FAF8',
   },
   contentWrapper: {
     flex: 1,
@@ -416,11 +416,12 @@ const styles = StyleSheet.create({
   },
   titulo: {
     fontSize: 22,
+    color: '#00695C',
     fontWeight: 'bold',
     marginRight: 10,
   },
   contadorContainer: {
-    backgroundColor: '#D9D9D9',
+    backgroundColor: '#E8F8F5',
     width: 28,
     height: 28,
     borderRadius: 14,
@@ -430,6 +431,7 @@ const styles = StyleSheet.create({
   contadorTexto: {
     fontWeight: 'bold',
     fontSize: 14,
+    color: '#00695C',
   },
 
   /* Loading */
@@ -460,7 +462,7 @@ const styles = StyleSheet.create({
   },
   filaEncabezado: {
     flexDirection: 'row',
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     paddingVertical: 12,
     borderBottomWidth: 1,
     borderBottomColor: '#ddd',
@@ -472,7 +474,7 @@ const styles = StyleSheet.create({
   },
   encabezado: {
     fontWeight: 'bold',
-    color: 'white',
+    color: '#2D2D2D',
   },
   fila: {
     flexDirection: 'row',
@@ -547,7 +549,7 @@ const styles = StyleSheet.create({
       },
     }),
     borderWidth: 1,
-    borderColor: '#eee',
+    borderColor: '#B2F0E8',
   },
   cardHeader: {
     flexDirection: 'row',
@@ -603,7 +605,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   botonReducir: {
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     borderRadius: 20,
     padding: 10,
     width: 40,
@@ -612,10 +614,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   botonDisabled: {
-    backgroundColor: '#cccccc',
+    backgroundColor: '#B2F0E8',
   },
   unidadContainer: {
-    backgroundColor: '#D9D9D9',
+    backgroundColor: '#E8F8F5',
     borderRadius: 15,
     paddingVertical: 4,
     paddingHorizontal: 8,
@@ -627,7 +629,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   cantidadContainer: {
-    backgroundColor: '#D9D9D9',
+    backgroundColor: '#E8F8F5',
     borderRadius: 15,
     paddingVertical: 4,
     paddingHorizontal: 8,
