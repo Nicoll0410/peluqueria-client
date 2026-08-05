@@ -15,7 +15,7 @@ const DetalleCita = ({ visible, onClose, cita }) => {
       case 'cancelada':
         return { backgroundColor: 'rgba(234, 22, 1, 0.2)', color: '#EA1601' };
       case 'completa':
-        return { backgroundColor: 'rgba(3, 155, 23, 0.2)', color: '#039B17' };
+        return { backgroundColor: 'rgba(127, 255, 212, 0.3)', color: '#00695C' };
       default:
         return { backgroundColor: 'rgba(0, 0, 0, 0.1)', color: '#000' };
     }
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 7,
     borderWidth: 1,
-    borderColor: '#000',
+    borderColor: '#B2F0E8',
   },
   modalHeader: {
     flexDirection: 'row',
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
   modalTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#333',
+    color: '#2D2D2D',
   },
   sectionContainer: {
     marginBottom: 20,
@@ -160,13 +160,13 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#555',
+    color: '#00695C',
     marginBottom: 5,
   },
   serviceName: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#333',
+    color: '#00695C',
     marginBottom: 5,
   },
   serviceDescription: {
@@ -208,7 +208,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
     borderRadius: 10,
-    backgroundColor: '#f8f8f8',
+    backgroundColor: '#F0FAF8',
   },
   personName: {
     fontSize: 14,
@@ -218,20 +218,20 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   roleBadge: {
-    backgroundColor: '#e0e0e0',
+    backgroundColor: '#E8F8F5',
     paddingVertical: 3,
     paddingHorizontal: 8,
     borderRadius: 10,
   },
   roleText: {
     fontSize: 12,
-    color: '#555',
+    color: '#00695C',
   },
   buttonContainer: {
     alignItems: 'center',
   },
   closeButton: {
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     padding: 12,
     borderRadius: 5,
     alignItems: 'center',
@@ -239,7 +239,7 @@ const styles = StyleSheet.create({
     width: '50%',
   },
   closeButtonText: {
-    color: '#fff',
+    color: '#2D2D2D',
     fontWeight: 'bold',
     fontSize: 16,
   },

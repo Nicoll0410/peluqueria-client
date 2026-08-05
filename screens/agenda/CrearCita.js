@@ -779,7 +779,7 @@ const styles = StyleSheet.create({
   modalTitle: {
     fontSize: 24,
     fontWeight: "700",
-    color: "#222",
+    color: "#2D2D2D",
   },
   stepContainer: {
     flex: 1,
@@ -814,8 +814,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   servicioSel: {
-    borderColor: "#424242",
-    backgroundColor: "#D9D9D9",
+    borderColor: "#7FFFD4",
+    backgroundColor: "#E8F8F5",
   },
   servicioNombre: {
     fontSize: width < 400 ? 14 : 16,
@@ -863,8 +863,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fafafa",
   },
   clienteSel: {
-    borderColor: "#424242",
-    backgroundColor: "#D9D9D9",
+    borderColor: "#7FFFD4",
+    backgroundColor: "#E8F8F5",
   },
   clienteAvatar: {
     width: 42,
@@ -887,7 +887,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     marginTop: 14,
     marginBottom: 6,
-    color: "#222",
+    color: "#00695C",
   },
   infoText: {
     fontSize: 16,
@@ -900,7 +900,7 @@ const styles = StyleSheet.create({
     marginTop: 18,
   },
   btnPrimary: {
-    backgroundColor: "#424242",
+    backgroundColor: "#7FFFD4",
     paddingVertical: 14,
     borderRadius: 10,
     alignItems: "center",
@@ -909,7 +909,7 @@ const styles = StyleSheet.create({
   btnPrimaryText: {
     fontSize: 16,
     fontWeight: "700",
-    color: "#fff",
+    color: "#2D2D2D",
     textAlign: "center",
   },
   btnSecondary: {
@@ -928,7 +928,7 @@ const styles = StyleSheet.create({
     color: "#000",
   },
   btnDisabled: {
-    backgroundColor: "#bbb",
+    backgroundColor: "#B2F0E8",
   },
   centeredBtn: {
     alignItems: "center",
@@ -963,15 +963,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   optionToggleActive: {
-    backgroundColor: "#424242",
-    borderColor: "#424242",
+    backgroundColor: "#7FFFD4",
+    borderColor: "#7FFFD4",
   },
   optionText: {
     color: "#333",
     fontSize: width < 400 ? 12 : 14,
   },
   optionTextActive: {
-    color: "#fff",
+    color: "#2D2D2D",
   },
 });
 

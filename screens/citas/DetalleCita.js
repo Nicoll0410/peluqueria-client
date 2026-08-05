@@ -20,13 +20,13 @@ const getStatusStyles = (status) => {
     case "pendiente":
       return { backgroundColor: "rgba(206,209,0,0.2)", color: "#ced100" };
     case "confirmada":
-      return { backgroundColor: "rgba(0,123,255,0.2)", color: "#007BFF" };
+      return { backgroundColor: "rgba(127,255,212,0.3)", color: "#00695C" };
     case "expirada":
       return { backgroundColor: "rgba(130,23,23,0.2)", color: "#821717" };
     case "cancelada":
       return { backgroundColor: "rgba(234,22,1,0.2)", color: "#EA1601" };
     case "completa":
-      return { backgroundColor: "rgba(3,155,23,0.2)", color: "#039B17" };
+      return { backgroundColor: "rgba(127,255,212,0.3)", color: "#00695C" };
     default:
       return { backgroundColor: "rgba(0,0,0,0.1)", color: "#000" };
   }
@@ -68,17 +68,17 @@ const DetalleCita = ({
 
           {/* Fecha / hora / duración */}
           <View style={styles.row}>
-            <Feather name="calendar" size={18} color="#555" />
+            <Feather name="calendar" size={18} color="#5FE0C8" />
             <Text style={styles.rowText}>{cita.fechaFormateada}</Text>
           </View>
           <View style={styles.row}>
-            <Feather name="clock" size={18} color="#555" />
+            <Feather name="clock" size={18} color="#5FE0C8" />
             <Text style={styles.rowText}>
               {cita.hora.slice(0,5)} – {cita.horaFin.slice(0,5)}
             </Text>
           </View>
           <View style={styles.row}>
-            <Feather name="watch" size={18} color="#555" />
+            <Feather name="watch" size={18} color="#5FE0C8" />
             <Text style={styles.rowText}>
               {cita.servicio?.duracionMaxima || "—"}
             </Text>
@@ -101,14 +101,14 @@ const DetalleCita = ({
           {/* Información adicional si existe */}
           {cita.pacienteTemporalTelefono && (
             <View style={styles.row}>
-              <Feather name="phone" size={18} color="#555" />
+              <Feather name="phone" size={18} color="#5FE0C8" />
               <Text style={styles.rowText}>{cita.pacienteTemporalTelefono}</Text>
             </View>
           )}
 
           {cita.direccion && cita.direccion !== "En barbería" && (
             <View style={styles.row}>
-              <Feather name="map-pin" size={18} color="#555" />
+              <Feather name="map-pin" size={18} color="#5FE0C8" />
               <Text style={styles.rowText}>{cita.direccion}</Text>
             </View>
           )}
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     padding: 20,
     elevation: 5,
     borderWidth: 1,
-    borderColor: "#000"
+    borderColor: "#B2F0E8"
   },
   header: {
     flexDirection: "row",
@@ -151,12 +151,14 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
+    color: "#2D2D2D",
     fontWeight: "700"
   },
   service: {
     fontSize: 18,
     fontWeight: "600",
-    marginBottom: 4
+    marginBottom: 4,
+    color: "#00695C"
   },
   badge: {
     alignSelf: "flex-start",
@@ -205,8 +207,8 @@ const styles = StyleSheet.create({
     marginTop: 14
   },
   closeBtn: {
-    backgroundColor: "#fff",
-    borderWidth: 1,
+    backgroundColor: "#7FFFD4",
+    borderWidth: 0,
     borderColor: "#424242"
   },
   btnText: {
@@ -215,7 +217,7 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   closeBtnText: {
-    color: "#424242"
+    color: "#2D2D2D"
   }
 });
 

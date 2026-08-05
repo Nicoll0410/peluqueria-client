@@ -399,7 +399,7 @@ const CrearCita = ({ visible, onClose, onCreate, infoCreacion }) => {
 
       <View style={styles.calendarioHeader}>
         <TouchableOpacity onPress={() => cambiarMes(-1)}>
-          <MaterialIcons name="chevron-left" size={24} color="#424242" />
+          <MaterialIcons name="chevron-left" size={24} color="#5FE0C8" />
         </TouchableOpacity>
         <Text style={styles.mesActual}>
           {mesActual.toLocaleString('es-ES', {
@@ -408,7 +408,7 @@ const CrearCita = ({ visible, onClose, onCreate, infoCreacion }) => {
           })}
         </Text>
         <TouchableOpacity onPress={() => cambiarMes(1)}>
-          <MaterialIcons name="chevron-right" size={24} color="#424242" />
+          <MaterialIcons name="chevron-right" size={24} color="#5FE0C8" />
         </TouchableOpacity>
       </View>
 
@@ -675,8 +675,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fafafa',
   },
   servicioSeleccionado: {
-    borderColor: '#424242',
-    backgroundColor: '#D9D9D9',
+    borderColor: '#7FFFD4',
+    backgroundColor: '#E8F8F5',
   },
   servicioNombre: {
     fontSize: 16,
@@ -720,14 +720,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#fafafa',
   },
   barberoSeleccionado: {
-    borderColor: '#424242',
-    backgroundColor: '#D9D9D9',
+    borderColor: '#7FFFD4',
+    backgroundColor: '#E8F8F5',
   },
   avatarContainer: {
     width: 42,
     height: 42,
     borderRadius: 21,
-    backgroundColor: '#424242',
+    backgroundColor: '#5FE0C8',
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 15,
@@ -753,8 +753,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fafafa',
   },
   clienteSeleccionado: {
-    borderColor: '#424242',
-    backgroundColor: '#D9D9D9',
+    borderColor: '#7FFFD4',
+    backgroundColor: '#E8F8F5',
   },
   clienteNombre: {
     fontSize: 16,
@@ -785,7 +785,7 @@ const styles = StyleSheet.create({
   mesActual: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#424242',
+    color: '#00695C',
   },
   diasSemanaContainer: {
     flexDirection: 'row',
@@ -822,10 +822,10 @@ const styles = StyleSheet.create({
   },
   diaHoy: {
     borderWidth: 1,
-    borderColor: '#424242',
+    borderColor: '#5FE0C8',
   },
   diaSeleccionado: {
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
   },
   diaPasado: {
     opacity: 0.5,
@@ -838,7 +838,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   diaNumeroSeleccionado: {
-    color: '#fff',
+    color: '#2D2D2D',
   },
   diaNumeroPasado: {
     color: '#999',
@@ -850,7 +850,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     marginBottom: 10,
-    color: '#424242',
+    color: '#00695C',
   },
   horasGrid: {
     flexDirection: 'row',
@@ -868,15 +868,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#fafafa',
   },
   horaSeleccionada: {
-    borderColor: '#424242',
-    backgroundColor: '#424242',
+    borderColor: '#7FFFD4',
+    backgroundColor: '#7FFFD4',
   },
   horaTexto: {
     fontSize: 14,
     color: '#333',
   },
   horaTextoSeleccionado: {
-    color: '#fff',
+    color: '#2D2D2D',
   },
   sinDisponibilidad: {
     padding: 15,
@@ -916,7 +916,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     marginTop: 14,
     marginBottom: 6,
-    color: '#222',
+    color: '#00695C',
   },
   infoTexto: {
     fontSize: 16,
@@ -939,26 +939,26 @@ const styles = StyleSheet.create({
     borderColor: '#D9D9D9',
   },
   botonSiguiente: {
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     paddingVertical: 14,
     borderRadius: 10,
     alignItems: 'center',
     width: '45%',
   },
   botonConfirmar: {
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     paddingVertical: 14,
     borderRadius: 10,
     alignItems: 'center',
     flex: 1,
   },
   botonDisabled: {
-    backgroundColor: '#bbb',
+    backgroundColor: '#B2F0E8',
   },
   botonTexto: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#fff',
+    color: '#2D2D2D',
     textAlign: 'center',
   },
   botonTextoVolver: {
@@ -980,8 +980,8 @@ const styles = StyleSheet.create({
     marginBottom: 12
   },
   tempClientBtnActive: {
-    backgroundColor: '#D9D9D9', 
-    borderColor: '#424242'
+    backgroundColor: '#E8F8F5', 
+    borderColor: '#7FFFD4'
   },
   tempClientText: {
     color: '#424242', 

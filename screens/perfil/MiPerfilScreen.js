@@ -203,7 +203,7 @@ const MiPerfilScreen = () => {
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#424242" />
+        <ActivityIndicator size="large" color="#7FFFD4" />
         <Text style={styles.loadingText}>Cargando perfil...</Text>
       </View>
     );
@@ -505,7 +505,7 @@ const MiPerfilScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5'
+    backgroundColor: '#F0FAF8'
   },
   loadingContainer: {
     flex: 1,
@@ -524,7 +524,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20
   },
   header: {
-    backgroundColor: '#1a1a1a',
+    backgroundColor: '#5FE0C8',
     padding: 30,
     alignItems: 'center'
   },
@@ -536,7 +536,7 @@ const styles = StyleSheet.create({
   },
   headerSubtitle: {
     fontSize: 16,
-    color: '#D4AF37',
+    color: '#FFFFFF',
     marginTop: 4
   },
   row: {
@@ -567,7 +567,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#212121',
+    color: '#00695C',
     marginBottom: 8
   },
   sectionDescription: {
@@ -593,7 +593,7 @@ const styles = StyleSheet.create({
   },
   infoValue: {
     fontSize: 16,
-    color: '#212121',
+    color: '#2D2D2D',
     fontWeight: '500'
   },
   horarioContainer: {
@@ -634,7 +634,7 @@ const styles = StyleSheet.create({
   },
   saveButton: {
     flexDirection: 'row',
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     paddingVertical: 14,
     paddingHorizontal: 20,
     borderRadius: 25,
@@ -644,17 +644,17 @@ const styles = StyleSheet.create({
     gap: 8
   },
   saveButtonDisabled: {
-    backgroundColor: '#999'
+    backgroundColor: '#B2F0E8'
   },
   saveButtonText: {
-    color: '#fff',
+    color: '#2D2D2D',
     fontSize: 16,
     fontWeight: '600',
     marginLeft: 8
   },
   editScheduleButton: {
     flexDirection: 'row',
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     paddingVertical: 14,
     paddingHorizontal: 20,
     borderRadius: 25,
@@ -666,7 +666,7 @@ const styles = StyleSheet.create({
     minWidth: 200
   },
   editScheduleText: {
-    color: '#fff',
+    color: '#2D2D2D',
     fontSize: 16,
     fontWeight: '600',
     marginLeft: 8
@@ -698,17 +698,17 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 8,
     borderLeftWidth: 3,
-    borderLeftColor: '#4CAF50'
+    borderLeftColor: '#7FFFD4'
   },
   dayBadge: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: '#7FFFD4',
     paddingVertical: 6,
     paddingHorizontal: 12,
     borderRadius: 16,
     minWidth: 100
   },
   dayBadgeText: {
-    color: '#fff',
+    color: '#2D2D2D',
     fontSize: 13,
     fontWeight: '600',
     textAlign: 'center',
@@ -773,7 +773,7 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 12,
     borderWidth: 2,
-    borderColor: '#E0E0E0',
+    borderColor: '#B2F0E8',
     borderStyle: 'dashed',
     maxWidth: 400,
     width: '100%'
@@ -794,7 +794,7 @@ const styles = StyleSheet.create({
   },
   previewRol: {
     fontSize: 14,
-    color: '#D4AF37',
+    color: '#00695C',
     marginTop: 4
   },
   previewContact: {
@@ -852,13 +852,13 @@ const styles = StyleSheet.create({
     gap: 8
   },
   previewDayBadge: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: '#7FFFD4',
     paddingVertical: 6,
     paddingHorizontal: 12,
     borderRadius: 16
   },
   previewDayText: {
-    color: '#fff',
+    color: '#2D2D2D',
     fontSize: 12,
     fontWeight: '600',
     textTransform: 'capitalize'
