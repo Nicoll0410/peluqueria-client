@@ -154,7 +154,7 @@ const DetalleVenta = ({ visible, onClose, venta }) => {
                   <MaterialIcons
                     name="payments"
                     size={isMobile ? 20 : 18}
-                    color="#4CAF50"
+                    color="#00695C"
                     style={styles.icono}
                   />
                   <Text style={[styles.value, isMobile && styles.valueMobile, { color: '#4CAF50', fontWeight: 'bold' }]}>
@@ -226,7 +226,7 @@ const DetalleVenta = ({ visible, onClose, venta }) => {
                       </Text>
                     </View>
                     <View style={styles.participanteInfo}>
-                      <Text style={styles.participanteTitulo}>Barbero</Text>
+                      <Text style={styles.participanteTitulo}>Estilista</Text>
                       <Text style={styles.participanteNombre}>{profesional}</Text>
                     </View>
                   </View>
@@ -261,7 +261,7 @@ const styles = StyleSheet.create({
     padding: isMobile ? 24 : 20,
     elevation: 10,
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: '#B2F0E8',
     maxHeight: isMobile ? height * 0.8 : '80%',
   },
   modalMobile: {
@@ -284,7 +284,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: isMobile ? 16 : 20,
     textAlign: 'center',
-    color: '#424242',
+    color: '#00695C',
   },
   tituloMobile: {
     fontSize: 22,
@@ -303,7 +303,7 @@ const styles = StyleSheet.create({
   label: {
     fontSize: isMobile ? 16 : 15,
     fontWeight: '600',
-    color: '#333',
+    color: '#00695C',
     marginBottom: isMobile ? 12 : 10,
     borderBottomWidth: 1,
     borderBottomColor: '#ddd',
@@ -379,13 +379,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   avatarCliente: {
-    backgroundColor: '#2196F3',
+    backgroundColor: '#7FFFD4',
   },
   avatarProfesional: {
-    backgroundColor: '#FF9800',
+    backgroundColor: '#5FE0C8',
   },
   avatarText: {
-    color: 'white',
+    color: '#2D2D2D',
     fontWeight: 'bold',
     fontSize: isMobile ? 18 : 16,
   },
@@ -394,7 +394,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     paddingHorizontal: isMobile ? 40 : 30,
     paddingVertical: isMobile ? 12 : 10,
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     borderRadius: 15,
     width: isMobile ? '60%' : undefined,
     alignItems: 'center',
@@ -404,7 +404,7 @@ const styles = StyleSheet.create({
   },
   textoCerrar: {
     fontWeight: 'bold',
-    color: 'white',
+    color: '#2D2D2D',
     fontSize: isMobile ? 16 : 14,
   },
 });

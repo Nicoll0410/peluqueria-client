@@ -362,7 +362,7 @@ const compraData = {
             <ScrollView contentContainerStyle={styles.scrollContent} keyboardShouldPersistTaps="handled">
               {loading && (
                 <View style={styles.loadingOverlay}>
-                  <ActivityIndicator size="large" color="#424242" />
+                  <ActivityIndicator size="large" color="#7FFFD4" />
                 </View>
               )}
 
@@ -507,8 +507,8 @@ const compraData = {
                               textSectionTitleColor: '#666',
                               dayTextColor: '#333',
                               todayTextColor: '#424242',
-                              selectedDayTextColor: '#fff',
-                              selectedDayBackgroundColor: '#424242',
+                              selectedDayTextColor: '#2D2D2D',
+                              selectedDayBackgroundColor: '#7FFFD4',
                               arrowColor: '#424242',
                               monthTextColor: '#333',
                               textDayFontWeight: '400',
@@ -688,7 +688,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     overflow: 'hidden',
     borderWidth: 3,
-    borderColor: 'black',
+    borderColor: 'B2F0E8',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -726,7 +726,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#333',
+    color: '#00695C',
   },
   subtitle: {
     fontSize: 13,
@@ -748,7 +748,7 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 2,
-    borderColor: '#424242',
+    borderColor: '#7FFFD4',
     borderRadius: 8,
     paddingHorizontal: 12,
     paddingVertical: 10,
@@ -758,7 +758,7 @@ const styles = StyleSheet.create({
   },
   pickerContainer: {
     borderWidth: 2,
-    borderColor: '#424242',
+    borderColor: '#7FFFD4',
     borderRadius: 8,
     overflow: 'hidden',
     backgroundColor: 'rgba(255, 255, 255, 0.7)',
@@ -769,7 +769,7 @@ const styles = StyleSheet.create({
   },
   dateInput: {
     borderWidth: 2,
-    borderColor: '#424242',
+    borderColor: '#7FFFD4',
     borderRadius: 8,
     paddingHorizontal: 12,
     paddingVertical: 10,
@@ -788,7 +788,7 @@ const styles = StyleSheet.create({
   },
   separador: {
     height: 1,
-    backgroundColor: '#eee',
+    backgroundColor: '#B2F0E8',
     marginVertical: 15,
   },
   botonAgregarInsumo: {
@@ -796,7 +796,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'rgba(255, 255, 255, 0.7)',
     borderWidth: 2,
-    borderColor: '#424242',
+    borderColor: '#7FFFD4',
     paddingVertical: 10,
     paddingHorizontal: 15,
     borderRadius: 8,
@@ -805,7 +805,7 @@ const styles = StyleSheet.create({
   },
   textoBotonAgregar: {
     marginLeft: 8,
-    color: '#424242',
+    color: '#00695C',
     fontWeight: '500',
   },
   insumoContainer: {
@@ -814,7 +814,7 @@ const styles = StyleSheet.create({
     padding: 15,
     marginBottom: 15,
     borderWidth: 2,
-    borderColor: '#424242',
+    borderColor: '#7FFFD4',
   },
   subtituloInsumo: {
     fontSize: 15,
@@ -839,7 +839,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
     paddingTop: 15,
     borderTopWidth: 2,
-    borderTopColor: '#424242',
+    borderTopColor: '#7FFFD4',
   },
   labelTotal: {
     fontSize: 16,
@@ -849,7 +849,7 @@ const styles = StyleSheet.create({
   valorTotal: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#424242',
+    color: '#00695C',
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -864,35 +864,35 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   primaryButton: {
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     marginRight: 10,
   },
   secondaryButton: {
     backgroundColor: 'white',
     borderWidth: 1,
-    borderColor: '#929292',
+    borderColor: '#B2F0E8',
     marginRight: 10,
   },
   cancelButton: {
     backgroundColor: 'white',
     borderWidth: 1,
-    borderColor: '#929292',
+    borderColor: '#B2F0E8',
     marginLeft: 10,
   },
   buttonText: {
     fontWeight: '500',
     fontSize: 15,
-    color: 'white',
+    color: '#2D2D2D',
   },
   secondaryButtonText: {
     fontWeight: '500',
     fontSize: 15,
-    color: 'black',
+    color: '#00695C',
   },
   cancelButtonText: {
     fontWeight: '500',
     fontSize: 15,
-    color: 'black',
+    color: '#00695C',
   },
   customDatePickerContainer: {
     position: 'absolute',
@@ -955,10 +955,10 @@ const styles = StyleSheet.create({
   closeButton: {
     padding: 10,
     borderRadius: 5,
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
   },
   closeButtonText: {
-    color: 'white',
+    color: '#2D2D2D',
     fontWeight: 'bold',
   },
 });

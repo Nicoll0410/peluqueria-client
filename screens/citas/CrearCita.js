@@ -470,7 +470,7 @@ const CrearCita = ({ visible, onClose, onCreate, infoCreacion }) => {
           <Text style={styles.horasTitulo}>Horarios disponibles:</Text>
           {loadingHoras ? (
             <View style={styles.loadingContainer}>
-              <ActivityIndicator size="small" color="#424242" />
+              <ActivityIndicator size="small" color="#7FFFD4" />
               <Text style={styles.loadingText}>Cargando…</Text>
             </View>
           ) : horasDisp.length ? (

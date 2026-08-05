@@ -46,22 +46,22 @@ export default function DetalleCompra({ visible, onClose, compra }) {
     return (
       <View style={st.detItem}>
         <View style={st.row}>
-          <MaterialIcons name="bookmark" size={20} color="#4CAF50" />
+          <MaterialIcons name="bookmark" size={20} color="#7FFFD4" />
           <Text style={st.lab}>Insumo:</Text>
           <Text style={st.val}>{nombre(item)}</Text>
         </View>
         <View style={st.row}>
-          <MaterialIcons name="format-list-numbered" size={20} color="#2196F3" />
+          <MaterialIcons name="format-list-numbered" size={20} color="#5FE0C8" />
           <Text style={st.lab}>Cantidad:</Text>
           <Text style={st.val}>{item.cantidad}</Text>
         </View>
         <View style={st.row}>
-          <MaterialIcons name="attach-money" size={20} color="#FF9800" />
+          <MaterialIcons name="attach-money" size={20} color="#7FFFD4" />
           <Text style={st.lab}>Precio Unitario:</Text>
           <Text style={st.val}>{fMoneda(pu(item))}</Text>
         </View>
         <View style={st.row}>
-          <MaterialIcons name="calculate" size={20} color="#9C27B0" />
+          <MaterialIcons name="calculate" size={20} color="#5FE0C8" />
           <Text style={st.lab}>Subtotal:</Text>
           <Text style={[st.val, st.subtotal]}>
             {fMoneda(item.subtotal ?? pu(item) * item.cantidad)}
@@ -139,25 +139,25 @@ const st = StyleSheet.create({
     padding: 20,
     elevation: 10,
     borderWidth: 1,
-    borderColor: "black",
+    borderColor: "#B2F0E8",
     maxHeight: "90%",
   },
   scroll: { paddingBottom: 10 },
-  titulo: { fontSize: 22, fontWeight: "bold", marginBottom: 20, textAlign: "center" },
+  titulo: { fontSize: 22, fontWeight: "bold", marginBottom: 20, textAlign: "center", color: '#00695C' },
   info: { backgroundColor: "#f9f9f9", borderRadius: 8, padding: 15, marginBottom: 10 },
   item: { marginBottom: 12 },
-  label: { fontSize: 14, fontWeight: "bold", color: "#555" },
+  label: { fontSize: 14, fontWeight: "bold", color: "#00695C" },
   value: { fontSize: 16 },
-  total: { color: "#2e7d32", fontWeight: "bold", fontSize: 18 },
+  total: { color: "#00695C", fontWeight: "bold", fontSize: 18 },
   sepG: { height: 1, backgroundColor: "#ddd", marginVertical: 15 },
   sub: { fontSize: 18, fontWeight: "600", marginBottom: 12 },
   detItem: { marginBottom: 10 },
   row: { flexDirection: "row", alignItems: "center", marginBottom: 6 },
   lab: { marginLeft: 10, width: 120, fontWeight: "bold" },
   val: { flex: 1 },
-  subtotal: { fontWeight: "bold", color: "#9C27B0" },
+  subtotal: { fontWeight: "bold", color: "#5FE0C8" },
   sep: { height: 1, backgroundColor: "#eee", marginVertical: 10 },
-  btn: { alignSelf: "center", marginTop: 20, paddingVertical: 10, paddingHorizontal: 30, backgroundColor: "#424242", borderRadius: 15 },
-  txtBtn: { color: "#fff", fontWeight: "bold" },
+  btn: { alignSelf: "center", marginTop: 20, paddingVertical: 10, paddingHorizontal: 30, backgroundColor: "#7FFFD4", borderRadius: 15 },
+  txtBtn: { color: "#2D2D2D", fontWeight: "bold" },
   sin: { textAlign: "center", color: "#777", marginVertical: 20, fontStyle: "italic" },
 });
