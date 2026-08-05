@@ -280,7 +280,7 @@ const HorarioBarbero = ({ barberoId, visible, onClose }) => {
       <Modal visible={true} transparent animationType="fade">
         <BlurView intensity={15} tint="light" style={StyleSheet.absoluteFill} />
         <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color="#424242" />
+          <ActivityIndicator size="large" color="#7FFFD4" />
           <Text style={styles.loadingText}>Cargando horario...</Text>
         </View>
       </Modal>
@@ -371,7 +371,7 @@ const HorarioBarbero = ({ barberoId, visible, onClose }) => {
                   <MaterialIcons 
                     name={todosLosDiasSeleccionados ? "check-box" : "check-box-outline-blank"} 
                     size={20} 
-                    color="#424242" 
+                    color="#7FFFD4" 
                   />
                   <Text style={styles.selectAllText}>
                     {todosLosDiasSeleccionados ? 'Desmarcar todos' : 'Seleccionar todos'}
@@ -398,7 +398,7 @@ const HorarioBarbero = ({ barberoId, visible, onClose }) => {
                       <MaterialIcons 
                         name={diaData.activo ? "check-circle" : "radio-button-unchecked"} 
                         size={24} 
-                        color={diaData.activo ? "#424242" : "#666"} 
+                        color="#7FFFD4"
                       />
                     </TouchableOpacity>
                     
@@ -524,7 +524,7 @@ const HorarioBarbero = ({ barberoId, visible, onClose }) => {
         <View style={styles.successModal}>
           <View style={styles.successContent}>
             <View style={styles.successIconContainer}>
-              <MaterialIcons name="check-circle" size={80} color="#4CAF50" />
+              <MaterialIcons name="check-circle" size={80} color="#7FFFD4" />
             </View>
             <Text style={styles.successTitle}>¡Perfecto!</Text>
             <Text style={styles.successText}>Horario guardado correctamente</Text>
@@ -637,7 +637,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   switchActive: {
-    backgroundColor: '#424242'
+    backgroundColor: '#7FFFD4'
   },
   switchThumb: {
     width: 22,
@@ -717,7 +717,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fafafa'
   },
   dayHeaderActive: {
-    backgroundColor: '#f0f0f0'
+    backgroundColor: '#E8F8F5'
   },
   dayTitleContainer: {
     flexDirection: 'row',
@@ -780,8 +780,8 @@ const styles = StyleSheet.create({
     gap: 6
   },
   hourChipSelected: {
-    backgroundColor: '#424242',
-    borderColor: '#424242'
+    backgroundColor: '#7FFFD4',
+    borderColor: '#7FFFD4'
   },
   hourText: {
     fontSize: 13,
@@ -789,7 +789,7 @@ const styles = StyleSheet.create({
     color: '#666'
   },
   hourTextSelected: {
-    color: '#fff'
+    color: '#2D2D2D'
   },
   buttonsContainer: {
     flexDirection: 'row',
@@ -803,15 +803,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 16,
     borderRadius: 12,
-    backgroundColor: '#D9D9D9',
+    backgroundColor: '#F0FAF8',
     borderWidth: 1,
-    borderColor: '#D9D9D9',
+    borderColor: '#B2F0E8',
     gap: 8
   },
   cancelButtonText: {
     fontSize: 16,
     fontWeight: '600',
-    color: 'black'
+    color: '#00695C'
   },
   saveButton: {
     flex: 1,
@@ -819,14 +819,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 16,
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     borderRadius: 12,
     gap: 8
   },
   saveButtonText: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#fff'
+    color: '#2D2D2D'
   },
   timePickerModal: {
     flex: 1,

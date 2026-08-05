@@ -482,7 +482,7 @@ const GestionGaleriaScreen = () => {
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#424242" />
+        <ActivityIndicator size="large" color="7FFFD4" />
         <Text style={styles.loadingText}>Cargando galería...</Text>
       </View>
     );
@@ -730,7 +730,7 @@ const GestionGaleriaScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: '#F0FAF8'
   },
   loadingContainer: {
     flex: 1,
@@ -755,24 +755,24 @@ const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: '#fff',
     borderBottomWidth: 1,
-    borderBottomColor: '#E0E0E0'
+    borderBottomColor: '#B2F0E8'
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#212121'
+    color: '#00695C'
   },
   addButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     paddingVertical: 8,
     paddingHorizontal: 16,
     borderRadius: 20
   },
   addButtonText: {
     marginLeft: 8,
-    color: '#fff',
+    color: '#2D2D2D',
     fontSize: 14,
     fontWeight: '600'
   },
@@ -902,8 +902,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff'
   },
   tipoButtonActive: {
-    borderColor: '#424242',
-    backgroundColor: '#424242'
+    borderColor: '#7FFFD4',
+    backgroundColor: '#7FFFD4'
   },
   tipoButtonText: {
     marginLeft: 8,
@@ -912,7 +912,7 @@ const styles = StyleSheet.create({
     color: '#424242'
   },
   tipoButtonTextActive: {
-    color: '#fff'
+    color: '#2D2D2D'
   },
   imagenSelector: {
     marginBottom: 20
@@ -960,7 +960,7 @@ const styles = StyleSheet.create({
   },
   progressFill: {
     height: '100%',
-    backgroundColor: '#4CAF50',
+    backgroundColor: '#7FFFD4',
     borderRadius: 4
   },
   progressText: {
@@ -1024,7 +1024,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
     paddingVertical: 14,
     borderRadius: 8,
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     alignItems: 'center'
   },
   uploadButtonDisabled: {
@@ -1033,7 +1033,7 @@ const styles = StyleSheet.create({
   uploadButtonText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#fff'
+    color: '#2D2D2D'
   }
 });
 

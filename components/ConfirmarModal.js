@@ -28,7 +28,7 @@ const ConfirmarModal = ({
       case 'warning':
         return <MaterialIcons name="warning" size={32} color="#FF9800" />;
       default:
-        return <MaterialIcons name="help-outline" size={32} color="#2196F3" />;
+        return <MaterialIcons name="help-outline" size={32} color="#7FFFD4" />;
     }
   };
 
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
   titulo: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#333',
+    color: '#00695C',
     textAlign: 'center',
     marginBottom: 8,
   },
@@ -135,23 +135,23 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   cancelButton: {
-    backgroundColor: '#E0E0E0',
+    backgroundColor: '#F0FAF8',
     borderWidth: 1,
-    borderColor: '#BDBDBD',
+    borderColor: '#B2F0E8',
   },
   confirmButtonNormal: {
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
   },
   confirmButtonDanger: {
     backgroundColor: '#F44336',
   },
   cancelButtonText: {
-    color: '#424242',
+    color: '#00695C',
     fontWeight: '600',
     fontSize: 16,
   },
   confirmButtonText: {
-    color: 'white',
+    color: '#2D2D2D',
     fontWeight: '600',
     fontSize: 16,
   },

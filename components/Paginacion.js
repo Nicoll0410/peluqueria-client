@@ -31,7 +31,7 @@ const Paginacion = ({ paginaActual, totalPaginas, cambiarPagina }) => {
           disabled={paginaActual === 1}
           style={[styles.botonNavegacion, styles.botonAnterior]}
         >
-          <Ionicons name="chevron-back" size={18} color="white" />
+          <Ionicons name="chevron-back" size={18} color="#2D2D2D" />
           <Text style={styles.textoBoton}>Anterior</Text>
         </TouchableOpacity>
       )}
@@ -57,7 +57,7 @@ const Paginacion = ({ paginaActual, totalPaginas, cambiarPagina }) => {
           style={[styles.botonNavegacion, styles.botonSiguiente]}
         >
           <Text style={styles.textoBoton}>Siguiente</Text>
-          <Ionicons name="chevron-forward" size={18} color="white" />
+          <Ionicons name="chevron-forward" size={18} color="#2D2D2D" />
         </TouchableOpacity>
       )}
     </View>
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   botonNavegacion: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     paddingVertical: 10,
     paddingHorizontal: 16,
     borderRadius: 6,
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   textoBoton: {
-    color: 'white',
+    color: '#2D2D2D',
     fontSize: 14,
     fontWeight: '500',
     marginHorizontal: 4,
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   numeroPagina: {
-    backgroundColor: '#D9D9D9',
+    backgroundColor: '#E8F8F5',
     width: 36,
     height: 36,
     borderRadius: 10,
@@ -106,19 +106,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 4,
     borderWidth: 1,
-    borderColor: '#D9D9D9',
+    borderColor: '#B2F0E8',
   },
   textoNumero: {
-    color: 'black',
+    color: '#2D2D2D',
     fontSize: 14,
     fontWeight: '500',
   },
   paginaActual: {
-    backgroundColor: '#424242',
-    borderColor: '#424242',
+    backgroundColor: '#5FE0C8',
+    borderColor: '#5FE0C8',
   },
   textoPaginaActual: {
-    color: 'white',
+    color: '#2D2D2D',
   },
 });
 

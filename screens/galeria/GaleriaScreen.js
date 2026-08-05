@@ -294,7 +294,7 @@ const GaleriaScreen = ({ navigation }) => {
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#D4AF37" />
+        <ActivityIndicator size="large" color="#7FFFD4" />
         <Text style={styles.loadingText}>Cargando galería...</Text>
       </View>
     );
@@ -407,7 +407,7 @@ const GaleriaScreen = ({ navigation }) => {
               <Ionicons 
                 name="albums-outline" 
                 size={18} 
-                color={filtroActivo === 'todos' ? '#000' : '#D4AF37'} 
+                color={filtroActivo === 'todos' ? '#2D2D2D' : '#7FFFD4'}
               />
               <Text style={[
                 styles.filtroTexto,
@@ -447,7 +447,7 @@ const GaleriaScreen = ({ navigation }) => {
               <Ionicons 
                 name="videocam-outline" 
                 size={18} 
-                color={filtroActivo === 'videos' ? '#000' : '#D4AF37'} 
+                color={filtroActivo === 'videos' ? '#000' : '#7FFFD4'} 
               />
               <Text style={[
                 styles.filtroTexto,
@@ -575,7 +575,7 @@ const styles = StyleSheet.create({
   },
   headerSubtitle: {
     fontSize: 16,
-    color: '#D4AF37',
+    color: '#7FFFD4',
     textAlign: 'center',
     fontStyle: 'italic',
     fontWeight: 'bold'
@@ -595,8 +595,8 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     padding: 16,
     borderWidth: 2,
-    borderColor: '#D4AF37',
-    shadowColor: '#D4AF37',
+    borderColor: '#7FFFD4',
+    shadowColor: '#7FFFD4',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
     shadowRadius: 8,
@@ -618,7 +618,7 @@ const styles = StyleSheet.create({
     height: 60,
     borderRadius: 30,
     borderWidth: 2.5,
-    borderColor: '#D4AF37'
+    borderColor: '#7FFFD4'
   },
   avatarPlaceholder: {
     width: 60,
@@ -626,7 +626,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     backgroundColor: '#424242',
     borderWidth: 2.5,
-    borderColor: '#D4AF37',
+    borderColor: '#7FFFD4',
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -716,7 +716,7 @@ const styles = StyleSheet.create({
   },
   verMasButtonCompact: {
     flexDirection: 'row',
-    backgroundColor: '#D4AF37',
+    backgroundColor: '#7FFFD4',
     paddingVertical: 10,
     paddingHorizontal: 16,
     borderRadius: 25,
@@ -754,7 +754,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     alignItems: 'center',
     borderBottomWidth: 1,
-    borderBottomColor: '#D4AF37'
+    borderBottomColor: '#7FFFD4'
   },
   modalLogo: {
     width: 180,
@@ -766,7 +766,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 16,
     borderBottomWidth: 2,
-    borderBottomColor: '#D4AF37',
+    borderBottomColor: '#7FFFD4',
     backgroundColor: '#1a1a1a'
   },
   modalHeaderLeft: {
@@ -813,11 +813,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     borderRadius: 20,
     borderWidth: 2,
-    borderColor: '#D4AF37',
+    borderColor: '#7FFFD4',
     backgroundColor: '#000'
   },
   filtroBotonActivo: {
-    backgroundColor: '#D4AF37'
+    backgroundColor: '#7FFFD4'
   },
   filtroTexto: {
     color: '#D4AF37',
@@ -847,7 +847,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     overflow: 'hidden',
     borderWidth: 2,
-    borderColor: '#D4AF37',
+    borderColor: '#7FFFD4',
     backgroundColor: '#1a1a1a',
     minHeight: 250 // ✅ NUEVO: Altura mínima para mantener proporción
   },
@@ -866,7 +866,7 @@ const styles = StyleSheet.create({
   galeriaDescripcion: {
     marginTop: 8,
     fontSize: 12,
-    color: '#D4AF37',
+    color: '#2D2D2D',
     textAlign: 'center',
     fontWeight: '500'
   }
