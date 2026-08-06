@@ -309,7 +309,7 @@ const styles = StyleSheet.create({
     borderRadius:12, 
     padding:20, 
     borderWidth:1, 
-    borderColor:'#000' 
+    borderColor:'#7FFFD4' 
   },
   leftContainer: { 
     width:'50%', 
@@ -328,7 +328,7 @@ const styles = StyleSheet.create({
     borderRadius:12, 
     padding:20, 
     borderWidth:1, 
-    borderColor:'#000' 
+    borderColor:'#7FFFD4' 
   },
   mobileButtonRow: { 
     flexDirection:'row', 
@@ -341,7 +341,8 @@ const styles = StyleSheet.create({
   title: { 
     fontSize:20, 
     fontWeight:'bold', 
-    marginBottom:4 
+    marginBottom:4,
+    color: '#00695C'
   },
   subtext: { 
     fontSize:14, 
@@ -356,14 +357,15 @@ const styles = StyleSheet.create({
   label: { 
     fontWeight:'600', 
     marginBottom:6, 
-    fontSize:14 
+    fontSize:14,
+    color: '#00695C'
   },
   required: { 
     color:'red' 
   },
   input: { 
     borderWidth:1, 
-    borderColor:'#ccc', 
+    borderColor:'#B2F0E8', 
     borderRadius:8, 
     paddingHorizontal:10, 
     paddingVertical:8, 
@@ -410,7 +412,7 @@ const styles = StyleSheet.create({
     gap: 10
   },
   acceptButton: { 
-    backgroundColor:'#424242', 
+    backgroundColor:'#7FFFD4', 
     paddingHorizontal:20, 
     paddingVertical:10, 
     borderRadius:8 
@@ -418,17 +420,17 @@ const styles = StyleSheet.create({
   cancelButton: { 
     backgroundColor:'#fff', 
     borderWidth:1, 
-    borderColor:'#929292', 
+    borderColor:'#B2F0E8', 
     paddingHorizontal:20, 
     paddingVertical:10, 
     borderRadius:8 
   },
   buttonText: { 
-    color:'#fff', 
+    color:'#2D2D2D', 
     fontWeight:'bold' 
   },
   cancelButtonText: { 
-    color:'#000', 
+    color:'#00695C', 
     fontWeight:'bold' 
   },
 
@@ -439,14 +441,14 @@ const styles = StyleSheet.create({
     marginBottom:4 
   },
   selectAllButton: { 
-    backgroundColor:'#f0f0f0', 
+    backgroundColor:'#E8F8F5', 
     paddingHorizontal:10, 
     paddingVertical:5, 
     borderRadius:5 
   },
   selectAllButtonText: { 
     fontSize:12, 
-    color:'#424242', 
+    color:'#00695C', 
     fontWeight:'bold' 
   },
 
@@ -476,15 +478,15 @@ const styles = StyleSheet.create({
     alignItems:'center' 
   },
   permisoButtonSelected: { 
-    backgroundColor:'#424242', 
-    borderColor:'#424242' 
+    backgroundColor:'#7FFFD4', 
+    borderColor:'#7FFFD4' 
   },
   permisoText: { 
     fontSize:13, 
     color:'#000' 
   },
   permisoTextSelected: { 
-    color:'#fff' 
+    color:'#2D2D2D' 
   },
 
   linkText: { 

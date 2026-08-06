@@ -273,10 +273,10 @@ const RolesScreen = () => {
                 <View style={[styles.cell, styles.actionsColumn]}>
                   <View style={styles.actionsContainer}>
                     <TouchableOpacity onPress={() => verRol(item.id)} style={styles.actionIcon}>
-                      <FontAwesome name="eye" size={20} color="black" />
+                      <FontAwesome name="eye" size={20} color="#00695C" />
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => editarRol(item.id)} style={styles.actionIcon}>
-                      <Feather name="edit" size={20} color="black" />
+                      <Feather name="edit" size={20} color="#00695C" />
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => eliminarRol(item.id)} style={styles.actionIcon}>
                       <Feather name="trash-2" size={20} color="#d32f2f" />
@@ -339,7 +339,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#fff',
+    backgroundColor: '#F0FAF8',
   },
   header: {
     flexDirection: 'row',
@@ -354,11 +354,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#424242',
+    color: '#00695C',
     marginRight: 12,
   },
   counter: {
-    backgroundColor: '#EEEEEE',
+    backgroundColor: '#E8F8F5',
     width: 28,
     height: 28,
     borderRadius: 14,
@@ -368,19 +368,19 @@ const styles = StyleSheet.create({
   counterText: {
     fontWeight: 'bold',
     fontSize: 14,
-    color: '#424242',
+    color: '#00695C',
   },
   addButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     paddingVertical: 8,
     paddingHorizontal: 12,
     borderRadius: 20,
   },
   addButtonText: {
     marginLeft: 8,
-    color: 'white',
+    color: '#2D2D2D',
     fontWeight: '500',
     fontSize: 14,
   },
@@ -395,7 +395,7 @@ const styles = StyleSheet.create({
   },
   tableHeader: {
     flexDirection: 'row',
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     paddingVertical: 12,
   },
   headerCell: {
@@ -404,7 +404,7 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontWeight: 'bold',
-    color: 'white',
+    color: '#2D2D2D',
     fontSize: 14,
   },
   tableRow: {
@@ -455,7 +455,7 @@ const styles = StyleSheet.create({
     color: '#616161',
   },
   asociadosBadge: {
-    backgroundColor: '#E0E0E0',
+    backgroundColor: '#E8F8F5',
     borderRadius: 12,
     paddingVertical: 4,
     paddingHorizontal: 8,
@@ -465,7 +465,7 @@ const styles = StyleSheet.create({
   asociadosText: {
     fontWeight: 'bold',
     fontSize: 14,
-    color: '#424242',
+    color: '#00695C',
   },
   actionsContainer: {
     flexDirection: 'row',
@@ -487,8 +487,8 @@ const styles = StyleSheet.create({
     padding: 16,
     marginBottom: 12,
     borderWidth: 1,
-    borderColor: '#e0e0e0',
-    shadowColor: '#000',
+    borderColor: '#B2F0E8',
+    shadowColor: '#7FFFD4',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.05,
     shadowRadius: 4,
@@ -534,7 +534,9 @@ const styles = StyleSheet.create({
     marginLeft: 12,
     padding: 8,
     borderRadius: 20,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#F0FAF8',
+    borderWidth: 1, 
+    borderColor: '#B2F0E8'
   },
 });
 

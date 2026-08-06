@@ -26,7 +26,7 @@ const DetalleRol = ({ visible, onClose, rol }) => {
                   <Ionicons 
                     name="person-circle-outline" 
                     size={isMobile ? 20 : 18} 
-                    color="#333" 
+                    color="#00695C" 
                     style={isMobile && { marginRight: 8 }}
                   />
                   <Text style={[styles.value, isMobile && styles.valueMobile]}>{rol.nombre}</Text>
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     padding: isMobile ? 24 : 20,
     elevation: 10,
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: '#B2F0E8',
     maxHeight: isMobile ? '80%' : undefined,
   },
   modalMobile: {
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: isMobile ? 16 : 20,
     textAlign: 'center',
-    color: '#424242',
+    color: '#00695C',
   },
   tituloMobile: {
     fontSize: 22,
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
   label: {
     fontSize: isMobile ? 15 : 14,
     fontWeight: '600',
-    color: '#555',
+    color: '#00695C',
     marginBottom: isMobile ? 6 : 4,
   },
   labelMobile: {
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   badge: {
-    backgroundColor: '#E0E0E0',
+    backgroundColor: '#E8F8F5',
     borderRadius: 12,
     alignSelf: 'flex-start',
     paddingHorizontal: isMobile ? 12 : 10,
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   badgeText: {
-    color: '#000',
+    color: '#00695C',
     fontWeight: 'bold',
     fontSize: isMobile ? 15 : 14,
   },
@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
   permisoItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     paddingVertical: isMobile ? 8 : 6,
     paddingHorizontal: isMobile ? 16 : 15,
     borderRadius: 15,
@@ -198,7 +198,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 18,
   },
   permisoText: {
-    color: '#fff',
+    color: '#2D2D2D',
     marginLeft: 6,
     fontWeight: '600',
     fontSize: isMobile ? 14 : 13,
@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     paddingHorizontal: isMobile ? 40 : 30,
     paddingVertical: isMobile ? 12 : 10,
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     borderRadius: 15,
     width: isMobile ? '60%' : undefined,
     alignItems: 'center',
@@ -221,7 +221,7 @@ const styles = StyleSheet.create({
   },
   textoCerrar: {
     fontWeight: 'bold',
-    color: 'white',
+    color: '#2D2D2D',
     fontSize: isMobile ? 16 : 14,
   },
   textoCerrarMobile: {

@@ -238,40 +238,40 @@ const EditarRol = ({ visible, onClose, rol, onUpdate }) => {
 
 const styles = StyleSheet.create({
   overlay: { flex:1, backgroundColor:'#00000033', justifyContent:'center', alignItems:'center' },
-  container: { flexDirection:'row', width:'75%', maxWidth:850, height:'80%', backgroundColor:'#fff', borderRadius:12, padding:20, borderWidth:1, borderColor:'#000' },
+  container: { flexDirection:'row', width:'75%', maxWidth:850, height:'80%', backgroundColor:'#fff', borderRadius:12, padding:20, borderWidth:1, borderColor:'#7FFFD4' },
   leftContainer: { width:'50%', paddingRight:15 },
   rightContainer: { width:'50%', paddingLeft:15, borderLeftWidth:1, borderLeftColor:'#e0e0e0' },
-  mobileContainer: { width:'90%', maxHeight:'90%', backgroundColor:'#fff', borderRadius:12, padding:20, borderWidth:1, borderColor:'#000' },
+  mobileContainer: { width:'90%', maxHeight:'90%', backgroundColor:'#fff', borderRadius:12, padding:20, borderWidth:1, borderColor:'#7FFFD4' },
   mobileButtonRow: { flexDirection:'row', justifyContent:'space-between', marginTop:20, paddingHorizontal:10, marginBottom:10 },
 
-  title: { fontSize:20, fontWeight:'bold', marginBottom:4 },
+  title: { fontSize:20, fontWeight:'bold', marginBottom:4, color: '#00695C' },
   subtext: { fontSize:14, color:'#555', marginBottom:16 },
   subtextSmall: { fontSize:12, color:'#777', marginBottom:10 },
   label: { fontWeight:'600', marginBottom:6, fontSize:14 },
   required: { color:'red' },
-  input: { borderWidth:1, borderColor:'#ccc', borderRadius:8, paddingHorizontal:10, paddingVertical:8, marginBottom:16 },
+  input: { borderWidth:1, borderColor:'#B2F0E8', borderRadius:8, paddingHorizontal:10, paddingVertical:8, marginBottom:16 },
 
   imagePicker: { height:90, width:90, borderWidth:2, borderColor:'#ccc', borderRadius:45, justifyContent:'center', alignItems:'center', marginBottom:16, overflow:'hidden' },
   image: { width:90, height:90, borderRadius:45 },
   imagePickerText: { textAlign:'center', fontSize:12, color:'#555' },
 
   buttonRow: { flexDirection:'row', justifyContent:'space-between', marginTop:20 },
-  acceptButton: { backgroundColor:'#424242', paddingHorizontal:20, paddingVertical:10, borderRadius:8 },
-  cancelButton: { backgroundColor:'#fff', borderWidth:1, borderColor:'#929292', paddingHorizontal:20, paddingVertical:10, borderRadius:8 },
-  buttonText: { color:'#fff', fontWeight:'bold' },
-  cancelButtonText: { color:'#000', fontWeight:'bold' },
+  acceptButton: { backgroundColor:'#7FFFD4', paddingHorizontal:20, paddingVertical:10, borderRadius:8 },
+  cancelButton: { backgroundColor:'#B2F0E8', borderWidth:1, borderColor:'#929292', paddingHorizontal:20, paddingVertical:10, borderRadius:8 },
+  buttonText: { color:'#2D2D2D', fontWeight:'bold' },
+  cancelButtonText: { color:'#00695C', fontWeight:'bold' },
 
   permisosHeader: { flexDirection:'row', justifyContent:'space-between', alignItems:'center', marginBottom:4 },
-  selectAllButton: { backgroundColor:'#f0f0f0', paddingHorizontal:10, paddingVertical:5, borderRadius:5 },
-  selectAllButtonText: { fontSize:12, color:'#424242', fontWeight:'bold' },
+  selectAllButton: { backgroundColor:'#E8F8F5', paddingHorizontal:10, paddingVertical:5, borderRadius:5 },
+  selectAllButtonText: { fontSize:12, color:'#00695C', fontWeight:'bold' },
 
   permisosContainer: { flexDirection:'row', flexWrap:'wrap', gap:10, marginTop:16 },
   mobilePermisosContainer: { flexDirection:'row', flexWrap:'wrap', justifyContent:'center', gap:10, marginTop:16 },
 
   permisoButton: { borderWidth:1, borderColor:'#929292', borderRadius:6, paddingHorizontal:12, paddingVertical:8, margin:5, backgroundColor:'#fff', flexDirection:'row', alignItems:'center' },
-  permisoButtonSelected: { backgroundColor:'#424242', borderColor:'#424242' },
+  permisoButtonSelected: { backgroundColor:'#7FFFD4', borderColor:'#7FFFD4' },
   permisoText: { fontSize:13, color:'#000' },
-  permisoTextSelected: { color:'#fff' },
+  permisoTextSelected: { color:'#2D2D2D' },
 
   linkText: { color:'#6e3eff', textDecorationLine:'underline' },
 });

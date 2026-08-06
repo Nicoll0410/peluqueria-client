@@ -543,8 +543,8 @@ const EditarBarbero = ({ visible, onClose, barbero, onUpdate }) => {
                   : {}),
               }}
               theme={{
-                todayTextColor: "#424242",
-                selectedDayBackgroundColor: "#424242",
+                todayTextColor: "#2D2D2D",
+                selectedDayBackgroundColor: "#7FFFD4",
               }}
               style={{ alignSelf: "center" }}
             />
@@ -574,14 +574,14 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(255,255,255,0.95)",
     borderRadius: 15,
     borderWidth: 3,
-    borderColor: "black",
+    borderColor: "#7FFFD4",
     overflow: "hidden",
   },
   scrollContent: {
     paddingVertical: 24,
     paddingHorizontal: 20,
   },
-  title: { fontSize: 20, fontWeight: "bold", marginBottom: 18, color: "#333" },
+  title: { fontSize: 20, fontWeight: "bold", marginBottom: 18, color: "#00695C" },
   formGroup: { marginBottom: 16 },
   label: { fontSize: 14, fontWeight: "600", color: "#444", marginBottom: 6 },
   required: { color: "#d32f2f" },
@@ -589,7 +589,7 @@ const styles = StyleSheet.create({
 
   input: {
     borderWidth: 2,
-    borderColor: "#424242",
+    borderColor: "#7FFFD4",
     borderRadius: 8,
     paddingHorizontal: 12,
     paddingVertical: 10,
@@ -598,7 +598,7 @@ const styles = StyleSheet.create({
   },
   pickerContainer: {
     borderWidth: 2,
-    borderColor: "#424242",
+    borderColor: "#7FFFD4",
     borderRadius: 8,
     overflow: "hidden",
     backgroundColor: "rgba(255,255,255,0.7)",
@@ -607,7 +607,7 @@ const styles = StyleSheet.create({
 
   dateInput: {
     borderWidth: 2,
-    borderColor: "#424242",
+    borderColor: "#7FFFD4",
     borderRadius: 8,
     paddingHorizontal: 12,
     paddingVertical: 10,
@@ -624,7 +624,7 @@ const styles = StyleSheet.create({
   passwordInput: {
     ...Platform.select({ ios: { paddingVertical: 12 }, default: {} }),
     borderWidth: 2,
-    borderColor: "#424242",
+    borderColor: "#7FFFD4",
     borderRadius: 8,
     paddingHorizontal: 12,
     paddingVertical: 10,
@@ -639,7 +639,7 @@ const styles = StyleSheet.create({
 
   avatarSelector: {
     borderWidth: 2,
-    borderColor: "#424242",
+    borderColor: "#7FFFD4",
     borderRadius: 8,
     height: 100,
     justifyContent: "center",
@@ -659,15 +659,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  createButton: { backgroundColor: "#424242", marginRight: 10 },
+  createButton: { backgroundColor: "#7FFFD4", marginRight: 10 },
   cancelButton: {
     backgroundColor: "#fff",
     borderWidth: 1,
-    borderColor: "#929292",
+    borderColor: "#B2F0E8",
     marginLeft: 10,
   },
-  buttonText: { color: "#fff", fontWeight: "500" },
-  cancelButtonText: { color: "#000", fontWeight: "500" },
+  buttonText: { color: "#2D2D2D", fontWeight: "500" },
+  cancelButtonText: { color: "#00695C", fontWeight: "500" },
 
   datePickerOverlay: {
     position: "absolute",
@@ -698,17 +698,17 @@ const styles = StyleSheet.create({
     marginHorizontal: 4,
     borderRadius: 12,
   },
-  yearBoxSelected: { backgroundColor: "#424242" },
+  yearBoxSelected: { backgroundColor: "#7FFFD4" },
   yearText: { color: "#333" },
-  yearTextSelected: { color: "#fff", fontWeight: "600" },
+  yearTextSelected: { color: "#2D2D2D", fontWeight: "600" },
   datePickerActions: { marginTop: 10, alignItems: "flex-end" },
   datePickerBtn: {
     paddingVertical: 6,
     paddingHorizontal: 14,
-    backgroundColor: "#424242",
+    backgroundColor: "#7FFFD4",
     borderRadius: 10,
   },
-  datePickerBtnText: { color: "#fff", fontWeight: "600" },
+  datePickerBtnText: { color: "#2D2D2D", fontWeight: "600" },
 });
 
 export default EditarBarbero;
