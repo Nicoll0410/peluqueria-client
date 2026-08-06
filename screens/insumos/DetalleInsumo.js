@@ -138,12 +138,12 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     elevation: 5,
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: '#B2F0E8',
   },
   modalTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#333',
+    color: '#00695C',
     marginBottom: 16,
     textAlign: 'center',
   },
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
   },
   label: {
     fontWeight: '500',
-    color: '#666',
+    color: '#00695C',
     fontSize: 14,
     flex: 1,
   },
@@ -172,11 +172,11 @@ const styles = StyleSheet.create({
   },
   divider: {
     height: 1,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#E8F8F5',
     marginVertical: 4,
   },
   closeButton: {
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     paddingVertical: 10,
     borderRadius: 8,
     marginTop: 16,
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   closeButtonText: {
-    color: 'white',
+    color: '#2D2D2D',
     fontWeight: '500',
     fontSize: 15,
   },

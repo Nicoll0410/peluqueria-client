@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     padding: isMobile ? 24 : 20,
     elevation: 10,
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: '#B2F0E8',
     maxHeight: isMobile ? height * 0.8 : '80%',
   },
   modalMobile: {
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: isMobile ? 16 : 20,
     textAlign: 'center',
-    color: '#424242',
+    color: '#00695C',
   },
   tituloMobile: {
     fontSize: 22,
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
   label: {
     fontSize: isMobile ? 15 : 14,
     fontWeight: '600',
-    color: '#555',
+    color: '#00695C',
     marginBottom: isMobile ? 6 : 4,
   },
   labelMobile: {
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#f0f0f0',
   },
   priceContainer: {
-    backgroundColor: 'rgba(76, 175, 80, 0.2)',
+    backgroundColor: 'backgroundColor:#E8F8F5',
     borderRadius: 15,
     paddingVertical: 6,
     paddingHorizontal: 12,
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
     marginTop: 6,
   },
   priceText: {
-    color: '#4CAF50',
+    color: '#00695C',
     fontWeight: 'bold',
     fontSize: isMobile ? 16 : 15,
   },
@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     paddingHorizontal: isMobile ? 40 : 30,
     paddingVertical: isMobile ? 12 : 10,
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     borderRadius: 15,
     width: isMobile ? '60%' : undefined,
     alignItems: 'center',
@@ -206,7 +206,7 @@ const styles = StyleSheet.create({
   },
   textoCerrar: {
     fontWeight: 'bold',
-    color: 'white',
+    color: '#2D2D2D',
     fontSize: isMobile ? 16 : 14,
   },
   insumosHeader: {
@@ -215,12 +215,12 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     paddingBottom: 8,
     borderBottomWidth: 1,
-    borderBottomColor: 'black',
+    borderBottomColor: '#7FFFD4',
   },
   insumoHeaderText: {
     fontSize: isMobile ? 13 : 12,
     fontWeight: '600',
-    color: 'black',
+    color: '#00695C',
     textAlign: 'center',
   },
   insumoRow: {
@@ -239,7 +239,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
   },
   quantityContainer: {
-    backgroundColor: '#D9D9D9',
+    backgroundColor: '#E8F8F5',
     borderRadius: 15,
     paddingVertical: 4,
     paddingHorizontal: 12,

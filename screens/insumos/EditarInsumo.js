@@ -237,7 +237,7 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     elevation: 3,
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: '#7FFFD4',
     maxHeight: '85%'
   },
   mobileModalContent: {
@@ -252,7 +252,7 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     elevation: 3,
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: '#7FFFD4',
     maxHeight: '90%'
   },
   landscapeModalContent: {
@@ -266,7 +266,7 @@ const styles = StyleSheet.create({
   modalTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#333',
+    color: '#00695C',
     textAlign: 'left'
   },
   subtitle: {
@@ -288,12 +288,12 @@ const styles = StyleSheet.create({
   label: {
     fontWeight: '500',
     marginBottom: 6,
-    color: '#444',
+    color: '#00695C',
     fontSize: 14
   },
   input: {
     borderWidth: 1.5,
-    borderColor: '#b0b0b0',
+    borderColor: '#B2F0E8',
     borderRadius: 8,
     paddingVertical: 10,
     paddingHorizontal: 12,
@@ -314,7 +314,7 @@ const styles = StyleSheet.create({
   },
   quantityContainer: {
     borderWidth: 1.5,
-    borderColor: '#b0b0b0',
+    borderColor: '#B2F0E8',
     borderRadius: 8,
     padding: 10,
     backgroundColor: '#f9f9f9'
@@ -325,7 +325,7 @@ const styles = StyleSheet.create({
   },
   pickerContainer: {
     borderWidth: 1.5,
-    borderColor: '#b0b0b0',
+    borderColor: '#B2F0E8',
     borderRadius: 8,
     overflow: 'hidden',
     backgroundColor: '#f9f9f9'
@@ -348,7 +348,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 12,
     borderRadius: 8,
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     alignItems: 'center',
     marginRight: 8
   },
@@ -359,14 +359,14 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#929292'
+    borderColor: '#B2F0E8'
   },
   submitButtonText: {
-    color: 'white',
+    color: '#2D2D2D',
     fontWeight: '500'
   },
   cancelButtonText: {
-    color: 'black',
+    color: '#00695C',
     fontWeight: '500'
   }
 });
