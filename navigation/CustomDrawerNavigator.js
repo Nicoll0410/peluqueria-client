@@ -237,7 +237,7 @@ const CustomDrawerNavigator = ({ navigation: mainNavigation }) => {
         return (
           <>
             <Stack.Screen
-              name="MiPerfil"
+              name="Mi Perfil"
               component={MiPerfilScreen}
               options={({ navigation }) => ({
                 ...commonOptions({ navigation }),
@@ -253,7 +253,7 @@ const CustomDrawerNavigator = ({ navigation: mainNavigation }) => {
               })}
             />
             <Stack.Screen
-              name="MiGaleria"
+              name="Mi Galeria"
               component={GestionGaleriaScreen}
               options={({ navigation }) => ({
                 ...commonOptions({ navigation }),
@@ -288,7 +288,7 @@ const CustomDrawerNavigator = ({ navigation: mainNavigation }) => {
         return (
           <>
             <Stack.Screen
-              name="MiPerfil"
+              name="Mi Perfil"
               component={MiPerfilScreen}
               options={({ navigation }) => ({
                 ...commonOptions({ navigation }),
@@ -312,7 +312,7 @@ const CustomDrawerNavigator = ({ navigation: mainNavigation }) => {
               })}
             />
             <Stack.Screen
-              name="Barberos"
+              name="Estilistas"
               component={BarberosScreen}
               options={({ navigation }) => ({
                 ...commonOptions({ navigation }),
@@ -320,7 +320,7 @@ const CustomDrawerNavigator = ({ navigation: mainNavigation }) => {
               })}
             />
             <Stack.Screen
-              name="MiGaleria"
+              name="Mi Galeria"
               component={GestionGaleriaScreen}
               options={({ navigation }) => ({
                 ...commonOptions({ navigation }),
