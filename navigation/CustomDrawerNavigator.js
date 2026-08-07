@@ -39,7 +39,7 @@ import MiPerfilScreen from "../screens/perfil/MiPerfilScreen";
 const Stack = createStackNavigator();
 
 /* Logo - MANTENER MISMO NOMBRE DE ARCHIVO */
-import LogoImg from "../assets/images/barberApp 1.png";
+import LogoImg from "../assets/images/nmDigitalSolutions.PNG";
 import LogoGaleriaImg from "../assets/images/nmDigitalSolutions.PNG";
 
 /* Icono campana con badge */

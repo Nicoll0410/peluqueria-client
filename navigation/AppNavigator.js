@@ -26,7 +26,7 @@ import { AuthContext } from "../contexts/AuthContext";
 import ControlInsumos from "../screens/insumos/ControlInsumos";
 
 /* Logo */
-import LogoImg from "../assets/images/barberApp 1.png";
+import LogoImg from "../assets/images/nmDigitalSolutions.PNG";
 
 const Stack = createNativeStackNavigator();
 
