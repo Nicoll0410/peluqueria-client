@@ -67,14 +67,14 @@ const NotificationBell = ({ navigation }) => {
 const HeaderLogo = () => {
   const { width } = useWindowDimensions();
   const isLargeScreen = width >= 1024;
-  const logoSize = isLargeScreen ? 180 : 140;
+  const logoSize = isLargeScreen ? 220 : 160;
 
   return (
     <Image
       source={LogoImg}
       style={{
         width: logoSize,
-        height: logoSize,
+        height: logoSize * 0.35,
         resizeMode: "contain",
         marginRight: 10,
       }}

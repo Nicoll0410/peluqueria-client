@@ -80,7 +80,7 @@ const CustomDrawer = (props) => {
         }
       }}
     >
-      <IconComp name={name} size={indent ? 16 : 22} color="#7FFFD4" />
+      <IconComp name={name} size={indent ? 16 : 22} color="#5FE0C8" />
       <Text style={[styles.menuText, indent && { fontSize: 14, marginLeft: 10 }]}>{label}</Text>
     </TouchableOpacity>
   );
@@ -90,7 +90,7 @@ const CustomDrawer = (props) => {
       {/* ----------- Logo superior ------------ */}
       <View style={styles.logoContainer}>
         <Image source={require("../assets/images/logo-peluqueria.jpeg")} style={styles.logo} />
-        <Text style={styles.logoTitle}>Sala de belleza Alba</Text>
+        <Text style={styles.logoTitle}>Salón de belleza Alba</Text>
       </View>
 
       <ScrollView
@@ -105,12 +105,12 @@ const CustomDrawer = (props) => {
           <View key={section}>
             <TouchableOpacity style={styles.expandableItem} onPress={() => toggle(section)}>
               <View style={styles.menuRow}>
-                {section === "Usuarios" && <Feather name="users" size={24} color="#7FFFD4" />}
-                {section === "Compras" && <AntDesign name="shoppingcart" size={24} color="#7FFFD4" />}
-                {section === "Ventas"   && <MaterialCommunityIcons name="account-cash-outline" size={24} color="#7FFFD4" />}
+                {section === "Usuarios" && <Feather name="users" size={24} color="#5FE0C8" />}
+                {section === "Compras" && <AntDesign name="shoppingcart" size={24} color="#5FE0C8" />}
+                {section === "Ventas"   && <MaterialCommunityIcons name="account-cash-outline" size={24} color="#5FE0C8" />}
                 <Text style={styles.menuText}>{section}</Text>
               </View>
-              <Feather name={expanded[section] ? "chevron-up" : "chevron-down"} size={20} color="#7FFFD4" />
+              <Feather name={expanded[section] ? "chevron-up" : "chevron-down"} size={20} color="#5FE0C8" />
             </TouchableOpacity>
 
             {expanded[section] && items.map((sub) => <Item key={sub.label} {...sub} indent={20} />)}
@@ -145,7 +145,7 @@ const CustomDrawer = (props) => {
       {/* ------------- Logout ------------- */}
       <View style={styles.profileContainer}>
         <TouchableOpacity style={styles.logoutButton} onPress={logout}>
-          <Feather name="log-out" size={18} color="#1A1A1A" />
+          <Feather name="log-out" size={18} color="#FFFFFF" />
           <Text style={styles.logoutText}>Cerrar sesión</Text>
         </TouchableOpacity>
       </View>
@@ -155,32 +155,32 @@ const CustomDrawer = (props) => {
 
 /* ─────────────────── Estilos ────────────────────── */
 const styles = StyleSheet.create({
-  container:          { flex: 1, backgroundColor: "#2D2D2D" },
+  container:          { flex: 1, backgroundColor: "#FFFFFF" },
   scrollContainer:    { flexGrow: 1 },
-  logoContainer:      { alignItems: "center", paddingVertical: 16, borderBottomWidth: 1, borderColor: "#7FFFD4" },
-  logo:               { width: 120, height: 120, resizeMode: "contain" },
-  sectionTitle:       { fontSize: 14, fontWeight: "bold", color: "#7FFFD4", paddingHorizontal: 20, paddingTop: 10, paddingBottom: 5 },
-  menuItem:           { flexDirection: "row", alignItems: "center", paddingVertical: 14, paddingLeft: 20 },
-  menuText:           { marginLeft: 15, fontSize: 16, color: "#FFFFFF" },
-  expandableItem:     { flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingVertical: 14, paddingHorizontal: 20 },
+  logoContainer:      { alignItems: "center", paddingVertical: 20, borderBottomWidth: 2, borderColor: "#7FFFD4", backgroundColor: "#F0FAF8" },
+  logo:               { width: 100, height: 100, borderRadius: 50, resizeMode: "cover", borderWidth: 3, borderColor: "#7FFFD4" },
+  sectionTitle:       { fontSize: 12, fontWeight: "700", color: "#00695C", paddingHorizontal: 20, paddingTop: 16, paddingBottom: 6, textTransform: "uppercase", letterSpacing: 1.5 },
+  menuItem:           { flexDirection: "row", alignItems: "center", paddingVertical: 13, paddingLeft: 20, marginHorizontal: 8, borderRadius: 10, marginBottom: 2 },
+  menuText:           { marginLeft: 14, fontSize: 15, color: "#2D2D2D", fontWeight: "500" },
+  expandableItem:     { flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingVertical: 13, paddingHorizontal: 20, marginHorizontal: 8, borderRadius: 10 },
   menuRow:            { flexDirection: "row", alignItems: "center" },
-  profileSection:     { padding: 20, borderTopWidth: 1, borderBottomWidth: 1, borderColor: "#7FFFD4" },
-  profileTitle:       { fontSize: 14, fontWeight: "bold", color: "#7FFFD4", marginBottom: 10 },
+  profileSection:     { padding: 20, borderTopWidth: 1, borderBottomWidth: 1, borderColor: "#E8D5F0", backgroundColor: "#F0FAF8" },
+  profileTitle:       { fontSize: 12, fontWeight: "700", color: "#00695C", marginBottom: 12, textTransform: "uppercase", letterSpacing: 1.5 },
   userContainer:      { flexDirection: "row", alignItems: "center" },
-  avatar:             { width: 50, height: 50, borderRadius: 25, marginRight: 10 },
-  avatarPlaceholder:  { width: 50, height: 50, borderRadius: 25, backgroundColor: "#5FE0C8", justifyContent: "center", alignItems: "center", marginRight: 10 },
+  avatar:             { width: 46, height: 46, borderRadius: 23, marginRight: 12 },
+  avatarPlaceholder:  { width: 46, height: 46, borderRadius: 23, backgroundColor: "#7FFFD4", justifyContent: "center", alignItems: "center", marginRight: 12 },
   userInfoContainer:  { flex: 1 },
-  userName:           { color: "#FFFFFF", fontSize: 16, fontWeight: "600", marginBottom: 4 },
-  userEmail:          { color: "#B2F0E8", fontSize: 14, marginBottom: 4 },
-  userRole:           { color: "#7FFFD4", fontSize: 12, fontStyle: "italic" },
-  profileContainer:   { padding: 16, borderTopWidth: 1, borderColor: "#7FFFD4" },
-  logoutButton:       { flexDirection: "row", backgroundColor: "#7FFFD4", paddingVertical: 10, paddingHorizontal: 12, borderRadius: 10, alignItems: "center", justifyContent: "center" },
-  logoutText:         { color: "#2D2D2D", marginLeft: 8, fontSize: 16, fontWeight: "700" },
+  userName:           { color: "#2D2D2D", fontSize: 15, fontWeight: "600", marginBottom: 2 },
+  userEmail:          { color: "#00695C", fontSize: 13, marginBottom: 2 },
+  userRole:           { color: "#5FE0C8", fontSize: 11, fontWeight: "600", textTransform: "uppercase" },
+  profileContainer:   { padding: 16, borderTopWidth: 1, borderColor: "#E8D5F0" },
+  logoutButton:       { flexDirection: "row", backgroundColor: "#7FFFD4", paddingVertical: 12, paddingHorizontal: 16, borderRadius: 25, alignItems: "center", justifyContent: "center", shadowColor: "#7FFFD4", shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.3, shadowRadius: 4, elevation: 3 },
+  logoutText:         { color: "#2D2D2D", marginLeft: 8, fontSize: 15, fontWeight: "600" },
   logoTitle: {
-    color: "#FFFFFF",
-    fontSize: 20,
-    fontWeight: "bold",
-    marginTop: 8,
+    color: "#2D2D2D",
+    fontSize: 18,
+    fontWeight: "700",
+    marginTop: 10,
     textAlign: "center"
   },
 });

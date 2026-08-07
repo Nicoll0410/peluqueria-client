@@ -86,11 +86,11 @@ const HeaderLogo = ({ useGaleriaLogo = false }) => {
   let logoWidth, logoHeight;
   
   if (useGaleriaLogo) {
-    logoWidth = 180;
-    logoHeight = 45;
+    logoWidth = 220;   // ❌ Antes: 180
+    logoHeight = 55;   // ❌ Antes: 45
   } else {
-    logoWidth = 120;
-    logoHeight = 30;
+    logoWidth = 160;   // ❌ Antes: 120
+    logoHeight = 40;   // ❌ Antes: 30
   }
 
   const logoSource = useGaleriaLogo ? LogoGaleriaImg : LogoImg;

@@ -750,15 +750,15 @@ const styles = StyleSheet.create({
   // ✅ NUEVO: Logo en el modal
   modalLogoContainer: {
     backgroundColor: '#000',
-    paddingVertical: 12,
+    paddingVertical: 16,
     paddingHorizontal: 20,
     alignItems: 'center',
     borderBottomWidth: 1,
     borderBottomColor: '#7FFFD4'
   },
   modalLogo: {
-    width: 180,
-    height: 50
+    width: 240,
+    height: 65
   },
   modalHeader: {
     flexDirection: 'row',
