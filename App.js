@@ -37,7 +37,7 @@ Notifications.setNotificationHandler({
 async function setupNotificationChannel() {
   if (Platform.OS === 'android') {
     await Notifications.setNotificationChannelAsync('default', {
-      name: 'Notificaciones Salón Alba Quiceno',
+      name: 'Notificaciones Sala de belleza Alba',
       importance: Notifications.AndroidImportance.HIGH,
       vibrationPattern: [0, 250, 250, 250],
       lightColor: '#7FFFD4',

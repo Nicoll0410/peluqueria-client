@@ -183,7 +183,7 @@ const ForgotPasswordScreen = ({ navigation }) => {
         return (
           <View style={styles.pasoContainer}>
             <Image 
-              source={require('../../assets/images/newYorkBarber.jpeg')} 
+              source={require('../../assets/images/logo-peluqueria.jpeg')} 
               style={styles.logo}
               resizeMode="contain"
             />
@@ -228,7 +228,7 @@ const ForgotPasswordScreen = ({ navigation }) => {
         return (
           <View style={styles.pasoContainer}>
             <Image 
-              source={require('../../assets/images/newYorkBarber.jpeg')} 
+              source={require('../../assets/images/logo-peluqueria.jpeg')} 
               style={styles.logo}
               resizeMode="contain"
             />
@@ -280,7 +280,7 @@ const ForgotPasswordScreen = ({ navigation }) => {
         return (
           <View style={styles.pasoContainer}>
             <Image 
-              source={require('../../assets/images/newYorkBarber.jpeg')} 
+              source={require('../../assets/images/logo-peluqueria.jpeg')} 
               style={styles.logo}
               resizeMode="contain"
             />

@@ -346,7 +346,7 @@ const GaleriaScreen = ({ navigation }) => {
           {/* ✅ LOGO EN EL MODAL */}
           <View style={styles.modalLogoContainer}>
             <Image
-              source={require('../../assets/images/nmbarber.png')}
+              source={require('../../assets/images/nmDigitalSolutions.PNG')}
               style={styles.modalLogo}
               resizeMode="contain"
             />

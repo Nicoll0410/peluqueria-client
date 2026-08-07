@@ -40,7 +40,7 @@ const Stack = createStackNavigator();
 
 /* Logo - MANTENER MISMO NOMBRE DE ARCHIVO */
 import LogoImg from "../assets/images/barberApp 1.png";
-import LogoGaleriaImg from "../assets/images/nmbarber.png";
+import LogoGaleriaImg from "../assets/images/nmDigitalSolutions.PNG";
 
 /* Icono campana con badge */
 const NotificationBell = ({ navigation, isDark = false }) => {

@@ -263,7 +263,7 @@ const RegisterScreen = () => {
         {/* Logo y título */}
         <View style={styles.header}>
           <Image 
-            source={require('../../assets/images/newYorkBarber.jpeg')} 
+            source={require('../../assets/images/logo-peluqueria.jpeg')} 
             style={styles.logo} 
             resizeMode="contain"
           />
