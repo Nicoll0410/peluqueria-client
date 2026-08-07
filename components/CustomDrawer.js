@@ -43,7 +43,7 @@ const ROLE_MENU = {
     sections: {
       Usuarios: [
         { label: "Clientes", screen: "Clientes", icon: Feather, name: "user" },
-        { label: "Estilistas", screen: "Barberos", icon: Ionicons, name: "cut-outline" },
+        { label: "Estilistas", screen: "Estilistas", icon: Ionicons, name: "cut-outline" },
       ],
       Ventas: [
         { label: "Mi Galería", screen: "MiGaleria", icon: MaterialCommunityIcons, name: "view-gallery" },
