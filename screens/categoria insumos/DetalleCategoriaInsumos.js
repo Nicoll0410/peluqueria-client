@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     padding: 20,
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: '#B2F0E8',
   },
   header: {
     flexDirection: 'row',
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#111827',
+    color: '#00695C',
   },
   closeIcon: {
     padding: 4,
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   },
   detailLabel: {
     fontSize: 14,
-    color: '#6B7280',
+    color: '#00695C',
     marginBottom: 4,
   },
   detailValue: {
@@ -96,11 +96,11 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#111827',
     padding: 8,
-    backgroundColor: '#F9FAFB',
+    backgroundColor: '#F0FAF8',
     borderRadius: 6,
   },
   closeButton: {
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     padding: 12,
     borderRadius: 8,
     alignItems: 'center',
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   closeButtonText: {
-    color: 'white',
+    color: '#2D2D2D',
     fontSize: 14,
     fontWeight: '600',
   },

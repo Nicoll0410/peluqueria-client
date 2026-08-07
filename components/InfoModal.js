@@ -40,13 +40,15 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     padding: 24,
     elevation: 4,
+    borderWidth: 1,
+    borderColor: '#B2F0E8'
   },
-  title: { fontSize: 20, fontWeight: '700', color: '#424242', marginBottom: 10 },
+  title: { fontSize: 20, fontWeight: '700', color: '#00695C', marginBottom: 10 },
   message: { fontSize: 17, color: '#616161', marginBottom: 28 },
   okBtn: {
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     paddingVertical: 10,
     borderRadius: 6,
   },
-  okTxt: { color: '#fff', fontWeight: '600', textAlign: 'center' },
+  okTxt: { color: '#2D2D2D', fontWeight: '600', textAlign: 'center' },
 });

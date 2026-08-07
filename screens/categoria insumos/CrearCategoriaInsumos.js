@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     width: '100%',
     maxHeight: '100%',
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: '#7FFFD4',
   },
   scrollContainer: {
     flexGrow: 1,
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
   modalTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#111827',
+    color: '#00695C',
   },
   subtitle: {
     color: '#6B7280',
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontWeight: '600',
-    color: '#111827',
+    color: '#00695C',
     fontSize: 14,
   },
   requiredAsterisk: {
@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1.5,
-    borderColor: '#424242',
+    borderColor: '#7FFFD4',
     borderRadius: 8,
     padding: 12,
     fontSize: 14,
@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
   },
   multilineInput: {
     borderWidth: 1.5,
-    borderColor: '#424242',
+    borderColor: '#7FFFD4',
     borderRadius: 8,
     padding: 12,
     height: 80,
@@ -216,7 +216,7 @@ const styles = StyleSheet.create({
     marginTop: 16,
   },
   createButton: {
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     padding: 12,
     borderRadius: 8,
     flex: 1,
@@ -230,19 +230,19 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#929292',
+    borderColor: '#B2F0E8',
   },
   disabledButton: {
-    backgroundColor: '#9CA3AF',
+    backgroundColor: '#B2F0E8',
     opacity: 0.7,
   },
   createButtonText: {
-    color: 'white',
+    color: '#2D2D2D',
     fontWeight: '600',
     fontSize: 14,
   },
   cancelButtonText: {
-    color: 'black',
+    color: '#00695C',
     fontWeight: '600',
     fontSize: 14,
   },
