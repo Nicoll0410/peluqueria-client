@@ -57,7 +57,7 @@ const NotificationBell = ({ navigation }) => {
       style={styles.container}
       key={badgeVersion} // 🔥 Forzar re-render
     >
-      <Ionicons name="notifications-outline" size={26} color="black" />
+      <Ionicons name="notifications-outline" size={26} color="#00695C" />
       
       {unreadCount > 0 && (
         <View style={styles.badge}>
@@ -81,17 +81,17 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: -2,
     top: -2,
-    backgroundColor: 'red',
+    backgroundColor: '#7FFFD4',
     borderRadius: 10,
     minWidth: 18,
     height: 18,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: 'white'
+    borderColor: '#5FE0C8'
   },
   badgeText: { 
-    color: 'white', 
+    color: '#2D2D2D', 
     fontSize: 10, 
     fontWeight: 'bold',
     paddingHorizontal: 4

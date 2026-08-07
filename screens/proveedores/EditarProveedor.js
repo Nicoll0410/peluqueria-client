@@ -590,7 +590,7 @@ const styles = StyleSheet.create({
   modalTitle: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#333',
+    color: '#00695C',
   },
   subtitle: {
     fontSize: 12,
@@ -622,15 +622,15 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   radioButtonSelected: {
-    borderColor: '#424242',
-    backgroundColor: '#424242',
+    borderColor: '#7FFFD4',
+    backgroundColor: '#7FFFD4',
   },
   radioButtonText: {
     fontSize: 12,
     color: 'black',
   },
   radioButtonTextSelected: {
-    color: 'white',
+    color: '#2D2D2D',
     fontWeight: '500',
   },
   formGroup: {
@@ -653,7 +653,7 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderColor: '#e0e0e0',
+    borderColor: '#B2F0E8',
     borderRadius: 6,
     padding: 8,
     fontSize: 13,
@@ -669,7 +669,7 @@ const styles = StyleSheet.create({
   },
   pickerContainer: {
     borderWidth: 1,
-    borderColor: '#e0e0e0',
+    borderColor: '#B2F0E8',
     borderRadius: 6,
     backgroundColor: '#fafafa',
   },
@@ -681,26 +681,26 @@ const styles = StyleSheet.create({
     marginRight: 8,
     borderRadius: 6,
     borderWidth: 1,
-    borderColor: '#929292',
+    borderColor: '#B2F0E8',
     alignItems: 'center',
     minWidth: 80,
     backgroundColor: 'white',
   },
   cancelButtonText: {
     fontSize: 13,
-    color: 'black',
+    color: '#00695C',
     fontWeight: '500',
   },
   acceptButton: {
     padding: 8,
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     borderRadius: 6,
     alignItems: 'center',
     minWidth: 80,
   },
   acceptButtonText: {
     fontSize: 13,
-    color: 'white',
+    color: '#2D2D2D',
     fontWeight: '500',
   },
   modalContainer: {
@@ -721,7 +721,7 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     elevation: 4,
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: '#7FFFD4',
   },
   scrollContainer: {
     flex: 1,
@@ -752,7 +752,7 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     elevation: 4,
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: '#7FFFD4',
   },
   mobileScrollContainer: {
     flex: 1,
