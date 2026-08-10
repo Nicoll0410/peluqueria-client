@@ -90,7 +90,7 @@ const CustomDrawer = (props) => {
       {/* ----------- Logo superior ------------ */}
       <View style={styles.logoContainer}>
         <Image source={require("../assets/images/logo-peluqueria.jpeg")} style={styles.logo} />
-        <Text style={styles.logoTitle}>Salón de belleza Alba</Text>
+        <Text style={styles.logoTitle}>Sala de belleza Alba</Text>
       </View>
 
       <ScrollView

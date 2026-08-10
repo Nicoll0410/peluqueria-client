@@ -111,7 +111,7 @@ const RolBarbero = ({ rol }) => (
         styles.rolTexto,
         rol === 'ADMIN' ? styles.textoAdmin : styles.textoBarbero,
       ]}>
-      {rol} {/* Cambiado para mostrar directamente el valor del rol */}
+      {rol === 'BARBERO' || rol === 'Estilista' ? 'Estilista' : rol}
     </Text>
   </View>
 );
@@ -242,7 +242,7 @@ const BarberosScreen = () => {
           usuarioID: b.usuarioID,
           estaVerificado: b.usuario?.estaVerificado || false,
           email: b.usuario?.email || '',
-          rol: b.usuario?.rol?.nombre || 'BARBERO',
+          rol: b.usuario?.rol?.nombre || 'ESTILISTA',
           rolID: b.usuario?.rol?.id || 2,
         };
       });
@@ -655,7 +655,7 @@ const BarberosScreen = () => {
         visible={confirmVisible}
         onCancel={cancelarEliminacion} // CORRECCIÓN: Usar la función correcta
         onConfirm={confirmarEliminacion}
-        title="Eliminar barbero"
+        title="Eliminar estilista"
         message="¿Estás seguro de eliminar esta estilista?"
       />
       <InfoModal
