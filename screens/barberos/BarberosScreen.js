@@ -100,21 +100,25 @@ const EstadoVerificacion = ({ verificado }) => (
   </View>
 );
 
-const RolBarbero = ({ rol }) => (
-  <View
-    style={[
-      styles.rolContainer,
-      rol === 'ADMIN' ? styles.rolAdmin : styles.rolBarbero,
-    ]}>
-    <Text
+const RolBarbero = ({ rol }) => {
+  const mostrarRol = rol === 'BARBERO' || rol === 'Barbero' ? 'Estilista' : rol;
+  
+  return (
+    <View
       style={[
-        styles.rolTexto,
-        rol === 'ADMIN' ? styles.textoAdmin : styles.textoBarbero,
+        styles.rolContainer,
+        rol === 'ADMIN' ? styles.rolAdmin : styles.rolBarbero,
       ]}>
-      {rol} {/* Cambiado para mostrar directamente el valor del rol */}
-    </Text>
-  </View>
-);
+      <Text
+        style={[
+          styles.rolTexto,
+          rol === 'ADMIN' ? styles.textoAdmin : styles.textoBarbero,
+        ]}>
+        {mostrarRol}
+      </Text>
+    </View>
+  );
+};
 
 const BarberoCard = ({ item, onVer, onEditar, onEliminar, onReenviar }) => (
   <View style={styles.card}>
