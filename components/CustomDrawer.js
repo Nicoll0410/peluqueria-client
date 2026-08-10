@@ -61,12 +61,12 @@ const CustomDrawer = (props) => {
   const { userRole, user, logout } = useContext(AuthContext);
 
   const roleKey = (userRole === "Estilista" ? "Barbero" : userRole) || "Administrador";
-  const config  = ROLE_MENU[roleKey];
+  const config = ROLE_MENU[roleKey];
 
   const [expanded, setExpanded] = useState({
     Usuarios: false,
     Compras: false,
-    Ventas:  false,
+    Ventas: false,
   });
   const toggle = (sec) => setExpanded((p) => ({ ...p, [sec]: !p[sec] }));
 
@@ -107,7 +107,7 @@ const CustomDrawer = (props) => {
               <View style={styles.menuRow}>
                 {section === "Usuarios" && <Feather name="users" size={24} color="#5FE0C8" />}
                 {section === "Compras" && <AntDesign name="shoppingcart" size={24} color="#5FE0C8" />}
-                {section === "Ventas"   && <MaterialCommunityIcons name="account-cash-outline" size={24} color="#5FE0C8" />}
+                {section === "Ventas" && <MaterialCommunityIcons name="account-cash-outline" size={24} color="#5FE0C8" />}
                 <Text style={styles.menuText}>{section}</Text>
               </View>
               <Feather name={expanded[section] ? "chevron-up" : "chevron-down"} size={20} color="#5FE0C8" />
@@ -137,8 +137,10 @@ const CustomDrawer = (props) => {
             <Text style={styles.userEmail}>
               {user?.email || "ejemplo@dominio.com"}
             </Text>
-            <Text style={styles.userRole}>{roleKey}</Text>
-          </View>
+            <Text style={styles.userRole}>
+              {roleKey === 'Barbero' ? 'ESTILISTA' : roleKey}
+            </Text>       
+         </View>
         </View>
       </View>
 
@@ -155,27 +157,27 @@ const CustomDrawer = (props) => {
 
 /* ─────────────────── Estilos ────────────────────── */
 const styles = StyleSheet.create({
-  container:          { flex: 1, backgroundColor: "#FFFFFF" },
-  scrollContainer:    { flexGrow: 1 },
-  logoContainer:      { alignItems: "center", paddingVertical: 20, borderBottomWidth: 2, borderColor: "#7FFFD4", backgroundColor: "#F0FAF8" },
-  logo:               { width: 140, height: 140, resizeMode: "contain", borderWidth: 2, borderColor: "#7FFFD4" },
-  sectionTitle:       { fontSize: 12, fontWeight: "700", color: "#00695C", paddingHorizontal: 20, paddingTop: 16, paddingBottom: 6, textTransform: "uppercase", letterSpacing: 1.5 },
-  menuItem:           { flexDirection: "row", alignItems: "center", paddingVertical: 13, paddingLeft: 20, marginHorizontal: 8, borderRadius: 10, marginBottom: 2 },
-  menuText:           { marginLeft: 14, fontSize: 15, color: "#2D2D2D", fontWeight: "500" },
-  expandableItem:     { flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingVertical: 13, paddingHorizontal: 20, marginHorizontal: 8, borderRadius: 10 },
-  menuRow:            { flexDirection: "row", alignItems: "center" },
-  profileSection:     { padding: 20, borderTopWidth: 1, borderBottomWidth: 1, borderColor: "#E8D5F0", backgroundColor: "#F0FAF8" },
-  profileTitle:       { fontSize: 12, fontWeight: "700", color: "#00695C", marginBottom: 12, textTransform: "uppercase", letterSpacing: 1.5 },
-  userContainer:      { flexDirection: "row", alignItems: "center" },
-  avatar:             { width: 46, height: 46, borderRadius: 23, marginRight: 12 },
-  avatarPlaceholder:  { width: 46, height: 46, borderRadius: 23, backgroundColor: "#7FFFD4", justifyContent: "center", alignItems: "center", marginRight: 12 },
-  userInfoContainer:  { flex: 1 },
-  userName:           { color: "#2D2D2D", fontSize: 15, fontWeight: "600", marginBottom: 2 },
-  userEmail:          { color: "#00695C", fontSize: 13, marginBottom: 2 },
-  userRole:           { color: "#5FE0C8", fontSize: 11, fontWeight: "600", textTransform: "uppercase" },
-  profileContainer:   { padding: 16, borderTopWidth: 1, borderColor: "#E8D5F0" },
-  logoutButton:       { flexDirection: "row", backgroundColor: "#7FFFD4", paddingVertical: 12, paddingHorizontal: 16, borderRadius: 25, alignItems: "center", justifyContent: "center", shadowColor: "#7FFFD4", shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.3, shadowRadius: 4, elevation: 3 },
-  logoutText:         { color: "#2D2D2D", marginLeft: 8, fontSize: 15, fontWeight: "600" },
+  container: { flex: 1, backgroundColor: "#FFFFFF" },
+  scrollContainer: { flexGrow: 1 },
+  logoContainer: { alignItems: "center", paddingVertical: 20, borderBottomWidth: 2, borderColor: "#7FFFD4", backgroundColor: "#F0FAF8" },
+  logo: { width: 140, height: 140, resizeMode: "contain", borderWidth: 2, borderColor: "#7FFFD4" },
+  sectionTitle: { fontSize: 12, fontWeight: "700", color: "#00695C", paddingHorizontal: 20, paddingTop: 16, paddingBottom: 6, textTransform: "uppercase", letterSpacing: 1.5 },
+  menuItem: { flexDirection: "row", alignItems: "center", paddingVertical: 13, paddingLeft: 20, marginHorizontal: 8, borderRadius: 10, marginBottom: 2 },
+  menuText: { marginLeft: 14, fontSize: 15, color: "#2D2D2D", fontWeight: "500" },
+  expandableItem: { flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingVertical: 13, paddingHorizontal: 20, marginHorizontal: 8, borderRadius: 10 },
+  menuRow: { flexDirection: "row", alignItems: "center" },
+  profileSection: { padding: 20, borderTopWidth: 1, borderBottomWidth: 1, borderColor: "#E8D5F0", backgroundColor: "#F0FAF8" },
+  profileTitle: { fontSize: 12, fontWeight: "700", color: "#00695C", marginBottom: 12, textTransform: "uppercase", letterSpacing: 1.5 },
+  userContainer: { flexDirection: "row", alignItems: "center" },
+  avatar: { width: 46, height: 46, borderRadius: 23, marginRight: 12 },
+  avatarPlaceholder: { width: 46, height: 46, borderRadius: 23, backgroundColor: "#7FFFD4", justifyContent: "center", alignItems: "center", marginRight: 12 },
+  userInfoContainer: { flex: 1 },
+  userName: { color: "#2D2D2D", fontSize: 15, fontWeight: "600", marginBottom: 2 },
+  userEmail: { color: "#00695C", fontSize: 13, marginBottom: 2 },
+  userRole: { color: "#5FE0C8", fontSize: 11, fontWeight: "600", textTransform: "uppercase" },
+  profileContainer: { padding: 16, borderTopWidth: 1, borderColor: "#E8D5F0" },
+  logoutButton: { flexDirection: "row", backgroundColor: "#7FFFD4", paddingVertical: 12, paddingHorizontal: 16, borderRadius: 25, alignItems: "center", justifyContent: "center", shadowColor: "#7FFFD4", shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.3, shadowRadius: 4, elevation: 3 },
+  logoutText: { color: "#2D2D2D", marginLeft: 8, fontSize: 15, fontWeight: "600" },
   logoTitle: {
     color: "#2D2D2D",
     fontSize: 18,
