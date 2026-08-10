@@ -83,10 +83,9 @@ export const AuthProvider = ({ children }) => {
 
   const normalizeRole = (rawRole) => {
     if (!rawRole) return null;
-    if (rawRole === "Paciente") return "Cliente";
-    if (rawRole === "Barbero") return "Estilista";
-    return rawRole;
-};
+    return rawRole === "Paciente" ? "Cliente" : rawRole;
+    
+  };
 
   const checkTokenValidity = useCallback(async (token) => {
     try {

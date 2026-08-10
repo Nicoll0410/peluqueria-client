@@ -111,7 +111,7 @@ const RolBarbero = ({ rol }) => (
         styles.rolTexto,
         rol === 'ADMIN' ? styles.textoAdmin : styles.textoBarbero,
       ]}>
-      {rol === 'BARBERO' || rol === 'Estilista' ? 'Estilista' : rol}
+      {rol} {/* Cambiado para mostrar directamente el valor del rol */}
     </Text>
   </View>
 );
@@ -242,7 +242,7 @@ const BarberosScreen = () => {
           usuarioID: b.usuarioID,
           estaVerificado: b.usuario?.estaVerificado || false,
           email: b.usuario?.email || '',
-          rol: b.usuario?.rol?.nombre || 'ESTILISTA',
+          rol: b.usuario?.rol?.nombre || 'BARBERO',
           rolID: b.usuario?.rol?.id || 2,
         };
       });

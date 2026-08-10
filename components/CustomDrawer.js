@@ -60,7 +60,7 @@ const ROLE_MENU = {
 const CustomDrawer = (props) => {
   const { userRole, user, logout } = useContext(AuthContext);
 
-  const roleKey = userRole || "Administrador";
+  const roleKey = (userRole === "Estilista" ? "Barbero" : userRole) || "Administrador";
   const config  = ROLE_MENU[roleKey];
 
   const [expanded, setExpanded] = useState({
