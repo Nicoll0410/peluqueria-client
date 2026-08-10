@@ -107,10 +107,10 @@ const AppNavigator = () => {
       {!isLoggedIn ? (
         <>
           <Stack.Screen name="Login" component={LoginScreen} />
-          <Stack.Screen name="Registrarse" component={RegisterScreen} />
-          <Stack.Screen name="Verificar Email" component={VerifyEmailScreen} />
+          <Stack.Screen name="Register" component={RegisterScreen} />
+          <Stack.Screen name="VerifyEmail" component={VerifyEmailScreen} />
           <Stack.Screen
-            name="Recuperar Contraseña"
+            name="ForgotPassword"
             component={ForgotPasswordScreen}
           />
         </>
@@ -118,12 +118,12 @@ const AppNavigator = () => {
         <>
           <Stack.Screen name="MainDrawer" component={CustomDrawerNavigator} />
           <Stack.Screen
-            name="Control Insumos"
+            name="ControlInsumos"
             component={ControlInsumos}
             options={{ headerShown: true, title: "Control de Insumos" }}
           />
           <Stack.Screen
-            name="Verificar Email"
+            name="VerifyEmail"
             component={VerifyEmailScreen}
             options={{
               title: "Verificar Email",
