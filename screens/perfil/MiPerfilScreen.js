@@ -64,7 +64,7 @@ const MiPerfilScreen = () => {
       const token = await AsyncStorage.getItem('token');
 
       let barberoID;
-      if (userRole === 'Barbero' && barberData?.id) {
+      if ((userRole === 'Barbero' || userRole === 'Estilista') && barberData?.id) {
         barberoID = barberData.id;
         console.log('✅ Barbero ID desde barberData:', barberoID);
       } else if (userRole === 'Administrador') {
