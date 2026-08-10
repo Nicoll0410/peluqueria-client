@@ -242,7 +242,7 @@ const BarberosScreen = () => {
           usuarioID: b.usuarioID,
           estaVerificado: b.usuario?.estaVerificado || false,
           email: b.usuario?.email || '',
-          rol: b.usuario?.rol?.nombre || 'BARBERO',
+          rol: b.usuario?.rol?.nombre === 'BARBERO' ? 'ESTILISTA' : (b.usuario?.rol?.nombre || 'ESTILISTA'),
           rolID: b.usuario?.rol?.id || 2,
         };
       });
@@ -687,11 +687,11 @@ const styles = StyleSheet.create({
   title: { fontSize: 24, fontWeight: 'bold', color: '#00695C', marginRight: 12 },
   counter: { backgroundColor: '#E8F8F5', width: 30, height: 30, borderRadius: 15, justifyContent: 'center', alignItems: 'center' },
   counterText: { fontWeight: 'bold', fontSize: 14, color: '#00695C' },
-  addButton: { 
-    flexDirection: 'row', alignItems: 'center', backgroundColor: '#7FFFD4', 
-    paddingVertical: 10, paddingHorizontal: 18, borderRadius: 25, 
-    shadowColor: '#7FFFD4', shadowOffset: { width: 0, height: 4 }, 
-    shadowOpacity: 0.3, shadowRadius: 8, elevation: 5 
+  addButton: {
+    flexDirection: 'row', alignItems: 'center', backgroundColor: '#7FFFD4',
+    paddingVertical: 10, paddingHorizontal: 18, borderRadius: 25,
+    shadowColor: '#7FFFD4', shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3, shadowRadius: 8, elevation: 5
   },
   addButtonText: { marginLeft: 8, color: '#2D2D2D', fontWeight: '600', fontSize: 14 },
 
@@ -700,9 +700,9 @@ const styles = StyleSheet.create({
   tableHeader: { flexDirection: 'row', backgroundColor: '#7FFFD4', paddingVertical: 14 },
   headerCell: { justifyContent: 'center', paddingHorizontal: 8 },
   headerText: { fontWeight: 'bold', color: '#2D2D2D', fontSize: 13 },
-  tableRow: { 
-    flexDirection: 'row', paddingVertical: 12, borderBottomWidth: 1, 
-    borderBottomColor: '#F3E8FA', backgroundColor: '#FFFFFF' 
+  tableRow: {
+    flexDirection: 'row', paddingVertical: 12, borderBottomWidth: 1,
+    borderBottomColor: '#F3E8FA', backgroundColor: '#FFFFFF'
   },
   cell: { justifyContent: 'center', paddingHorizontal: 8 },
   nameColumn: { flex: 3, alignItems: 'flex-start' },
@@ -721,11 +721,11 @@ const styles = StyleSheet.create({
   /* Cards (móvil) */
   scrollContainer: { flex: 1 },
   cardsContainer: { paddingBottom: 16 },
-  card: { 
-    backgroundColor: '#FFFFFF', borderRadius: 16, padding: 16, marginBottom: 12, 
-    borderWidth: 1, borderColor: '#E8D5F0', 
-    shadowColor: '#7FFFD4', shadowOffset: { width: 0, height: 2 }, 
-    shadowOpacity: 0.1, shadowRadius: 8, elevation: 3 
+  card: {
+    backgroundColor: '#FFFFFF', borderRadius: 16, padding: 16, marginBottom: 12,
+    borderWidth: 1, borderColor: '#E8D5F0',
+    shadowColor: '#7FFFD4', shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1, shadowRadius: 8, elevation: 3
   },
   cardHeader: { flexDirection: 'row', alignItems: 'center', marginBottom: 12 },
   cardHeaderText: { marginLeft: 12, flex: 1 },
@@ -736,23 +736,23 @@ const styles = StyleSheet.create({
   detailIcon: { marginRight: 8 },
   detailText: { fontSize: 14, color: '#6B6B6B' },
   cardActions: { flexDirection: 'row', justifyContent: 'flex-end', marginTop: 8 },
-  actionButton: { 
-    marginLeft: 12, padding: 10, borderRadius: 20, 
-    backgroundColor: '#F0FAF8', borderWidth: 1, borderColor: '#E8D5F0' 
+  actionButton: {
+    marginLeft: 12, padding: 10, borderRadius: 20,
+    backgroundColor: '#F0FAF8', borderWidth: 1, borderColor: '#E8D5F0'
   },
 
   /* Avatar */
-  avatarContainer: { 
-    width: 40, height: 40, borderRadius: 20, 
-    justifyContent: 'center', alignItems: 'center', overflow: 'hidden' 
+  avatarContainer: {
+    width: 40, height: 40, borderRadius: 20,
+    justifyContent: 'center', alignItems: 'center', overflow: 'hidden'
   },
   avatarText: { color: '#FFFFFF', fontWeight: 'bold', fontSize: 16 },
   avatarImage: { width: 40, height: 40, borderRadius: 20, resizeMode: 'cover' },
 
   /* Estado */
-  estadoContainer: { 
-    flexDirection: 'row', alignItems: 'center', justifyContent: 'center', 
-    paddingVertical: 6, paddingHorizontal: 10, borderRadius: 12, alignSelf: 'center' 
+  estadoContainer: {
+    flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
+    paddingVertical: 6, paddingHorizontal: 10, borderRadius: 12, alignSelf: 'center'
   },
   verificado: { backgroundColor: '#E8F5E9' },
   noVerificado: { backgroundColor: '#FFEBEE' },
