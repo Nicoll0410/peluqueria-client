@@ -68,7 +68,6 @@ const cargarDatosBarbero = async () => {
       // ✅ Acepta Barbero o Estilista
       if ((userRole === 'Barbero' || userRole === 'Estilista') && barberData?.id) {
         barberoID = barberData.id;
-        console.log('✅ ID desde barberData:', barberoID);
       } else if (userRole === 'Administrador') {
         const emailUsuario = user?.email;
 

@@ -129,7 +129,6 @@ export const AuthProvider = ({ children }) => {
         );
         
         if (miCliente) {
-          console.log('✅ Cliente encontrado:', miCliente.nombre);
           return { clientData: miCliente };
         }
       } else if (userRole === "Barbero" || userRole === "Estilista" || userRole === "Administrador") {
@@ -156,7 +155,6 @@ export const AuthProvider = ({ children }) => {
         );
         
         if (miBarbero) {
-          console.log('✅ Barbero encontrado:', miBarbero.nombre);
           return { barberData: miBarbero };
         }
       }
