@@ -58,15 +58,17 @@ const MiPerfilScreen = () => {
     setInfoVisible(true);
   };
 
-  const cargarDatosBarbero = async () => {
+const cargarDatosBarbero = async () => {
     try {
       setLoading(true);
       const token = await AsyncStorage.getItem('token');
 
       let barberoID;
+      
+      // ✅ Acepta Barbero o Estilista
       if ((userRole === 'Barbero' || userRole === 'Estilista') && barberData?.id) {
         barberoID = barberData.id;
-        console.log('✅ Barbero ID desde barberData:', barberoID);
+        console.log('✅ ID desde barberData:', barberoID);
       } else if (userRole === 'Administrador') {
         const emailUsuario = user?.email;
 
@@ -91,7 +93,7 @@ const MiPerfilScreen = () => {
         );
 
         if (!miBarbero) {
-          showInfo('Error', 'No se encontró registro de barbero', 'error');
+          showInfo('Error', 'No se encontró registro de estilista', 'error');
           return;
         }
 
@@ -99,7 +101,7 @@ const MiPerfilScreen = () => {
       }
 
       if (!barberoID) {
-        showInfo('Error', 'No se pudo identificar al barbero', 'error');
+        showInfo('Error', 'No se pudo identificar al estilista', 'error');
         return;
       }
 
@@ -114,7 +116,10 @@ const MiPerfilScreen = () => {
       setNombre(barbero.nombre || '');
       setTelefono(barbero.telefono || '');
       setEmail(barbero.usuario?.email || user?.email || '');
-      setRol(barbero.usuario?.rol?.nombre || userRole || '');
+      
+      // ✅ Mostrar "Estilista" en vez de "Barbero"
+      const rolOriginal = barbero.usuario?.rol?.nombre || userRole || '';
+      setRol(rolOriginal === 'Barbero' || rolOriginal === 'BARBERO' ? 'Estilista' : rolOriginal);
 
       setInstagram(barbero.instagram || '');
       setFacebook(barbero.facebook || '');
