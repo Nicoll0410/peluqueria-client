@@ -132,7 +132,7 @@ export const AuthProvider = ({ children }) => {
           console.log('✅ Cliente encontrado:', miCliente.nombre);
           return { clientData: miCliente };
         }
-      } else if (userRole === "Barbero" || userRole === "Administrador") {
+      } else if (userRole === "Barbero" || userRole === "Estilista" || userRole === "Administrador") {
         // Para barberos y admins, buscar por email
         const email = user?.email;
         if (!email) {
