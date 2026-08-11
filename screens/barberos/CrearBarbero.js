@@ -27,17 +27,17 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 /* ─── localización ES ─── */
 LocaleConfig.locales.es = {
   monthNames: [
-    "Enero","Febrero","Marzo","Abril","Mayo","Junio",
-    "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre",
+    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre",
   ],
   monthNamesShort: [
-    "Ene","Feb","Mar","Abr","May","Jun",
-    "Jul","Ago","Sep","Oct","Nov","Dic",
+    "Ene", "Feb", "Mar", "Abr", "May", "Jun",
+    "Jul", "Ago", "Sep", "Oct", "Nov", "Dic",
   ],
   dayNames: [
-    "Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado",
+    "Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado",
   ],
-  dayNamesShort: ["Dom","Lun","Mar","Mié","Jue","Vie","Sáb"],
+  dayNamesShort: ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"],
   today: "Hoy",
 };
 LocaleConfig.defaultLocale = "es";
@@ -46,8 +46,8 @@ LocaleConfig.defaultLocale = "es";
 const { width } = Dimensions.get("window");
 const currentYear = new Date().getFullYear();
 const months = [
-  "Enero","Febrero","Marzo","Abril","Mayo","Junio",
-  "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre",
+  "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+  "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre",
 ];
 const years = Array.from({ length: 81 }, (_, i) => currentYear - i);
 
@@ -131,10 +131,10 @@ const CrearBarbero = ({ visible, onClose, onCreate }) => {
     !d
       ? "dd/mm/aaaa"
       : d.toLocaleDateString("es-ES", {
-          day: "2-digit",
-          month: "2-digit",
-          year: "numeric",
-        });
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      });
 
   const toISODate = (d) => (d ? d.toISOString().split("T")[0] : "");
 
@@ -250,7 +250,7 @@ const CrearBarbero = ({ visible, onClose, onCreate }) => {
     const today = new Date();
     let newMonth = calendarMonth + increment;
     let newYear = calendarYear;
-    
+
     if (newMonth > 11) {
       newMonth = 0;
       newYear++;
@@ -258,10 +258,10 @@ const CrearBarbero = ({ visible, onClose, onCreate }) => {
       newMonth = 11;
       newYear--;
     }
-    
+
     // Validación para fecha de contratación (15 años atrás)
     const minYear = pickerField === "contratacion" ? currentYear - 15 : currentYear - 80;
-    
+
     if (newYear <= currentYear && newYear >= minYear) {
       if (newYear === currentYear && newMonth > today.getMonth()) {
         setCalendarMonth(today.getMonth());
@@ -310,7 +310,7 @@ const CrearBarbero = ({ visible, onClose, onCreate }) => {
                     {roles.map((r) => (
                       <Picker.Item
                         key={r.id}
-                        label={r.nombre}
+                        label={r.nombre === 'Barbero' || r.nombre === 'BARBERO' ? 'Estilista' : r.nombre}
                         value={r.id}
                       />
                     ))}
@@ -604,52 +604,52 @@ const CrearBarbero = ({ visible, onClose, onCreate }) => {
               <TouchableOpacity
                 onPress={() => changeMonth(-1)}
                 disabled={
-                  pickerField === "contratacion" 
+                  pickerField === "contratacion"
                     ? calendarYear === currentYear - 15 && calendarMonth === 0
                     : calendarYear === currentYear - 80 && calendarMonth === 0
                 }
               >
-                <MaterialIcons 
-                  name="chevron-left" 
-                  size={24} 
+                <MaterialIcons
+                  name="chevron-left"
+                  size={24}
                   color={
-                    pickerField === "contratacion" 
+                    pickerField === "contratacion"
                       ? calendarYear === currentYear - 15 && calendarMonth === 0 ? "#ccc" : "#333"
                       : calendarYear === currentYear - 80 && calendarMonth === 0 ? "#ccc" : "#333"
-                  } 
+                  }
                 />
               </TouchableOpacity>
-              
+
               <View style={styles.monthYearSelector}>
                 <Text style={styles.monthYearText}>
                   {months[calendarMonth]} de {calendarYear}
                 </Text>
               </View>
-              
+
               <TouchableOpacity
                 onPress={() => changeMonth(1)}
                 disabled={
-                  pickerField === "contratacion" 
+                  pickerField === "contratacion"
                     ? calendarYear === currentYear && calendarMonth === new Date().getMonth()
                     : calendarYear === currentYear && calendarMonth === new Date().getMonth()
                 }
               >
-                <MaterialIcons 
-                  name="chevron-right" 
-                  size={24} 
+                <MaterialIcons
+                  name="chevron-right"
+                  size={24}
                   color={
-                    calendarYear === currentYear && calendarMonth === new Date().getMonth() 
-                      ? "#ccc" 
+                    calendarYear === currentYear && calendarMonth === new Date().getMonth()
+                      ? "#ccc"
                       : "#333"
-                  } 
+                  }
                 />
               </TouchableOpacity>
             </View>
-            
+
             {/* Selector de años con scroll horizontal */}
             <View style={styles.yearsScrollContainer}>
-              <ScrollView 
-                horizontal 
+              <ScrollView
+                horizontal
                 showsHorizontalScrollIndicator={true}
                 contentContainerStyle={styles.yearsContainer}
               >
@@ -680,7 +680,7 @@ const CrearBarbero = ({ visible, onClose, onCreate }) => {
                 ))}
               </ScrollView>
             </View>
-            
+
             {/* calendario */}
             <Calendar
               key={`${calendarYear}-${calendarMonth}`}
@@ -695,14 +695,14 @@ const CrearBarbero = ({ visible, onClose, onCreate }) => {
                 ...disabledObj(),
                 ...(formData[pickerField === "nacimiento" ? "fechaNacimiento" : "fechaContratacion"]
                   ? {
-                      [toISODate(
-                        formData[pickerField === "nacimiento" ? "fechaNacimiento" : "fechaContratacion"]
-                      )]: {
-                        selected: true,
-                        selectedColor: "#424242",
-                        selectedTextColor: "#fff",
-                      },
-                    }
+                    [toISODate(
+                      formData[pickerField === "nacimiento" ? "fechaNacimiento" : "fechaContratacion"]
+                    )]: {
+                      selected: true,
+                      selectedColor: "#424242",
+                      selectedTextColor: "#fff",
+                    },
+                  }
                   : {}),
               }}
               theme={{

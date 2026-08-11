@@ -24,17 +24,17 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 /* ───────────────────── localización ES ───────────────────── */
 LocaleConfig.locales.es = {
   monthNames: [
-    "Enero","Febrero","Marzo","Abril","Mayo","Junio",
-    "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre",
+    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre",
   ],
   monthNamesShort: [
-    "Ene","Feb","Mar","Abr","May","Jun",
-    "Jul","Ago","Sep","Oct","Nov","Dic",
+    "Ene", "Feb", "Mar", "Abr", "May", "Jun",
+    "Jul", "Ago", "Sep", "Oct", "Nov", "Dic",
   ],
   dayNames: [
-    "Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado",
+    "Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado",
   ],
-  dayNamesShort: ["Dom","Lun","Mar","Mié","Jue","Vie","Sáb"],
+  dayNamesShort: ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"],
   today: "Hoy",
 };
 LocaleConfig.defaultLocale = "es";
@@ -43,8 +43,8 @@ LocaleConfig.defaultLocale = "es";
 const { width } = Dimensions.get("window");
 const currentYear = new Date().getFullYear();
 const months = [
-  "Enero","Febrero","Marzo","Abril","Mayo","Junio",
-  "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre",
+  "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+  "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre",
 ];
 const years = Array.from({ length: 81 }, (_, i) => currentYear - i);
 
@@ -104,13 +104,13 @@ const EditarBarbero = ({ visible, onClose, barbero, onUpdate }) => {
       fechaNacimiento: barbero.fechaNacimiento
         ? new Date(barbero.fechaNacimiento)
         : barbero.fecha_nacimiento
-        ? new Date(barbero.fecha_nacimiento)
-        : null,
+          ? new Date(barbero.fecha_nacimiento)
+          : null,
       fechaContratacion: barbero.fechaContratacion
         ? new Date(barbero.fechaContratacion)
         : barbero.fecha_de_contratacion
-        ? new Date(barbero.fecha_de_contratacion)
-        : null,
+          ? new Date(barbero.fecha_de_contratacion)
+          : null,
       email: barbero.email || barbero.usuario?.email || "",
       avatar: barbero.avatar || null,
     });
@@ -128,10 +128,10 @@ const EditarBarbero = ({ visible, onClose, barbero, onUpdate }) => {
     !d
       ? "dd/mm/aaaa"
       : d.toLocaleDateString("es-ES", {
-          day: "2-digit",
-          month: "2-digit",
-          year: "numeric",
-        });
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      });
 
   const pickImage = async () => {
     const res = await ImagePicker.launchImageLibraryAsync({
@@ -248,7 +248,11 @@ const EditarBarbero = ({ visible, onClose, barbero, onUpdate }) => {
                   >
                     <Picker.Item label="Seleccione un rol" value="" />
                     {roles.map((r) => (
-                      <Picker.Item key={r.id} label={r.nombre} value={r.id} />
+                      <Picker.Item
+                        key={r.id}
+                        label={r.nombre === 'Barbero' || r.nombre === 'BARBERO' ? 'Estilista' : r.nombre}
+                        value={r.id}
+                      />
                     ))}
                   </Picker>
                 </View>
@@ -528,18 +532,18 @@ const EditarBarbero = ({ visible, onClose, barbero, onUpdate }) => {
                     : "fechaContratacion"
                 ]
                   ? {
-                      [toISODate(
-                        formData[
-                          pickerField === "nacimiento"
-                            ? "fechaNacimiento"
-                            : "fechaContratacion"
-                        ]
-                      )]: {
-                        selected: true,
-                        selectedColor: "#424242",
-                        selectedTextColor: "#fff",
-                      },
-                    }
+                    [toISODate(
+                      formData[
+                      pickerField === "nacimiento"
+                        ? "fechaNacimiento"
+                        : "fechaContratacion"
+                      ]
+                    )]: {
+                      selected: true,
+                      selectedColor: "#424242",
+                      selectedTextColor: "#fff",
+                    },
+                  }
                   : {}),
               }}
               theme={{
