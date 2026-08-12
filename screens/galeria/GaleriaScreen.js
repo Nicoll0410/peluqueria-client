@@ -213,7 +213,7 @@ const GaleriaScreen = ({ navigation }) => {
               </Text>
               {barbero.telefono && (
                 <View style={styles.telefonoContainer}>
-                  <Ionicons name="call" size={16} color="#D4AF37" />
+                  <Ionicons name="call" size={16} color="#7FFFD4" />
                   <Text style={styles.telefonoText}>{barbero.telefono}</Text>
                 </View>
               )}
@@ -309,7 +309,7 @@ const GaleriaScreen = ({ navigation }) => {
         <View style={styles.headerContainer}>
           <View style={styles.headerGradient}>
             <View style={styles.headerContent}>
-              <Ionicons name="cut-outline" size={40} color="#D4AF37" />
+              <Ionicons name="cut-outline" size={40} color="#7FFFD4" />
               <Text style={styles.headerTitle}>
                 Conoce el trabajo de nuestros barberos
               </Text>
@@ -391,7 +391,7 @@ const GaleriaScreen = ({ navigation }) => {
               onPress={() => setModalVisible(false)}
               style={styles.closeButton}
             >
-              <Ionicons name="close" size={28} color="#D4AF37" />
+              <Ionicons name="close" size={28} color="#7FFFD4" />
             </TouchableOpacity>
           </View>
 
@@ -532,17 +532,17 @@ const GaleriaScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000'
+    backgroundColor: '#FFFFFF'
   },
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#000'
+    backgroundColor: '#FFFFFF'
   },
   loadingText: {
     marginTop: 10,
-    color: '#fff',
+    color: '#2D2D2D',
     fontSize: 16
   },
   scrollView: {
@@ -555,7 +555,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden'
   },
   headerGradient: {
-    backgroundColor: '#000',
+    backgroundColor: '#F0FAF8',
     paddingVertical: 40,
     paddingHorizontal: 20,
     position: 'relative'
@@ -567,7 +567,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#2D2D2D',
     textAlign: 'center',
     marginTop: 16,
     marginBottom: 8,
@@ -575,7 +575,7 @@ const styles = StyleSheet.create({
   },
   headerSubtitle: {
     fontSize: 16,
-    color: '#7FFFD4',
+    color: '#00695C',
     textAlign: 'center',
     fontStyle: 'italic',
     fontWeight: 'bold'
@@ -591,7 +591,7 @@ const styles = StyleSheet.create({
     marginBottom: isMobile ? 16 : 0
   },
   cardInner: {
-    backgroundColor: '#1a1a1a',
+    backgroundColor: '#FFFFFF',
     borderRadius: 16,
     padding: 16,
     borderWidth: 2,
@@ -624,7 +624,7 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 30,
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     borderWidth: 2.5,
     borderColor: '#7FFFD4',
     justifyContent: 'center',
@@ -637,7 +637,7 @@ const styles = StyleSheet.create({
   barberoNombre: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#2D2D2D',
     textAlign: 'center'
   },
   telefonoContainer: {
@@ -648,7 +648,7 @@ const styles = StyleSheet.create({
   },
   telefonoText: {
     fontSize: 14,
-    color: '#fff',
+    color: '#2D2D2D',
     marginLeft: 4,
     fontWeight: '500'
   },
@@ -662,7 +662,7 @@ const styles = StyleSheet.create({
   },
   redBarberoButton: {
     padding: 6,
-    backgroundColor: '#2a2a2a',
+    backgroundColor: '#F0FAF8',
     borderRadius: 8,
     minWidth: 36,
     alignItems: 'center',
@@ -674,22 +674,22 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     height: 200,
     borderWidth: 1,
-    borderColor: '#333'
+    borderColor: '#B2F0E8'
   },
   trabajoImagenCompact: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#2a2a2a'
+    backgroundColor: '#F0FAF8'
   },
   sinContenidoCompact: {
     height: 200,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#2a2a2a',
+    backgroundColor: '#F0FAF8',
     borderRadius: 12,
     marginBottom: 8,
     borderWidth: 1,
-    borderColor: '#333'
+    borderColor: '#B2F0E8'
   },
   sinContenidoTextCompact: {
     color: '#666',
@@ -703,14 +703,14 @@ const styles = StyleSheet.create({
   },
   descripcionCompact: {
     fontSize: 13,
-    color: '#D4AF37',
+    color: '#00695C',
     textAlign: 'center',
     lineHeight: 18,
     fontWeight: '500'
   },
   descripcionPlaceholder: {
     fontSize: 13,
-    color: '#666',
+    color: '#9E9E9E',
     textAlign: 'center',
     fontStyle: 'italic'
   },
@@ -820,7 +820,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#7FFFD4'
   },
   filtroTexto: {
-    color: '#D4AF37',
+    color: '#7FFFD4',
     fontSize: 14,
     fontWeight: '600'
   },

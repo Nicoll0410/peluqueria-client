@@ -217,7 +217,7 @@ const cargarDatosBarbero = async () => {
     <View style={styles.container}>
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent}>
         <View style={styles.header}>
-          <Ionicons name="person-circle" size={60} color="#D4AF37" />
+          <Ionicons name="person-circle" size={60} color="#2D2D2D" />
           <Text style={styles.headerTitle}>Mi Perfil</Text>
           <Text style={styles.headerSubtitle}>{nombre}</Text>
         </View>
@@ -434,7 +434,7 @@ const cargarDatosBarbero = async () => {
             <View style={styles.previewCardWrapper}>
               <View style={styles.previewCard}>
                 <View style={styles.previewHeader}>
-                  <Ionicons name="person-circle" size={50} color="#D4AF37" />
+                  <Ionicons name="person-circle" size={50} color="#2D2D2D" />
                   <View style={styles.previewInfo}>
                     <Text style={styles.previewNombre}>{nombre}</Text>
                     <Text style={styles.previewRol}>{rol}</Text>
@@ -485,9 +485,8 @@ const cargarDatosBarbero = async () => {
             </View>
           </View>
         </View>
-
-        <Footer />
       </ScrollView>
+      <Footer />
 
       <InfoModal
         visible={infoVisible}

@@ -82,7 +82,7 @@ const GestionGaleriaScreen = () => {
       
       // Obtener el barberoID
       let barberoID;
-      if (userRole === 'Barbero' && barberData?.id) {
+      if ((userRole === 'Barbero' || userRole === 'Estilista') && barberData?.id) {
         barberoID = barberData.id;
       } else if (userRole === 'Administrador') {
         const email = user?.email;
@@ -241,7 +241,7 @@ const GestionGaleriaScreen = () => {
       
       // Obtener el barberoID
       let barberoID;
-      if (userRole === 'Barbero' && barberData?.id) {
+      if ((userRole === 'Barbero' || userRole === 'Estilista') && barberData?.id) {
         barberoID = barberData.id;
       } else if (userRole === 'Administrador') {
         const email = user?.email;
@@ -520,9 +520,8 @@ const GestionGaleriaScreen = () => {
             {contenidos.map(renderContenido)}
           </View>
         )}
-
-        <Footer />
       </ScrollView>
+      <Footer />
 
       {/* Modal para subir contenido */}
       <Modal
@@ -851,13 +850,13 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   emptyButton: {
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     paddingVertical: 12,
     paddingHorizontal: 24,
     borderRadius: 20
   },
   emptyButtonText: {
-    color: '#fff',
+    color: '#2D2D2D',
     fontSize: 16,
     fontWeight: '600'
   },
@@ -876,7 +875,7 @@ const styles = StyleSheet.create({
   modalTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#212121'
+    color: '#00695C'
   },
   closeButton: {
     padding: 8

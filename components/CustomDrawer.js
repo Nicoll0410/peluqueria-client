@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: "#FFFFFF" },
   scrollContainer: { flexGrow: 1 },
   logoContainer: { alignItems: "center", paddingVertical: 20, borderBottomWidth: 2, borderColor: "#7FFFD4", backgroundColor: "#F0FAF8" },
-  logo: { width: 140, height: 140, resizeMode: "contain", borderWidth: 2, borderColor: "#7FFFD4" },
+  logo: { width: 140, height: 140, resizeMode: "contain",},
   sectionTitle: { fontSize: 12, fontWeight: "700", color: "#00695C", paddingHorizontal: 20, paddingTop: 16, paddingBottom: 6, textTransform: "uppercase", letterSpacing: 1.5 },
   menuItem: { flexDirection: "row", alignItems: "center", paddingVertical: 13, paddingLeft: 20, marginHorizontal: 8, borderRadius: 10, marginBottom: 2 },
   menuText: { marginLeft: 14, fontSize: 15, color: "#2D2D2D", fontWeight: "500" },

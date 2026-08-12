@@ -31,7 +31,7 @@ const isMobile  = width <= 768;
 
 /* ------------------ Componentes auxiliares ----------------- */
 const Avatar = ({ nombre }) => {
-  const colores = ['#FF5733', '#33FF57', '#3357FF', '#F333FF', '#33FFF5'];
+  const colores = ['#7FFFD4', '#5FE0C8', '#B088C8', '#E8C4D8', '#B2F0E8'];
   const bg = colores[nombre?.length % colores.length] || '#FF5733';
   return (
     <View style={[styles.avatarContainer, { backgroundColor: bg }]}>
@@ -229,7 +229,7 @@ const cancelarCita = async () => {
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#424242" />
+        <ActivityIndicator size="large" color="#7FFFD4" />
         <Text style={styles.loadingText}>Cargando citas…</Text>
       </View>
     );
@@ -396,7 +396,7 @@ const cancelarCita = async () => {
               {/* Header del Modal */}
               <View style={styles.modalFiltroHeader}>
                 <View style={styles.modalHeaderIcon}>
-                  <Ionicons name="options" size={28} color="#424242" />
+                  <Ionicons name="options" size={28} color="#7FFFD4" />
                 </View>
                 <View style={styles.modalHeaderText}>
                   <Text style={styles.modalFiltroTitle}>Filtrar por Estado</Text>
@@ -544,7 +544,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: isMobile ? 10 : 16,
-    backgroundColor: '#fff',
+    backgroundColor: '#F0FAF8',
   },
   cancelButton: {
     backgroundColor: '#FF4444',
@@ -563,7 +563,7 @@ const styles = StyleSheet.create({
   loadingText: {
     marginTop: 10,
     fontSize: 16,
-    color: '#424242',
+    color: '#00695C',
   },
   header: {
     flexDirection: 'row',
@@ -579,9 +579,10 @@ const styles = StyleSheet.create({
     fontSize: isMobile ? 20 : 24,
     fontWeight: 'bold',
     marginRight: 10,
+    color: '#00695C',
   },
   contadorContainer: {
-    backgroundColor: '#D9D9D9',
+    backgroundColor: '#E8F8F5',
     width: 30,
     height: 30,
     borderRadius: 15,
@@ -591,25 +592,26 @@ const styles = StyleSheet.create({
   contadorTexto: {
     fontWeight: 'bold',
     fontSize: 16,
+    color: '#00695C',
   },
   filtroButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     paddingVertical: 8,
     paddingHorizontal: 12,
     borderRadius: 20,
   },
   filtroButtonText: {
     marginLeft: 8,
-    color: 'white',
+    color: '#2D2D2D',
     fontWeight: '500',
     fontSize: 14,
   },
   filtroActivoContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#E8F8F5',
     padding: 8,
     borderRadius: 8,
     marginBottom: 8,
@@ -621,7 +623,7 @@ const styles = StyleSheet.create({
   },
   filtroEstadoText: {
     fontWeight: 'bold',
-    color: '#424242',
+    color: '#00695C',
   },
   quitarFiltroButton: {
     padding: 4,
@@ -669,12 +671,12 @@ const styles = StyleSheet.create({
   modalFiltroTitle: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#424242',
+    color: '#00695C',
     marginBottom: 4,
   },
   modalFiltroSubtitle: {
     fontSize: 14,
-    color: '#666',
+    color: '#00695C',
     lineHeight: 18,
   },
   closeButton: {
@@ -767,13 +769,13 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: 'transparent',
     borderWidth: 1,
-    borderColor: '#dee2e6',
+    borderColor: '#7FFFD4',
   },
   resetButtonText: {
     marginLeft: 8,
     fontSize: 14,
     fontWeight: '500',
-    color: '#666',
+    color: '#00695C',
   },
 
   addButton: {
@@ -801,7 +803,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 15,
     marginBottom: 15,
-    shadowColor: '#000',
+    shadowColor: '#7FFFD4',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
@@ -821,6 +823,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     fontWeight: 'bold',
     fontSize: 16,
+    color: '#2D2D2D',
   },
   cardBody: {
     marginVertical: 10,
@@ -832,7 +835,7 @@ const styles = StyleSheet.create({
   cardLabel: {
     fontWeight: 'bold',
     width: 80,
-    color: '#555',
+    color: '#00695C',
   },
   cardValue: {
     flex: 1,
@@ -858,10 +861,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#F44336',
   },
   viewButton: {
-    backgroundColor: '#D9D9D9',
+    backgroundColor: '#F0FAF8',
     padding: 8,
     borderRadius: 20,
     marginLeft: 10,
+    borderWidth: 1,
+    borderColor: '#B2F0E8',
   },
   actionButtonText: {
     marginLeft: 5,
@@ -870,15 +875,15 @@ const styles = StyleSheet.create({
   },
   tabla: {
     borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 4,
+    borderColor: '#B2F0E8',
+    borderRadius: 12,
     overflow: 'hidden',
     flex: 1,
     marginBottom: 10,
   },
   filaEncabezado: {
     flexDirection: 'row',
-    backgroundColor: '#424242',
+    backgroundColor: '#7FFFD4',
     paddingVertical: 12,
     borderBottomWidth: 1,
     borderBottomColor: '#ddd',
@@ -892,9 +897,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingVertical: 12,
     borderBottomWidth: 1,
-    borderBottomColor: '#eee',
+    borderBottomColor: '#E8F8F5',
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: '#FFFFFF',
   },
   celda: {
     justifyContent: 'center',
@@ -947,7 +952,7 @@ const styles = StyleSheet.create({
   encabezado: {
     fontWeight: 'bold',
     textAlign: 'center',
-    color: 'white',
+    color: '#2D2D2D',
   },
   contenedorAcciones: {
     flexDirection: 'row',
@@ -958,10 +963,12 @@ const styles = StyleSheet.create({
     marginHorizontal: 6,
   },
   viewButtonDesktop: {
-    backgroundColor: '#D9D9D9',
+    backgroundColor: '#F0FAF8',
     padding: 6,
     borderRadius: 20,
     marginLeft: 6,
+    borderWidth: 1,
+    borderColor: '#B2F0E8',
   },
   estadoContainer: {
     paddingVertical: 4,

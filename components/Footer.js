@@ -25,7 +25,7 @@ const Footer = ({ dark = false }) => {
           <TouchableOpacity style={styles.authorLink}>
             <Ionicons name="person" size={12} color={dark ? "#E8C4D8" : "#B088C8"} />
             <Text style={[styles.text, styles.highlight, dark && styles.darkHighlight]}>
-              {' '}Nicoll Andrea Giraldo Franco
+              {' '}Nicoll Andrea Giraldo Franco.
             </Text>
           </TouchableOpacity>
 
@@ -34,7 +34,7 @@ const Footer = ({ dark = false }) => {
           <TouchableOpacity style={styles.authorLink}>
             <Ionicons name="person" size={12} color={dark ? "#E8C4D8" : "#B088C8"} />
             <Text style={[styles.text, styles.highlight, dark && styles.darkHighlight]}>
-              {' '}Luis Miguel Chica Ruíz
+              {' '}Luis Miguel Chica Ruíz.
             </Text>
           </TouchableOpacity>
         </View>
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     paddingHorizontal: 16,
     flexWrap: 'wrap',
