@@ -210,12 +210,6 @@ const GaleriaScreen = ({ navigation }) => {
               <Text style={styles.barberoNombre} numberOfLines={1}>
                 {barbero.nombre}
               </Text>
-              {barbero.telefono && (
-                <View style={styles.telefonoContainer}>
-                  <Ionicons name="call" size={16} color="#7FFFD4" />
-                  <Text style={styles.telefonoText}>{barbero.telefono}</Text>
-                </View>
-              )}
               
               <View style={styles.redesBarberoContainer}>
                 {barbero.instagram && (
@@ -389,7 +383,7 @@ const GaleriaScreen = ({ navigation }) => {
               onPress={() => setModalVisible(false)}
               style={styles.closeButton}
             >
-              <Ionicons name="close" size={28} color="#7FFFD4" />
+              <Ionicons name="close" size={28} color="#00695C" />
             </TouchableOpacity>
           </View>
 
@@ -466,7 +460,7 @@ const GaleriaScreen = ({ navigation }) => {
                 <Ionicons name="images-outline" size={60} color="#666" />
                 <Text style={styles.emptyText}>
                   {filtroActivo === 'todos' 
-                    ? 'Este barbero aún no ha subido trabajos'
+                    ? 'Esta estilista aún no ha subido trabajos'
                     : filtroActivo === 'imagenes'
                     ? 'No hay fotos disponibles'
                     : 'No hay videos disponibles'
@@ -747,12 +741,12 @@ const styles = StyleSheet.create({
   },
   // ✅ NUEVO: Logo en el modal
   modalLogoContainer: {
-    backgroundColor: '#000',
+    backgroundColor: '#FFFFFF',
     paddingVertical: 16,
     paddingHorizontal: 20,
     alignItems: 'center',
     borderBottomWidth: 1,
-    borderBottomColor: '#7FFFD4'
+    borderBottomColor: '#B2F0E8'
   },
   modalLogo: {
     width: 240,
@@ -765,7 +759,7 @@ const styles = StyleSheet.create({
     padding: 16,
     borderBottomWidth: 2,
     borderBottomColor: '#7FFFD4',
-    backgroundColor: '#FFFFFF'
+    backgroundColor: '#F0FAF8'
   },
   modalHeaderLeft: {
     flex: 1
@@ -773,7 +767,7 @@ const styles = StyleSheet.create({
   modalTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#2D2D2D',
     marginBottom: 4
   },
   redesModalContainer: {
@@ -783,7 +777,7 @@ const styles = StyleSheet.create({
   },
   redModalButton: {
     padding: 6,
-    backgroundColor: '#2a2a2a',
+    backgroundColor: '#F0FAF8',
     borderRadius: 8,
     minWidth: 36,
     alignItems: 'center',
@@ -799,9 +793,9 @@ const styles = StyleSheet.create({
     gap: 12,
     paddingVertical: 16,
     paddingHorizontal: 20,
-    backgroundColor: '#1a1a1a',
+    backgroundColor: 'FFFFFF',
     borderBottomWidth: 1,
-    borderBottomColor: '#333'
+    borderBottomColor: '#B2F0E8'
   },
   filtroBoton: {
     flexDirection: 'row',
@@ -812,13 +806,13 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 2,
     borderColor: '#7FFFD4',
-    backgroundColor: '#000'
+    backgroundColor: '#FFFFF'
   },
   filtroBotonActivo: {
     backgroundColor: '#7FFFD4'
   },
   filtroTexto: {
-    color: '#7FFFD4',
+    color: '#00695C',
     fontSize: 14,
     fontWeight: '600'
   },
@@ -827,7 +821,7 @@ const styles = StyleSheet.create({
   },
   modalContent: {
     flex: 1,
-    backgroundColor: '#000'
+    backgroundColor: '#F0FAF8'
   },
   modalContentContainer: {
     paddingBottom: 20
@@ -846,25 +840,25 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     borderWidth: 2,
     borderColor: '#7FFFD4',
-    backgroundColor: '#1a1a1a',
+    backgroundColor: '#FFFFF',
     minHeight: 250 // ✅ NUEVO: Altura mínima para mantener proporción
   },
   galeriaImagen: {
     width: '100%',
     minHeight: 250, // ✅ NUEVO: Altura mínima
-    backgroundColor: '#2a2a2a'
+    backgroundColor: '#F0FAF8'
   },
   videoPlaceholderSmall: {
     width: '100%',
     height: 250,
-    backgroundColor: '#2a2a2a',
+    backgroundColor: '#F0FAF8',
     justifyContent: 'center',
     alignItems: 'center'
   },
   galeriaDescripcion: {
     marginTop: 8,
     fontSize: 12,
-    color: '#2D2D2D',
+    color: '#00695C',
     textAlign: 'center',
     fontWeight: '500'
   }

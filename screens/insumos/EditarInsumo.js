@@ -111,7 +111,7 @@ const EditarInsumo = ({ visible, onClose, insumo, categoriasExistentes = [], onU
                 <Text style={styles.label}>Nombre*</Text>
                 <TextInput
                   style={[styles.input, errores.nombre && styles.inputError]}
-                  placeholder="Ej: Crema de afeitar"
+                  placeholder="Ej: Crema"
                   placeholderTextColor="#D9D9D9"
                   value={nombre}
                   onChangeText={(text) => {

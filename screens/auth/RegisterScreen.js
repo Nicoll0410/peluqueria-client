@@ -284,7 +284,7 @@ const RegisterScreen = () => {
             </Text>
             <TextInput
               style={[styles.input, errors.nombre && styles.inputError]}
-              placeholder="Ej: Carlos Gómez"
+              placeholder="Ej: Ana Gómez"
               placeholderTextColor="#929292"
               value={form.nombre}
               onChangeText={(text) => handleChange('nombre', text)}

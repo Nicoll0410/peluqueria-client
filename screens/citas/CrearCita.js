@@ -334,7 +334,7 @@ const CrearCita = ({ visible, onClose, onCreate, infoCreacion }) => {
           <Text style={styles.inputLabel}>Nombre del cliente</Text>
           <TextInput
             style={styles.input}
-            placeholder="Ej: Pedro Gómez"
+            placeholder="Ej: Ana Gómez"
             value={tempNombre}
             onChangeText={setTempNombre}
           />

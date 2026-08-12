@@ -436,7 +436,7 @@ const pickImage = async () => {
               </Text>
               <TextInput
                 style={[styles.input, errors.nombre && styles.inputError]}
-                placeholder="Ej: Carlos Gómez"
+                placeholder="Ej: Ana Gómez"
                 placeholderTextColor="#929292"
                 value={formData.nombre}
                 onChangeText={(text) => handleChange("nombre", text)}

@@ -112,7 +112,7 @@ const CrearInsumo = ({ visible, onClose, onCreate, categoriasExistentes = [] }) 
                   </Text>
                   <TextInput
                     style={[styles.input, errores.nombre && styles.inputError]}
-                    placeholder="Ej: Crema de afeitar"
+                    placeholder="Ej: Crema"
                     placeholderTextColor="#D9D9D9"
                     value={nombre}
                     onChangeText={(text) => {
