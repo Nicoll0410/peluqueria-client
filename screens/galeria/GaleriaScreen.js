@@ -118,7 +118,6 @@ const GaleriaScreen = ({ navigation }) => {
       );
 
       if (data.success) {
-        console.log('📊 Galería cargada:', data.data.length, 'barberos');
         setGaleriaPorBarbero(data.data);
       }
     } catch (error) {
@@ -744,7 +743,7 @@ const styles = StyleSheet.create({
   // ✅ ESTILOS DEL MODAL
   modalContainer: {
     flex: 1,
-    backgroundColor: '#000'
+    backgroundColor: '#FFFFFF'
   },
   // ✅ NUEVO: Logo en el modal
   modalLogoContainer: {
