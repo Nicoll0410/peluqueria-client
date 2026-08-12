@@ -163,13 +163,11 @@ const styles = StyleSheet.create({
   decorativeContent: { alignItems: 'center' },
   // ✅ AGREGAR:
   decorativeLogo: {
-    width: 120,
-    height: 120,
-    borderRadius: 60,
-    borderWidth: 3,
-    borderColor: '#FFFFFF',
+    width: 150,
+    height: 150,
+    resizeMode: 'contain',
     marginBottom: 20,
-  },
+},
   decorativeTitle: {
     fontSize: 32, fontWeight: 'bold', color: '#1A1A1A',
     letterSpacing: 6, marginBottom: 5,
