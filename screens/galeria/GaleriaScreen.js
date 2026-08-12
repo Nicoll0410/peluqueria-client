@@ -309,12 +309,12 @@ const GaleriaScreen = ({ navigation }) => {
         <View style={styles.headerContainer}>
           <View style={styles.headerGradient}>
             <View style={styles.headerContent}>
-              <Ionicons name="cut-outline" size={40} color="#7FFFD4" />
+              <Ionicons name="cut-outline" size={40} color="#2D2D2D" />
               <Text style={styles.headerTitle}>
-                Conoce el trabajo de nuestros barberos
+                Conoce el trabajo de nuestras estilistas
               </Text>
               <Text style={styles.headerSubtitle}>
-                Explora los mejores cortes y estilos
+                Explora los mejores estilos
               </Text>
             </View>
           </View>
@@ -332,9 +332,8 @@ const GaleriaScreen = ({ navigation }) => {
             {galeriaPorBarbero.map(renderBarberoCard)}
           </View>
         )}
-
-        <Footer dark />
       </ScrollView>
+      <Footer />
 
       {/* ✅ MODAL CON MEJORAS */}
       <Modal
@@ -555,7 +554,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden'
   },
   headerGradient: {
-    backgroundColor: '#F0FAF8',
+    backgroundColor: '#FFFFFF',
     paddingVertical: 40,
     paddingHorizontal: 20,
     position: 'relative'
@@ -767,7 +766,7 @@ const styles = StyleSheet.create({
     padding: 16,
     borderBottomWidth: 2,
     borderBottomColor: '#7FFFD4',
-    backgroundColor: '#1a1a1a'
+    backgroundColor: '#FFFFFF'
   },
   modalHeaderLeft: {
     flex: 1
