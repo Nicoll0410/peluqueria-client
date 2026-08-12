@@ -253,7 +253,7 @@ const CustomDrawerNavigator = ({ navigation: mainNavigation }) => {
               })}
             />
             <Stack.Screen
-              name="Mi Galeria"
+              name="MiGaleria"
               component={GestionGaleriaScreen}
               options={({ navigation }) => ({
                 ...commonOptions({ navigation }),

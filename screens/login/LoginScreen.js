@@ -1,9 +1,9 @@
 import React from 'react';
-import { 
-  View, 
-  Image, 
-  StyleSheet, 
-  Dimensions, 
+import {
+  View,
+  Image,
+  StyleSheet,
+  Dimensions,
   Platform,
   ScrollView,
   Text,
@@ -28,18 +28,20 @@ const LoginScreen = () => {
       >
         {isMobile ? (
           <View style={styles.mobileContainer}>
-            <ScrollView 
+            <ScrollView
               contentContainerStyle={styles.scrollContainer}
               keyboardShouldPersistTaps="handled"
             >
               <View style={styles.mobileContent}>
-                {/* Icono decorativo */}
+                {/* Logo */}
                 <View style={styles.iconContainer}>
-                  <View style={styles.iconCircle}>
-                    <Text style={styles.iconText}>💎</Text>
-                  </View>
+                  <Image
+                    source={require('../../assets/images/logo-peluqueria.jpeg')}
+                    style={styles.logoImage}
+                    resizeMode="contain"
+                  />
                 </View>
-                
+
                 <Text style={styles.brandName}>SALA DE BELLEZA</Text>
                 <Text style={styles.brandNameMain}>ALBA QUICENO</Text>
                 <View style={styles.divider}>
@@ -48,7 +50,7 @@ const LoginScreen = () => {
                   <View style={styles.dividerLine} />
                 </View>
                 <Text style={styles.tagline}>Tu belleza, nuestro arte</Text>
-                
+
                 <LoginForm />
               </View>
             </ScrollView>
@@ -68,7 +70,11 @@ const LoginScreen = () => {
                   end={{ x: 1, y: 1 }}
                 >
                   <View style={styles.decorativeContent}>
-                    <Text style={styles.decorativeIcon}>💎</Text>
+                    <Image
+                      source={require('../../assets/images/logo-peluqueria.jpeg')}
+                      style={styles.decorativeLogo}
+                      resizeMode="contain"
+                    />
                     <Text style={styles.decorativeTitle}>ALBA QUICENO</Text>
                     <Text style={styles.decorativeSubtitle}>Sala de Belleza</Text>
                     <View style={styles.decorativeLine} />
@@ -76,7 +82,7 @@ const LoginScreen = () => {
                   </View>
                 </LinearGradient>
               </View>
-              
+
               {/* Panel derecho - Login */}
               <View style={styles.rightPanel}>
                 <View style={styles.loginBox}>
@@ -99,25 +105,29 @@ const LoginScreen = () => {
 const styles = StyleSheet.create({
   safeArea: { flex: 1, backgroundColor: '#FFFFFF' },
   gradient: { flex: 1 },
-  
+
   // MÓVIL
   mobileContainer: { flex: 1 },
   scrollContainer: { flexGrow: 1, justifyContent: 'center', paddingBottom: 100 },
   mobileContent: { width: '100%', alignItems: 'center', padding: 30 },
   mobileFooter: { position: 'absolute', bottom: 0, left: 0, right: 0 },
-  
-  // ICONO
-  iconContainer: { marginBottom: 20 },
-  iconCircle: {
-    width: 80, height: 80, borderRadius: 40,
+
+  // ✅ AGREGAR estos estilos:
+  iconContainer: { marginBottom: 20, alignItems: 'center' },
+  logoImage: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    borderWidth: 3,
+    borderColor: '#7FFFD4',
     backgroundColor: '#FFFFFF',
-    justifyContent: 'center', alignItems: 'center',
-    shadowColor: '#B088C8', shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3, shadowRadius: 10, elevation: 8,
-    borderWidth: 2, borderColor: '#E8C4D8',
+    shadowColor: '#7FFFD4',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 10,
+    elevation: 8,
   },
-  iconText: { fontSize: 35 },
-  
+
   // TÍTULOS
   brandName: {
     fontSize: 14, fontWeight: '600', letterSpacing: 8,
@@ -137,7 +147,7 @@ const styles = StyleSheet.create({
     marginBottom: 30, letterSpacing: 1,
     fontFamily: Platform.OS === 'web' ? 'Raleway, sans-serif' : 'sans-serif',
   },
-  
+
   // DESKTOP
   desktopContainer: { flex: 1, justifyContent: 'center', alignItems: 'center' },
   desktopContent: {
@@ -146,12 +156,20 @@ const styles = StyleSheet.create({
     shadowColor: '#B088C8', shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.2, shadowRadius: 30, elevation: 15, margin: 20,
   },
-  
+
   // PANEL IZQUIERDO
   leftPanel: { flex: 1 },
   decorativePanel: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 40 },
   decorativeContent: { alignItems: 'center' },
-  decorativeIcon: { fontSize: 60, marginBottom: 20 },
+  // ✅ AGREGAR:
+  decorativeLogo: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    borderWidth: 3,
+    borderColor: '#FFFFFF',
+    marginBottom: 20,
+  },
   decorativeTitle: {
     fontSize: 32, fontWeight: 'bold', color: '#1A1A1A',
     letterSpacing: 6, marginBottom: 5,
@@ -167,7 +185,7 @@ const styles = StyleSheet.create({
     fontSize: 14, color: '#2D2D2D', fontStyle: 'italic',
     fontFamily: Platform.OS === 'web' ? 'Playfair Display, serif' : 'serif',
   },
-  
+
   // PANEL DERECHO
   rightPanel: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 40 },
   loginBox: { width: '100%', maxWidth: 380 },
@@ -179,7 +197,7 @@ const styles = StyleSheet.create({
     fontSize: 14, color: '#B088C8', marginBottom: 35, letterSpacing: 1,
     fontFamily: Platform.OS === 'web' ? 'Raleway, sans-serif' : 'sans-serif',
   },
-  
+
   desktopFooter: { width: '100%', maxWidth: 1100, paddingTop: 10 },
 });
 
