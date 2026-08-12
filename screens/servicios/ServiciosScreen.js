@@ -25,7 +25,8 @@ const ServiciosScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [modalDetalleVisible, setModalDetalleVisible] = useState(false);
   const [modalEditarVisible, setModalEditarVisible] = useState(false);
-  const [servicioSeleccionado, setServicioSeleccionado] = useState(null);
+  const [servicioSeleccionado, setServiciosSel
+eccionado] = useState(null);
   const [loading, setLoading] = useState(false);
   const [insumosDisponibles, setInsumosDisponibles] = useState([]);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
@@ -123,7 +124,8 @@ const ServiciosScreen = () => {
       const response = await axios.get(`https://peluqueria-server-gw54.onrender.com/servicios/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      setServicioSeleccionado({
+      setServiciosSel
+eccionado({
         ...response.data.servicio,
         serviciosPorInsumo: response.data.serviciosPorInsumo
       });
@@ -140,7 +142,8 @@ const ServiciosScreen = () => {
       const response = await axios.get(`https://peluqueria-server-gw54.onrender.com/servicios/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      setServicioSeleccionado({
+      setServiciosSel
+eccionado({
         ...response.data.servicio,
         insumos: response.data.serviciosPorInsumo.map(item => ({
           id: item.insumoID,

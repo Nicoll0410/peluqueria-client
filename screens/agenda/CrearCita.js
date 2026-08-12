@@ -85,7 +85,8 @@ const CrearCita = ({
   }, [visible, step, isTemporal]);
 
   const reset = () => {
-    setServicioSel([]);
+    setServiciosSel
+([]);
     setClienteSel(null);
     setBusqueda("");
     busquedaRef.current = "";
