@@ -223,7 +223,7 @@ const CrearCita = ({
     try {
       setIsLoading(true);
 
-      if (!servicioSel || !barbero) {
+      if (!serviciosSel || !barbero) {
         throw new Error("Falta información del servicio o estilista");
       }
 
@@ -268,7 +268,7 @@ const CrearCita = ({
         horaFin: `${horaFin24}:00`,
         direccion: "En el salón",
         estado: "Pendiente",
-        duracionReal: servicioSel.duracionMaxima || "00:30:00",
+        duracionReal: serviciosSel.duracionMaxima || "00:30:00",
         duracionRedondeada: `${Math.floor(duracionMinutos / 60)}:${(
           duracionMinutos % 60
         )
@@ -407,7 +407,7 @@ const CrearCita = ({
             <TouchableOpacity
               style={[
                 styles.servicioItem,
-                serviciosSel.some((s) => s.id === item.id) && styles.servicioSel,
+                serviciosSel.some((s) => s.id === item.id) && styles.serviciosSel,
               ]}
               onPress={() => toggleServicio(item)}
             >
@@ -432,7 +432,7 @@ const CrearCita = ({
           style={[styles.btnPrimary, styles.btnWide, serviciosSel.length === 0 && styles.btnDisabled]}
           disabled={serviciosSel.length === 0}
           onPress={() => { setStep(2); syncInputsWithState(); }}
-          disabled={!servicioSel}
+          disabled={!serviciosSel}
         >
           <Text style={styles.btnPrimaryText}>Siguiente</Text>
         </TouchableOpacity>
@@ -615,7 +615,7 @@ const CrearCita = ({
 
   const Paso3 = () => {
     const duracionMinutos = convertirDuracionAMinutos(
-      servicioSel?.duracionMaxima || "01:00:00"
+      serviciosSel?.duracionMaxima || "01:00:00"
     );
     const horasCompletas = Math.floor(duracionMinutos / 60);
     const minutosRestantes = duracionMinutos % 60;
@@ -837,7 +837,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
     justifyContent: 'center',
   },
-  servicioSel: {
+  serviciosSel: {
     borderColor: "#7FFFD4",
     backgroundColor: "#E8F8F5",
   },
