@@ -36,7 +36,7 @@ const CrearCita = ({
 }) => {
   const authContext = useContext(AuthContext);
   const [step, setStep] = useState(1);
-  const [servicioSel, setServicioSel] = useState(null);
+  const [serviciosSel, setServiciosSel] = useState([]);
   const [clienteSel, setClienteSel] = useState(null);
   const [busqueda, setBusqueda] = useState("");
   const [isTemporal, setIsTemporal] = useState(false);
@@ -53,6 +53,17 @@ const CrearCita = ({
   const temporalNombreRef = useRef("");
   const temporalTelefonoRef = useRef("");
   const busquedaRef = useRef("");
+
+  const toggleServicio = (servicio) => {
+    setServiciosSel((prev) => {
+      const existe = prev.find((s) => s.id === servicio.id);
+      if (existe) {
+        return prev.filter((s) => s.id !== servicio.id);
+      } else {
+        return [...prev, servicio];
+      }
+    });
+  };
 
   useEffect(() => {
     return () => {
@@ -74,7 +85,7 @@ const CrearCita = ({
   }, [visible, step, isTemporal]);
 
   const reset = () => {
-    setServicioSel(null);
+    setServicioSel([]);
     setClienteSel(null);
     setBusqueda("");
     busquedaRef.current = "";
@@ -158,7 +169,7 @@ const CrearCita = ({
       if (response.data?.success && response.data.usuarioID) {
         return response.data.usuarioID;
       }
-      
+
       return null;
     } catch (error) {
       return null;
@@ -180,7 +191,7 @@ const CrearCita = ({
       if (response.data?.success && response.data.user?.id) {
         return response.data.user.id;
       }
-      
+
       return null;
     } catch (error) {
       return null;
@@ -233,14 +244,24 @@ const CrearCita = ({
         horaInicio24 = `${horaInicio24}:00`;
       }
 
-      const duracionMinutos = convertirDuracionAMinutos(
-        servicioSel.duracionMaxima
-      );
+      let duracionTotalMinutos = 0;
+      let precioTotal = 0;
+      serviciosSel.forEach((serv) => {
+        duracionTotalMinutos += convertirDuracionAMinutos(serv.duracionMaxima);
+        precioTotal += Number(serv.precio || 0);
+      });
+      const duracionMinutos = duracionTotalMinutos;
+
       const horaFin24 = calcularHoraFin(horaInicio24, duracionMinutos);
 
       const citaData = {
         barberoID: barbero.id,
-        servicioID: servicioSel.id,
+        servicios: serviciosSel.map(s => ({
+          id: s.id,
+          nombre: s.nombre,
+          duracionMaxima: s.duracionMaxima,
+          precio: s.precio
+        })),
         fecha: fechaFormateada,
         hora: horaInicio24,
         horaFin: `${horaFin24}:00`,
@@ -282,11 +303,11 @@ const CrearCita = ({
 
       if (response.data && response.data.mensaje === 'Cita creada exitosamente') {
         Alert.alert('Éxito', 'Cita creada correctamente');
-        
+
         // Crear notificaciones
         const citaId = response.data.cita.id;
         const clienteNombre = isTemporal ? temporalNombre : clienteSel?.nombre;
-        
+
         // 1. Crear notificación para el barbero
         const usuarioIDBarbero = await obtenerUsuarioIdDelBarbero(token, barbero.id);
         if (usuarioIDBarbero) {
@@ -298,7 +319,7 @@ const CrearCita = ({
             relacionId: citaId
           });
         }
-        
+
         // 2. Crear notificación para el usuario actual
         const usuarioIDActual = await obtenerUsuarioActual(token);
         if (usuarioIDActual) {
@@ -310,22 +331,22 @@ const CrearCita = ({
             relacionId: citaId
           });
         }
-        
+
         // Forzar actualización de notificaciones
         if (authContext?.fetchNotifications) {
           await authContext.fetchNotifications();
         }
-        
+
         // Reproducir sonido
         if (authContext?.playNotificationSound) {
           await authContext.playNotificationSound();
         }
-        
+
         handleClose();
         if (onCreate) onCreate();
         return;
       }
-      
+
       throw new Error(response.data?.mensaje || "Error al crear la cita");
     } catch (error) {
       console.error("Error completo al crear cita:", error);
@@ -375,7 +396,7 @@ const CrearCita = ({
       <Text style={styles.subtitle}>
         Selecciona el servicio que se realizará en la cita
       </Text>
-      
+
       {/* Contenedor con scroll interno para servicios */}
       <View style={styles.scrollContainer}>
         <FlatList
@@ -385,10 +406,11 @@ const CrearCita = ({
             <TouchableOpacity
               style={[
                 styles.servicioItem,
-                servicioSel?.id === item.id && styles.servicioSel,
+                serviciosSel.some((s) => s.id === item.id) && styles.servicioSel,
               ]}
-              onPress={() => setServicioSel(item)}
+              onPress={() => toggleServicio(item)}
             >
+
               <View style={styles.servicioInfoContainer}>
                 <Text style={styles.servicioNombre} numberOfLines={2} ellipsizeMode="tail">
                   {item.nombre}
@@ -403,18 +425,12 @@ const CrearCita = ({
           )}
         />
       </View>
-      
+
       <View style={styles.centeredBtn}>
         <TouchableOpacity
-          style={[
-            styles.btnPrimary,
-            styles.btnWide,
-            !servicioSel && styles.btnDisabled,
-          ]}
-          onPress={() => {
-            setStep(2);
-            syncInputsWithState();
-          }}
+          style={[styles.btnPrimary, styles.btnWide, serviciosSel.length === 0 && styles.btnDisabled]}
+          disabled={serviciosSel.length === 0}
+          onPress={() => { setStep(2); syncInputsWithState(); }}
           disabled={!servicioSel}
         >
           <Text style={styles.btnPrimaryText}>Siguiente</Text>
@@ -507,7 +523,7 @@ const CrearCita = ({
                 autoFocus={true}
               />
             </View>
-            
+
             {/* Contenedor con scroll interno para clientes */}
             <View style={styles.scrollContainer}>
               <FlatList
@@ -602,11 +618,10 @@ const CrearCita = ({
     );
     const horasCompletas = Math.floor(duracionMinutos / 60);
     const minutosRestantes = duracionMinutos % 60;
-    const duracionFormateada = `${
-      horasCompletas > 0
+    const duracionFormateada = `${horasCompletas > 0
         ? `${horasCompletas} hora${horasCompletas > 1 ? "s" : ""}`
         : ""
-    } ${minutosRestantes > 0 ? `${minutosRestantes} minutos` : ""}`.trim();
+      } ${minutosRestantes > 0 ? `${minutosRestantes} minutos` : ""}`.trim();
 
     const horaInicio24 = convertirHora24(slot.displayTime);
     const horaFin24 = calcularHoraFin(horaInicio24, duracionMinutos);
@@ -614,16 +629,24 @@ const CrearCita = ({
     return (
       <View style={styles.stepContainer}>
         <Text style={styles.subtitle}>Revisa y confirma la información</Text>
-        
+
         {/* ✅ ScrollView interno con TODO el contenido */}
-        <ScrollView 
+        <ScrollView
           style={styles.scrollContainer}
           showsVerticalScrollIndicator={true}
           contentContainerStyle={{ paddingBottom: 20 }}
         >
           <View style={styles.infoBox}>
             <Text style={styles.infoLabel}>Servicio</Text>
-            <Text style={styles.infoText}>{servicioSel.nombre}</Text>
+            <Text style={styles.infoLabel}>Servicios</Text>
+            {serviciosSel.map((s, idx) => (
+              <Text key={idx} style={styles.infoText}>• {s.nombre} (${s.precio})</Text>
+            ))}
+
+            <Text style={styles.infoLabel}>Precio total</Text>
+            <Text style={styles.infoText}>
+              ${serviciosSel.reduce((total, s) => total + Number(s.precio || 0), 0)}
+            </Text>
 
             <Text style={styles.infoLabel}>Estilista</Text>
             <Text style={styles.infoText}>{barbero.nombre}</Text>
@@ -719,7 +742,7 @@ const CrearCita = ({
   return (
     <Modal visible={visible} animationType="slide" transparent>
       <BlurView intensity={20} tint="light" style={styles.blur}>
-        <KeyboardAvoidingView 
+        <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : "height"}
           style={styles.keyboardAvoiding}
           keyboardVerticalOffset={Platform.OS === "ios" ? 64 : 0}
@@ -730,8 +753,8 @@ const CrearCita = ({
                 {step === 1
                   ? "Seleccionar servicio"
                   : step === 2
-                  ? "Seleccionar cliente"
-                  : "Revisa y confirma"}
+                    ? "Seleccionar cliente"
+                    : "Revisa y confirma"}
               </Text>
               <TouchableOpacity onPress={handleClose}>
                 <MaterialIcons name="close" size={24} color="#000" />

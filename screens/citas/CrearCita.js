@@ -22,7 +22,7 @@ const CrearCita = ({ visible, onClose, onCreate, infoCreacion }) => {
   const isClient = userRole === 'Cliente';
 
   const [paso, setPaso] = useState(1);
-  const [servicioSel, setServicioSel] = useState(null);
+  const [serviciosSel, setServiciosSel] = useState([]);
   const [barberoSel, setBarberoSel] = useState(null);
   const [clienteSel, setClienteSel] = useState(null);
   const [fechaSel, setFechaSel] = useState(null);
@@ -38,8 +38,8 @@ const CrearCita = ({ visible, onClose, onCreate, infoCreacion }) => {
   const [tempTelefono, setTempTelefono] = useState('');
 
   const servicios = infoCreacion?.servicios || [];
-  const barberos  = infoCreacion?.barberos  || [];
-  const clientes  = infoCreacion?.clientes  || [];
+  const barberos = infoCreacion?.barberos || [];
+  const clientes = infoCreacion?.clientes || [];
   const diasSemana = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
 
   useEffect(() => { if (visible) reset(false); }, [visible]);
@@ -57,6 +57,18 @@ const CrearCita = ({ visible, onClose, onCreate, infoCreacion }) => {
     return `${y}-${m}-${da}`;
   };
 
+  // ✅ AGREGAR ESTA FUNCIÓN:
+  const toggleServicio = (servicio) => {
+    setServiciosSel((prev) => {
+      const existe = prev.find((s) => getId(s) === getId(servicio));
+      if (existe) {
+        return prev.filter((s) => getId(s) !== getId(servicio));
+      } else {
+        return [...prev, servicio];
+      }
+    });
+  };
+
   const esPasada = (d) => {
     const h = new Date();
     h.setHours(0, 0, 0, 0);
@@ -72,8 +84,8 @@ const CrearCita = ({ visible, onClose, onCreate, infoCreacion }) => {
     const y = mesActual.getFullYear();
     const m = mesActual.getMonth();
     const primero = new Date(y, m, 1);
-    const ultimo  = new Date(y, m + 1, 0);
-    const offset  = primero.getDay();
+    const ultimo = new Date(y, m + 1, 0);
+    const offset = primero.getDay();
 
     const arr = [];
     for (let i = 0; i < offset; i++) arr.push(null);
@@ -99,7 +111,8 @@ const CrearCita = ({ visible, onClose, onCreate, infoCreacion }) => {
       const token = await AsyncStorage.getItem('token');
       const response = await axios.get(`https://peluqueria-server-gw54.onrender.com/citas/disponibilidad`, {
         params: {
-          servicioID: getId(servicioSel),
+          servicioID: getId(serviciosSel[0]), // Primer servicio
+          servicios: serviciosSel.map(s => getId(s)), // Todos los IDs
           barberoID: getId(barberoSel),
           fecha: fechaSel
         },
@@ -134,11 +147,16 @@ const CrearCita = ({ visible, onClose, onCreate, infoCreacion }) => {
     }
 
     const payload = {
-      servicioID: getId(servicioSel),
+      servicios: serviciosSel.map(s => ({
+        id: getId(s),
+        nombre: s.nombre,
+        duracionMaxima: s.duracionMaxima,
+        precio: s.precio
+      })),
       barberoID: getId(barberoSel),
       fecha: fechaSel,
       hora: horaSel,
-      direccion: "En barbería"
+      direccion: "En el salón"
     };
 
     if (!isClient) {
@@ -177,22 +195,22 @@ const CrearCita = ({ visible, onClose, onCreate, infoCreacion }) => {
     } catch (err) {
       console.error('Error crearCita:', err);
       let errorMessage = 'Error al crear cita';
-      
+
       if (err.response) {
-        errorMessage = err.response.data?.mensaje || 
-                     err.response.data?.error || 
-                     `Error ${err.response.status}: ${err.response.statusText}`;
+        errorMessage = err.response.data?.mensaje ||
+          err.response.data?.error ||
+          `Error ${err.response.status}: ${err.response.statusText}`;
       } else if (err.request) {
         errorMessage = 'No se pudo conectar al servidor';
       }
-      
+
       Alert.alert('Error', errorMessage);
     }
   };
 
   const reset = (close = true) => {
     setPaso(1);
-    setServicioSel(null);
+    setServiciosSel([]);
     setBarberoSel(null);
     setClienteSel(null);
     setFechaSel(null);
@@ -218,9 +236,9 @@ const CrearCita = ({ visible, onClose, onCreate, infoCreacion }) => {
           <TouchableOpacity
             style={[
               styles.servicioItem,
-              servicioSel && getId(servicioSel) === getId(item) && styles.servicioSeleccionado,
+              serviciosSel.some((s) => getId(s) === getId(item)) && styles.servicioSeleccionado,
             ]}
-            onPress={() => setServicioSel(item)}
+            onPress={() => toggleServicio(item)}
           >
             <View>
               <Text style={styles.servicioNombre}>{item.nombre}</Text>
@@ -234,8 +252,8 @@ const CrearCita = ({ visible, onClose, onCreate, infoCreacion }) => {
       />
       <View style={styles.botonContainerCentrado}>
         <TouchableOpacity
-          style={[styles.botonSiguiente, !servicioSel && styles.botonDisabled]}
-          disabled={!servicioSel}
+          style={[styles.botonSiguiente, serviciosSel.length === 0 && styles.botonDisabled]}
+          disabled={serviciosSel.length === 0}
           onPress={() => setPaso(2)}
         >
           <Text style={styles.botonTexto}>Siguiente</Text>
@@ -320,7 +338,7 @@ const CrearCita = ({ visible, onClose, onCreate, infoCreacion }) => {
           styles.tempClientBtn,
           isTempClient && styles.tempClientBtnActive
         ]}
-        onPress={()=>{
+        onPress={() => {
           setIsTempClient(prev => !prev);
           if (clienteSel) setClienteSel(null);
         }}>
@@ -330,7 +348,7 @@ const CrearCita = ({ visible, onClose, onCreate, infoCreacion }) => {
       </TouchableOpacity>
 
       {isTempClient && (
-        <View style={{ marginTop:12 }}>
+        <View style={{ marginTop: 12 }}>
           <Text style={styles.inputLabel}>Nombre del cliente</Text>
           <TextInput
             style={styles.input}
@@ -429,9 +447,9 @@ const CrearCita = ({ visible, onClose, onCreate, infoCreacion }) => {
               if (!dia) return <View key={idx} style={styles.diaVacio} />;
 
               const fStr = formatearFecha(dia);
-              const sel  = fStr === fechaSel;
-              const hoy  = dia.toDateString() === new Date().toDateString();
-              const pas  = esPasada(dia);
+              const sel = fStr === fechaSel;
+              const hoy = dia.toDateString() === new Date().toDateString();
+              const pas = esPasada(dia);
 
               return (
                 <TouchableOpacity
@@ -530,8 +548,9 @@ const CrearCita = ({ visible, onClose, onCreate, infoCreacion }) => {
       <Text style={styles.subtitulo}>Revisa la información</Text>
       <View style={styles.infoConfirmacion}>
         {[
-          ['Servicio:', servicioSel?.nombre],
-          ['Estilista:',  barberoSel?.nombre],
+          ['Servicios:', serviciosSel.map(s => s.nombre).join(', ')],
+          ['Estilista:', barberoSel?.nombre],
+          ['Precio total:', `$${calcularTotales().precioTotal}`],
           !isClient && ['Cliente:', clienteSel?.nombre || (isTempClient ? tempNombre : '')],
           [
             'Fecha:',
@@ -544,16 +563,16 @@ const CrearCita = ({ visible, onClose, onCreate, infoCreacion }) => {
           ],
           ['Hora:', horaSel],
           ['Duración real:', servicioSel?.duracionMaxima],
-          ['Intervalo reservado:', 
-            servicioSel?.duracionMaxima ? 
+          ['Intervalo reservado:',
+            servicioSel?.duracionMaxima ?
               (() => {
                 const [h, m] = servicioSel.duracionMaxima.split(':').map(Number);
                 const totalMin = h * 60 + m;
                 if (totalMin <= 30) return "30 minutos";
                 if (totalMin <= 60) return "1 hora";
                 return `${Math.ceil(totalMin / 30) * 30 / 60} horas`;
-              })() 
-            : ''
+              })()
+              : ''
           ]
         ]
           .filter(Boolean)
@@ -591,7 +610,7 @@ const CrearCita = ({ visible, onClose, onCreate, infoCreacion }) => {
             <Text style={styles.modalTitle}>
               {
                 ['Servicio', 'Estilista', isClient ? 'Fecha & Hora' : 'Cliente', 'Fecha & Hora', 'Revisión'][
-                  paso - 1
+                paso - 1
                 ]
               }
             </Text>
@@ -972,23 +991,23 @@ const styles = StyleSheet.create({
     marginTop: 18,
   },
   tempClientBtn: {
-    padding: 12, 
-    borderRadius: 10, 
-    borderWidth: 1, 
-    borderColor: '#d9d9d9', 
-    backgroundColor: '#fff', 
+    padding: 12,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#d9d9d9',
+    backgroundColor: '#fff',
     marginBottom: 12
   },
   tempClientBtnActive: {
-    backgroundColor: '#E8F8F5', 
+    backgroundColor: '#E8F8F5',
     borderColor: '#7FFFD4'
   },
   tempClientText: {
-    color: '#424242', 
+    color: '#424242',
     fontWeight: '600'
   },
   tempClientTextActive: {
-    color: '#222', 
+    color: '#222',
     fontWeight: '700'
   },
 });
