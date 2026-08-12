@@ -113,11 +113,11 @@ const getHeaderStyle = (screenName) => {
   if (screenName === 'Galeria') {
     return {
       headerStyle: {
-        backgroundColor: '#1A1A1A',
+        backgroundColor: '#FFFFFF',
       },
       headerTintColor: '#7FFFD4',
       headerTitleStyle: {
-        color: '#7FFFD4',
+        color: '#2D2D2D',
         fontWeight: 'bold',
       },
     };

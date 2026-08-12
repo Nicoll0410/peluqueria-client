@@ -308,7 +308,7 @@ const GaleriaScreen = ({ navigation }) => {
         <View style={styles.headerContainer}>
           <View style={styles.headerGradient}>
             <View style={styles.headerContent}>
-              <Ionicons name="cut-outline" size={40} color="#2D2D2D" />
+              <Ionicons name="cut-outline" size={40} color="#00695C" />
               <Text style={styles.headerTitle}>
                 Conoce el trabajo de nuestras estilistas
               </Text>
@@ -321,7 +321,7 @@ const GaleriaScreen = ({ navigation }) => {
 
         {galeriaPorBarbero.length === 0 ? (
           <View style={styles.emptyContainer}>
-            <Ionicons name="images-outline" size={80} color="#666" />
+            <Ionicons name="images-outline" size={80} color="#00695C" />
             <Text style={styles.emptyText}>
               No hay contenido destacado disponible
             </Text>
