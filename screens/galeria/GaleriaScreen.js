@@ -511,10 +511,8 @@ const GaleriaScreen = ({ navigation }) => {
                 })}
               </View>
             )}
-
-            {/* ✅ FOOTER EN EL MODAL */}
-            <Footer dark />
           </ScrollView>
+          <Footer />
         </View>
       </Modal>
     </View>
@@ -744,13 +742,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     paddingVertical: 16,
     paddingHorizontal: 20,
-    alignItems: 'center',
+    alignItems: 'flex-end',
     borderBottomWidth: 1,
     borderBottomColor: '#B2F0E8'
   },
   modalLogo: {
-    width: 240,
-    height: 65
+    width: 200,
+    height: 50
   },
   modalHeader: {
     flexDirection: 'row',
@@ -838,8 +836,6 @@ const styles = StyleSheet.create({
   galeriaItemInner: {
     borderRadius: 12,
     overflow: 'hidden',
-    borderWidth: 2,
-    borderColor: '#7FFFD4',
     backgroundColor: '#FFFFF',
     minHeight: 250 // ✅ NUEVO: Altura mínima para mantener proporción
   },
