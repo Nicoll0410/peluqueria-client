@@ -164,9 +164,7 @@ const AgendaScreen = () => {
               id: cita.id,
               fecha: fechaCita,
               fechaFormateada: fechaCita.toLocaleDateString('es-ES', {
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric'
+                day: 'numeric', month: 'long', year: 'numeric'
               }),
               hora: normalizeHoraFromDecimal(cita.start),
               horaFin: normalizeHoraFromDecimal(cita.end),
@@ -176,12 +174,13 @@ const AgendaScreen = () => {
                 duracionMaxima: cita.servicio.duracion,
                 precio: cita.servicio.precio,
               },
+              // ✅ NUEVO:
+              serviciosAdicionales: cita.serviciosAdicionales || [],
+              precioTotal: cita.precioTotal || 0,
               barbero: {
                 id: barbero.id,
                 nombre: barbero.name,
-                avatar: barbero.avatar
-                  ? { uri: barbero.avatar }
-                  : require('../../assets/avatar.png'),
+                avatar: barbero.avatar ? { uri: barbero.avatar } : require('../../assets/avatar.png'),
                 disponibilidad: barbero.disponibilidad
               },
               cliente: {
