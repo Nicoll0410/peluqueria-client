@@ -37,6 +37,8 @@ const CrearCita = ({
   const authContext = useContext(AuthContext);
   const [step, setStep] = useState(1);
   const [serviciosSel, setServiciosSel] = useState([]);
+  // ✅ NUEVO ESTADO:
+  const [busquedaServicio, setBusquedaServicio] = useState("");
   const [clienteSel, setClienteSel] = useState(null);
   const [busqueda, setBusqueda] = useState("");
   const [isTemporal, setIsTemporal] = useState(false);
@@ -64,6 +66,12 @@ const CrearCita = ({
       }
     });
   };
+
+  // ✅ AGREGAR después de toggleServicio:
+  const serviciosFiltrados = servicios.filter((s) =>
+    s.nombre.toLowerCase().includes(busquedaServicio.toLowerCase()) ||
+    (s.descripcion && s.descripcion.toLowerCase().includes(busquedaServicio.toLowerCase()))
+  );
 
   useEffect(() => {
     return () => {
@@ -97,6 +105,7 @@ const CrearCita = ({
     setTemporalTelefono("");
     temporalTelefonoRef.current = "";
     setIsLoading(false);
+    setBusquedaServicio("");
   };
 
   const handleClose = () => {
@@ -397,10 +406,22 @@ const CrearCita = ({
         Selecciona el servicio que se realizará en la cita
       </Text>
 
+      {/* ✅ NUEVO: Barra de búsqueda de servicios */}
+      <View style={styles.searchBoxServicio}>
+        <MaterialIcons name="search" size={20} color="#666" style={{ marginRight: 10 }} />
+        <TextInput
+          style={styles.searchInputServicio}
+          placeholder="Buscar servicio (uñas, cabello, cejas...)"
+          placeholderTextColor="#929292"
+          value={busquedaServicio}
+          onChangeText={setBusquedaServicio}
+        />
+      </View>
+
       {/* Contenedor con scroll interno para servicios */}
       <View style={styles.scrollContainer}>
         <FlatList
-          data={servicios}
+          data={serviciosFiltrados}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <TouchableOpacity
@@ -410,7 +431,6 @@ const CrearCita = ({
               ]}
               onPress={() => toggleServicio(item)}
             >
-
               <View style={styles.servicioInfoContainer}>
                 <Text style={styles.servicioNombre} numberOfLines={2} ellipsizeMode="tail">
                   {item.nombre}
@@ -431,7 +451,6 @@ const CrearCita = ({
           style={[styles.btnPrimary, styles.btnWide, serviciosSel.length === 0 && styles.btnDisabled]}
           disabled={serviciosSel.length === 0}
           onPress={() => { setStep(2); syncInputsWithState(); }}
-          disabled={serviciosSel.length === 0}
         >
           <Text style={styles.btnPrimaryText}>Siguiente</Text>
         </TouchableOpacity>
@@ -775,6 +794,23 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  // ✅ AGREGAR al StyleSheet:
+  searchBoxServicio: {
+    flexDirection: "row",
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: "#B2F0E8",
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    marginBottom: 15,
+    backgroundColor: "#F0FAF8",
+    height: 45,
+  },
+  searchInputServicio: {
+    flex: 1,
+    fontSize: 15,
+    color: "#2D2D2D",
   },
   keyboardAvoiding: {
     width: '100%',
