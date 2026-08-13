@@ -86,7 +86,7 @@ const CrearCita = ({
 
   const reset = () => {
     setServiciosSel
-([]);
+      ([]);
     setClienteSel(null);
     setBusqueda("");
     busquedaRef.current = "";
@@ -223,7 +223,7 @@ const CrearCita = ({
     try {
       setIsLoading(true);
 
-      if (!serviciosSel || !barbero) {
+      if (serviciosSel.length === 0 || !barbero) {
         throw new Error("Falta información del servicio o estilista");
       }
 
@@ -268,8 +268,7 @@ const CrearCita = ({
         horaFin: `${horaFin24}:00`,
         direccion: "En el salón",
         estado: "Pendiente",
-        duracionReal: serviciosSel.duracionMaxima || "00:30:00",
-        duracionRedondeada: `${Math.floor(duracionMinutos / 60)}:${(
+        duracionReal: `${Math.floor(duracionMinutos / 60)}:${(duracionMinutos % 60).toString().padStart(2, "0")}:00`, duracionRedondeada: `${Math.floor(duracionMinutos / 60)}:${(
           duracionMinutos % 60
         )
           .toString()
@@ -407,7 +406,7 @@ const CrearCita = ({
             <TouchableOpacity
               style={[
                 styles.servicioItem,
-                serviciosSel.some((s) => s.id === item.id) && styles.serviciosSel,
+                serviciosSel.some((s) => s.id === item.id) && styles.servicioSel,
               ]}
               onPress={() => toggleServicio(item)}
             >
@@ -432,7 +431,7 @@ const CrearCita = ({
           style={[styles.btnPrimary, styles.btnWide, serviciosSel.length === 0 && styles.btnDisabled]}
           disabled={serviciosSel.length === 0}
           onPress={() => { setStep(2); syncInputsWithState(); }}
-          disabled={!serviciosSel}
+          disabled={serviciosSel.length === 0}
         >
           <Text style={styles.btnPrimaryText}>Siguiente</Text>
         </TouchableOpacity>
@@ -614,14 +613,16 @@ const CrearCita = ({
   };
 
   const Paso3 = () => {
-    const duracionMinutos = convertirDuracionAMinutos(
-      serviciosSel?.duracionMaxima || "01:00:00"
-    );
+    let duracionTotal = 0;
+    serviciosSel.forEach((serv) => {
+      duracionTotal += convertirDuracionAMinutos(serv.duracionMaxima);
+    });
+    const duracionMinutos = duracionTotal;
     const horasCompletas = Math.floor(duracionMinutos / 60);
     const minutosRestantes = duracionMinutos % 60;
     const duracionFormateada = `${horasCompletas > 0
-        ? `${horasCompletas} hora${horasCompletas > 1 ? "s" : ""}`
-        : ""
+      ? `${horasCompletas} hora${horasCompletas > 1 ? "s" : ""}`
+      : ""
       } ${minutosRestantes > 0 ? `${minutosRestantes} minutos` : ""}`.trim();
 
     const horaInicio24 = convertirHora24(slot.displayTime);
@@ -638,7 +639,6 @@ const CrearCita = ({
           contentContainerStyle={{ paddingBottom: 20 }}
         >
           <View style={styles.infoBox}>
-            <Text style={styles.infoLabel}>Servicio</Text>
             <Text style={styles.infoLabel}>Servicios</Text>
             {serviciosSel.map((s, idx) => (
               <Text key={idx} style={styles.infoText}>• {s.nombre} (${s.precio})</Text>
@@ -837,7 +837,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
     justifyContent: 'center',
   },
-  serviciosSel: {
+  servicioSel: {
     borderColor: "#7FFFD4",
     backgroundColor: "#E8F8F5",
   },
