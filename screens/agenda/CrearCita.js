@@ -37,8 +37,6 @@ const CrearCita = ({
   const authContext = useContext(AuthContext);
   const [step, setStep] = useState(1);
   const [serviciosSel, setServiciosSel] = useState([]);
-  // ✅ NUEVO ESTADO:
-  const [busquedaServicio, setBusquedaServicio] = useState("");
   const [clienteSel, setClienteSel] = useState(null);
   const [busqueda, setBusqueda] = useState("");
   const [isTemporal, setIsTemporal] = useState(false);
@@ -50,6 +48,7 @@ const CrearCita = ({
   const nombreInputRef = useRef(null);
   const telefonoInputRef = useRef(null);
   const searchInputRef = useRef(null);
+  const busquedaServicioRef = useRef("");
 
   // Nuevas referencias para evitar re-renderizados
   const temporalNombreRef = useRef("");
@@ -67,10 +66,10 @@ const CrearCita = ({
     });
   };
 
-  // ✅ AGREGAR después de toggleServicio:
+  // ✅ AHORA (usar ref):
   const serviciosFiltrados = servicios.filter((s) =>
-    s.nombre.toLowerCase().includes(busquedaServicio.toLowerCase()) ||
-    (s.descripcion && s.descripcion.toLowerCase().includes(busquedaServicio.toLowerCase()))
+    s.nombre.toLowerCase().includes(busquedaServicioRef.current.toLowerCase()) ||
+    (s.descripcion && s.descripcion.toLowerCase().includes(busquedaServicioRef.current.toLowerCase()))
   );
 
   useEffect(() => {
@@ -105,7 +104,7 @@ const CrearCita = ({
     setTemporalTelefono("");
     temporalTelefonoRef.current = "";
     setIsLoading(false);
-    setBusquedaServicio("");
+    busquedaServicioRef.current = "";
   };
 
   const handleClose = () => {
@@ -413,10 +412,11 @@ const CrearCita = ({
           style={styles.searchInputServicio}
           placeholder="Buscar servicio (uñas, cabello, cejas...)"
           placeholderTextColor="#929292"
-          value={busquedaServicio}
-          onChangeText={setBusquedaServicio}
+          defaultValue={busquedaServicioRef.current}
+          onChangeText={(text) => {
+            busquedaServicioRef.current = text;
+          }}
           autoCorrect={false}
-          autoCapitalize="none"
         />
       </View>
 
