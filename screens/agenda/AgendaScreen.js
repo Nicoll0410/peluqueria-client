@@ -675,7 +675,12 @@ const AgendaScreen = () => {
               }}
             >
               <Text style={styles.citaCliente} numberOfLines={1}>{cita.cliente.nombre}</Text>
-              <Text style={styles.citaServicio} numberOfLines={1}>{cita.servicio.nombre}</Text>
+              <Text style={styles.citaServicio} numberOfLines={1}>
+                {cita.servicio.nombre}
+                {cita.serviciosAdicionales && cita.serviciosAdicionales.length > 0
+                  ? `, ${cita.serviciosAdicionales.map(s => s.nombre).join(', ')}`
+                  : ''}
+              </Text>
               <Text style={styles.citaHora} numberOfLines={1}>
                 {toAMPM(cita.hora.split(':').slice(0, 2).join(':'))} - {toAMPM(cita.horaFin.split(':').slice(0, 2).join(':'))}
               </Text>
@@ -916,78 +921,78 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#F0FAF8' },
   loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center' },
   loadingText: { marginTop: 10, fontSize: 16, color: '#6B4F80' },
-  
-  header: { 
-    flexDirection: 'row', alignItems: 'center', padding: 16, 
-    borderBottomWidth: 1, borderBottomColor: '#E8D5F0', backgroundColor: '#FFFFFF' 
+
+  header: {
+    flexDirection: 'row', alignItems: 'center', padding: 16,
+    borderBottomWidth: 1, borderBottomColor: '#E8D5F0', backgroundColor: '#FFFFFF'
   },
   dateContainer: { flexDirection: 'row', alignItems: 'center', flex: 1, marginLeft: 15 },
   dateText: { fontSize: 18, fontWeight: 'bold', marginHorizontal: 10, color: '#1A1A1A' },
   calendarButton: { marginRight: 10 },
 
   // Estilos para web (escritorio)
-  barberosHeader: { 
-    flexDirection: 'row', borderBottomWidth: 2, 
-    borderBottomColor: '#E8D5F0', paddingVertical: 10, backgroundColor: '#FFFFFF' 
+  barberosHeader: {
+    flexDirection: 'row', borderBottomWidth: 2,
+    borderBottomColor: '#E8D5F0', paddingVertical: 10, backgroundColor: '#FFFFFF'
   },
   timeColumn: { width: 80 },
-  barberoHeader: { 
-    flex: 1, alignItems: 'center', paddingHorizontal: 5, 
-    borderRightWidth: 1, borderRightColor: '#E8D5F0' 
+  barberoHeader: {
+    flex: 1, alignItems: 'center', paddingHorizontal: 5,
+    borderRightWidth: 1, borderRightColor: '#E8D5F0'
   },
-  
+
   // Estilos para móvil
-  barberosContainerMobile: { 
-    flexDirection: 'row', borderBottomWidth: 2, 
-    borderBottomColor: '#E8D5F0', paddingVertical: 10, minHeight: 120 
+  barberosContainerMobile: {
+    flexDirection: 'row', borderBottomWidth: 2,
+    borderBottomColor: '#E8D5F0', paddingVertical: 10, minHeight: 120
   },
-  timeColumnMobile: { 
-    width: 80, justifyContent: 'center', alignItems: 'center', 
-    borderRightWidth: 1, borderRightColor: '#E8D5F0' 
+  timeColumnMobile: {
+    width: 80, justifyContent: 'center', alignItems: 'center',
+    borderRightWidth: 1, borderRightColor: '#E8D5F0'
   },
   timeColumnText: { fontWeight: 'bold', fontSize: 16, color: '#6B4F80' },
   barberosScrollContent: { flexDirection: 'row', paddingRight: 10 },
-  barberoHeaderMobile: { 
-    width: 120, alignItems: 'center', paddingHorizontal: 8, 
-    borderRightWidth: 1, borderRightColor: '#E8D5F0', justifyContent: 'center' 
+  barberoHeaderMobile: {
+    width: 120, alignItems: 'center', paddingHorizontal: 8,
+    borderRightWidth: 1, borderRightColor: '#E8D5F0', justifyContent: 'center'
   },
-  
+
   avatar: { width: 40, height: 40, borderRadius: 20, marginBottom: 5 },
   barberoNombre: { fontWeight: 'bold', fontSize: 14, textAlign: 'center', color: '#2D2D2D' },
   subItem: { fontSize: 10, color: '#00695C', textAlign: 'center', fontWeight: '600' },
-  
+
   mainContent: { flex: 1, marginBottom: 60 },
-  
+
   // Filas para web
   row: { flexDirection: 'row', borderBottomWidth: 1, borderBottomColor: '#E8D5F0', minHeight: 60 },
-  timeCell: { 
-    width: 80, justifyContent: 'center', alignItems: 'center', 
-    borderRightWidth: 1, borderRightColor: '#E8D5F0' 
+  timeCell: {
+    width: 80, justifyContent: 'center', alignItems: 'center',
+    borderRightWidth: 1, borderRightColor: '#E8D5F0'
   },
-  
+
   // Filas para móvil
   rowMobile: { flexDirection: 'row', borderBottomWidth: 1, borderBottomColor: '#E8D5F0', minHeight: 60 },
-  timeCellMobile: { 
-    width: 80, justifyContent: 'center', alignItems: 'center', 
-    borderRightWidth: 1, borderRightColor: '#E8D5F0' 
+  timeCellMobile: {
+    width: 80, justifyContent: 'center', alignItems: 'center',
+    borderRightWidth: 1, borderRightColor: '#E8D5F0'
   },
   horaText: { fontSize: 14, color: '#2D2D2D', fontWeight: '500' },
   barberosSlotsContainer: { flexDirection: 'row' },
-  
+
   // Slots para web
-  slotContainer: { 
-    flex: 1, borderRightWidth: 1, borderRightColor: '#E8D5F0', 
-    justifyContent: 'center', minHeight: 60 
+  slotContainer: {
+    flex: 1, borderRightWidth: 1, borderRightColor: '#E8D5F0',
+    justifyContent: 'center', minHeight: 60
   },
-  
+
   // Slots para móvil
-  slotContainerMobile: { 
-    width: 120, borderRightWidth: 1, borderRightColor: '#E8D5F0', 
-    justifyContent: 'center', minHeight: 60 
+  slotContainerMobile: {
+    width: 120, borderRightWidth: 1, borderRightColor: '#E8D5F0',
+    justifyContent: 'center', minHeight: 60
   },
-  
+
   slot: { flex: 1, padding: 4, justifyContent: 'center', alignItems: 'center', minHeight: 58 },
-  
+
   // COLORES DE SLOTS - CON MEJOR CONTRASTE
   'slot-no-laboral': { backgroundColor: '#FDF0F5' },
   'slot-almuerzo': { backgroundColor: '#FFF0F5' },
@@ -998,27 +1003,27 @@ const styles = StyleSheet.create({
   'slot-disponible': { backgroundColor: '#E8F8F5' },
   selectedSlot: { backgroundColor: '#B2DFDB' },
   multiSlotFirst: { borderBottomWidth: 0 },
-  
+
   // TEXTOS DE SLOTS - MÁS OSCUROS
   slotNoLaboralText: { fontSize: 10, color: '#C62828', fontWeight: 'bold', textAlign: 'center' },
   slotAlmuerzoText: { fontSize: 10, color: '#6B4F80', fontWeight: 'bold', textAlign: 'center' },
   slotFueraHorarioText: { fontSize: 10, color: '#9E9E9E', textAlign: 'center', textDecorationLine: 'line-through' },
   slotDisponibleText: { fontSize: 10, color: '#00695C', textAlign: 'center', fontWeight: 'bold' },
-  
+
   citaContent: { flex: 1, justifyContent: 'center', padding: 2, width: '100%' },
   citaCliente: { fontSize: 11, fontWeight: 'bold', marginBottom: 1, textAlign: 'center', color: '#2D2D2D' },
   citaServicio: { fontSize: 9, color: '#6B6B6B', textAlign: 'center' },
   citaHora: { fontSize: 8, color: '#6B4F80', fontStyle: 'italic', marginTop: 1, textAlign: 'center' },
-  
+
   scrollContent: { paddingBottom: 20 },
-  
+
   // Calendario modal
   calendarModal: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.5)' },
-  customDatePicker: { 
-    width: width * 0.85, maxWidth: 350, backgroundColor: '#FFFFFF', 
+  customDatePicker: {
+    width: width * 0.85, maxWidth: 350, backgroundColor: '#FFFFFF',
     borderRadius: 16, padding: 16, elevation: 10,
-    shadowColor: '#B088C8', shadowOffset: { width: 0, height: 5 }, 
-    shadowOpacity: 0.3, shadowRadius: 15 
+    shadowColor: '#B088C8', shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.3, shadowRadius: 15
   },
   datePickerHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 },
   monthYearSelector: { flex: 1, alignItems: 'center' },
@@ -1028,15 +1033,15 @@ const styles = StyleSheet.create({
   datePickerActions: { flexDirection: 'row', justifyContent: 'space-between', marginTop: 8 },
   datePickerButton: { padding: 10, borderRadius: 20 },
   datePickerButtonText: { color: '#6B4F80', fontWeight: 'bold', fontSize: 14 },
-  closeButton: { 
-    padding: 10, borderRadius: 20, backgroundColor: '#7FFFD4', 
-    paddingHorizontal: 20, shadowColor: '#B088C8', shadowOffset: { width: 0, height: 2 }, 
-    shadowOpacity: 0.3, shadowRadius: 5, elevation: 3 
+  closeButton: {
+    padding: 10, borderRadius: 20, backgroundColor: '#7FFFD4',
+    paddingHorizontal: 20, shadowColor: '#B088C8', shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3, shadowRadius: 5, elevation: 3
   },
   closeButtonText: { color: '#2D2D2D', fontWeight: 'bold', fontSize: 14 },
-  
+
   footerContainer: { position: 'absolute', bottom: 0, left: 0, right: 0, height: 60 },
-  
+
   // Disponibilidad
   disponibilidadContainer: { flexDirection: 'row', alignItems: 'center', marginTop: 4 },
   disponibilidadPunto: { width: 8, height: 8, borderRadius: 4, marginRight: 4 },
@@ -1045,7 +1050,7 @@ const styles = StyleSheet.create({
   disponibilidadTexto: { fontSize: 10, fontWeight: 'bold' },
   disponibleTexto: { color: '#00695C' },
   noDisponibleTexto: { color: '#AD1457' },
-  
+
   // Móvil
   mobileMainContainer: { flex: 1, marginBottom: 60 },
   mobileHorizontalScroll: { flexDirection: 'row' },

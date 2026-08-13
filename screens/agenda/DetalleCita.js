@@ -6,7 +6,7 @@ import { BlurView } from 'expo-blur';
 const DetalleCita = ({ visible, onClose, cita }) => {
   const getStatusStyles = (status) => {
     if (!status) return { backgroundColor: 'rgba(0, 0, 0, 0.1)', color: '#000' };
-    
+
     switch (status.toLowerCase()) {
       case 'pendiente':
         return { backgroundColor: 'rgba(206, 209, 0, 0.2)', color: '#ced100' };
@@ -28,12 +28,12 @@ const DetalleCita = ({ visible, onClose, cita }) => {
   // Función para formatear la hora de "HH:mm:ss" a "hh:mm a"
   const formatHora = (hora) => {
     if (!hora) return 'Hora no especificada';
-    
+
     const [hours, minutes] = hora.split(':');
     const hourNum = parseInt(hours, 10);
     const period = hourNum >= 12 ? 'PM' : 'AM';
     const hour12 = hourNum % 12 || 12;
-    
+
     return `${hour12}:${minutes} ${period}`;
   };
 
@@ -54,9 +54,28 @@ const DetalleCita = ({ visible, onClose, cita }) => {
 
           {/* Sección de Servicio */}
           <View style={styles.sectionContainer}>
-            <Text style={styles.sectionTitle}>Servicio</Text>
+            <Text style={styles.sectionTitle}>Servicios</Text>
             <Text style={styles.serviceName}>{cita.servicio?.nombre || 'No especificado'}</Text>
+
+            {/* ✅ MOSTRAR SERVICIOS ADICIONALES */}
+            {cita.serviciosAdicionales && cita.serviciosAdicionales.length > 0 && (
+              <>
+                {cita.serviciosAdicionales.map((serv, idx) => (
+                  <Text key={idx} style={styles.serviceName}>
+                    {serv.nombre} (${serv.precio})
+                  </Text>
+                ))}
+              </>
+            )}
           </View>
+
+          {/* ✅ PRECIO TOTAL */}
+          {cita.precioTotal && (
+            <View style={styles.sectionContainer}>
+              <Text style={styles.sectionTitle}>Precio Total</Text>
+              <Text style={styles.serviceName}>${cita.precioTotal}</Text>
+            </View>
+          )}
 
           {/* Estado de la cita */}
           <View style={[styles.statusContainer, { backgroundColor: statusStyles.backgroundColor }]}>
@@ -110,8 +129,8 @@ const DetalleCita = ({ visible, onClose, cita }) => {
           )}
 
           <View style={styles.buttonContainer}>
-            <TouchableOpacity 
-              style={styles.closeButton} 
+            <TouchableOpacity
+              style={styles.closeButton}
               onPress={onClose}
             >
               <Text style={styles.closeButtonText}>Cerrar</Text>
