@@ -415,6 +415,8 @@ const CrearCita = ({
           placeholderTextColor="#929292"
           value={busquedaServicio}
           onChangeText={setBusquedaServicio}
+          autoCorrect={false}
+          autoCapitalize="none"
         />
       </View>
 
@@ -423,6 +425,7 @@ const CrearCita = ({
         <FlatList
           data={serviciosFiltrados}
           keyExtractor={(item) => item.id}
+          keyboardShouldPersistTaps="handled"
           renderItem={({ item }) => (
             <TouchableOpacity
               style={[
