@@ -25,8 +25,7 @@ const ServiciosScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [modalDetalleVisible, setModalDetalleVisible] = useState(false);
   const [modalEditarVisible, setModalEditarVisible] = useState(false);
-  const [servicioSeleccionado, setServiciosSeleccionado] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [servicioSeleccionado, setServicioSeleccionado] = useState(null); const [loading, setLoading] = useState(false);
   const [insumosDisponibles, setInsumosDisponibles] = useState([]);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [itemToDelete, setItemToDelete] = useState(null);
@@ -37,15 +36,15 @@ const ServiciosScreen = () => {
     try {
       setLoading(true);
       const token = await AsyncStorage.getItem('token');
-      
+
       const serviciosResponse = await axios.get('https://peluqueria-server-gw54.onrender.com/servicios', {
         headers: { Authorization: `Bearer ${token}` }
       });
-      
+
       const insumosResponse = await axios.get('https://peluqueria-server-gw54.onrender.com/insumos/all', {
         headers: { Authorization: `Bearer ${token}` }
       });
-      
+
       setServicios(serviciosResponse.data.servicios || []);
       setServiciosFiltrados(serviciosResponse.data.servicios || []);
       setInsumosDisponibles(insumosResponse.data.insumos || []);
@@ -106,7 +105,7 @@ const ServiciosScreen = () => {
       const response = await axios.post('https://peluqueria-server-gw54.onrender.com/servicios', newService, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      
+
       setServicios([...servicios, response.data.servicio]);
       setServiciosFiltrados([...serviciosFiltrados, response.data.servicio]);
       setModalVisible(false);
@@ -123,8 +122,7 @@ const ServiciosScreen = () => {
       const response = await axios.get(`https://peluqueria-server-gw54.onrender.com/servicios/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      setServicioSel
-eccionado({
+      setServicioSeleccionado({
         ...response.data.servicio,
         serviciosPorInsumo: response.data.serviciosPorInsumo
       });
@@ -141,8 +139,7 @@ eccionado({
       const response = await axios.get(`https://peluqueria-server-gw54.onrender.com/servicios/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      setServicioSel
-eccionado({
+      setServicioSeleccionado({
         ...response.data.servicio,
         insumos: response.data.serviciosPorInsumo.map(item => ({
           id: item.insumoID,
@@ -167,10 +164,10 @@ eccionado({
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
-      const nuevosServicios = servicios.map(s => 
+      const nuevosServicios = servicios.map(s =>
         s.id === updatedService.id ? response.data.servicioActualizado : s
       );
-      
+
       setServicios(nuevosServicios);
       setServiciosFiltrados(nuevosServicios);
       setModalEditarVisible(false);
@@ -215,9 +212,9 @@ eccionado({
           <Text style={styles.textoPrecio}>$ {item.precio}</Text>
         </View>
       </View>
-     
+
       <Text style={styles.cardDescription}>{item.descripcion}</Text>
-     
+
       <View style={styles.cardActions}>
         <TouchableOpacity onPress={() => verServicio(item.id)} style={styles.actionButton}>
           <FontAwesome name="eye" size={20} color="#424242" />
@@ -370,7 +367,7 @@ eccionado({
           message={infoModalMessage.message}
         />
       </View>
-     
+
       <Footer />
     </View>
   );
@@ -386,19 +383,19 @@ const styles = StyleSheet.create({
   titulo: { fontSize: 24, fontWeight: 'bold', color: '#00695C', marginRight: 10 },
   contadorContainer: { backgroundColor: '#E8F8F5', width: 30, height: 30, borderRadius: 15, justifyContent: 'center', alignItems: 'center' },
   contadorTexto: { fontWeight: 'bold', fontSize: 14, color: '#00695C' },
-  botonHeader: { 
-    flexDirection: 'row', alignItems: 'center', backgroundColor: '#7FFFD4', 
+  botonHeader: {
+    flexDirection: 'row', alignItems: 'center', backgroundColor: '#7FFFD4',
     paddingVertical: 10, paddingHorizontal: 18, borderRadius: 25, marginLeft: 10,
-    shadowColor: '#7FFFD4', shadowOffset: { width: 0, height: 4 }, 
-    shadowOpacity: 0.3, shadowRadius: 8, elevation: 5 
+    shadowColor: '#7FFFD4', shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3, shadowRadius: 8, elevation: 5
   },
   textoBoton: { marginLeft: 8, color: '#2D2D2D', fontWeight: '600', fontSize: 14 },
   listContainer: { paddingBottom: 16 },
-  
-  card: { 
-    backgroundColor: '#FFFFFF', borderRadius: 16, padding: 16, marginBottom: 16, 
-    shadowColor: '#B088C8', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.1, 
-    shadowRadius: 8, elevation: 3, borderWidth: 1, borderColor: '#E8D5F0' 
+
+  card: {
+    backgroundColor: '#FFFFFF', borderRadius: 16, padding: 16, marginBottom: 16,
+    shadowColor: '#B088C8', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.1,
+    shadowRadius: 8, elevation: 3, borderWidth: 1, borderColor: '#E8D5F0'
   },
   cardHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 },
   cardHeaderText: { flex: 1 },
@@ -409,7 +406,7 @@ const styles = StyleSheet.create({
   actionButton: { marginLeft: 16, padding: 8, borderRadius: 20, backgroundColor: '#FDF8FC', borderWidth: 1, borderColor: '#E8D5F0' },
   precioContainer: { backgroundColor: '#E8F8F5', borderRadius: 15, paddingVertical: 6, paddingHorizontal: 12 },
   textoPrecio: { color: '#00695C', fontWeight: 'bold', fontSize: 14 },
-  
+
   tabla: { borderWidth: 1, borderColor: '#E8D5F0', borderRadius: 12, marginBottom: 16, overflow: 'hidden', flex: 1 },
   filaEncabezado: { flexDirection: 'row', backgroundColor: '#7FFFD4', paddingVertical: 14, borderBottomWidth: 1, borderBottomColor: '#D1C4E9' },
   celdaEncabezado: { justifyContent: 'center', alignItems: 'center', paddingHorizontal: 8 },
