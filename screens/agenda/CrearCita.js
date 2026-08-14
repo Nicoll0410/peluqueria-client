@@ -438,9 +438,8 @@ const CrearCita = ({
                 <Text style={styles.servicioNombre} numberOfLines={2} ellipsizeMode="tail">
                   {item.nombre}
                 </Text>
-                <Text style={styles.servicioDuracion} numberOfLines={1}>
-                  Duración: {item.duracionMaxima || "1 hora"}
-                  (Bloquea todo el horario necesario)
+                <Text style={styles.servicioDuracion} numberOfLines={2}>
+                  {item.descripcion || "Sin descripción"}
                 </Text>
               </View>
               <Text style={styles.servicioPrecio}>${item.precio || "0"}</Text>
